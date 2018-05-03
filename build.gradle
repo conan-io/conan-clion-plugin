@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+plugins {
+    id "org.jetbrains.intellij" version "0.3.1"
+    id "de.undercouch.download" version "3.4.2"
+}
+
+intellij {
+    localPath = '.gradle/ide/clion-' + clionVersion
+    pluginName = 'Conan'
+}
+
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+dependencies {
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+    compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
+    compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.2'
+}
+
+task setupClion() {
+    if (!new File('.gradle/ide').exists()) {
+        download {
+            src 'https://download.jetbrains.com/cpp/CLion-' + clionVersion + '.tar.gz'
+            dest '.gradle/downloads/clion.tar.gz'
+        }
+        copy {
+            from tarTree(resources.gzip('.gradle/downloads/clion.tar.gz'))
+            into '.gradle/ide'
+        }
+    }
+}
+
+compileJava.dependsOn('setupClion')
+
+test {
+    maxParallelForks = (int) (Runtime.runtime.availableProcessors().intdiv(2) ?: 1)
+    useTestNG()
+    testLogging {
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+        minGranularity 0
+    }
+}
+
+group = 'org.jfrog'
+version = pluginVersion // Plugin version
