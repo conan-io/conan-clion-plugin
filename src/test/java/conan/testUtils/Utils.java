@@ -40,6 +40,7 @@ public class Utils {
     public static void installPocoProject(File installationDir) {
         CMakeProfile cMakeProfile = new CMakeProfile("poco-timer", installationDir);
         AsyncConanCommand install = new Install(new PocoProjectImpl(), new ProcessAdapter(){}, cMakeProfile, DEFAULT_CONAN_PROFILE, false);
+        install.addParameter("--build=missing");
         Utils.runConanCommand(install);
     }
 
@@ -76,6 +77,6 @@ public class Utils {
         String[] tmpDirFiles = installationDir.list();
         Assert.assertNotNull(tmpDirFiles);
         Set<String> files = Sets.newHashSet(tmpDirFiles);
-        CONAN_INSTALL_FILES.forEach(file -> Assert.assertTrue(files.contains(file)));
+        CONAN_INSTALL_FILES.forEach(file -> Assert.assertTrue(files.contains(file), file + " is missing, "));
     }
 }

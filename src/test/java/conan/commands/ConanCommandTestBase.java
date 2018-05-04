@@ -14,14 +14,14 @@ public abstract class ConanCommandTestBase {
 
     private File conanHomeDir;
 
-    @BeforeClass
-    public void init() {
+    @BeforeClass(alwaysRun = true)
+    public void setConanHome() {
         conanHomeDir = Utils.createTempDir();
         System.setProperty(CONAN_HOME_ENV, conanHomeDir.getAbsolutePath());
     }
 
-    @AfterClass
-    public void terminate() {
+    @AfterClass(alwaysRun = true)
+    public void deleteConanHome() {
         try {
             FileUtils.deleteDirectory(conanHomeDir);
         } catch (IOException e) {

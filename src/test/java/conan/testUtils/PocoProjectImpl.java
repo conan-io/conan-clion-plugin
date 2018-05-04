@@ -1,5 +1,6 @@
 package conan.testUtils;
 
+import com.google.common.io.Resources;
 import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.extensions.ExtensionPointName;
 import com.intellij.openapi.project.Project;
@@ -13,11 +14,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.picocontainer.PicoContainer;
 
-import java.nio.file.Paths;
-
 public class PocoProjectImpl implements Project {
 
-    private String bashPath = Paths.get(".").toAbsolutePath().normalize().resolve(Paths.get("src", "test", "resources", "example-poco-timer")).toString();
+    private String bashPath = Resources.getResource(getClass(), "example-poco-timer").getPath();
 
     @NotNull
     @Override
