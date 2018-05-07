@@ -19,6 +19,11 @@ To build the plugin sources, please follow these steps:
 After the build finishes, you'll find the zip file in the *build/distributions* directory.
 The zip file can be loaded into CLion.
 
+# Installation  
+1. Download the [latest release](https://github.com/conan-io/conan-clion-plugin/releases/latest) or build it from sources.
+2. Under Settings (Preferences) | Plugins, click `Install plugin from disk...`
+3. Select the zip file and click OK.
+
 # Developing the Plugin Code
 If you'd like to help us develop and enhance the plugin, this section is for you.
 To build and run the sandbox following your code changes, follow these steps:
