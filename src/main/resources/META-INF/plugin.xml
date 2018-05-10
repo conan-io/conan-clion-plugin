@@ -27,7 +27,7 @@
         <projectService serviceImplementation="conan.extensions.CMakeRunnerStepImpl"/>
         <toolWindow id="Conan"
                     anchor="bottom"
-                    icon="/icons/conan_icon.png"
+                    icon="/icons/conan.png"
                     factoryClass="conan.ui.ConanToolWindowFactory"/>
     </extensions>
 
@@ -42,19 +42,19 @@
                 class="conan.actions.InstallAction"
                 text="Install"
                 description="Install Conan packages"
-                icon="/icons/conan_icon.png"/>
+                icon="/icons/conan.png"/>
 
         <action id="Conan.UpdateAndInstall"
                 class="conan.actions.UpdateAndInstall"
                 text="Update and install"
                 description="Update from remotes and install Conan packages"
-                icon="AllIcons.Actions.Download"/>
+                icon="/icons/conan-update-install.png"/>
 
         <action id="Conan.CleanCache"
                 class="conan.actions.CleanCacheAction"
                 text="Clean cache"
                 description="Clean Conan cache"
-                icon="AllIcons.Actions.GC"/>
+                icon="/icons/trash.png"/>
 
         <action id="Conan.MatchProfiles"
                 class="conan.actions.MatchProfilesAction"
@@ -66,7 +66,7 @@
                 class="conan.actions.CleanConsole"
                 text="Clean console"
                 description="Clean console"
-                icon="AllIcons.Actions.Clean"/>
+                icon="/icons/brush.png"/>
 
         <action id="Conan.OpenConfig"
                 class="conan.actions.OpenConfigAction"
