@@ -43,7 +43,7 @@ task setupClion() {
 compileJava.dependsOn('setupClion')
 
 test {
-    maxParallelForks = 1
+    maxParallelForks = (int) (Runtime.runtime.availableProcessors().intdiv(2) ?: 1)
     useTestNG()
     testLogging {
         exceptionFormat "full"
