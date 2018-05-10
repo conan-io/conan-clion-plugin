@@ -24,7 +24,7 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
     compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
-    testCompile group: 'org.testng', name: 'testng', version: '6.14.2'
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
 }
 
 task setupClion() {
@@ -43,7 +43,7 @@ task setupClion() {
 compileJava.dependsOn('setupClion')
 
 test {
-    maxParallelForks = 1
+    maxParallelForks = (int) (Runtime.runtime.availableProcessors().intdiv(2) ?: 1)
     useTestNG()
     testLogging {
         exceptionFormat "full"
