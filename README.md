@@ -5,30 +5,30 @@ Conan CLion plugin adds Conan support to Jetbrains CLion.
 * CLion version 2018.1 and above.
 * Conan executable in path environment variable.
 
-# Using the plugin
-#### Matching profiles
-In order to configure the build, we need to match Conan profile for each CMake profile.
-Matching between profiles can be done in the `match profiles` icon.
+# Using the Plugin
+#### Matching Profiles
+Before running the build for the first time, please match a Conan profile to each CMake profile.
+To do this click on the *match profiles* icon.
 
 ![Matching profiles form](src/main/resources/screenshots/matching-profiles.png?raw=true "Matching profiles form")
 
-#### Download conan dependencies
-Download conan dependencies occurring automatically after each CMake build.
-However, you can download dependencies manually by tapping on `install` or `update and install` button.
-* `install` - Install conan dependencies.
-* `update and install` - Check updates existence from upstream remotes and install conan dependencies.
+#### Downloading Conan Dependencies
+* The Conan dependencies are automatically downloaded before each CMake build.
+However, you can download dependencies manually by clicking on the *install* or the *update and install* button.
+* Clicking *Install* - Installs conan dependencies.
+* Clicking *Update and install* - Checks updates existence from upstream remotes and installs conan dependencies.
 
 ![Install](src/main/resources/screenshots/install.png?raw=true "Install")
 
-#### Config install
-Conan allows us to download a complete configuration. In order to do that from the plugin, tap on `Open configuration` button.
+#### Config Install
+Conan lets you download and use a pre-configured environment. In order to do so, click on *Open configuration* button, supply your config folder URL, and click download.
 
 ![Install](src/main/resources/screenshots/config-install.png?raw=true "Config install")
 
-# Building and Testing the Sources
+# Building and Testing the Plugin's Sources
 To build the plugin sources, please follow these steps:
 1. Clone the code from git.
-2. If you'd just like to run the tests, run the following command:
+2. To run the tests, run the following command:
     ```
     ./gradlew clean test
     ```
