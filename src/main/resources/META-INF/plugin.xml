@@ -12,7 +12,7 @@
     ]]>
     </change-notes>
 
-    <idea-version since-build="181.3986.16"/>
+    <idea-version since-build="180"/>
 
     <depends>com.intellij.modules.clion</depends>
 
