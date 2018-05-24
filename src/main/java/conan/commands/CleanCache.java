@@ -11,10 +11,10 @@ import com.intellij.openapi.project.Project;
  */
 public class CleanCache extends AsyncConanCommand {
     public CleanCache(Project project) {
-        super(project, "Cleaning Conan cache", "remove", "*", "-f");
+        super(project, "remove", "*", "-f");
     }
 
     public CleanCache(ProcessListener processListener) {
-        super(null, "", null, processListener,"remove", "*", "-f");
+        super(null, null, processListener,"remove", "*", "-f");
     }
 }

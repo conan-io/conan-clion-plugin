@@ -39,7 +39,8 @@ public class SyncConanTask extends Task.Modal {
     @Override
     public void run(@NotNull ProgressIndicator indicator) {
         try {
-            log(logger, "Running " + args, "", NotificationType.INFORMATION);
+            String message = args.getCommandLineString();
+            log(logger, message, "", NotificationType.INFORMATION);
             ProcessHandler processHandler = new OSProcessHandler(args);
             processHandler.startNotify();
             if (processListener != null) {

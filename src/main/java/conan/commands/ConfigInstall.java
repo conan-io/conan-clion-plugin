@@ -11,6 +11,6 @@ import com.intellij.execution.process.ProcessListener;
 public class ConfigInstall extends AsyncConanCommand {
 
     public ConfigInstall(ProcessListener processListener, String url) {
-        super(null, "", null, processListener, "config", "install", url);
+        super(null, null, processListener, "config", "install", url);
     }
 }

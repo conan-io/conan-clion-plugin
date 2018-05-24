@@ -12,6 +12,6 @@ import conan.profiles.ConanProfile;
 public class NewProfile extends AsyncConanCommand {
 
     public NewProfile(ProcessListener processListener, ConanProfile conanProfile) {
-        super(null, "", null, processListener, "profile", "new", conanProfile.getName());
+        super(null, null, processListener, "profile", "new", conanProfile.getName());
     }
 }

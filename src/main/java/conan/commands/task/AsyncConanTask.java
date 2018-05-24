@@ -30,14 +30,12 @@ public class AsyncConanTask extends Task.Backgroundable {
 
     private static final Logger logger = Logger.getInstance(AsyncConanTask.class);
     private GeneralCommandLine args;
-    private String message;
     private ConanProfile conanProfile;
     private CMakeRunner.Listener cmakeListener;
     private ProcessListener processListener;
 
-    public AsyncConanTask(@Nullable Project project, String message, ConanProfile conanProfile, CMakeRunner.Listener cmakeListener, ProcessListener processListener, GeneralCommandLine args) {
+    public AsyncConanTask(@Nullable Project project, ConanProfile conanProfile, CMakeRunner.Listener cmakeListener, ProcessListener processListener, GeneralCommandLine args) {
         super(project, "Running Conan...");
-        this.message = message;
         this.conanProfile = conanProfile;
         this.processListener = processListener;
         this.cmakeListener = cmakeListener;
@@ -47,7 +45,8 @@ public class AsyncConanTask extends Task.Backgroundable {
     @Override
     public void run(@NotNull ProgressIndicator indicator) {
         try {
-            log(logger, "Running " + args, "", NotificationType.INFORMATION);
+            String message = args.getCommandLineString();
+            log(logger, message, "", NotificationType.INFORMATION);
             ProcessHandler processHandler = new OSProcessHandler(args);
             processHandler.startNotify();
             if (processListener != null) {

@@ -19,21 +19,21 @@ public abstract class AsyncConanCommand extends ConanCommandBase {
 
     private AsyncConanTask conanTask;
 
-    AsyncConanCommand(@Nullable Project project, String message, String... args) {
-        this(project, message, null, null, null, args);
+    AsyncConanCommand(@Nullable Project project, String... args) {
+        this(project, null, null, null, args);
     }
 
-    AsyncConanCommand(@Nullable Project project, String message, ConanProfile conanProfile, CMakeRunner.Listener cmakeListener, String... args) {
-        this(project, message, conanProfile, cmakeListener, null, args);
+    AsyncConanCommand(@Nullable Project project, ConanProfile conanProfile, CMakeRunner.Listener cmakeListener, String... args) {
+        this(project, conanProfile, cmakeListener, null, args);
     }
 
-    AsyncConanCommand(@Nullable Project project, String message, ConanProfile conanProfile, ProcessListener processListener, String... args) {
-        this(project, message, conanProfile, null, processListener, args);
+    AsyncConanCommand(@Nullable Project project, ConanProfile conanProfile, ProcessListener processListener, String... args) {
+        this(project, conanProfile, null, processListener, args);
     }
 
-    private AsyncConanCommand(@Nullable Project project, String message, ConanProfile conanProfile, @Nullable CMakeRunner.Listener cmakeListener, @Nullable ProcessListener processListener, String... args) {
+    private AsyncConanCommand(@Nullable Project project, ConanProfile conanProfile, @Nullable CMakeRunner.Listener cmakeListener, @Nullable ProcessListener processListener, String... args) {
         super(project, args);
-        this.conanTask = new AsyncConanTask(project, message, conanProfile, cmakeListener, processListener, super.args);
+        this.conanTask = new AsyncConanTask(project, conanProfile, cmakeListener, processListener, super.args);
     }
 
     @Override

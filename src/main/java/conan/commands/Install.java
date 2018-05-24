@@ -17,21 +17,19 @@ import conan.profiles.ConanProfile;
  */
 public class Install extends AsyncConanCommand {
 
-    private static final String INSTALL_MESSAGE = "Installing CMake profile ";
-
     public Install(Project project, CMakeProfile cMakeProfile, ConanProfile conanProfile, boolean update) {
         this(project, (ProcessListener) null, cMakeProfile, conanProfile, update);
     }
 
     public Install(Project project, ProcessListener processListener, CMakeProfile cMakeProfile, ConanProfile conanProfile, boolean update) {
-        super(project, INSTALL_MESSAGE + cMakeProfile.getName(), conanProfile, processListener, "install", project.getBasePath(), "-if=" + cMakeProfile.getTargetDir(), "-pr=" + conanProfile.getName());
+        super(project, conanProfile, processListener, "install", project.getBasePath(), "-if=" + cMakeProfile.getTargetDir(), "-pr=" + conanProfile.getName());
         if (update) {
             addParameter("--update");
         }
     }
 
     public Install(Project project, CMakeRunner.Listener listener, CMakeProfile cMakeProfile, ConanProfile conanProfile, boolean update) {
-        super(project, INSTALL_MESSAGE + cMakeProfile.getName(), conanProfile, listener, "install", project.getBasePath(), "-if=" + cMakeProfile.getTargetDir(), "-pr=" + conanProfile.getName());
+        super(project, conanProfile, listener, "install", project.getBasePath(), "-if=" + cMakeProfile.getTargetDir(), "-pr=" + conanProfile.getName());
         if (update) {
             addParameter("--update");
         }

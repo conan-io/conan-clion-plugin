@@ -11,6 +11,6 @@ import com.intellij.execution.process.ProcessListener;
 public class Search extends AsyncConanCommand {
 
     public Search(ProcessListener processListener) {
-        super(null, "", null, processListener, "search", "--raw");
+        super(null, null, processListener, "search", "--raw");
     }
 }
