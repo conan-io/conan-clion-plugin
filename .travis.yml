@@ -16,5 +16,3 @@ install:
     else
       brew install conan;
     fi
-script:
-  - travis_wait 30 ./gradlew clean test

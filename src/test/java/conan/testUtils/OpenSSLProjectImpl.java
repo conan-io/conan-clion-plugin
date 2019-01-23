@@ -14,14 +14,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.picocontainer.PicoContainer;
 
-public class PocoProjectImpl implements Project {
+public class OpenSSLProjectImpl implements Project {
 
-    private String bashPath = Resources.getResource(getClass(), "example-poco-timer").getPath();
+    private String bashPath = Resources.getResource(getClass(), "example-openssl").getPath();
 
     @NotNull
     @Override
     public String getName() {
-        return "poco-timer";
+        return "openssl";
     }
 
     @Override
