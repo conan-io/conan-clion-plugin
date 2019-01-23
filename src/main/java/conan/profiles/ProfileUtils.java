@@ -3,6 +3,7 @@ package conan.profiles;
 import com.google.common.collect.Lists;
 import com.intellij.openapi.project.Project;
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace;
+import conan.commands.Config;
 import conan.commands.listProfiles.GetConanProfiles;
 
 import java.util.List;
@@ -32,6 +33,7 @@ public class ProfileUtils {
      */
     public static List<ConanProfile> getConanProfiles() {
         List<ConanProfile> profiles = Lists.newArrayList();
+        new Config().run(); // Prevents "Remotes registry file missing" message
         new GetConanProfiles(profiles).run();
         return profiles;
     }

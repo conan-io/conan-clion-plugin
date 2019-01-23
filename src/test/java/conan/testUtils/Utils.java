@@ -56,8 +56,8 @@ public class Utils {
 
     public static void verifyProfiles(Set<ConanProfile> expectedProfiles) {
         List<ConanProfile> conanProfiles = Lists.newArrayList();
-        SyncConanCommand listProfiles = new GetConanProfiles(conanProfiles);
-        Utils.runConanCommand(listProfiles);
+        Utils.runConanCommand(new Config()); // Prevents "Remotes registry file missing" message
+        Utils.runConanCommand(new GetConanProfiles(conanProfiles));
         Assert.assertEquals(Sets.newHashSet(conanProfiles), expectedProfiles);
     }
 
