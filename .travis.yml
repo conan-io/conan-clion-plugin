@@ -17,4 +17,4 @@ install:
       brew install conan;
     fi
 script:
-  - travis_wait gradle clean test
+  - travis_wait ./gradlew clean test
