@@ -5,6 +5,7 @@ import com.intellij.execution.filters.TextConsoleBuilderFactory;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.ui.ConsoleView;
 import com.intellij.execution.ui.ConsoleViewContentType;
+import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.actionSystem.ActionToolbar;
@@ -33,7 +34,7 @@ import java.util.Map;
 /**
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class ConanToolWindow {
+public class ConanToolWindow implements Disposable {
 
     private static final Icon CONAN_ICON = IconLoader.getIcon("/icons/conan.png");
     private static final String[] CONAN_ACTIONS = {"ReloadProject", "Install", "UpdateAndInstall", "CleanCache", "MatchProfiles", "CleanConsole", "OpenConfig"};
@@ -180,5 +181,10 @@ public class ConanToolWindow {
         panel.add(label, c);
         panel.setBackground(UIUtil.getTableBackground());
         return panel;
+    }
+
+    @Override
+    public void dispose() {
+        conanProfileContexts.values().forEach(Disposable::dispose);
     }
 }
