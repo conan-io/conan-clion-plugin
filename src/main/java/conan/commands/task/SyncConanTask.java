@@ -47,7 +47,7 @@ public class SyncConanTask extends Task.Modal {
                 processHandler.addProcessListener(processListener);
             } else {
                 ConanToolWindow conanToolWindow = ServiceManager.getService(getProject(), ConanToolWindow.class);
-                conanToolWindow.attachConsoleToProcess(processHandler, "", null);
+                conanToolWindow.attachConsoleToProcess(processHandler, message, null);
             }
             processHandler.waitFor();
         } catch (ExecutionException e) {

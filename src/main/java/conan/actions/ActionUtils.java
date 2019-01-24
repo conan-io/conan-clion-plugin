@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
 import conan.commands.Install;
+import conan.commands.Version;
 import conan.consistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
@@ -27,6 +28,7 @@ class ActionUtils {
      * @param update true if it's update and install action.
      */
     static void runInstall(Project project, Component component, boolean update) {
+        new Version(project).run();
         ConanToolWindow conanToolWindow = ServiceManager.getService(project, ConanToolWindow.class);
         ConanProfile conanProfile = new ConanProfile(conanToolWindow.getSelectedTab());
         ConanProjectSettings conanProjectSettings = ConanProjectSettings.getInstance(project);
