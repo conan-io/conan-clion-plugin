@@ -1,11 +1,11 @@
-package conan.consistency;
+package conan.persistency;
 
 import com.intellij.ide.util.PropertiesComponent;
 
 /**
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class ConsistencyUtils {
+public class PersistencyUtils {
 
     /**
      * Load value from the global properties.
