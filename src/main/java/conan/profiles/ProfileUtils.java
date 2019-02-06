@@ -33,7 +33,8 @@ public class ProfileUtils {
      */
     public static List<ConanProfile> getConanProfiles() {
         List<ConanProfile> profiles = Lists.newArrayList();
-        new Config().run(); // Prevents "Remotes registry file missing" message
+        // Prevents "Remotes registry file missing" message
+        new Config().run();
         new GetConanProfiles(profiles).run();
         return profiles;
     }
