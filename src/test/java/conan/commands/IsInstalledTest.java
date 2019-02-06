@@ -1,6 +1,6 @@
 package conan.commands;
 
-import conan.testUtils.PocoProjectImpl;
+import conan.testUtils.OpenSSLProjectImpl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,7 +9,7 @@ public class IsInstalledTest extends ConanCommandTestBase {
 
     @Test
     public void testIsInstalled() {
-        IsInstalledCommand isInstalled = new IsInstalledCommand(new PocoProjectImpl());
+        IsInstalledCommand isInstalled = new IsInstalledCommand(new OpenSSLProjectImpl());
         isInstalled.run();
         Assert.assertTrue(isInstalled.isInstalled());
     }
