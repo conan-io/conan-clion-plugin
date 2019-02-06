@@ -39,7 +39,7 @@ public class Utils {
 
     public static void installPocoProject(File installationDir) {
         CMakeProfile cMakeProfile = new CMakeProfile("poco-timer", installationDir);
-        AsyncConanCommand install = new Install(new PocoProjectImpl(), new ProcessAdapter(){}, cMakeProfile, DEFAULT_CONAN_PROFILE, false);
+        AsyncConanCommand install = new Install(new OpenSSLProjectImpl(), new ProcessAdapter(){}, cMakeProfile, DEFAULT_CONAN_PROFILE, false);
         install.addParameter("--build=missing");
         Utils.runConanCommand(install);
     }
@@ -56,8 +56,8 @@ public class Utils {
 
     public static void verifyProfiles(Set<ConanProfile> expectedProfiles) {
         List<ConanProfile> conanProfiles = Lists.newArrayList();
-        SyncConanCommand listProfiles = new GetConanProfiles(conanProfiles);
-        Utils.runConanCommand(listProfiles);
+        Utils.runConanCommand(new Config()); // Prevents "Remotes registry file missing" message
+        Utils.runConanCommand(new GetConanProfiles(conanProfiles));
         Assert.assertEquals(Sets.newHashSet(conanProfiles), expectedProfiles);
     }
 
