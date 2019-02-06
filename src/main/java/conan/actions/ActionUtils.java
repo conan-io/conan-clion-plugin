@@ -2,6 +2,7 @@ package conan.actions;
 
 import com.google.common.collect.Lists;
 import com.intellij.openapi.components.ServiceManager;
+import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import conan.commands.Install;
 import conan.consistency.settings.ConanProjectSettings;
@@ -22,11 +23,13 @@ class ActionUtils {
 
     /**
      * Run conan install for the selected Conan profile.
-     * @param project Intellij project.
+     *
+     * @param project   Intellij project.
      * @param component the {@link ProfileMatcher} dialog will be shown in this component position.
-     * @param update true if it's update and install action.
+     * @param update    true if it's update and install action.
      */
     static void runInstall(Project project, Component component, boolean update) {
+        FileDocumentManager.getInstance().saveAllDocuments();
         ConanToolWindow conanToolWindow = ServiceManager.getService(project, ConanToolWindow.class);
         ConanProfile conanProfile = new ConanProfile(conanToolWindow.getSelectedTab());
         ConanProjectSettings conanProjectSettings = ConanProjectSettings.getInstance(project);
@@ -40,9 +43,10 @@ class ActionUtils {
 
     /**
      * In case the user clicks on install and no Conan-CMake matching exist, we open the matching dialog for him.
-     * @param project Intellij project.
+     *
+     * @param project   Intellij project.
      * @param component the {@link ProfileMatcher} dialog will be shown in this component position.
-     * @param update true if it's update and install action.
+     * @param update    true if it's update and install action.
      */
     private static void matchProfilesAndInstall(Project project, Component component, boolean update) {
         ProfileMatcher.showDialog(project, component);
@@ -57,8 +61,9 @@ class ActionUtils {
 
     /**
      * Get the matched CMake profiles for the selected Conan profile.
+     *
      * @param conanProjectSettings the Conan project settings.
-     * @param conanProfile the conan profile to match.
+     * @param conanProfile         the conan profile to match.
      * @return list of matched CMake profiles for the selected Conan profile.
      */
     private static java.util.List<CMakeProfile> getMatchedCMakeProfiles(ConanProjectSettings conanProjectSettings, ConanProfile conanProfile) {
