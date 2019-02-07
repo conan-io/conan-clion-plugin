@@ -17,13 +17,13 @@
     <depends>com.intellij.modules.clion</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationConfigurable groupId="build"
-                                 displayName="Conan"
-                                 id="conan"
-                                 instance="conan.ui.configuration.ConanConfig" />
+        <projectConfigurable groupId="build"
+                             displayName="Conan"
+                             id="conan"
+                             instance="conan.ui.configuration.ConanConfig"/>
         <projectService serviceImplementation="conan.ui.ConanToolWindow"/>
         <cmake.runnerStep implementation="conan.extensions.CMakeRunnerStepImpl"/>
-        <projectService serviceImplementation="conan.consistency.settings.ConanProjectSettings"/>
+        <projectService serviceImplementation="conan.persistency.settings.ConanProjectSettings"/>
         <projectService serviceImplementation="conan.extensions.CMakeRunnerStepImpl"/>
         <toolWindow id="Conan"
                     anchor="bottom"

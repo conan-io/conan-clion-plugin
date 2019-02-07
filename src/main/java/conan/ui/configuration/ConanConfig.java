@@ -4,12 +4,15 @@ import com.intellij.execution.Output;
 import com.intellij.execution.OutputListener;
 import com.intellij.execution.process.ProcessEvent;
 import com.intellij.openapi.options.Configurable;
+import com.intellij.openapi.project.Project;
 import com.intellij.ui.JBColor;
+import com.intellij.ui.components.JBTextField;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 import conan.commands.ConfigInstall;
-import conan.consistency.ConsistencyUtils;
+import conan.persistency.PersistencyUtils;
+import conan.persistency.settings.ConanProjectSettings;
 import conan.utils.Utils;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.Nls;
@@ -19,20 +22,32 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.awt.*;
 
-import static conan.consistency.Keys.CONFIG_INSTALL_URL;
+import static conan.persistency.Keys.CONFIG_INSTALL_URL;
 
 /**
  * Represents the Conan settings form.
- *
+ * <p>
  * Created by Yahav Itzhak on Feb 2018.
  */
 public class ConanConfig implements Configurable, Configurable.NoScroll {
 
     public static final String CONFIG_NAME = "Conan";
+    private Project project;
     private JPanel rootPanel;
+
     private JTextField configInstallUrl;
     private JButton downloadConfiguration;
     private JLabel configInstallRes;
+    private JBTextField installArgs;
+    private JLabel installArgsLabel;
+
+    public ConanConfig(@NotNull Project project) {
+        this.project = project;
+        if (project.isDefault()) { // No project
+            installArgs.setVisible(false);
+            installArgsLabel.setVisible(false);
+        }
+    }
 
     @Nls
     @Override
@@ -46,21 +61,22 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
         downloadConfiguration.addActionListener(actionEvent -> {
             String url = configInstallUrl.getText();
             if (StringUtils.isBlank(url)) {
-                url = ConsistencyUtils.getValue(CONFIG_INSTALL_URL);
+                url = PersistencyUtils.getValue(CONFIG_INSTALL_URL);
             }
-            ConsistencyUtils.setValue(CONFIG_INSTALL_URL, url);
+            PersistencyUtils.setValue(CONFIG_INSTALL_URL, url);
             if (!Utils.validateUrl(url)) {
                 setConfigInstallRes("Bad URL", false);
                 return;
             }
             runConfigInstall(url);
-
         });
+        installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
         return rootPanel;
     }
 
     /**
      * Run {@link ConfigInstall}.
+     *
      * @param url the url of the Conan configuration.
      */
     private void runConfigInstall(String url) {
@@ -91,12 +107,18 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
 
     @Override
     public void reset() {
-        configInstallUrl.setText(ConsistencyUtils.getValue(CONFIG_INSTALL_URL));
+        configInstallUrl.setText(PersistencyUtils.getValue(CONFIG_INSTALL_URL));
+        if (!project.isDefault()) {
+            installArgs.setText(ConanProjectSettings.getInstance(project).getInstallArgs());
+        }
     }
 
     @Override
     public void apply() {
-        ConsistencyUtils.setValue(CONFIG_INSTALL_URL, configInstallUrl.getText());
+        PersistencyUtils.setValue(CONFIG_INSTALL_URL, configInstallUrl.getText());
+        if (!project.isDefault()) {
+            ConanProjectSettings.getInstance(project).setInstallArgs(installArgs.getText());
+        }
     }
 
     {
@@ -115,20 +137,26 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
      */
     private void $$$setupUI$$$() {
         rootPanel = new JPanel();
-        rootPanel.setLayout(new GridLayoutManager(3, 3, new Insets(0, 0, 0, 0), -1, -1));
+        rootPanel.setLayout(new GridLayoutManager(4, 4, new Insets(0, 0, 0, 0), -1, -1));
         final JLabel label1 = new JLabel();
         label1.setText("Config install URL");
         rootPanel.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        rootPanel.add(spacer1, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        rootPanel.add(spacer1, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         configInstallUrl = new JTextField();
-        rootPanel.add(configInstallUrl, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        rootPanel.add(configInstallUrl, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         downloadConfiguration = new JButton();
         downloadConfiguration.setText("Download");
-        rootPanel.add(downloadConfiguration, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        rootPanel.add(downloadConfiguration, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         configInstallRes = new JLabel();
         configInstallRes.setText("");
-        rootPanel.add(configInstallRes, new GridConstraints(1, 0, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        rootPanel.add(configInstallRes, new GridConstraints(2, 0, 1, 4, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        installArgs = new JBTextField();
+        rootPanel.add(installArgs, new GridConstraints(1, 1, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        installArgsLabel = new JLabel();
+        installArgsLabel.setRequestFocusEnabled(true);
+        installArgsLabel.setText("Install args");
+        rootPanel.add(installArgsLabel, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

@@ -1,4 +1,4 @@
-package conan.consistency.settings;
+package conan.persistency.settings;
 
 import com.google.common.collect.Maps;
 import com.intellij.openapi.components.*;
@@ -12,13 +12,14 @@ import java.util.Map;
 
 /**
  * Project Conan settings. Contains the CMakeProfile -> ConanProfile mapping.
- *
+ * <p>
  * Created by Yahav Itzhak on Feb 2018.
  */
 @State(name = "ConanProjectSettings", storages = {@Storage(StoragePathMacros.WORKSPACE_FILE)})
 public class ConanProjectSettings implements PersistentStateComponent<ConanProjectSettings> {
 
     private Map<CMakeProfile, ConanProfile> profileMapping = Maps.newHashMap();
+    private String installArgs;
 
     public static ConanProjectSettings getInstance(Project project) {
         return ServiceManager.getService(project, ConanProjectSettings.class);
@@ -42,4 +43,11 @@ public class ConanProjectSettings implements PersistentStateComponent<ConanProje
         return this.profileMapping;
     }
 
+    public String getInstallArgs() {
+        return installArgs;
+    }
+
+    public void setInstallArgs(String installArgs) {
+        this.installArgs = installArgs;
+    }
 }

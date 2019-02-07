@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 
-import static conan.testUtils.Consts.POCO_PACKAGES;
+import static conan.testUtils.Consts.OPENSSL_PACKAGES;
 import static conan.testUtils.Utils.*;
 
 @Test
@@ -25,7 +25,7 @@ public class CleanCacheTest extends ConanCommandTestBase {
     @Test
     public void testCleanCache() {
         installPocoProject(tempInstallationDir);
-        verifyPackages(POCO_PACKAGES);
+        verifyPackages(OPENSSL_PACKAGES);
         cleanCache();
         verifyPackages(Sets.newHashSet());
     }

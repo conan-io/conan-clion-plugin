@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 
-import static conan.testUtils.Consts.POCO_PACKAGES;
+import static conan.testUtils.Consts.OPENSSL_PACKAGES;
 import static conan.testUtils.Utils.*;
 
 @Test
@@ -25,7 +25,7 @@ public class InstallTest extends ConanCommandTestBase {
     public void testInstall() {
         installPocoProject(tempInstallationDir);
         verifyConanFiles(tempInstallationDir);
-        verifyPackages(POCO_PACKAGES);
+        verifyPackages(OPENSSL_PACKAGES);
     }
 
     @AfterClass
