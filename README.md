@@ -27,7 +27,7 @@ Conan lets you download and use a pre-configured environment. In order to do so,
 
 #### Set Install Arguments
 In order to set Conan install arguments, click on *Open configuration* button and provide your install arguments.
-These arguments are passed 'as are' to the Conan install command.
+These arguments are passed 'as is' to the Conan install command.
 
 ##### Install args examples:
 
