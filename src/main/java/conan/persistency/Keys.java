@@ -1,4 +1,4 @@
-package conan.consistency;
+package conan.persistency;
 
 import com.intellij.ide.util.PropertiesComponent;
 

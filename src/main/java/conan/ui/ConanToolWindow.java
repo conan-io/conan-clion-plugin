@@ -20,7 +20,7 @@ import com.intellij.ui.content.ContentFactory;
 import com.intellij.ui.content.ContentManager;
 import com.intellij.util.ui.UIUtil;
 import conan.commands.IsInstalledCommand;
-import conan.consistency.settings.ConanProjectSettings;
+import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
 import conan.profiles.ProfileUtils;

@@ -10,6 +10,8 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.newvfs.impl.StubVirtualFile;
 import com.intellij.util.messages.MessageBus;
 import com.intellij.util.messages.impl.MessageBusImpl;
+import com.intellij.util.pico.DefaultPicoContainer;
+import conan.persistency.settings.ConanProjectSettings;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.picocontainer.PicoContainer;
@@ -17,6 +19,13 @@ import org.picocontainer.PicoContainer;
 public class OpenSSLProjectImpl implements Project {
 
     private String bashPath = Resources.getResource(getClass(), "example-openssl").getPath();
+    private DefaultPicoContainer picoContainer;
+
+    public OpenSSLProjectImpl() {
+        // Create the ConanProjectSettings service
+        picoContainer = new DefaultPicoContainer();
+        picoContainer.registerComponentImplementation(ConanProjectSettings.class.getName(), ConanProjectSettings.class);
+    }
 
     @NotNull
     @Override
@@ -120,7 +129,7 @@ public class OpenSSLProjectImpl implements Project {
     @NotNull
     @Override
     public PicoContainer getPicoContainer() {
-        return null;
+        return picoContainer;
     }
 
     @NotNull

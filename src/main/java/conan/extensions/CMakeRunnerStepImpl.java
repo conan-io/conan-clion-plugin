@@ -6,7 +6,7 @@ import com.jetbrains.cidr.cpp.cmake.CMakeRunnerStep;
 import com.jetbrains.cidr.cpp.cmake.model.CMakeModelConfigurationData;
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace;
 import conan.commands.Install;
-import conan.consistency.settings.ConanProjectSettings;
+import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
 import org.apache.commons.lang.StringUtils;
