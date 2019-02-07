@@ -55,7 +55,7 @@ public class ConanToolWindow implements Disposable {
         conanProfileContexts = Maps.newConcurrentMap();
         contentManager.removeAllContents(true);
         if (!isSupported(project)) {
-            Content content = createTab(contentFactory, createUnsupportedView("Conan is not supported in this project"), "");
+            Content content = createTab(contentFactory, createUnsupportedView("Could not find Conan client in path."), "");
             contentManager.addContent(content);
             return;
         }
