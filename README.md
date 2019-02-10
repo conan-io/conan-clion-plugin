@@ -25,6 +25,19 @@ Conan lets you download and use a pre-configured environment. In order to do so,
 
 ![Install](src/main/resources/screenshots/config-install.png?raw=true "Config install")
 
+#### Set Install Arguments
+In order to set Conan install arguments, click on *Open configuration* button and provide your install arguments.
+These arguments are passed 'as is' to the Conan install command.
+
+##### Install args examples:
+
+```
+--build missing
+```
+```
+-o zlib:shared=True -o bzip2:option=132
+```
+
 # Building and Testing the Plugin's Sources
 To build and run the plugin sources, please follow these steps:
 1. Clone the code from git.
