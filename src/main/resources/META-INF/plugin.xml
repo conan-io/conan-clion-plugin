@@ -3,13 +3,12 @@
     <name>Conan</name>
     <vendor email="https://www.jfrog.com/support-service" url="https://www.jfrog.com">JFrog</vendor>
 
-    <description><![CDATA[
-      JFrog Conan CLion plugin
-    ]]></description>
+    <description>
+        The Conan Plugin for CLion allows configuring and building projects in CLion using the Conan package manager.
+    </description>
 
-    <change-notes><![CDATA[
-      Initial version
-    ]]>
+    <change-notes>
+        Initial release of the plugin.
     </change-notes>
 
     <idea-version since-build="180"/>
