@@ -29,6 +29,8 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 
 /**
@@ -54,8 +56,13 @@ public class ConanToolWindow implements Disposable {
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         conanProfileContexts = Maps.newConcurrentMap();
         contentManager.removeAllContents(true);
-        if (!isSupported(project)) {
+        if (!isConanInstalled(project)) {
             Content content = createTab(contentFactory, createUnsupportedView("Could not find Conan client in path."), "");
+            contentManager.addContent(content);
+            return;
+        }
+        if (!isConanFileExists(project)) {
+            Content content = createTab(contentFactory, createUnsupportedView("Could not find conanfile in project root directory."), "");
             contentManager.addContent(content);
             return;
         }
@@ -160,7 +167,20 @@ public class ConanToolWindow implements Disposable {
         consoleView.clear();
     }
 
-    private boolean isSupported(Project project) {
+    /**
+     * Return true iff conanfile.py or conanfile.txt exists in project base directory.
+     * @return true iff conanfile.py or conanfile.txt exists in project base directory.
+     */
+    private boolean isConanFileExists(Project project) {
+        if (project.getBasePath() == null) {
+            return false;
+        }
+        Path conanPyFile = Paths.get(project.getBasePath(), "conanfile.py");
+        Path conanTxtFile = Paths.get(project.getBasePath(), "conanfile.txt");
+        return conanPyFile.toFile().exists() || conanTxtFile.toFile().exists();
+    }
+
+    private boolean isConanInstalled(Project project) {
         IsInstalledCommand isInstalled = new IsInstalledCommand(project);
         isInstalled.run();
         return isInstalled.isInstalled();
