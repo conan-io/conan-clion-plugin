@@ -62,8 +62,8 @@ public class Utils {
         Assert.assertEquals(Sets.newHashSet(conanProfiles), expectedProfiles);
     }
 
-    public static void configInstall() {
-        AsyncConanCommand configInstall = new ConfigInstall(new OpenSSLProjectImpl(), new ProcessAdapter(){}, BINCRAFTERS_URL);
+    public static void configInstall(String location) {
+        AsyncConanCommand configInstall = new ConfigInstall(new OpenSSLProjectImpl(), new ProcessAdapter(){}, location);
         Utils.runConanCommand(configInstall);
     }
 
