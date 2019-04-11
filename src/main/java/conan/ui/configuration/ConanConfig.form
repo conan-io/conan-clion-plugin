@@ -16,7 +16,7 @@
           <text value="Config install URL"/>
         </properties>
       </component>
-      <component id="3a1a3" class="javax.swing.JTextField" binding="configInstallUrl">
+      <component id="3a1a3" class="com.intellij.ui.components.JBTextField" binding="configInstallLocation">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

@@ -30,7 +30,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import static conan.persistency.Keys.CONFIG_CONAN_EXE_PATH;
-import static conan.persistency.Keys.CONFIG_INSTALL_URL;
+import static conan.persistency.Keys.CONFIG_INSTALL_LOCATION;
 
 /**
  * Represents the Conan settings form.
@@ -43,7 +43,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     private Project project;
     private JPanel rootPanel;
 
-    private JTextField configInstallUrl;
+    private JBTextField configInstallLocation;
     private JButton downloadConfiguration;
     private JLabel configInstallRes;
     private JBTextField installArgs;
@@ -72,17 +72,14 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     @Override
     public JComponent createComponent() {
         downloadConfiguration.addActionListener(actionEvent -> {
-            String url = configInstallUrl.getText();
-            if (StringUtils.isBlank(url)) {
-                url = PersistencyUtils.getValue(CONFIG_INSTALL_URL);
+            String location = configInstallLocation.getText();
+            if (StringUtils.isBlank(location)) {
+                location = PersistencyUtils.getValue(CONFIG_INSTALL_LOCATION);
             }
-            PersistencyUtils.setValue(CONFIG_INSTALL_URL, url);
-            if (!Utils.validateUrl(url)) {
-                setConfigInstallRes("Bad URL", false);
-                return;
-            }
-            runConfigInstall(url);
+            PersistencyUtils.setValue(CONFIG_INSTALL_LOCATION, location);
+            runConfigInstall(location);
         });
+        configInstallLocation.getEmptyText().setText("Directory or URL");
         installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
         String envExePath = System.getenv("CONAN_EXE_PATH");
         if( envExePath != null) {
@@ -105,9 +102,9 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     /**
      * Run {@link ConfigInstall}.
      *
-     * @param url the url of the Conan configuration.
+     * @param location the location of the Conan configuration.
      */
-    private void runConfigInstall(String url) {
+    private void runConfigInstall(String location) {
         OutputListener processListener = new OutputListener() {
             @Override
             public void processTerminated(@NotNull ProcessEvent processEvent) {
@@ -120,7 +117,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
                 }
             }
         };
-        new ConfigInstall(this.project, processListener, url).run();
+        new ConfigInstall(this.project, processListener, location).run();
     }
 
     private void setConfigInstallRes(String results, boolean isSuccess) {
@@ -135,7 +132,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
 
     @Override
     public void reset() {
-        configInstallUrl.setText(PersistencyUtils.getValue(CONFIG_INSTALL_URL));
+        configInstallLocation.setText(PersistencyUtils.getValue(CONFIG_INSTALL_LOCATION));
         if (!project.isDefault()) {
             installArgs.setText(ConanProjectSettings.getInstance(project).getInstallArgs());
             conanPath.setText(ConanProjectSettings.getInstance(project).getConanPath());
@@ -144,7 +141,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
 
     @Override
     public void apply() {
-        PersistencyUtils.setValue(CONFIG_INSTALL_URL, configInstallUrl.getText());
+        PersistencyUtils.setValue(CONFIG_INSTALL_LOCATION, configInstallLocation.getText());
         PersistencyUtils.setValue(CONFIG_CONAN_EXE_PATH, conanPath.getText());
         if (!project.isDefault()) {
             ConanProjectSettings.getInstance(project).setInstallArgs(installArgs.getText());
@@ -170,12 +167,12 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
         rootPanel = new JPanel();
         rootPanel.setLayout(new GridLayoutManager(4, 4, new Insets(0, 0, 0, 0), -1, -1));
         final JLabel label1 = new JLabel();
-        label1.setText("Config install URL");
+        label1.setText("Config install location");
         rootPanel.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         rootPanel.add(spacer1, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        configInstallUrl = new JTextField();
-        rootPanel.add(configInstallUrl, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        configInstallLocation = new JBTextField();
+        rootPanel.add(configInstallLocation, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         downloadConfiguration = new JButton();
         downloadConfiguration.setText("Download");
         rootPanel.add(downloadConfiguration, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

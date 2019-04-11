@@ -15,8 +15,10 @@ import conan.profiles.ConanProfile;
 import org.testng.Assert;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static conan.testUtils.Consts.*;
 
@@ -62,8 +64,8 @@ public class Utils {
         Assert.assertEquals(Sets.newHashSet(conanProfiles), expectedProfiles);
     }
 
-    public static void configInstall(String location) {
-        AsyncConanCommand configInstall = new ConfigInstall(new OpenSSLProjectImpl(), new ProcessAdapter(){}, location);
+    public static void configInstall(Project project, String location) {
+        AsyncConanCommand configInstall = new ConfigInstall(project, new ProcessAdapter(){}, location);
         Utils.runConanCommand(configInstall);
     }
 
@@ -72,6 +74,10 @@ public class Utils {
             AsyncConanCommand newProfileCommand = new NewProfile(new OpenSSLProjectImpl(), new ProcessAdapter(){}, newProfile);
             Utils.runConanCommand(newProfileCommand);
         });
+    }
+
+    public static Set<ConanProfile> createProfilesWithNames(HashSet<String> names) {
+        return names.parallelStream().map(ConanProfile::new).collect(Collectors.toSet());
     }
 
     public static void verifyConanFiles(File installationDir) {
