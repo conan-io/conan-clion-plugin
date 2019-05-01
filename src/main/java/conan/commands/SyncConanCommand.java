@@ -17,7 +17,7 @@ public abstract class SyncConanCommand extends ConanCommandBase {
 
     private SyncConanTask conanTask;
 
-    protected SyncConanCommand(@Nullable Project project, @Nullable ProcessListener processListener, String... args) {
+    protected SyncConanCommand(Project project, @Nullable ProcessListener processListener, String... args) {
         super(project, args);
         conanTask = new SyncConanTask(project, processListener, super.args);
     }

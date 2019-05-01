@@ -20,6 +20,7 @@ public class ConanProjectSettings implements PersistentStateComponent<ConanProje
 
     private Map<CMakeProfile, ConanProfile> profileMapping = Maps.newHashMap();
     private String installArgs;
+    private String conanPath;
 
     public static ConanProjectSettings getInstance(Project project) {
         return ServiceManager.getService(project, ConanProjectSettings.class);
@@ -47,7 +48,15 @@ public class ConanProjectSettings implements PersistentStateComponent<ConanProje
         return installArgs;
     }
 
+    public String getConanPath() {
+        return conanPath;
+    }
+
     public void setInstallArgs(String installArgs) {
         this.installArgs = installArgs;
+    }
+
+    public void setConanPath(String conanPath) {
+        this.conanPath = conanPath;
     }
 }

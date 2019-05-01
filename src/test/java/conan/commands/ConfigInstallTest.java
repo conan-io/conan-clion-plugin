@@ -9,10 +9,11 @@ import static conan.testUtils.Utils.*;
 @Test
 public class ConfigInstallTest extends ConanCommandTestBase {
 
+
     @Test
     public void testConfigInstall() {
-        verifyProfiles(Sets.newHashSet());
+        verifyProfiles(Sets.newHashSet(), project );
         configInstall();
-        verifyProfiles(BINCRAFTERS_PROFILES);
+        verifyProfiles(BINCRAFTERS_PROFILES, project);
     }
 }

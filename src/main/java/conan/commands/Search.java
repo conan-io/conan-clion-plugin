@@ -1,6 +1,7 @@
 package conan.commands;
 
 import com.intellij.execution.process.ProcessListener;
+import com.intellij.openapi.project.Project;
 
 /**
  * Search Conan packages. Send the results to the input process listener.
@@ -10,7 +11,7 @@ import com.intellij.execution.process.ProcessListener;
  */
 public class Search extends AsyncConanCommand {
 
-    public Search(ProcessListener processListener) {
-        super(null, null, processListener, "search", "--raw");
+    public Search(Project project, ProcessListener processListener) {
+        super(project, null, processListener, "search", "--raw");
     }
 }

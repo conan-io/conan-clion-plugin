@@ -74,7 +74,7 @@ public class ConanToolWindow implements Disposable {
     private void createConanProfilesTabs(@NotNull Project project, ContentFactory contentFactory) {
         ConanProjectSettings conanProjectSettings = ConanProjectSettings.getInstance(project);
         Map<CMakeProfile, ConanProfile> profileMatching = conanProjectSettings.getProfileMapping();
-        for (ConanProfile conanProfile : ProfileUtils.getConanProfiles()) {
+        for (ConanProfile conanProfile : ProfileUtils.getConanProfiles(project)) {
             if (!profileMatching.containsValue(conanProfile)) {
                 continue;
             }

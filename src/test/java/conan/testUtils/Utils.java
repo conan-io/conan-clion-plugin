@@ -5,6 +5,7 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.openapi.progress.DumbProgressIndicator;
+import com.intellij.openapi.project.Project;
 import conan.commands.*;
 import conan.commands.listProfiles.GetConanProfiles;
 import conan.commands.task.AsyncConanTask;
@@ -45,30 +46,30 @@ public class Utils {
     }
 
     public static void verifyPackages(Set<String> expectedPackages) {
-        AsyncConanCommand search = new Search(new ConanPackagesVerifier(expectedPackages));
+        AsyncConanCommand search = new Search(new OpenSSLProjectImpl(), new ConanPackagesVerifier(expectedPackages));
         Utils.runConanCommand(search);
     }
 
     public static void cleanCache() {
-        AsyncConanCommand cleanCache = new CleanCache(new ProcessAdapter(){});
+        AsyncConanCommand cleanCache = new CleanCache(new OpenSSLProjectImpl(), new ProcessAdapter(){});
         Utils.runConanCommand(cleanCache);
     }
 
-    public static void verifyProfiles(Set<ConanProfile> expectedProfiles) {
+    public static void verifyProfiles(Set<ConanProfile> expectedProfiles, Project project) {
         List<ConanProfile> conanProfiles = Lists.newArrayList();
-        Utils.runConanCommand(new Config()); // Prevents "Remotes registry file missing" message
-        Utils.runConanCommand(new GetConanProfiles(conanProfiles));
+        Utils.runConanCommand(new Config(project)); // Prevents "Remotes registry file missing" message
+        Utils.runConanCommand(new GetConanProfiles(conanProfiles, project));
         Assert.assertEquals(Sets.newHashSet(conanProfiles), expectedProfiles);
     }
 
     public static void configInstall() {
-        AsyncConanCommand configInstall = new ConfigInstall(new ProcessAdapter(){}, BINCRAFTERS_URL);
+        AsyncConanCommand configInstall = new ConfigInstall(new OpenSSLProjectImpl(), new ProcessAdapter(){}, BINCRAFTERS_URL);
         Utils.runConanCommand(configInstall);
     }
 
     public static void createProfiles(Set<ConanProfile> newProfiles) {
         newProfiles.forEach(newProfile -> {
-            AsyncConanCommand newProfileCommand = new NewProfile(new ProcessAdapter(){}, newProfile);
+            AsyncConanCommand newProfileCommand = new NewProfile(new OpenSSLProjectImpl(), new ProcessAdapter(){}, newProfile);
             Utils.runConanCommand(newProfileCommand);
         });
     }
