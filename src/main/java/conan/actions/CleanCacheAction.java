@@ -21,7 +21,7 @@ public class CleanCacheAction extends AnAction implements DumbAware {
     public void actionPerformed(AnActionEvent anActionEvent) {
         Project project = getEventProject(anActionEvent);
         if (project != null) {
-            if (!ActionUtils.isInstalled(project)) {
+            if (!ActionUtils.isConanInstalled(project)) {
                 return;
             }
             String message = "This will remove the Conan local cache, Are you sure?";

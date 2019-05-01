@@ -23,7 +23,7 @@ import java.util.Map;
  */
 class ActionUtils {
 
-    static boolean isInstalled(Project project){
+    static boolean isConanInstalled(Project project){
         IsInstalledCommand isInstalled = new IsInstalledCommand(project);
         isInstalled.run();
         return isInstalled.isInstalled();
@@ -38,7 +38,7 @@ class ActionUtils {
      */
     static void runInstall(Project project, Component component, boolean update) {
 
-        if(!isInstalled(project)){
+        if(!isConanInstalled(project)){
             return;
         }
 
@@ -63,7 +63,7 @@ class ActionUtils {
      */
     private static void matchProfilesAndInstall(Project project, Component component, boolean update) {
 
-        if(!isInstalled(project)){
+        if(!isConanInstalled(project)){
             return;
         }
 
