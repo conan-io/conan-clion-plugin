@@ -52,7 +52,6 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     private JLabel conanPathLabel;
     private TextFieldWithBrowseButton conanPath;
 
-
     public ConanConfig(@NotNull Project project) {
         this.project = project;
         if (project.isDefault()) { // No project
@@ -85,7 +84,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
         });
         installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
         String envExePath = System.getenv("CONAN_EXE_PATH");
-        if(envExePath != null) {
+        if( envExePath != null) {
             conanPath.setText(envExePath);
         }
         conanPath.setToolTipText("Path to the Conan executable, by default it will search in the path");

@@ -6,7 +6,6 @@ import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import conan.commands.Install;
 import conan.commands.IsInstalledCommand;
-import conan.commands.Version;
 import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
@@ -37,11 +36,9 @@ class ActionUtils {
      * @param update    true if it's update and install action.
      */
     static void runInstall(Project project, Component component, boolean update) {
-
-        if(!isConanInstalled(project)){
+        if (!isConanInstalled(project)){
             return;
         }
-
         FileDocumentManager.getInstance().saveAllDocuments();
         ConanToolWindow conanToolWindow = ServiceManager.getService(project, ConanToolWindow.class);
         ConanProfile conanProfile = new ConanProfile(conanToolWindow.getSelectedTab());
@@ -62,11 +59,9 @@ class ActionUtils {
      * @param update    true if it's update and install action.
      */
     private static void matchProfilesAndInstall(Project project, Component component, boolean update) {
-
-        if(!isConanInstalled(project)){
+        if (!isConanInstalled(project)){
             return;
         }
-
         ProfileMatcher.showDialog(project, component);
         ConanProjectSettings conanProjectSettings = ConanProjectSettings.getInstance(project);
         Map<CMakeProfile, ConanProfile> profileMapping = conanProjectSettings.getProfileMapping();

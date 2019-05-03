@@ -20,8 +20,8 @@ public class ListProfilesTest extends ConanCommandTestBase {
 
     @Test
     public void testListProfiles() {
-        //verifyProfiles(Sets.newHashSet());
+        verifyProfiles(Sets.newHashSet(), project);
         createProfiles(TEST_PROFILES);
-        //verifyProfiles(TEST_PROFILES);
+        verifyProfiles(TEST_PROFILES, project);
     }
 }
