@@ -58,6 +58,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
             installArgs.setVisible(false);
             installArgsLabel.setVisible(false);
             conanPathLabel.setVisible(false);
+            conanPath.setVisible(false);
         }
     }
 
