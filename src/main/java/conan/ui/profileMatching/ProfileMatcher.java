@@ -56,6 +56,8 @@ public class ProfileMatcher extends JDialog {
 
         // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+        populateProfileMatchingTable(project);
     }
 
     /**
@@ -85,7 +87,6 @@ public class ProfileMatcher extends JDialog {
     private void createUIComponents() {
         createProfileMatchingTable();
         createProfilesMap();
-        populateProfileMatchingTable();
     }
 
     /**
@@ -116,9 +117,9 @@ public class ProfileMatcher extends JDialog {
     /**
      * Populate the profile matching table.
      */
-    private void populateProfileMatchingTable() {
+    private void populateProfileMatchingTable(Project project) {
         profileMatchingTable.setModel(new ProfileMatchingTableModel(profileMapping));
-        profileMatchingTable.setDefaultEditor(ConanProfile.class, new ProfileMatchingCellEditor(profileMapping));
+        profileMatchingTable.setDefaultEditor(ConanProfile.class, new ProfileMatchingCellEditor(profileMapping, project));
     }
 
     /**

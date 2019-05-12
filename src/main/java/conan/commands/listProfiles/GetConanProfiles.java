@@ -1,5 +1,6 @@
 package conan.commands.listProfiles;
 
+import com.intellij.openapi.project.Project;
 import conan.commands.SyncConanCommand;
 import conan.profiles.ConanProfile;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class GetConanProfiles extends SyncConanCommand {
 
-    public GetConanProfiles(List<ConanProfile> profiles) {
-        super(null, new GetConanProfilesProcessListener(profiles), "profile", "list");
+    public GetConanProfiles(List<ConanProfile> profiles, Project project) {
+        super(project, new GetConanProfilesProcessListener(profiles), "profile", "list");
     }
 }

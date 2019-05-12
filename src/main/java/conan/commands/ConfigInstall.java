@@ -1,6 +1,7 @@
 package conan.commands;
 
 import com.intellij.execution.process.ProcessListener;
+import com.intellij.openapi.project.Project;
 
 /**
  * Download and install Conan configuration.
@@ -10,7 +11,7 @@ import com.intellij.execution.process.ProcessListener;
  */
 public class ConfigInstall extends AsyncConanCommand {
 
-    public ConfigInstall(ProcessListener processListener, String url) {
-        super(null, null, processListener, "config", "install", url);
+    public ConfigInstall(Project project, ProcessListener processListener, String url) {
+        super(project, null, processListener, "config", "install", url);
     }
 }

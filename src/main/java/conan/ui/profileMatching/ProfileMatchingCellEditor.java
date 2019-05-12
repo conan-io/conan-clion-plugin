@@ -1,5 +1,6 @@
 package conan.ui.profileMatching;
 
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.ComboBox;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
@@ -25,9 +26,9 @@ class ProfileMatchingCellEditor extends AbstractCellEditor implements TableCellE
     private Map<CMakeProfile, ConanProfile> profileMapping;
     private List<ConanProfile> conanProfiles;
 
-    ProfileMatchingCellEditor(Map<CMakeProfile, ConanProfile> profileMapping) {
+    ProfileMatchingCellEditor(Map<CMakeProfile, ConanProfile> profileMapping, Project project) {
         this.profileMapping = profileMapping;
-        this.conanProfiles = ProfileUtils.getConanProfiles();
+        this.conanProfiles = ProfileUtils.getConanProfiles(project);
     }
 
     @Override

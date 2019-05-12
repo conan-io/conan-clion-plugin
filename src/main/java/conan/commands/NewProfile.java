@@ -1,6 +1,7 @@
 package conan.commands;
 
 import com.intellij.execution.process.ProcessListener;
+import com.intellij.openapi.project.Project;
 import conan.profiles.ConanProfile;
 
 /**
@@ -11,7 +12,7 @@ import conan.profiles.ConanProfile;
  */
 public class NewProfile extends AsyncConanCommand {
 
-    public NewProfile(ProcessListener processListener, ConanProfile conanProfile) {
-        super(null, null, processListener, "profile", "new", conanProfile.getName());
+    public NewProfile(Project project, ProcessListener processListener, ConanProfile conanProfile) {
+        super(project, null, processListener, "profile", "new", conanProfile.getName());
     }
 }

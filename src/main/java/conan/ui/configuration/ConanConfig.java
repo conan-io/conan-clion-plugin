@@ -3,8 +3,15 @@ package conan.ui.configuration;
 import com.intellij.execution.Output;
 import com.intellij.execution.OutputListener;
 import com.intellij.execution.process.ProcessEvent;
+import com.intellij.openapi.fileChooser.FileChooser;
+import com.intellij.openapi.fileChooser.FileChooserDescriptor;
+import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.ui.TextFieldWithBrowseButton;
+import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.openapi.vfs.LocalFileSystem;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBTextField;
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -22,6 +29,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.awt.*;
 
+import static conan.persistency.Keys.CONFIG_CONAN_EXE_PATH;
 import static conan.persistency.Keys.CONFIG_INSTALL_URL;
 
 /**
@@ -41,11 +49,15 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     private JBTextField installArgs;
     private JLabel installArgsLabel;
 
+    private JLabel conanPathLabel;
+    private TextFieldWithBrowseButton conanPath;
+
     public ConanConfig(@NotNull Project project) {
         this.project = project;
         if (project.isDefault()) { // No project
             installArgs.setVisible(false);
             installArgsLabel.setVisible(false);
+            conanPathLabel.setVisible(false);
         }
     }
 
@@ -71,6 +83,21 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
             runConfigInstall(url);
         });
         installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
+        String envExePath = System.getenv("CONAN_EXE_PATH");
+        if( envExePath != null) {
+            conanPath.setText(envExePath);
+        }
+        conanPath.setToolTipText("Path to the Conan executable, by default it will search in the path");
+
+        conanPath.addActionListener(actionEvent -> {
+            final FileChooserDescriptor d = FileChooserDescriptorFactory.createSingleFileDescriptor();
+            VirtualFile initialFile = StringUtil.isNotEmpty(conanPath.getText()) ? LocalFileSystem.getInstance().findFileByPath(conanPath.getText()) : null;
+            VirtualFile file = FileChooser.chooseFile(d, project, initialFile);
+            if (file != null) {
+                conanPath.setText(file.getCanonicalPath());
+            }
+        });
+
         return rootPanel;
     }
 
@@ -92,7 +119,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
                 }
             }
         };
-        new ConfigInstall(processListener, url).run();
+        new ConfigInstall(this.project, processListener, url).run();
     }
 
     private void setConfigInstallRes(String results, boolean isSuccess) {
@@ -110,14 +137,17 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
         configInstallUrl.setText(PersistencyUtils.getValue(CONFIG_INSTALL_URL));
         if (!project.isDefault()) {
             installArgs.setText(ConanProjectSettings.getInstance(project).getInstallArgs());
+            conanPath.setText(ConanProjectSettings.getInstance(project).getConanPath());
         }
     }
 
     @Override
     public void apply() {
         PersistencyUtils.setValue(CONFIG_INSTALL_URL, configInstallUrl.getText());
+        PersistencyUtils.setValue(CONFIG_CONAN_EXE_PATH, conanPath.getText());
         if (!project.isDefault()) {
             ConanProjectSettings.getInstance(project).setInstallArgs(installArgs.getText());
+            ConanProjectSettings.getInstance(project).setConanPath(conanPath.getText());
         }
     }
 

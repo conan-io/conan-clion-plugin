@@ -31,11 +31,11 @@ public class ProfileUtils {
      * Extract Conan profiles.
      * @return list of Conan profiles.
      */
-    public static List<ConanProfile> getConanProfiles() {
+    public static List<ConanProfile> getConanProfiles(Project project) {
         List<ConanProfile> profiles = Lists.newArrayList();
         // Prevents "Remotes registry file missing" message
-        new Config().run();
-        new GetConanProfiles(profiles).run();
+        new Config(project).run();
+        new GetConanProfiles(profiles, project).run();
         return profiles;
     }
 

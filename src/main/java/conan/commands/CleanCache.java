@@ -14,7 +14,7 @@ public class CleanCache extends AsyncConanCommand {
         super(project, "remove", "*", "-f");
     }
 
-    public CleanCache(ProcessListener processListener) {
-        super(null, null, processListener,"remove", "*", "-f");
+    public CleanCache(Project project, ProcessListener processListener) {
+        super(project, null, processListener,"remove", "*", "-f");
     }
 }
