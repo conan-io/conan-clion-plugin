@@ -20,7 +20,6 @@ public class OpenConfigAction extends AnAction implements DumbAware {
         if (project == null) {
             return;
         }
-
         ShowSettingsUtil.getInstance().showSettingsDialog(project, ConanConfig.CONFIG_NAME);
     }
 }

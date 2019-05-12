@@ -13,20 +13,18 @@ import conan.ui.ConanConfirmDialog;
  */
 public class CleanCacheAction extends AnAction implements DumbAware {
 
-    private static final String wipeCacheConfirmMessage = "This will remove the Conan local cache, Are you sure?";
+    private static final String WIPE_CACHE_CONFIRM_MESSAGE = "This will remove the Conan local cache, Are you sure?";
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         Project project = getEventProject(anActionEvent);
-        if (project != null) {
-            if (!ActionUtils.isConanInstalled(project)) {
-                return;
-            }
-            boolean result = new ConanConfirmDialog("Removing Conan Cache", wipeCacheConfirmMessage).showAndGet();
-            if (result) {
-                // user pressed ok
-                new conan.commands.CleanCache(project).run();
-            }
+        if (project == null || !ActionUtils.isConanInstalled(project)) {
+            return;
+        }
+        boolean result = new ConanConfirmDialog("Removing Conan Cache", WIPE_CACHE_CONFIRM_MESSAGE).showAndGet();
+        if (result) {
+            // user pressed ok
+            new conan.commands.CleanCache(project).run();
         }
     }
 }

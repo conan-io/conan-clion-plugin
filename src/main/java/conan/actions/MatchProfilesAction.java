@@ -16,10 +16,7 @@ public class MatchProfilesAction extends AnAction implements DumbAware {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         Project project = getEventProject(anActionEvent);
-        if (project == null) {
-            return;
-        }
-        if (!ActionUtils.isConanInstalled(project)){
+        if (project == null || !ActionUtils.isConanInstalled(project)) {
             return;
         }
         ProfileMatcher.showDialog(project, anActionEvent.getInputEvent().getComponent());
