@@ -38,6 +38,10 @@ These arguments are passed 'as is' to the Conan install command.
 -o zlib:shared=True -o bzip2:option=132
 ```
 
+#### Set Conan Executable Path
+If the Conan executable is part of the PATH environment variable, it is used by default.
+To set a different Conan executable, click on *Open configuration* button and provide your conan executable path.
+
 # Building and Testing the Plugin's Sources
 To build and run the plugin sources, please follow these steps:
 1. Clone the code from git.
