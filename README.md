@@ -38,6 +38,10 @@ These arguments are passed 'as is' to the Conan install command.
 -o zlib:shared=True -o bzip2:option=132
 ```
 
+#### Set Conan Executable Path
+By default, Conan CLion plugin uses the Conan client executable from operating system's PATH environment variable. 
+To use a different Conan executable, click on *Open configuration* button and provide your conan executable path.
+
 # Building and Testing the Plugin's Sources
 To build and run the plugin sources, please follow these steps:
 1. Clone the code from git.
