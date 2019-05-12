@@ -8,7 +8,11 @@
     </description>
 
     <change-notes>
-        Initial release of the plugin.
+        <![CDATA[
+          - Allowed to configure the Conan executable path<br>
+          - Fixed exceptions raised and other unexpected behaviors when no conan executable is found<br>
+          - Added confirmation dialog before wiping the local cache<br>
+        ]]>
     </change-notes>
 
     <idea-version since-build="180"/>
