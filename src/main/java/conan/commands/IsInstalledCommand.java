@@ -35,10 +35,7 @@ public class IsInstalledCommand extends ConanCommandBase {
             log(logger, "Conan is not installed", "", NotificationType.INFORMATION);
             return;
         }
-        if (!isConanFileExists()) {
-            log(logger, "conanfile.py and conanfile.txt doesn't exist in project base dir", "", NotificationType.INFORMATION);
-            return;
-        }
+
         isInstalled = true;
     }
 
@@ -56,19 +53,6 @@ public class IsInstalledCommand extends ConanCommandBase {
             log(logger, e.getMessage(), Arrays.toString(e.getStackTrace()), NotificationType.INFORMATION);
             return false;
         }
-    }
-
-    /**
-     * Return true iff conanfile.txt exists in project base directory.
-     * @return true iff conanfile.txt exists in project base directory.
-     */
-    private boolean isConanFileExists() {
-        if (project.getBasePath() == null) {
-            return false;
-        }
-        Path conanPyFile = Paths.get(project.getBasePath(), "conanfile.py");
-        Path conanTxtFile = Paths.get(project.getBasePath(), "conanfile.txt");
-        return conanPyFile.toFile().exists() || conanTxtFile.toFile().exists();
     }
 
     public boolean isInstalled() {

@@ -5,6 +5,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import conan.ui.ConanConfirmDialog;
+import conan.utils.Utils;
 
 /**
  * Clean conan cache.
@@ -18,7 +19,7 @@ public class CleanCacheAction extends AnAction implements DumbAware {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         Project project = getEventProject(anActionEvent);
-        if (project == null || !ActionUtils.isConanInstalled(project)) {
+        if (project == null || !Utils.isConanInstalled(project) || !Utils.isConanFileExists(project)) {
             return;
         }
         boolean result = new ConanConfirmDialog("Removing Conan Cache", WIPE_CACHE_CONFIRM_MESSAGE).showAndGet();

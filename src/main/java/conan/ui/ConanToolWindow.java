@@ -25,6 +25,7 @@ import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
 import conan.profiles.ProfileUtils;
+import conan.utils.Utils;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -54,8 +55,13 @@ public class ConanToolWindow implements Disposable {
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         conanProfileContexts = Maps.newConcurrentMap();
         contentManager.removeAllContents(true);
-        if (!isSupported(project)) {
+        if (!Utils.isConanInstalled(project)) {
             Content content = createTab(contentFactory, createUnsupportedView("Could not find Conan client in path."), "");
+            contentManager.addContent(content);
+            return;
+        }
+        if (!Utils.isConanFileExists(project)) {
+            Content content = createTab(contentFactory, createUnsupportedView("Could not find conanfile.txt or conanfile.py."), "");
             contentManager.addContent(content);
             return;
         }
@@ -158,12 +164,6 @@ public class ConanToolWindow implements Disposable {
         ConanProfile conanProfile = new ConanProfile(getSelectedTab());
         ConsoleView consoleView = conanProfileContexts.get(conanProfile);
         consoleView.clear();
-    }
-
-    private boolean isSupported(Project project) {
-        IsInstalledCommand isInstalled = new IsInstalledCommand(project);
-        isInstalled.run();
-        return isInstalled.isInstalled();
     }
 
     /**

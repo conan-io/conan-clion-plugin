@@ -5,6 +5,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import conan.ui.profileMatching.ProfileMatcher;
+import conan.utils.Utils;
 
 /**
  * Show the profile matching dialog.
@@ -16,7 +17,7 @@ public class MatchProfilesAction extends AnAction implements DumbAware {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         Project project = getEventProject(anActionEvent);
-        if (project == null || !ActionUtils.isConanInstalled(project)) {
+        if (project == null || !Utils.isConanInstalled(project) || !Utils.isConanFileExists(project)) {
             return;
         }
         ProfileMatcher.showDialog(project, anActionEvent.getInputEvent().getComponent());

@@ -5,13 +5,14 @@ import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import conan.commands.Install;
-import conan.commands.IsInstalledCommand;
 import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
 import conan.ui.ConanToolWindow;
 import conan.ui.profileMatching.ProfileMatcher;
+import conan.utils.Utils;
 import org.apache.commons.lang.StringUtils;
+import conan.utils.Utils;
 
 import java.awt.*;
 import java.util.List;
@@ -22,12 +23,6 @@ import java.util.Map;
  */
 class ActionUtils {
 
-    static boolean isConanInstalled(Project project){
-        IsInstalledCommand isInstalled = new IsInstalledCommand(project);
-        isInstalled.run();
-        return isInstalled.isInstalled();
-    }
-
     /**
      * Run conan install for the selected Conan profile.
      *
@@ -36,7 +31,7 @@ class ActionUtils {
      * @param update    true if it's update and install action.
      */
     static void runInstall(Project project, Component component, boolean update) {
-        if (!isConanInstalled(project)){
+        if (!Utils.isConanInstalled(project) || !Utils.isConanFileExists(project)){
             return;
         }
         FileDocumentManager.getInstance().saveAllDocuments();
@@ -59,7 +54,7 @@ class ActionUtils {
      * @param update    true if it's update and install action.
      */
     private static void matchProfilesAndInstall(Project project, Component component, boolean update) {
-        if (!isConanInstalled(project)){
+        if (!Utils.isConanInstalled(project) || !Utils.isConanFileExists(project)){
             return;
         }
         ProfileMatcher.showDialog(project, component);

@@ -5,9 +5,14 @@ import com.intellij.notification.NotificationGroup;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.Notifications;
 import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.openapi.project.Project;
+import conan.commands.IsInstalledCommand;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.jetbrains.annotations.Nullable;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Created by Yahav Itzhak on Feb 2018.
@@ -48,5 +53,30 @@ public class Utils {
             details = title;
         }
         Notifications.Bus.notify(EVENT_LOG_NOTIFIER.createNotification(title, details, level, null));
+    }
+
+    /**
+     * Return true if conanfile.txt exists in project base directory.
+     * @param project Intellij project.
+     * @return true if conanfile.txt exists in project base directory.
+     */
+    public static boolean isConanFileExists(Project project) {
+        if (project.getBasePath() == null) {
+            return false;
+        }
+        Path conanPyFile = Paths.get(project.getBasePath(), "conanfile.py");
+        Path conanTxtFile = Paths.get(project.getBasePath(), "conanfile.txt");
+        return conanPyFile.toFile().exists() || conanTxtFile.toFile().exists();
+    }
+
+    /**
+     * Return true if conan is installed.
+     * @param project Intellij project.
+     * @return true if conan is installed.
+     */
+    public static boolean isConanInstalled(Project project){
+        IsInstalledCommand isInstalled = new IsInstalledCommand(project);
+        isInstalled.run();
+        return isInstalled.isInstalled();
     }
 }
