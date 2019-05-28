@@ -21,12 +21,10 @@ import static conan.utils.Utils.log;
 public class IsInstalledCommand extends ConanCommandBase {
 
     private static final Logger logger = Logger.getInstance(IsInstalledCommand.class);
-    private Project project;
     private boolean isInstalled;
 
     public IsInstalledCommand(Project project) {
         super(project);
-        this.project = project;
     }
 
     @Override
