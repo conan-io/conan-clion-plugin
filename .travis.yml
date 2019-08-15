@@ -16,10 +16,8 @@ jobs:
     - stage: checks
       name: "Check version"
       addons:
-      before_install:
-        - echo "Skip before_install"
-      install:
-        - echo "Skip install"
+      before_install: true
+      install: true
       script:
         # Check that the version value matches the tag one (right at the very beginning)
         - version=$(sed -e '/^pluginVersion = */!d; s///;q' gradle.properties) || travis_terminate 1;
