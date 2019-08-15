@@ -33,7 +33,7 @@ def get_github():
 # Get the github repository
 def get_github_repository():
     g = get_github()
-    return g.get_repo('conan-io/conan-vs-extension')
+    return g.get_repo('conan-io/conan-clion-plugin')
 
 repo = get_github_repository()
 
@@ -209,8 +209,9 @@ def guess_next_release(current_release, head_branch):
             ml_to_consider.append((milestone, merged_prs))
 
     # If no PR
-    if not ml_to_consider:
+    if not len(ml_to_consider):
         sys.stderr.write("Cannot find any milestone suitable for the operation\n")
+        sys.exit(1)
 
     # If we have more than one, we should warn the user
     if len(ml_to_consider) > 1:
