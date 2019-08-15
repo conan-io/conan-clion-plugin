@@ -37,12 +37,18 @@ jobs:
       name: "Deploy to Jetbrains marketplace"
       os: linux
       jdk: openjdk8
+      env:
+        - DEPLOY_CHANNEL=stable
+        - PLUGIN_ID=11956
       script:
         - version=$(sed -e '/^pluginVersion = */!d; s///;q' gradle.properties) || travis_terminate 1;
         - if [ "$version" != "$TRAVIS_TAG" ]; then echo "Version mismatch!"; travis_terminate 1; fi
         # Build and upload
         - ./gradlew clean build
-        - "curl -i --header \"Authorization: Bearer $DEPLOY_TOKEN\" -F pluginId=11956 -F file=@$(pwd)/build/distributions/Conan-$version.zip -F channel=ci https://plugins.jetbrains.com/plugin/uploadPlugin"
+        - "curl -i --header \"Authorization: Bearer $DEPLOY_TOKEN\" -F pluginId=$PLUGIN_ID -F file=@$(pwd)/build/distributions/Conan-$version.zip -F channel=$DEPLOY_CHANNEL https://plugins.jetbrains.com/plugin/uploadPlugin"
+        - status="$?"
+        - echo "Exit code is $status"
+        - exit "$status"
 
 addons:
   apt:
