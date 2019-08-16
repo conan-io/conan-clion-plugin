@@ -111,7 +111,7 @@ def write_changelog(version, prs):
     tree = etree.parse(plugin_xml, parser)
     changelog_node = tree.find('change-notes')
     clog_cdata = [' - {} (<a href="{}">{}</a>)'.format(pr.title, pr.html_url, pr.number) for pr in prs]
-    changelog_node.text = etree.CDATA("\n{}\n".format('\n'.join(clog_data)))
+    changelog_node.text = etree.CDATA("\n{}\n".format('\n'.join(clog_cdata)))
     tree.write(plugin_xml)
 
 
