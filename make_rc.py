@@ -4,6 +4,7 @@ import sys
 import os
 import re
 import textwrap
+from lxml import etree
 
 from functools import partial
 from datetime import date
@@ -70,6 +71,7 @@ def set_current_version(version):
 
 def write_changelog(version, prs):
     changelog = os.path.join(me, "CHANGELOG.md")
+    plugin_xml = os.path.join(me, "src", "main", "resources", "META-INF", "plugin.xml")
 
     prs = [pr for pr in prs if "[skip changelog]" not in pr.title]
     version_content = ["- {} ([#{}]({}))\n".format(pr.title, pr.number, pr.html_url) for pr in prs]
@@ -81,6 +83,7 @@ def write_changelog(version, prs):
         sys.stdout.write("Exit!")
         sys.exit(1)
 
+    # Write to CHANGELOG.md
     new_content = []
     changelog_found = False
     changelog_added = False
@@ -102,6 +105,14 @@ def write_changelog(version, prs):
 
     with open(changelog, "w") as f:
         f.write("".join(new_content))
+
+    # Update plugin.xml
+    parser = etree.XMLParser(strip_cdata=False)
+    tree = etree.parse(plugin_xml, parser)
+    changelog_node = tree.find('change-notes')
+    clog_cdata = [' - {} (<a href="{}">{}</a>)'.format(pr.title, pr.html_url, pr.number) for pr in prs]
+    changelog_node.text = etree.CDATA("\n{}\n".format('\n'.join(clog_data)))
+    tree.write(plugin_xml)
 
 
 def get_git_current_branch():
