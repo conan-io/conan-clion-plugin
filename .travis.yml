@@ -1,7 +1,53 @@
-os:
-  - osx
-  - linux
+sudo: false
 language: java
+dist: xenial
+
+stages:
+  - name: checks
+    if: tag IS present
+  - test
+  - name: deploy
+    if: tag IS present
+
+jobs:
+  fast_finish: true
+  include:
+
+    - stage: checks
+      name: "Check version"
+      addons:
+      before_install: true
+      install: true
+      script:
+        # Check that the version value matches the tag one (right at the very beginning)
+        - version=$(sed -e '/^pluginVersion = */!d; s///;q' gradle.properties) || travis_terminate 1;
+        - echo "Value found in gradle.properties=$version, tag is $TRAVIS_TAG"
+        - if [ "$version" != "$TRAVIS_TAG" ]; then echo "Version mismatch!"; travis_terminate 1; fi
+
+    - stage: test
+      name: "Linux"
+      os: linux
+      jdk: openjdk8
+    - name: "Macos"
+      os: osx
+
+    - stage: deploy
+      name: "Deploy to Jetbrains marketplace"
+      os: linux
+      jdk: openjdk8
+      env:
+        - DEPLOY_CHANNEL=stable
+        - PLUGIN_ID=11956
+      script:
+        - version=$(sed -e '/^pluginVersion = */!d; s///;q' gradle.properties) || travis_terminate 1;
+        - if [ "$version" != "$TRAVIS_TAG" ]; then echo "Version mismatch!"; travis_terminate 1; fi
+        # Build and upload
+        - ./gradlew clean build
+        - "curl -i --header \"Authorization: Bearer $DEPLOY_TOKEN\" -F pluginId=$PLUGIN_ID -F file=@$(pwd)/build/distributions/Conan-$version.zip -F channel=$DEPLOY_CHANNEL https://plugins.jetbrains.com/plugin/uploadPlugin"
+        - status="$?"
+        - echo "curl returned $status"
+        # - exit "$status"  # TODO: Even if curl succeeded, I get value "1".
+
 addons:
   apt:
     sources:
@@ -9,10 +55,19 @@ addons:
     packages:
       - gcc-7
       - g++-7
+
+before_install:
+  - if [ $TRAVIS_OS_NAME == osx ]; then
+      brew update;
+      brew install openssl readline;
+      brew outdated pyenv || brew upgrade pyenv;
+    fi
+  - pyenv install 3.6.3
+  - pyenv global 3.6.3
+  - python --version
+
 install:
+  - pip install conan
   - if [ $TRAVIS_OS_NAME = linux ]; then
       sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7;
-      sudo pip install conan;
-    else
-      brew install conan;
     fi
