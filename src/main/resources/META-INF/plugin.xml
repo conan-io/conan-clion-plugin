@@ -7,75 +7,39 @@
         The Conan Plugin for CLion allows configuring and building projects in CLion using the Conan package manager.
     </description>
 
-    <change-notes>
-        <![CDATA[
-          - Allowed to configure the Conan executable path<br>
-          - Fixed exceptions raised and other unexpected behaviors when no conan executable is found<br>
-          - Added confirmation dialog before wiping the local cache<br>
-        ]]>
-    </change-notes>
+    <change-notes><![CDATA[
+ - Add Conan logo as plugin icon (<a href="https://github.com/conan-io/conan-clion-plugin/pull/43">#43</a>)
+ - Improve CI. Deploy new releases from tags using Travis (<a href="https://github.com/conan-io/conan-clion-plugin/pull/41">#41</a>)
+ - Differentiate unsupported project messages (<a href="https://github.com/conan-io/conan-clion-plugin/pull/21">#21</a>)
+]]></change-notes>
 
     <idea-version since-build="180"/>
 
     <depends>com.intellij.modules.clion</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <projectConfigurable groupId="build"
-                             displayName="Conan"
-                             id="conan"
-                             instance="conan.ui.configuration.ConanConfig"/>
+        <projectConfigurable groupId="build" displayName="Conan" id="conan" instance="conan.ui.configuration.ConanConfig"/>
         <projectService serviceImplementation="conan.ui.ConanToolWindow"/>
         <cmake.runnerStep implementation="conan.extensions.CMakeRunnerStepImpl"/>
         <projectService serviceImplementation="conan.persistency.settings.ConanProjectSettings"/>
         <projectService serviceImplementation="conan.extensions.CMakeRunnerStepImpl"/>
-        <toolWindow id="Conan"
-                    anchor="bottom"
-                    icon="/icons/conan.png"
-                    factoryClass="conan.ui.ConanToolWindowFactory"/>
+        <toolWindow id="Conan" anchor="bottom" icon="/icons/conan.png" factoryClass="conan.ui.ConanToolWindowFactory"/>
     </extensions>
 
     <actions>
-        <action id="Conan.ReloadProject"
-                class="conan.actions.ReloadProjectAction"
-                text="Reload"
-                description="Reload Conan project"
-                icon="AllIcons.Actions.Refresh"/>
+        <action id="Conan.ReloadProject" class="conan.actions.ReloadProjectAction" text="Reload" description="Reload Conan project" icon="AllIcons.Actions.Refresh"/>
 
-        <action id="Conan.Install"
-                class="conan.actions.InstallAction"
-                text="Install"
-                description="Install Conan packages"
-                icon="/icons/conan.png"/>
+        <action id="Conan.Install" class="conan.actions.InstallAction" text="Install" description="Install Conan packages" icon="/icons/conan.png"/>
 
-        <action id="Conan.UpdateAndInstall"
-                class="conan.actions.UpdateAndInstall"
-                text="Update and install"
-                description="Update from remotes and install Conan packages"
-                icon="/icons/conan-update-install.png"/>
+        <action id="Conan.UpdateAndInstall" class="conan.actions.UpdateAndInstall" text="Update and install" description="Update from remotes and install Conan packages" icon="/icons/conan-update-install.png"/>
 
-        <action id="Conan.CleanCache"
-                class="conan.actions.CleanCacheAction"
-                text="Clean cache"
-                description="Clean Conan cache"
-                icon="/icons/trash.png"/>
+        <action id="Conan.CleanCache" class="conan.actions.CleanCacheAction" text="Clean cache" description="Clean Conan cache" icon="/icons/trash.png"/>
 
-        <action id="Conan.MatchProfiles"
-                class="conan.actions.MatchProfilesAction"
-                text="Match profile"
-                description="Match CMake profile with Conan profile"
-                icon="AllIcons.Actions.Properties"/>
+        <action id="Conan.MatchProfiles" class="conan.actions.MatchProfilesAction" text="Match profile" description="Match CMake profile with Conan profile" icon="AllIcons.Actions.Properties"/>
 
-        <action id="Conan.CleanConsole"
-                class="conan.actions.CleanConsole"
-                text="Clean console"
-                description="Clean console"
-                icon="/icons/brush.png"/>
+        <action id="Conan.CleanConsole" class="conan.actions.CleanConsole" text="Clean console" description="Clean console" icon="/icons/brush.png"/>
 
-        <action id="Conan.OpenConfig"
-                class="conan.actions.OpenConfigAction"
-                text="Open configuration"
-                description="Open configuration"
-                icon="AllIcons.General.Settings"/>
+        <action id="Conan.OpenConfig" class="conan.actions.OpenConfigAction" text="Open configuration" description="Open configuration" icon="AllIcons.General.Settings"/>
     </actions>
 
 </idea-plugin>
