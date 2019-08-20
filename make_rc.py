@@ -177,6 +177,7 @@ def work_on_release(next_release):
             if query_yes_no("Commit and push to 'conan' repository"):
                 os.system("git add CHANGELOG.md")
                 os.system("git add gradle.properties")
+                os.system("git add src/main/resources/META-INF/plugin.xml")
 
                 os.system('git commit -m "Preparing release {}"'.format(next_release))
                 os.system('git push --set-upstream conan release/{}'.format(next_release))
