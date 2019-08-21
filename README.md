@@ -2,7 +2,7 @@
 Conan CLion plugin adds Conan support to Jetbrains CLion.
 
 # Prerequisites
-* CLion version 2018.1 and above.
+* CLion version 2018.3 and above.
 * Conan executable in path environment variable.
 
 # Using the Plugin
