@@ -3,9 +3,20 @@
     <name>Conan</name>
     <vendor email="https://www.jfrog.com/support-service" url="https://www.jfrog.com">JFrog</vendor>
 
-    <description>
-        The Conan Plugin for CLion allows configuring and building projects in CLion using the Conan package manager.
-    </description>
+    <description><![CDATA[
+        <a href="https://conan.io/">Conan</a> package manager integration with CLion.
+        <br>
+        <br>
+        Features:
+        <ul>
+            <li>Install dependencies for your project</li>
+            <li>Match Conan profiles with CMake ones</li>
+            <li>Automatically run before CMake generation</li>
+        </ul>
+        Links: <a href="https://blog.jetbrains.com/clion/2019/05/getting-started-with-the-conan-clion-plugin/">Getting started</a>
+        | <a href="https://github.com/conan-io/conan-clion-plugin/issues">Issue tracker</a>
+        <br>
+    ]]></description>
 
     <change-notes><![CDATA[
  - Add Conan logo as plugin icon (<a href="https://github.com/conan-io/conan-clion-plugin/pull/43">#43</a>)
