@@ -48,7 +48,6 @@ public class AsyncConanTask extends Task.Backgroundable {
             String message = args.getCommandLineString();
             log(logger, message, "", NotificationType.INFORMATION);
             ProcessHandler processHandler = new OSProcessHandler(args);
-            processHandler.startNotify();
             if (processListener != null) {
                 processHandler.addProcessListener(processListener);
             } else if (cmakeListener != null) {
@@ -57,6 +56,7 @@ public class AsyncConanTask extends Task.Backgroundable {
                 ConanToolWindow conanToolWindow = ServiceManager.getService(getProject(), ConanToolWindow.class);
                 conanToolWindow.attachConsoleToProcess(processHandler, message, conanProfile);
             }
+            processHandler.startNotify();
             processHandler.waitFor();
         } catch (ExecutionException e) {
             log(logger, e.getMessage(), Arrays.toString(e.getStackTrace()), NotificationType.ERROR);
