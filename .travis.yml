@@ -9,6 +9,10 @@ stages:
   - name: deploy
     if: tag IS present
 
+cache:
+  directories:
+    - .gradle/downloads
+
 jobs:
   fast_finish: true
   include:
