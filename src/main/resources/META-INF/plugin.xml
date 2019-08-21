@@ -13,7 +13,7 @@
  - Differentiate unsupported project messages (<a href="https://github.com/conan-io/conan-clion-plugin/pull/21">#21</a>)
 ]]></change-notes>
 
-    <idea-version since-build="180"/>
+    <idea-version since-build="183"/>
 
     <depends>com.intellij.modules.clion</depends>
 
