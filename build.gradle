@@ -29,13 +29,14 @@ dependencies {
 }
 
 task setupClion() {
-    if (!new File('.gradle/ide').exists()) {
+    if (!new File(intellij.localPath).exists()) {
+        Path downloadPath = ".gradle/downloads/clion-" + clionVersion + ".tar.gz" as Path
         download {
             src 'https://download.jetbrains.com/cpp/CLion-' + clionVersion + '.tar.gz'
-            dest '.gradle/downloads/clion.tar.gz'
+            dest downloadPath
         }
         copy {
-            from tarTree(resources.gzip('.gradle/downloads/clion.tar.gz'))
+            from tarTree(resources.gzip(downloadPath))
             into '.gradle/ide'
         }
     }
