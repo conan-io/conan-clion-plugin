@@ -49,8 +49,8 @@ public class CMakeRunnerStepImpl implements CMakeRunnerStep {
     private CMakeProfile getCMakeProfile(@NotNull Project project, @NotNull CMakeRunnerStep.Parameters parameters) {
         CMakeWorkspace ws = CMakeWorkspace.getInstance(project);
         for (CMakeModelConfigurationData data : ws.getModelConfigurationData()) {
-            if (FileUtil.filesEqual(data.getGenerationDir(), parameters.getOutputDir())) {
-                return new CMakeProfile(data.getConfigName(), parameters.getOutputDir());
+            if (FileUtil.filesEqual(data.getGenerationDir(), parameters.getOutputDir().toFile())) {
+                return new CMakeProfile(data.getConfigName(), parameters.getOutputDir().toFile());
             }
         }
         return null;

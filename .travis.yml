@@ -9,6 +9,10 @@ stages:
   - name: deploy
     if: tag IS present
 
+cache:
+  directories:
+    - .gradle/downloads
+
 jobs:
   fast_finish: true
   include:
@@ -28,8 +32,13 @@ jobs:
       name: "Linux"
       os: linux
       jdk: openjdk8
+      script: &test_all_versions
+        - ./gradlew test -PclionVersion=2018.3.4
+        - ./gradlew test -PclionVersion=2019.1.4
+        - ./gradlew test -PclionVersion=2019.2
     - name: "Macos"
       os: osx
+      script: *test_all_versions
 
     - stage: deploy
       name: "Deploy to Jetbrains marketplace"
