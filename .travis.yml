@@ -72,5 +72,5 @@ addons:
 
 install:
   - python3 --version
-  - pip3 install conan
+  - python3 -m pip install conan
   - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7;
