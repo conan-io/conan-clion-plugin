@@ -33,8 +33,6 @@ jobs:
       os: linux
       jdk: openjdk8
       script: &test_all_versions
-        - ./gradlew test -PclionVersion=2018.1.2
-        - ./gradlew test -PclionVersion=2018.2.7
         - ./gradlew test -PclionVersion=2018.3.4
         - ./gradlew test -PclionVersion=2019.1.4
         - ./gradlew test -PclionVersion=2019.2
