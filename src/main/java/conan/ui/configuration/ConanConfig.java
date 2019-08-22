@@ -28,6 +28,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 import static conan.persistency.Keys.CONFIG_CONAN_EXE_PATH;
 import static conan.persistency.Keys.CONFIG_INSTALL_LOCATION;
@@ -77,6 +78,11 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
                 location = PersistencyUtils.getValue(CONFIG_INSTALL_LOCATION);
             }
             PersistencyUtils.setValue(CONFIG_INSTALL_LOCATION, location);
+
+            if (!(Utils.validateUrl(location) || new File(location).exists())) {
+                setConfigInstallRes("Invalid URL or path", false);
+                return;
+            }
             runConfigInstall(location);
         });
         configInstallLocation.getEmptyText().setText("Directory or URL");
