@@ -29,16 +29,21 @@ jobs:
         - if [ "$version" != "$TRAVIS_TAG" ]; then echo "Version mismatch!"; travis_terminate 1; fi
 
     - stage: test
-      name: "Linux"
+      name: "CLion 2018.3"
       os: linux
       jdk: openjdk8
-      script: &test_all_versions
-        - ./gradlew test -PclionVersion=2018.3.4
-        - ./gradlew test -PclionVersion=2019.1.4
-        - ./gradlew test -PclionVersion=2019.2
-    - name: "Macos"
-      os: osx
-      script: *test_all_versions
+      script:
+        - ./gradlew test -PclionVersion=2018.3 --stacktrace
+    - name: "CLion 2019.1"
+      os: linux
+      jdk: openjdk8
+      script:
+        - ./gradlew test -PclionVersion=2019.1 --stacktrace
+    - name: "CLion 2019.2"
+      os: linux
+      jdk: openjdk8
+      script:
+        - ./gradlew test -PclionVersion=2019.2 --stacktrace
 
     - stage: deploy
       name: "Deploy to Jetbrains marketplace"
@@ -65,18 +70,8 @@ addons:
       - gcc-7
       - g++-7
 
-before_install:
-  - if [ $TRAVIS_OS_NAME == osx ]; then
-      brew update;
-      brew install openssl readline;
-      brew outdated pyenv || brew upgrade pyenv;
-    fi
-  - pyenv install 3.6.3
-  - pyenv global 3.6.3
-  - python --version
-
 install:
-  - pip install conan
-  - if [ $TRAVIS_OS_NAME = linux ]; then
-      sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7;
-    fi
+  - python3 --version
+  - python3 -m pip || curl -s https://bootstrap.pypa.io/get-pip.py | python3 - --user
+  - python3 -m pip install --user conan
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7;
