@@ -45,7 +45,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     private JPanel rootPanel;
 
     private JBTextField configInstallLocation;
-    private JButton downloadConfiguration;
+    private JButton installConfigButton;
     private JLabel configInstallRes;
     private JBTextField installArgs;
     private JLabel installArgsLabel;
@@ -72,7 +72,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     @Nullable
     @Override
     public JComponent createComponent() {
-        downloadConfiguration.addActionListener(actionEvent -> {
+        installConfigButton.addActionListener(actionEvent -> {
             String location = configInstallLocation.getText();
             if (StringUtils.isBlank(location)) {
                 location = PersistencyUtils.getValue(CONFIG_INSTALL_LOCATION);
@@ -179,9 +179,9 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
         rootPanel.add(spacer1, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         configInstallLocation = new JBTextField();
         rootPanel.add(configInstallLocation, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        downloadConfiguration = new JButton();
-        downloadConfiguration.setText("Download");
-        rootPanel.add(downloadConfiguration, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        installConfigButton = new JButton();
+        installConfigButton.setText("Install");
+        rootPanel.add(installConfigButton, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         configInstallRes = new JLabel();
         configInstallRes.setText("");
         rootPanel.add(configInstallRes, new GridConstraints(2, 0, 1, 4, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
