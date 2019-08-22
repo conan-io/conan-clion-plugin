@@ -66,11 +66,9 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - deadsnakes
     packages:
       - gcc-7
       - g++-7
-      - python3.6
 
 install:
   - python3 --version
