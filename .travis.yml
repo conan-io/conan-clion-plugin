@@ -33,17 +33,17 @@ jobs:
       os: linux
       jdk: openjdk8
       script:
-        - ./gradlew test -PclionVersion=2018.3.4
+        - ./gradlew test -PclionVersion=2018.3 --stacktrace
     - name: "CLion 2019.1"
       os: linux
       jdk: openjdk8
       script:
-        - ./gradlew test -PclionVersion=2019.1.4
+        - ./gradlew test -PclionVersion=2019.1 --stacktrace
     - name: "CLion 2019.2"
       os: linux
       jdk: openjdk8
       script:
-        - ./gradlew test -PclionVersion=2019.2
+        - ./gradlew test -PclionVersion=2019.2 --stacktrace
 
     - stage: deploy
       name: "Deploy to Jetbrains marketplace"
