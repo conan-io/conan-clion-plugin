@@ -85,7 +85,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
             }
             runConfigInstall(location);
         });
-        configInstallLocation.getEmptyText().setText("Directory or URL");
+        configInstallLocation.getEmptyText().setText("Git repository, local folder or ZIP file (local or http)");
         installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
         String envExePath = System.getenv("CONAN_EXE_PATH");
         if( envExePath != null) {
