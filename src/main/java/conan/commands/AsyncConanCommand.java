@@ -19,10 +19,6 @@ public class AsyncConanCommand implements Runnable {
 
     private AsyncConanTask conanTask;
 
-    AsyncConanCommand(ConanCommandBase conanCommand) {
-        this(conanCommand, null, null, null);
-    }
-
     AsyncConanCommand(ConanCommandBase conanCommand, ConanProfile conanProfile) {
         this(conanCommand, conanProfile, null, null);
     }
@@ -31,7 +27,7 @@ public class AsyncConanCommand implements Runnable {
         this(conanCommand, conanProfile, cmakeListener, null);
     }
 
-    AsyncConanCommand(ConanCommandBase conanCommand, ConanProfile conanProfile, ProcessListener processListener) {
+    public AsyncConanCommand(ConanCommandBase conanCommand, ConanProfile conanProfile, ProcessListener processListener) {
         this(conanCommand, conanProfile, null, processListener);
     }
 
