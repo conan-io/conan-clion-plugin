@@ -84,4 +84,8 @@ public class ConanCommandBase {
         }
     }
 
+    public GeneralCommandLine getCommandLine() {
+        return args;
+    }
+
 }
