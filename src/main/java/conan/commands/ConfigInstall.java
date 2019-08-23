@@ -11,7 +11,7 @@ import com.intellij.openapi.project.Project;
  */
 public class ConfigInstall extends AsyncConanCommand {
 
-    public ConfigInstall(Project project, ProcessListener processListener, String url) {
-        super(project, null, processListener, "config", "install", url);
+    public ConfigInstall(Project project, ProcessListener processListener, String source) {
+        super(project, null, processListener, "config", "install", source);
     }
 }
