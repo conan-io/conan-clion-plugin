@@ -21,6 +21,7 @@ public class SyncConanCommand implements Runnable {
         conanTask = new SyncConanTask(conanCommand.project, processListener, conanCommand.args);
     }
 
+    @Override
     public void run() {
         // The progress manager is only good for foreground threads.
         if (SwingUtilities.isEventDispatchThread()) {
