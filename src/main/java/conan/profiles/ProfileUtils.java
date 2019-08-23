@@ -35,7 +35,7 @@ public class ProfileUtils {
         List<ConanProfile> profiles = Lists.newArrayList();
         // Prevents "Remotes registry file missing" message
         new Config(project).run();
-        new GetConanProfiles(profiles, project).run();
+        new GetConanProfiles(project).run(profiles);
         return profiles;
     }
 

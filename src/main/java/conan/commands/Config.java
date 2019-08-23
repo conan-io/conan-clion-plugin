@@ -9,8 +9,12 @@ import com.intellij.openapi.project.Project;
  * <p>
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class Config extends SyncConanCommand {
+public class Config extends ConanCommandBase {
     public Config(Project p) {
-        super(p, new ProcessAdapter(){}, "config");
+        super(p, "config");
+    }
+
+    public void run() {
+        new SyncConanCommand(this, new ProcessAdapter(){}).run();
     }
 }

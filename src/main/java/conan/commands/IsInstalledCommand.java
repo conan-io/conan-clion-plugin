@@ -16,13 +16,14 @@ import static conan.utils.Utils.log;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class IsInstalledCommand extends ConanCommandBase {
+public class IsInstalledCommand implements Runnable {
 
     private static final Logger logger = Logger.getInstance(IsInstalledCommand.class);
     private boolean isInstalled;
+    private ConanCommandBase conanCommand;
 
     public IsInstalledCommand(Project project) {
-        super(project);
+        this.conanCommand = new ConanCommandBase(project);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class IsInstalledCommand extends ConanCommandBase {
     private boolean isConanInstalled() {
         ProcessHandler processHandler;
         try {
-            processHandler = new OSProcessHandler(args);
+            processHandler = new OSProcessHandler(this.conanCommand.args);
             processHandler.startNotify();
             return processHandler.waitFor();
         } catch (ExecutionException e) {

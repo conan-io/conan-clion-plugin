@@ -9,12 +9,14 @@ import com.intellij.openapi.project.Project;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class CleanCache extends AsyncConanCommand {
+public class CleanCache extends ConanCommandBase {
     public CleanCache(Project project) {
         super(project, "remove", "*", "-f");
     }
 
-    public CleanCache(Project project, ProcessListener processListener) {
-        super(project, null, processListener,"remove", "*", "-f");
+    public void run(ProcessListener processListener) {
+        AsyncConanCommand asyncCommand = new AsyncConanCommand(this, null, processListener);
+        asyncCommand.run();
     }
+
 }

@@ -9,9 +9,13 @@ import com.intellij.openapi.project.Project;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class ConfigInstall extends AsyncConanCommand {
+public class ConfigInstall extends ConanCommandBase {
 
-    public ConfigInstall(Project project, ProcessListener processListener, String source) {
-        super(project, null, processListener, "config", "install", source);
+    public ConfigInstall(Project project, String source) {
+        super(project, "config", "install", source);
+    }
+
+    public void run(ProcessListener processListener) {
+        new AsyncConanCommand(this, null, processListener).run();
     }
 }

@@ -123,7 +123,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
                 }
             }
         };
-        new ConfigInstall(this.project, processListener, source).run();
+        new ConfigInstall(this.project, source).run(processListener);
     }
 
     private void setConfigInstallRes(String results, boolean isSuccess) {

@@ -10,9 +10,13 @@ import conan.profiles.ConanProfile;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class NewProfile extends AsyncConanCommand {
+public class NewProfile extends ConanCommandBase {
 
-    public NewProfile(Project project, ProcessListener processListener, ConanProfile conanProfile) {
-        super(project, null, processListener, "profile", "new", conanProfile.getName());
+    public NewProfile(Project project, ConanProfile conanProfile) {
+        super(project, "profile", "new", conanProfile.getName());
+    }
+
+    public void run(ProcessListener processListener) {
+        new AsyncConanCommand(this, null, processListener).run();
     }
 }

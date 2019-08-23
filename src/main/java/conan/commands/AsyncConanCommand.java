@@ -15,25 +15,28 @@ import javax.swing.*;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public abstract class AsyncConanCommand extends ConanCommandBase {
+public class AsyncConanCommand implements Runnable {
 
     private AsyncConanTask conanTask;
 
-    AsyncConanCommand(@Nullable Project project, String... args) {
-        this(project, null, null, null, args);
+    AsyncConanCommand(ConanCommandBase conanCommand) {
+        this(conanCommand, null, null, null);
     }
 
-    AsyncConanCommand(@Nullable Project project, ConanProfile conanProfile, CMakeRunner.Listener cmakeListener, String... args) {
-        this(project, conanProfile, cmakeListener, null, args);
+    AsyncConanCommand(ConanCommandBase conanCommand, ConanProfile conanProfile) {
+        this(conanCommand, conanProfile, null, null);
     }
 
-    AsyncConanCommand(@Nullable Project project, ConanProfile conanProfile, ProcessListener processListener, String... args) {
-        this(project, conanProfile, null, processListener, args);
+    AsyncConanCommand(ConanCommandBase conanCommand, ConanProfile conanProfile, CMakeRunner.Listener cmakeListener) {
+        this(conanCommand, conanProfile, cmakeListener, null);
     }
 
-    private AsyncConanCommand(@Nullable Project project, ConanProfile conanProfile, @Nullable CMakeRunner.Listener cmakeListener, @Nullable ProcessListener processListener, String... args) {
-        super(project, args);
-        this.conanTask = new AsyncConanTask(project, conanProfile, cmakeListener, processListener, super.args);
+    AsyncConanCommand(ConanCommandBase conanCommand, ConanProfile conanProfile, ProcessListener processListener) {
+        this(conanCommand, conanProfile, null, processListener);
+    }
+
+    private AsyncConanCommand(ConanCommandBase conanCommand, ConanProfile conanProfile, @Nullable CMakeRunner.Listener cmakeListener, @Nullable ProcessListener processListener) {
+        this.conanTask = new AsyncConanTask(conanCommand.project, conanProfile, cmakeListener, processListener, conanCommand.args);
     }
 
     @Override

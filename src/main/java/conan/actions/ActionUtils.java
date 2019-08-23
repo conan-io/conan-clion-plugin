@@ -48,7 +48,7 @@ class ActionUtils {
             matchProfilesAndInstall(project, component, update);
             return;
         }
-        cMakeProfiles.forEach(cMakeProfile -> new Install(project, cMakeProfile, conanProfile, update).run());
+        cMakeProfiles.forEach(cMakeProfile -> new Install(project, cMakeProfile, conanProfile, update).run(conanProfile));
     }
 
     /**
@@ -67,7 +67,7 @@ class ActionUtils {
         Map<CMakeProfile, ConanProfile> profileMapping = conanProjectSettings.getProfileMapping();
         profileMapping.forEach((cMakeProfile, conanProfile) -> {
             if (StringUtils.isNotBlank(conanProfile.getName())) {
-                new Install(project, cMakeProfile, conanProfile, update).run();
+                new Install(project, cMakeProfile, conanProfile, update).run(conanProfile);
             }
         });
     }
