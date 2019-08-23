@@ -72,11 +72,7 @@ public class CMakeRunnerStepImpl implements CMakeRunnerStep {
                 final HostMachine hostMachine = environment.getHostMachine();
                 final BaseProcessHandler baseProcessHandler;
                 baseProcessHandler = hostMachine.createProcess(commandLine, false, false);
-                Runnable runnable = new Runnable() {
-                    public void run() {
-                        hostMachine.killProcessTree(baseProcessHandler);
-                    }
-                };
+                Runnable runnable = () -> hostMachine.killProcessTree(baseProcessHandler);
                 ShutDownTracker.getInstance().registerShutdownTask(runnable);
 
                 try {
