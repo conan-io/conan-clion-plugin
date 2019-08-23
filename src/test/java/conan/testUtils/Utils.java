@@ -64,8 +64,8 @@ public class Utils {
         Assert.assertEquals(Sets.newHashSet(conanProfiles), expectedProfiles);
     }
 
-    public static void configInstall(Project project, String location) {
-        AsyncConanCommand configInstall = new ConfigInstall(project, new ProcessAdapter(){}, location);
+    public static void configInstall(Project project, String source) {
+        AsyncConanCommand configInstall = new ConfigInstall(project, new ProcessAdapter(){}, source);
         Utils.runConanCommand(configInstall);
     }
 

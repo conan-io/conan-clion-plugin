@@ -31,7 +31,7 @@ import java.awt.*;
 import java.io.File;
 
 import static conan.persistency.Keys.CONFIG_CONAN_EXE_PATH;
-import static conan.persistency.Keys.CONFIG_INSTALL_LOCATION;
+import static conan.persistency.Keys.CONFIG_INSTALL_SOURCE;
 
 /**
  * Represents the Conan settings form.
@@ -44,7 +44,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     private Project project;
     private JPanel rootPanel;
 
-    private JBTextField configInstallLocation;
+    private JBTextField configInstallSource;
     private JButton installConfigButton;
     private JLabel configInstallRes;
     private JBTextField installArgs;
@@ -73,19 +73,19 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     @Override
     public JComponent createComponent() {
         installConfigButton.addActionListener(actionEvent -> {
-            String location = configInstallLocation.getText();
-            if (StringUtils.isBlank(location)) {
-                location = PersistencyUtils.getValue(CONFIG_INSTALL_LOCATION);
+            String source = configInstallSource.getText();
+            if (StringUtils.isBlank(source)) {
+                source = PersistencyUtils.getValue(CONFIG_INSTALL_SOURCE);
             }
-            PersistencyUtils.setValue(CONFIG_INSTALL_LOCATION, location);
+            PersistencyUtils.setValue(CONFIG_INSTALL_SOURCE, source);
 
-            if (!(Utils.validateUrl(location) || new File(location).exists())) {
+            if (!(Utils.validateUrl(source) || new File(source).exists())) {
                 setConfigInstallRes("Invalid URL or path", false);
                 return;
             }
-            runConfigInstall(location);
+            runConfigInstall(source);
         });
-        configInstallLocation.getEmptyText().setText("Git repository, local folder or ZIP file (local or http)");
+        configInstallSource.getEmptyText().setText("Git repository, local folder or ZIP file (local or http)");
         installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
         String envExePath = System.getenv("CONAN_EXE_PATH");
         if( envExePath != null) {
@@ -108,9 +108,9 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     /**
      * Run {@link ConfigInstall}.
      *
-     * @param location the location of the Conan configuration.
+     * @param source the source of the Conan configuration.
      */
-    private void runConfigInstall(String location) {
+    private void runConfigInstall(String source) {
         OutputListener processListener = new OutputListener() {
             @Override
             public void processTerminated(@NotNull ProcessEvent processEvent) {
@@ -123,7 +123,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
                 }
             }
         };
-        new ConfigInstall(this.project, processListener, location).run();
+        new ConfigInstall(this.project, processListener, source).run();
     }
 
     private void setConfigInstallRes(String results, boolean isSuccess) {
@@ -138,7 +138,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
 
     @Override
     public void reset() {
-        configInstallLocation.setText(PersistencyUtils.getValue(CONFIG_INSTALL_LOCATION));
+        configInstallSource.setText(PersistencyUtils.getValue(CONFIG_INSTALL_SOURCE));
         if (!project.isDefault()) {
             installArgs.setText(ConanProjectSettings.getInstance(project).getInstallArgs());
             conanPath.setText(ConanProjectSettings.getInstance(project).getConanPath());
@@ -147,7 +147,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
 
     @Override
     public void apply() {
-        PersistencyUtils.setValue(CONFIG_INSTALL_LOCATION, configInstallLocation.getText());
+        PersistencyUtils.setValue(CONFIG_INSTALL_SOURCE, configInstallSource.getText());
         PersistencyUtils.setValue(CONFIG_CONAN_EXE_PATH, conanPath.getText());
         if (!project.isDefault()) {
             ConanProjectSettings.getInstance(project).setInstallArgs(installArgs.getText());
@@ -173,12 +173,12 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
         rootPanel = new JPanel();
         rootPanel.setLayout(new GridLayoutManager(4, 4, new Insets(0, 0, 0, 0), -1, -1));
         final JLabel label1 = new JLabel();
-        label1.setText("Config install location");
+        label1.setText("Config install source");
         rootPanel.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         rootPanel.add(spacer1, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        configInstallLocation = new JBTextField();
-        rootPanel.add(configInstallLocation, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        configInstallSource = new JBTextField();
+        rootPanel.add(configInstallSource, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         installConfigButton = new JButton();
         installConfigButton.setText("Install");
         rootPanel.add(installConfigButton, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
