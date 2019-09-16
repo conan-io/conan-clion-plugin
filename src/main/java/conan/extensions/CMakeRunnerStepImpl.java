@@ -12,6 +12,7 @@ import conan.profiles.ConanProfile;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,6 +39,8 @@ public class CMakeRunnerStepImpl implements CMakeRunnerStep {
         if (StringUtils.isNotBlank(conanProfile.getName())) {
             new Install(project, parameters.getListener(), cmakeProfile, conanProfile, false).run();
         }
+        List<String> cmake_parameters = parameters.getParameters();
+        cmake_parameters.add("-DCMAKE_MODULE_PATH=" + parameters.getOutputDir());
     }
 
     /**
