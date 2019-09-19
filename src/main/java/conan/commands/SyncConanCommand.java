@@ -2,7 +2,6 @@ package conan.commands;
 
 import com.intellij.execution.process.ProcessListener;
 import com.intellij.openapi.progress.ProgressManager;
-import com.intellij.openapi.project.Project;
 import conan.commands.task.SyncConanTask;
 import org.jetbrains.annotations.Nullable;
 

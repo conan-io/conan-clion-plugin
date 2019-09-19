@@ -2,7 +2,6 @@ package conan.commands;
 
 import com.intellij.execution.process.ProcessListener;
 import com.intellij.openapi.progress.ProgressManager;
-import com.intellij.openapi.project.Project;
 import com.jetbrains.cidr.cpp.cmake.CMakeRunner;
 import conan.commands.task.AsyncConanTask;
 import conan.profiles.ConanProfile;

@@ -1,4 +1,4 @@
-package conan.commands.listProfiles;
+package conan.commands.process_adapters;
 
 import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.execution.process.ProcessEvent;
@@ -12,15 +12,13 @@ import java.util.List;
 
 /**
  * Populate the list of {@link ConanProfile}.
- *
- * Created by Yahav Itzhak on Feb 2018.
  */
-public class GetConanProfilesProcessListener extends ProcessAdapter {
+public class ProfileListProcessAdapter extends ProcessAdapter {
 
     private static final String NO_PROFILES_STR = "No profiles defined";
     private List<ConanProfile> profiles;
 
-    public GetConanProfilesProcessListener(List<ConanProfile> profiles) {
+    public ProfileListProcessAdapter(List<ConanProfile> profiles) {
         this.profiles = profiles;
     }
 

@@ -8,14 +8,13 @@ import com.intellij.openapi.progress.DumbProgressIndicator;
 import com.intellij.openapi.project.Project;
 import conan.commands.*;
 import conan.commands.listProfiles.GetConanProfiles;
-import conan.commands.listProfiles.GetConanProfilesProcessListener;
+import conan.commands.process_adapters.ProfileListProcessAdapter;
 import conan.commands.task.AsyncConanTask;
 import conan.commands.task.SyncConanTask;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
 import org.testng.Assert;
 
-import javax.rmi.CORBA.Util;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
@@ -71,7 +70,7 @@ public class Utils {
         Utils.runConanCommand(syncCommand);
 
         ConanCommandBase getConanProfiles = new GetConanProfiles(project);
-        SyncConanCommand syncConanCommand = new SyncConanCommand(getConanProfiles, new GetConanProfilesProcessListener(conanProfiles));
+        SyncConanCommand syncConanCommand = new SyncConanCommand(getConanProfiles, new ProfileListProcessAdapter(conanProfiles));
         Utils.runConanCommand(syncConanCommand);
 
         Assert.assertEquals(Sets.newHashSet(conanProfiles), expectedProfiles);

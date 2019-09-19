@@ -3,6 +3,7 @@ package conan.commands.listProfiles;
 import com.intellij.openapi.project.Project;
 import conan.commands.ConanCommandBase;
 import conan.commands.SyncConanCommand;
+import conan.commands.process_adapters.ProfileListProcessAdapter;
 import conan.profiles.ConanProfile;
 
 import java.util.List;
@@ -20,6 +21,6 @@ public class GetConanProfiles extends ConanCommandBase {
     }
 
     public void run(List<ConanProfile> profiles) {
-        new SyncConanCommand(this, new GetConanProfilesProcessListener(profiles)).run();
+        new SyncConanCommand(this, new ProfileListProcessAdapter(profiles)).run();
     }
 }
