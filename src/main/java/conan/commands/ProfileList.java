@@ -1,4 +1,4 @@
-package conan.commands.listProfiles;
+package conan.commands;
 
 import com.intellij.openapi.project.Project;
 import conan.commands.ConanCommandBase;
@@ -14,9 +14,9 @@ import java.util.List;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class GetConanProfiles extends ConanCommandBase {
+public class ProfileList extends ConanCommandBase {
 
-    public GetConanProfiles(Project project) {
+    public ProfileList(Project project) {
         super(project, "profile", "list");
     }
 

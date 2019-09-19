@@ -7,7 +7,7 @@ import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.openapi.progress.DumbProgressIndicator;
 import com.intellij.openapi.project.Project;
 import conan.commands.*;
-import conan.commands.listProfiles.GetConanProfiles;
+import conan.commands.ProfileList;
 import conan.commands.process_adapters.ProfileListProcessAdapter;
 import conan.commands.task.AsyncConanTask;
 import conan.commands.task.SyncConanTask;
@@ -69,7 +69,7 @@ public class Utils {
         SyncConanCommand syncCommand = new SyncConanCommand(config, new ProcessAdapter(){});
         Utils.runConanCommand(syncCommand);
 
-        ConanCommandBase getConanProfiles = new GetConanProfiles(project);
+        ConanCommandBase getConanProfiles = new ProfileList(project);
         SyncConanCommand syncConanCommand = new SyncConanCommand(getConanProfiles, new ProfileListProcessAdapter(conanProfiles));
         Utils.runConanCommand(syncConanCommand);
 
