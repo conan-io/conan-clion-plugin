@@ -8,8 +8,12 @@ import com.intellij.openapi.project.Project;
  * <p>
  * Created by Yahav Itzhak on Jan 2019.
  */
-public class Version extends SyncConanCommand {
+public class Version extends ConanCommandBase {
     public Version(Project project) {
-        super(project, null, "-v");
+        super(project, "-v");
+    }
+
+    public void run() {
+        new SyncConanCommand(this, null).run();
     }
 }

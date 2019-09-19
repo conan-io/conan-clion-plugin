@@ -17,13 +17,16 @@ import static conan.utils.Utils.log;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-abstract class ConanCommandBase implements Runnable {
+public class ConanCommandBase {
 
     private static final Logger logger = Logger.getInstance(ConanCommandBase.class);
 
+    Project project;
     GeneralCommandLine args;
 
-    ConanCommandBase(Project project, String... args) {
+    protected ConanCommandBase(Project project, String... args) {
+        this.project = project;
+
         ConanProjectSettings conanProjectSettings = ConanProjectSettings.getInstance(project);
         String envExePath = System.getenv("CONAN_EXE_PATH");
         if(envExePath != null){

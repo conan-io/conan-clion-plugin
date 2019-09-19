@@ -15,12 +15,12 @@ import java.util.List;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-class GetConanProfilesProcessListener extends ProcessAdapter {
+public class GetConanProfilesProcessListener extends ProcessAdapter {
 
     private static final String NO_PROFILES_STR = "No profiles defined";
     private List<ConanProfile> profiles;
 
-    GetConanProfilesProcessListener(List<ConanProfile> profiles) {
+    public GetConanProfilesProcessListener(List<ConanProfile> profiles) {
         this.profiles = profiles;
     }
 

@@ -9,9 +9,13 @@ import com.intellij.openapi.project.Project;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class Search extends AsyncConanCommand {
+public class Search extends ConanCommandBase {
 
-    public Search(Project project, ProcessListener processListener) {
-        super(project, null, processListener, "search", "--raw");
+    public Search(Project project) {
+        super(project, "search", "--raw");
+    }
+
+    public void run(ProcessListener processListener) {
+        new AsyncConanCommand(this, null, processListener).run();
     }
 }

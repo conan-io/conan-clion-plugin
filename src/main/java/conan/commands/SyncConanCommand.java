@@ -13,15 +13,15 @@ import javax.swing.*;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public abstract class SyncConanCommand extends ConanCommandBase {
+public class SyncConanCommand implements Runnable {
 
     private SyncConanTask conanTask;
 
-    protected SyncConanCommand(Project project, @Nullable ProcessListener processListener, String... args) {
-        super(project, args);
-        conanTask = new SyncConanTask(project, processListener, super.args);
+    public SyncConanCommand(ConanCommandBase conanCommand, @Nullable ProcessListener processListener) {
+        conanTask = new SyncConanTask(conanCommand.project, processListener, conanCommand.args);
     }
 
+    @Override
     public void run() {
         // The progress manager is only good for foreground threads.
         if (SwingUtilities.isEventDispatchThread()) {

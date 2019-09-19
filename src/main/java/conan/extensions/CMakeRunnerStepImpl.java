@@ -36,7 +36,7 @@ public class CMakeRunnerStepImpl implements CMakeRunnerStep {
         }
         ConanProfile conanProfile = profileMatching.get(cmakeProfile);
         if (StringUtils.isNotBlank(conanProfile.getName())) {
-            new Install(project, parameters.getListener(), cmakeProfile, conanProfile, false).run();
+            new Install(project, cmakeProfile, conanProfile, false).run(parameters.getListener(), conanProfile);
         }
     }
 

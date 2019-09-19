@@ -20,19 +20,10 @@ import java.util.Arrays;
  * <p>
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class Install extends AsyncConanCommand {
+public class Install extends ConanCommandBase {
 
     public Install(Project project, CMakeProfile cMakeProfile, ConanProfile conanProfile, boolean update) {
-        this(project, (ProcessListener) null, cMakeProfile, conanProfile, update);
-    }
-
-    public Install(Project project, ProcessListener processListener, CMakeProfile cMakeProfile, ConanProfile conanProfile, boolean update) {
-        super(project, conanProfile, processListener, "install", project.getBasePath(), "-if=" + cMakeProfile.getTargetDir(), "-pr=" + conanProfile.getName());
-        addArguments(project, update);
-    }
-
-    public Install(Project project, CMakeRunner.Listener listener, CMakeProfile cMakeProfile, ConanProfile conanProfile, boolean update) {
-        super(project, conanProfile, listener, "install", project.getBasePath(), "-if=" + cMakeProfile.getTargetDir(), "-pr=" + conanProfile.getName());
+        super(project, "install", project.getBasePath(), "-if=" + cMakeProfile.getTargetDir(), "-pr=" + conanProfile.getName());
         addArguments(project, update);
     }
 
@@ -45,5 +36,17 @@ public class Install extends AsyncConanCommand {
         if (ArrayUtils.isNotEmpty(tokens)) {
             Arrays.stream(tokens).forEach(super::addParameter);
         }
+    }
+
+    public void run(ProcessListener processListener, ConanProfile conanProfile) {
+        new AsyncConanCommand(this, conanProfile, processListener).run();
+    }
+
+    public void run(CMakeRunner.Listener listener, ConanProfile conanProfile) {
+        new AsyncConanCommand(this, conanProfile, listener).run();
+    }
+
+    public void run(ConanProfile conanProfile) {
+        new AsyncConanCommand(this, conanProfile).run();
     }
 }
