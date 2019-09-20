@@ -4,12 +4,11 @@ import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.execution.process.ProcessEvent;
 import com.intellij.execution.process.ProcessOutputType;
 import com.intellij.openapi.util.Key;
-import conan.profiles.ConanProfile;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Populate the list of {@link ConanProfile}.
+ * Return Conan Version
  */
 public class VersionProcessAdapter extends ProcessAdapter {
 
@@ -26,7 +25,7 @@ public class VersionProcessAdapter extends ProcessAdapter {
         if (processOutputType.isStdout() && !StringUtils.isBlank(version)) {
             this.conanVersion = version;
         }
-
+        // TODO: Actual parse of the version string
     }
 
 }
