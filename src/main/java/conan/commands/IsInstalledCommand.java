@@ -13,45 +13,30 @@ import static conan.utils.Utils.log;
 
 /**
  * Check if Conan installed and the project contains conanfile.txt file.
- *
- * Created by Yahav Itzhak on Feb 2018.
  */
-public class IsInstalledCommand implements Runnable {
+public class IsInstalledCommand {
 
     private static final Logger logger = Logger.getInstance(IsInstalledCommand.class);
-    private boolean isInstalled;
-    private ConanCommandBase conanCommand;
-
-    public IsInstalledCommand(Project project) {
-        this.conanCommand = new ConanCommandBase(project);
-    }
-
-    @Override
-    public void run() {
-        if (!isConanInstalled()) {
-            log(logger, "Conan is not installed", "", NotificationType.INFORMATION);
-            return;
-        }
-        isInstalled = true;
-    }
 
     /**
      * Return true iff Conan executable exists in env path.
      * @return true iff Conan executable exists in env path.
      */
-    private boolean isConanInstalled() {
+    public static boolean isInstalled(Project project) {
+        ConanCommandBase command = new ConanCommandBase(project);
+
         ProcessHandler processHandler;
         try {
-            processHandler = new OSProcessHandler(this.conanCommand.args);
+            processHandler = new OSProcessHandler(command.args);
             processHandler.startNotify();
-            return processHandler.waitFor();
+            boolean ret = processHandler.waitFor();
+            if (!ret) {
+                log(logger, "Conan is not installed", "", NotificationType.INFORMATION);
+            }
+            return ret;
         } catch (ExecutionException e) {
             log(logger, e.getMessage(), Arrays.toString(e.getStackTrace()), NotificationType.INFORMATION);
             return false;
         }
-    }
-
-    public boolean isInstalled() {
-        return isInstalled;
     }
 }
