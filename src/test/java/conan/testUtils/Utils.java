@@ -16,9 +16,7 @@ public class Utils {
         return tempDir;
     }
 
-
     public static Set<ConanProfile> createProfilesWithNames(HashSet<String> names) {
         return names.parallelStream().map(ConanProfile::new).collect(Collectors.toSet());
     }
-
 }
