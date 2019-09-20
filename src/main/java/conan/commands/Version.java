@@ -13,7 +13,4 @@ public class Version extends ConanCommandBase {
         super(project, "-v");
     }
 
-    public void run() {
-        new SyncConanCommand(this, null).run();
-    }
 }

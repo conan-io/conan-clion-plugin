@@ -1,6 +1,5 @@
 package conan.commands;
 
-import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.openapi.project.Project;
 
 /**
@@ -10,11 +9,7 @@ import com.intellij.openapi.project.Project;
  * Created by Yahav Itzhak on Feb 2018.
  */
 public class Config extends ConanCommandBase {
-    public Config(Project p) {
-        super(p, "config");
-    }
-
-    public void run() {
-        new SyncConanCommand(this, new ProcessAdapter(){}).run();
+    public Config(Project project) {
+        super(project, "config");
     }
 }

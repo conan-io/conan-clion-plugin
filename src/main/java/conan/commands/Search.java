@@ -1,6 +1,5 @@
 package conan.commands;
 
-import com.intellij.execution.process.ProcessListener;
 import com.intellij.openapi.project.Project;
 
 /**
@@ -15,7 +14,5 @@ public class Search extends ConanCommandBase {
         super(project, "search", "--raw");
     }
 
-    public void run(ProcessListener processListener) {
-        new AsyncConanCommand(this, null, processListener).run();
-    }
+
 }

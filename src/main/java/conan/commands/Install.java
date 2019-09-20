@@ -1,8 +1,6 @@
 package conan.commands;
 
-import com.intellij.execution.process.ProcessListener;
 import com.intellij.openapi.project.Project;
-import com.jetbrains.cidr.cpp.cmake.CMakeRunner;
 import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
@@ -38,15 +36,4 @@ public class Install extends ConanCommandBase {
         }
     }
 
-    public void run(ProcessListener processListener, ConanProfile conanProfile) {
-        new AsyncConanCommand(this, conanProfile, processListener).run();
-    }
-
-    public void run(CMakeRunner.Listener listener, ConanProfile conanProfile) {
-        new AsyncConanCommand(this, conanProfile, listener).run();
-    }
-
-    public void run(ConanProfile conanProfile) {
-        new AsyncConanCommand(this, conanProfile).run();
-    }
 }
