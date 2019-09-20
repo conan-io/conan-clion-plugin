@@ -10,8 +10,8 @@ import com.intellij.openapi.project.Project;
  * Created by Yahav Itzhak on Feb 2018.
  */
 public class Config extends ConanCommandBase {
-    public Config(Project p) {
-        super(p, "config");
+    public Config(Project project) {
+        super(project, "config");
     }
 
     public void run() {
