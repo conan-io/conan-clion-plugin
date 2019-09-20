@@ -2,6 +2,7 @@ package conan.commands;
 
 import com.google.common.collect.Lists;
 import com.intellij.execution.configurations.GeneralCommandLine;
+import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.execution.process.ProcessListener;
 import com.intellij.notification.NotificationType;
 import com.intellij.openapi.diagnostic.Logger;
@@ -60,13 +61,16 @@ public class ConanCommandBase {
         args.addParameter(arg);
     }
 
-    public void run_async(ConanCommandBase conanCommand, ConanProfile conanProfile, @Nullable CMakeRunner.Listener cmakeListener, @Nullable ProcessListener processListener) {
-        AsyncConanTask task = new AsyncConanTask(conanCommand.project, conanProfile, cmakeListener, processListener, conanCommand.args);
+    public void run_async(ConanProfile conanProfile, @Nullable CMakeRunner.Listener cmakeListener, @Nullable ProcessListener processListener) {
+        AsyncConanTask task = new AsyncConanTask(this.project, conanProfile, cmakeListener, processListener, this.args);
         this.run(task);
     }
 
-    public void run_sync(ConanCommandBase conanCommand, @Nullable ProcessListener processListener) {
-        SyncConanTask task = new SyncConanTask(conanCommand.project, processListener, conanCommand.args);
+    public void run_sync(@Nullable ProcessListener processListener) {
+        if (processListener == null) {
+            processListener = new ProcessAdapter() {};
+        }
+        SyncConanTask task = new SyncConanTask(this.project, processListener, this.args);
         this.run(task);
     }
 
