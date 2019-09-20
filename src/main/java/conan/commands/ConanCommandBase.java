@@ -74,7 +74,7 @@ public class ConanCommandBase {
         this.run(task);
     }
 
-    private void run(Task task) {
+    public void run(Task task) {
         // The progress manager is only good for foreground threads.
         if (SwingUtilities.isEventDispatchThread()) {
             ProgressManager.getInstance().run(task);

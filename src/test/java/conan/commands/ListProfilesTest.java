@@ -1,14 +1,16 @@
 package conan.commands;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.intellij.execution.process.ProcessAdapter;
 import conan.profiles.ConanProfile;
+import conan.testUtils.OpenSSLProjectImpl;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static conan.testUtils.Utils.createProfiles;
-import static conan.testUtils.Utils.verifyProfiles;
 
 @Test
 public class ListProfilesTest extends ConanCommandTestBase {
@@ -18,10 +20,28 @@ public class ListProfilesTest extends ConanCommandTestBase {
             .map(ConanProfile::new)
             .collect(Collectors.toSet());
 
+    private void verifyProfiles(Set<ConanProfile> expectedProfiles) {
+        List<ConanProfile> conanProfiles = Lists.newArrayList();
+
+        // Prevents "Remotes registry file missing" message
+        ConanCommandBase config = mockedComamnd(new Config(project));
+        config.run_sync(new ProcessAdapter() {});
+
+        ProfileList profileList = mockedComamnd(new ProfileList(project));
+        profileList.run_sync(conanProfiles);
+
+        Assert.assertEquals(Sets.newHashSet(conanProfiles), expectedProfiles);
+    }
+
     @Test
     public void testListProfiles() {
-        verifyProfiles(Sets.newHashSet(), project);
-        createProfiles(TEST_PROFILES);
-        verifyProfiles(TEST_PROFILES, project);
+        this.verifyProfiles(Sets.newHashSet());
+
+        TEST_PROFILES.forEach(newProfile -> {
+            ConanCommandBase command = this.mockedComamnd(new ProfileNew(new OpenSSLProjectImpl(), newProfile));
+            command.run_async(null, null, new ProcessAdapter(){});
+        });
+
+        this.verifyProfiles(TEST_PROFILES);
     }
 }
