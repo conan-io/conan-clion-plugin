@@ -180,7 +180,7 @@ public class ConanToolWindow implements Disposable {
         return conanPyFile.toFile().exists() || conanTxtFile.toFile().exists();
     }
 
-    private boolean isConanInstalled(Project project) {
+    public static boolean isConanInstalled(Project project) {
         return IsInstalledCommand.isInstalled(project);
     }
 

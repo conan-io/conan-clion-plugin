@@ -22,10 +22,6 @@ import java.util.Map;
  */
 class ActionUtils {
 
-    static boolean isConanInstalled(Project project) {
-        return IsInstalledCommand.isInstalled(project);
-    }
-
     /**
      * Run conan install for the selected Conan profile.
      *
@@ -34,7 +30,7 @@ class ActionUtils {
      * @param update    true if it's update and install action.
      */
     static void runInstall(Project project, Component component, boolean update) {
-        if (!isConanInstalled(project)){
+        if (!ConanToolWindow.isConanInstalled(project)){
             return;
         }
         FileDocumentManager.getInstance().saveAllDocuments();
@@ -57,7 +53,7 @@ class ActionUtils {
      * @param update    true if it's update and install action.
      */
     private static void matchProfilesAndInstall(Project project, Component component, boolean update) {
-        if (!isConanInstalled(project)){
+        if (!ConanToolWindow.isConanInstalled(project)){
             return;
         }
         ProfileMatcher.showDialog(project, component);
