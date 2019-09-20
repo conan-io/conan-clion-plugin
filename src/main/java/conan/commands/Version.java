@@ -13,9 +13,12 @@ public class Version extends ConanCommandBase {
 
     public Version(Project project) {
         super(project, "--version");
+        this.args.withEnvironment("CONAN_COLOR_DISPLAY", "0");
     }
 
-    public void run_sync(String version) {
-        super.run_sync(new VersionProcessAdapter(version));
+    public String run_sync() {
+        VersionProcessAdapter adapter = new VersionProcessAdapter();
+        super.run_sync(adapter);
+        return adapter.conanVersion;
     }
 }

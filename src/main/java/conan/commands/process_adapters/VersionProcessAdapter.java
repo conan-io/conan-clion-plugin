@@ -13,10 +13,9 @@ import org.jetbrains.annotations.NotNull;
  */
 public class VersionProcessAdapter extends ProcessAdapter {
 
-    String conanVersion;
+    public String conanVersion = null;
 
-    public VersionProcessAdapter(String version) {
-        this.conanVersion = version;
+    public VersionProcessAdapter() {
     }
 
     @Override
