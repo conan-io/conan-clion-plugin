@@ -14,7 +14,7 @@ import static conan.testUtils.Consts.OPENSSL_PACKAGES;
 import static conan.testUtils.Utils.*;
 
 @Test
-public class CleanCacheTest extends ConanCommandTestBase {
+public class RemoveAllForceTest extends ConanCommandTestBase {
     private File tempInstallationDir;
 
     @BeforeClass

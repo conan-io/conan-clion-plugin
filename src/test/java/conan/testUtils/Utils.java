@@ -56,7 +56,7 @@ public class Utils {
     }
 
     public static void cleanCache() {
-        ConanCommandBase conanCommandBase = new CleanCache(new OpenSSLProjectImpl());
+        ConanCommandBase conanCommandBase = new RemoveAllForce(new OpenSSLProjectImpl());
         AsyncConanCommand cleanCache = new AsyncConanCommand(conanCommandBase, null, new ProcessAdapter(){});
         Utils.runConanCommand(cleanCache);
     }

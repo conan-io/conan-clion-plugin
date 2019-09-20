@@ -9,8 +9,8 @@ import com.intellij.openapi.project.Project;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class CleanCache extends ConanCommandBase {
-    public CleanCache(Project project) {
+public class RemoveAllForce extends ConanCommandBase {
+    public RemoveAllForce(Project project) {
         super(project, "remove", "*", "-f");
     }
 

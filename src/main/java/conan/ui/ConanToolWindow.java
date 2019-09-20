@@ -39,7 +39,7 @@ import java.util.Map;
 public class ConanToolWindow implements Disposable {
 
     private static final Icon CONAN_ICON = IconLoader.getIcon("/icons/conan.png");
-    private static final String[] CONAN_ACTIONS = {"ReloadProject", "Install", "UpdateAndInstall", "CleanCache", "MatchProfiles", "CleanConsole", "OpenConfig"};
+    private static final String[] CONAN_ACTIONS = {"ReloadProject", "Install", "UpdateAndInstall", "RemoveAllForce", "MatchProfiles", "CleanConsole", "OpenConfig"};
     private ContentManager contentManager;
     private Map<ConanProfile, ConsoleView> conanProfileContexts = Maps.newConcurrentMap();
 

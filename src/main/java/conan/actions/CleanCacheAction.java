@@ -4,6 +4,7 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
+import conan.commands.RemoveAllForce;
 import conan.ui.ConanConfirmDialog;
 
 /**
@@ -24,7 +25,7 @@ public class CleanCacheAction extends AnAction implements DumbAware {
         boolean result = new ConanConfirmDialog("Removing Conan Cache", WIPE_CACHE_CONFIRM_MESSAGE).showAndGet();
         if (result) {
             // user pressed ok
-            new conan.commands.CleanCache(project).run(null);
+            new RemoveAllForce(project).run(null);
         }
     }
 }
