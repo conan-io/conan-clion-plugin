@@ -84,7 +84,7 @@ public class Utils {
 
     public static void createProfiles(Set<ConanProfile> newProfiles) {
         newProfiles.forEach(newProfile -> {
-            ConanCommandBase newProfileCommand = new NewProfile(new OpenSSLProjectImpl(), newProfile);
+            ConanCommandBase newProfileCommand = new ProfileNew(new OpenSSLProjectImpl(), newProfile);
             AsyncConanCommand asyncConanCommand = new AsyncConanCommand(newProfileCommand, null, new ProcessAdapter(){});
             Utils.runConanCommand(asyncConanCommand);
         });

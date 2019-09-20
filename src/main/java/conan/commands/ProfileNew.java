@@ -10,9 +10,9 @@ import conan.profiles.ConanProfile;
  *
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class NewProfile extends ConanCommandBase {
+public class ProfileNew extends ConanCommandBase {
 
-    public NewProfile(Project project, ConanProfile conanProfile) {
+    public ProfileNew(Project project, ConanProfile conanProfile) {
         super(project, "profile", "new", conanProfile.getName());
     }
 
