@@ -1,6 +1,5 @@
 package conan.commands;
 
-import com.intellij.execution.process.ProcessListener;
 import com.intellij.openapi.project.Project;
 
 /**
@@ -15,7 +14,4 @@ public class ConfigInstall extends ConanCommandBase {
         super(project, "config", "install", source);
     }
 
-    public void run(ProcessListener processListener) {
-        new AsyncConanCommand(this, null, processListener).run();
-    }
 }

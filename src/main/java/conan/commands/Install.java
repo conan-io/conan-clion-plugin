@@ -38,15 +38,4 @@ public class Install extends ConanCommandBase {
         }
     }
 
-    public void run(ProcessListener processListener, ConanProfile conanProfile) {
-        new AsyncConanCommand(this, conanProfile, processListener).run();
-    }
-
-    public void run(CMakeRunner.Listener listener, ConanProfile conanProfile) {
-        new AsyncConanCommand(this, conanProfile, listener).run();
-    }
-
-    public void run(ConanProfile conanProfile) {
-        new AsyncConanCommand(this, conanProfile).run();
-    }
 }
