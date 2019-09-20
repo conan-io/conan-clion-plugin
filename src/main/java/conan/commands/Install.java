@@ -1,8 +1,6 @@
 package conan.commands;
 
-import com.intellij.execution.process.ProcessListener;
 import com.intellij.openapi.project.Project;
-import com.jetbrains.cidr.cpp.cmake.CMakeRunner;
 import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;

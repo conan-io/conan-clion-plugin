@@ -1,8 +1,6 @@
 package conan.commands;
 
 import com.intellij.openapi.project.Project;
-import conan.commands.ConanCommandBase;
-import conan.commands.SyncConanCommand;
 import conan.commands.process_adapters.ProfileListProcessAdapter;
 import conan.profiles.ConanProfile;
 
@@ -20,7 +18,8 @@ public class ProfileList extends ConanCommandBase {
         super(project, "profile", "list");
     }
 
-    public void run(List<ConanProfile> profiles) {
-        new SyncConanCommand(this, new ProfileListProcessAdapter(profiles)).run();
+    public void run_sync(List<ConanProfile> profiles) {
+        super.run_sync(new ProfileListProcessAdapter(profiles));
     }
+
 }

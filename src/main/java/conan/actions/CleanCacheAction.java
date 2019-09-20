@@ -25,7 +25,7 @@ public class CleanCacheAction extends AnAction implements DumbAware {
         boolean result = new ConanConfirmDialog("Removing Conan Cache", WIPE_CACHE_CONFIRM_MESSAGE).showAndGet();
         if (result) {
             // user pressed ok
-            new RemoveAllForce(project).run(null);
+            new RemoveAllForce(project).run_async(null, null, null);
         }
     }
 }

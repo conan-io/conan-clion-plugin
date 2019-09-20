@@ -1,6 +1,5 @@
 package conan.commands;
 
-import com.intellij.execution.process.ProcessListener;
 import com.intellij.openapi.project.Project;
 
 /**
@@ -10,13 +9,10 @@ import com.intellij.openapi.project.Project;
  * Created by Yahav Itzhak on Feb 2018.
  */
 public class RemoveAllForce extends ConanCommandBase {
+
     public RemoveAllForce(Project project) {
         super(project, "remove", "*", "-f");
     }
 
-    public void run(ProcessListener processListener) {
-        AsyncConanCommand asyncCommand = new AsyncConanCommand(this, null, processListener);
-        asyncCommand.run();
-    }
 
 }
