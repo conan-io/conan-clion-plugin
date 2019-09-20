@@ -22,10 +22,8 @@ import java.util.Map;
  */
 class ActionUtils {
 
-    static boolean isConanInstalled(Project project){
-        IsInstalledCommand isInstalled = new IsInstalledCommand(project);
-        isInstalled.run();
-        return isInstalled.isInstalled();
+    static boolean isConanInstalled(Project project) {
+        return IsInstalledCommand.isInstalled(project);
     }
 
     /**

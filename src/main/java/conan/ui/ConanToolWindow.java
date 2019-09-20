@@ -181,9 +181,7 @@ public class ConanToolWindow implements Disposable {
     }
 
     private boolean isConanInstalled(Project project) {
-        IsInstalledCommand isInstalled = new IsInstalledCommand(project);
-        isInstalled.run();
-        return isInstalled.isInstalled();
+        return IsInstalledCommand.isInstalled(project);
     }
 
     /**

@@ -9,8 +9,6 @@ public class IsInstalledTest extends ConanCommandTestBase {
 
     @Test
     public void testIsInstalled() {
-        IsInstalledCommand isInstalled = new IsInstalledCommand(new OpenSSLProjectImpl());
-        isInstalled.run();
-        Assert.assertTrue(isInstalled.isInstalled());
+        Assert.assertTrue(IsInstalledCommand.isInstalled(new OpenSSLProjectImpl()));
     }
 }
