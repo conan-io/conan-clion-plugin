@@ -28,10 +28,10 @@ public class CMakeEnvironmentTask {
     public void run(@NotNull CMakeRunnerStep.Parameters parameters) {
         commandLine.withParentEnvironmentType(parameters.isPassSystemEnvironment() ? GeneralCommandLine.ParentEnvironmentType.CONSOLE : GeneralCommandLine.ParentEnvironmentType.NONE);
 
-        Iterator var12 = PredefinedVariables.getIDEVariables().iterator();
-        while(var12.hasNext()) {
-            String var11 = (String)var12.next();
-            commandLine.withEnvironment(var11, "TRUE");
+        Iterator itIDEVariables = PredefinedVariables.getIDEVariables().iterator();
+        while(itIDEVariables.hasNext()) {
+            String variable = (String)itIDEVariables.next();
+            commandLine.withEnvironment(variable, "TRUE");
         }
         commandLine.getEnvironment().putAll(parameters.getAdditionalEnvironment());
         commandLine.setWorkDirectory(parameters.getOutputDir().toFile());
