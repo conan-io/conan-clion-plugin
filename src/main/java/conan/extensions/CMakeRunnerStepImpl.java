@@ -5,6 +5,7 @@ import com.intellij.openapi.util.io.FileUtil;
 import com.jetbrains.cidr.cpp.cmake.CMakeRunnerStep;
 import com.jetbrains.cidr.cpp.cmake.model.CMakeModelConfigurationData;
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace;
+import conan.commands.ConanCommandBase;
 import conan.commands.Install;
 import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
@@ -36,7 +37,8 @@ public class CMakeRunnerStepImpl implements CMakeRunnerStep {
         }
         ConanProfile conanProfile = profileMatching.get(cmakeProfile);
         if (StringUtils.isNotBlank(conanProfile.getName())) {
-            new Install(project, cmakeProfile, conanProfile, false).run_async(conanProfile, parameters.getListener(), null);
+            ConanCommandBase conanCommand = new Install(project, cmakeProfile, conanProfile, false);
+            conanCommand.run_cmake_environment(parameters);
         }
     }
 

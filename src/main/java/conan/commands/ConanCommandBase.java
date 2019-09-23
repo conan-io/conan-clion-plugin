@@ -11,11 +11,14 @@ import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.text.StringUtil;
 import com.jetbrains.cidr.cpp.cmake.CMakeRunner;
+import com.jetbrains.cidr.cpp.cmake.CMakeRunnerStep;
 import conan.commands.task.AsyncConanTask;
+import conan.commands.task.CMakeEnvironmentTask;
 import conan.commands.task.SyncConanTask;
 import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.ConanProfile;
 import conan.utils.Utils;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
@@ -74,6 +77,11 @@ public class ConanCommandBase {
         this.run(task);
     }
 
+    public void run_cmake_environment(@NotNull CMakeRunnerStep.Parameters parameters) {
+        CMakeEnvironmentTask task = new CMakeEnvironmentTask(this.args);
+        task.run(parameters);
+    }
+
     public void run(Task task) {
         // The progress manager is only good for foreground threads.
         if (SwingUtilities.isEventDispatchThread()) {
@@ -82,6 +90,10 @@ public class ConanCommandBase {
             // Run the scan task when the thread is in the foreground.
             SwingUtilities.invokeLater(() -> ProgressManager.getInstance().run(task));
         }
+    }
+
+    public GeneralCommandLine getCommandLine() {
+        return args;
     }
 
 }
