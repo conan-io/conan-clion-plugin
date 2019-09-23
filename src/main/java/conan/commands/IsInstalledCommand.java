@@ -18,6 +18,6 @@ public class IsInstalledCommand {
     public static boolean isInstalled(Project project) {
         Version command = new Version(project);
         String version = command.run_sync();
-        return version != null && !StringUtils.isBlank(version);
+        return !StringUtils.isBlank(version);
     }
 }
