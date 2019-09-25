@@ -116,7 +116,7 @@ def write_changelog(version, prs):
     changelog_node.text = etree.CDATA("""
     <a href="https://github.com/conan-io/conan-clion-plugin/releases/tag/{version}">
         <b>v{version}</b>
-    </a> ({date}})
+    </a> ({date})
     <br>
     <ul>
     {items}
