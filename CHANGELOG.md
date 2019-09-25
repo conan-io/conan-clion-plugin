@@ -4,6 +4,15 @@ These are the changes to each version that has been released
 on the official [Jetbrains marketplace](https://plugins.jetbrains.com/plugin/11956-conan).
 
 
+## 1.2.0
+
+**2019-09-25**
+
+- Background tasks from the Conan window can be canceled ([#60](https://github.com/conan-io/conan-clion-plugin/pull/60))
+- Run Install command in CMake context ([#58](https://github.com/conan-io/conan-clion-plugin/pull/58))
+- Allow a directory as config install source ([#53](https://github.com/conan-io/conan-clion-plugin/pull/53))
+
+
 ## 1.1.2
 
 **2019-08-20**
