@@ -26,16 +26,19 @@ dependencies {
     compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+    testCompile "org.mockito:mockito-core:2.+"
 }
 
 task setupClion() {
-    if (!new File('.gradle/ide').exists()) {
-        download {
-            src 'https://download.jetbrains.com/cpp/CLion-' + clionVersion + '.tar.gz'
-            dest '.gradle/downloads/clion.tar.gz'
-        }
+    if (!new File(intellij.localPath).exists()) {
+        String tarPath = ".gradle/downloads/clion-" + clionVersion + ".tar.gz"
+        if (! new File(tarPath).exists())
+            download {
+                src 'https://download.jetbrains.com/cpp/CLion-' + clionVersion + '.tar.gz'
+                dest tarPath
+            }
         copy {
-            from tarTree(resources.gzip('.gradle/downloads/clion.tar.gz'))
+            from tarTree(resources.gzip(tarPath))
             into '.gradle/ide'
         }
     }

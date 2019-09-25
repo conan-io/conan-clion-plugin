@@ -1,6 +1,7 @@
 package conan.commands;
 
 import com.intellij.openapi.project.Project;
+import conan.commands.process_adapters.VersionProcessAdapter;
 
 /**
  * Print conan version.
@@ -8,8 +9,16 @@ import com.intellij.openapi.project.Project;
  * <p>
  * Created by Yahav Itzhak on Jan 2019.
  */
-public class Version extends SyncConanCommand {
+public class Version extends ConanCommandBase {
+
     public Version(Project project) {
-        super(project, null, "-v");
+        super(project, "--version");
+        this.args.withEnvironment("CONAN_COLOR_DISPLAY", "0");
+    }
+
+    public String run_sync() {
+        VersionProcessAdapter adapter = new VersionProcessAdapter();
+        super.run_sync(adapter);
+        return adapter.conanVersion;
     }
 }

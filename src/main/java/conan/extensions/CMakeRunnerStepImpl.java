@@ -5,6 +5,7 @@ import com.intellij.openapi.util.io.FileUtil;
 import com.jetbrains.cidr.cpp.cmake.CMakeRunnerStep;
 import com.jetbrains.cidr.cpp.cmake.model.CMakeModelConfigurationData;
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace;
+import conan.commands.ConanCommandBase;
 import conan.commands.Install;
 import conan.persistency.settings.ConanProjectSettings;
 import conan.profiles.CMakeProfile;
@@ -36,7 +37,8 @@ public class CMakeRunnerStepImpl implements CMakeRunnerStep {
         }
         ConanProfile conanProfile = profileMatching.get(cmakeProfile);
         if (StringUtils.isNotBlank(conanProfile.getName())) {
-            new Install(project, parameters.getListener(), cmakeProfile, conanProfile, false).run();
+            ConanCommandBase conanCommand = new Install(project, cmakeProfile, conanProfile, false);
+            conanCommand.run_cmake_environment(parameters);
         }
     }
 
@@ -49,8 +51,8 @@ public class CMakeRunnerStepImpl implements CMakeRunnerStep {
     private CMakeProfile getCMakeProfile(@NotNull Project project, @NotNull CMakeRunnerStep.Parameters parameters) {
         CMakeWorkspace ws = CMakeWorkspace.getInstance(project);
         for (CMakeModelConfigurationData data : ws.getModelConfigurationData()) {
-            if (FileUtil.filesEqual(data.getGenerationDir(), parameters.getOutputDir())) {
-                return new CMakeProfile(data.getConfigName(), parameters.getOutputDir());
+            if (FileUtil.filesEqual(data.getGenerationDir(), parameters.getOutputDir().toFile())) {
+                return new CMakeProfile(data.getConfigName(), parameters.getOutputDir().toFile());
             }
         }
         return null;

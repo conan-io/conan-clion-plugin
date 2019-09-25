@@ -3,15 +3,36 @@
     <name>Conan</name>
     <vendor email="https://www.jfrog.com/support-service" url="https://www.jfrog.com">JFrog</vendor>
 
-    <description>
-        The Conan Plugin for CLion allows configuring and building projects in CLion using the Conan package manager.
-    </description>
+    <description><![CDATA[
+        <a href="https://conan.io/">Conan</a> package manager integration with CLion.
+        <br>
+        <br>
+        Features:
+        <ul>
+            <li>Install dependencies for your project</li>
+            <li>Match Conan profiles with CMake ones</li>
+            <li>Automatically run before CMake generation</li>
+        </ul>
+        Links: <a href="https://blog.jetbrains.com/clion/2019/05/getting-started-with-the-conan-clion-plugin/">Getting started</a>
+        | <a href="https://github.com/conan-io/conan-clion-plugin/issues">Issue tracker</a>
+        <br>
+    ]]></description>
 
     <change-notes><![CDATA[
- - Add Conan logo as plugin icon (<a href="https://github.com/conan-io/conan-clion-plugin/pull/43">#43</a>)
- - Improve CI. Deploy new releases from tags using Travis (<a href="https://github.com/conan-io/conan-clion-plugin/pull/41">#41</a>)
- - Differentiate unsupported project messages (<a href="https://github.com/conan-io/conan-clion-plugin/pull/21">#21</a>)
-]]></change-notes>
+    <a href="https://github.com/conan-io/conan-clion-plugin/releases/tag/1.2.0">
+        <b>v1.2.0</b>
+    </a> (2019-09-25)
+    <br>
+    <ul>
+    <li>Background tasks from the Conan window can be canceled (<a href="https://github.com/conan-io/conan-clion-plugin/pull/60">#60</a>)</li>
+<li>Run Install command in CMake context (<a href="https://github.com/conan-io/conan-clion-plugin/pull/58">#58</a>)</li>
+<li>Allow a directory as config install source (<a href="https://github.com/conan-io/conan-clion-plugin/pull/53">#53</a>)</li>
+    </ul>
+    <br>
+    <a href="https://github.com/conan-io/conan-clion-plugin/releases">
+        <b>Full Changelog</b>
+    </a>
+    ]]></change-notes>
 
     <idea-version since-build="180"/>
 

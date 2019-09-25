@@ -83,6 +83,8 @@ def write_changelog(version, prs):
         sys.stdout.write("Exit!")
         sys.exit(1)
 
+    version_date = date.today().strftime('%Y-%m-%d')
+
     # Write to CHANGELOG.md
     new_content = []
     changelog_found = False
@@ -97,7 +99,7 @@ def write_changelog(version, prs):
             if version_pattern.match(line):
                 # Add before new content
                 new_content.append("## {}\n\n".format(version))
-                new_content.append("**{}**\n\n".format(date.today().strftime('%Y-%m-%d')))
+                new_content.append("**{}**\n\n".format(version_date))
                 new_content += version_content
                 new_content.append("\n\n")
                 changelog_added = True
@@ -110,8 +112,20 @@ def write_changelog(version, prs):
     parser = etree.XMLParser(strip_cdata=False)
     tree = etree.parse(plugin_xml, parser)
     changelog_node = tree.find('change-notes')
-    clog_cdata = [' - {} (<a href="{}">#{}</a>)'.format(pr.title, pr.html_url, pr.number) for pr in prs]
-    changelog_node.text = etree.CDATA("\n{}\n".format('\n'.join(clog_cdata)))
+    clog_cdata = ['<li>{} (<a href="{}">#{}</a>)</li>'.format(pr.title, pr.html_url, pr.number) for pr in prs]
+    changelog_node.text = etree.CDATA("""
+    <a href="https://github.com/conan-io/conan-clion-plugin/releases/tag/{version}">
+        <b>v{version}</b>
+    </a> ({date})
+    <br>
+    <ul>
+    {items}
+    </ul>
+    <br>
+    <a href="https://github.com/conan-io/conan-clion-plugin/releases">
+        <b>Full Changelog</b>
+    </a>
+    """.format(items='\n'.join(clog_cdata), version=version, date=version_date))
     tree.write(plugin_xml)
 
 

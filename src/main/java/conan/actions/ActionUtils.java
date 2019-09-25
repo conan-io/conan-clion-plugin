@@ -22,12 +22,6 @@ import java.util.Map;
  */
 class ActionUtils {
 
-    static boolean isConanInstalled(Project project){
-        IsInstalledCommand isInstalled = new IsInstalledCommand(project);
-        isInstalled.run();
-        return isInstalled.isInstalled();
-    }
-
     /**
      * Run conan install for the selected Conan profile.
      *
@@ -36,7 +30,7 @@ class ActionUtils {
      * @param update    true if it's update and install action.
      */
     static void runInstall(Project project, Component component, boolean update) {
-        if (!isConanInstalled(project)){
+        if (!ConanToolWindow.isConanInstalled(project)){
             return;
         }
         FileDocumentManager.getInstance().saveAllDocuments();
@@ -48,7 +42,7 @@ class ActionUtils {
             matchProfilesAndInstall(project, component, update);
             return;
         }
-        cMakeProfiles.forEach(cMakeProfile -> new Install(project, cMakeProfile, conanProfile, update).run());
+        cMakeProfiles.forEach(cMakeProfile -> new Install(project, cMakeProfile, conanProfile, update).run_async(conanProfile, null, null));
     }
 
     /**
@@ -59,7 +53,7 @@ class ActionUtils {
      * @param update    true if it's update and install action.
      */
     private static void matchProfilesAndInstall(Project project, Component component, boolean update) {
-        if (!isConanInstalled(project)){
+        if (!ConanToolWindow.isConanInstalled(project)){
             return;
         }
         ProfileMatcher.showDialog(project, component);
@@ -67,7 +61,7 @@ class ActionUtils {
         Map<CMakeProfile, ConanProfile> profileMapping = conanProjectSettings.getProfileMapping();
         profileMapping.forEach((cMakeProfile, conanProfile) -> {
             if (StringUtils.isNotBlank(conanProfile.getName())) {
-                new Install(project, cMakeProfile, conanProfile, update).run();
+                new Install(project, cMakeProfile, conanProfile, update).run_async(conanProfile, null, null);
             }
         });
     }

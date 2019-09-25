@@ -11,12 +11,12 @@ import org.testng.Assert;
 
 import java.util.Set;
 
-class ConanPackagesVerifier extends ProcessAdapter {
+public class ConanPackagesVerifier extends ProcessAdapter {
 
     private final Set<String> expectedPackages;
     private Set<String> conanPackages = Sets.newHashSet();
 
-    ConanPackagesVerifier(Set<String> expectedPackages) {
+    public ConanPackagesVerifier(Set<String> expectedPackages) {
         this.expectedPackages = expectedPackages;
     }
 
