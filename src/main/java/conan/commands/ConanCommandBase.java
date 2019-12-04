@@ -38,25 +38,31 @@ public class ConanCommandBase {
     Project project;
     GeneralCommandLine args;
 
-    protected ConanCommandBase(Project project, String... args) {
+    protected ConanCommandBase(String conanPath, Project project, String... args) {
         this.project = project;
-
-        ConanProjectSettings conanProjectSettings = ConanProjectSettings.getInstance(project);
-        String envExePath = System.getenv("CONAN_EXE_PATH");
-        if(envExePath != null){
-            log(logger, "Conan at: ", envExePath, NotificationType.INFORMATION);
-            this.args = new GeneralCommandLine(Lists.asList(envExePath, args));
-        }
-        else {
-            String configPath = conanProjectSettings.getConanPath();
-            String conanExe = StringUtil.isEmpty(configPath) ? "conan" : configPath;
-            log(logger, "Conan at: ", conanExe, NotificationType.INFORMATION);
-            this.args = new GeneralCommandLine(Lists.asList(conanExe, args));
-        }
+        log(logger, "Conan at: ", conanPath, NotificationType.INFORMATION);
+        this.args = new GeneralCommandLine(Lists.asList(conanPath, args));
         this.args.setWorkDirectory(project.getBaseDir().getCanonicalPath());
         String conanHome = Utils.getConanHomeEnv();
         if (conanHome != null) {
             this.args.withEnvironment(CONAN_HOME_ENV, conanHome);
+        }
+    }
+
+    protected ConanCommandBase(Project project, String... args) {
+        this(guessConanPath(project), project, args);
+    }
+
+    private static String guessConanPath(Project project) {
+        ConanProjectSettings conanProjectSettings = ConanProjectSettings.getInstance(project);
+        String envExePath = System.getenv("CONAN_EXE_PATH");
+        if(envExePath != null){
+            return envExePath;
+        }
+        else {
+            String configPath = conanProjectSettings.getConanPath();
+            String conanExe = StringUtil.isEmpty(configPath) ? "conan" : configPath;
+            return conanExe;
         }
     }
 
