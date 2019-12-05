@@ -40,7 +40,7 @@ import static conan.persistency.Keys.CONFIG_INSTALL_SOURCE;
  * <p>
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class ConanConfig implements Configurable, Configurable.NoScroll {
+public class ConanConfig implements Configurable {
 
     private static final Logger logger = Logger.getInstance(ConanConfig.class);
 
@@ -103,7 +103,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
         if( envExePath != null) {
             conanPath.setText(envExePath);
         }
-        conanPath.setToolTipText("Path to the Conan executable, by default it will search in the path");
+        conanPath.setToolTipText("Path to the Conan executable (default: 'conan' into PATH)");
         conanPath.addActionListener(actionEvent -> {
             final FileChooserDescriptor d = FileChooserDescriptorFactory.createSingleFileDescriptor();
             VirtualFile initialFile = StringUtil.isNotEmpty(conanPath.getText()) ? LocalFileSystem.getInstance().findFileByPath(conanPath.getText()) : null;
