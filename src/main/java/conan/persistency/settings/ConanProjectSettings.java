@@ -8,6 +8,8 @@ import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,8 +21,10 @@ import java.util.Map;
 public class ConanProjectSettings implements PersistentStateComponent<ConanProjectSettings> {
 
     private Map<CMakeProfile, ConanProfile> profileMapping = Maps.newHashMap();
-    private String installArgs;
     private String conanPath;
+    private boolean installUpdate;
+    private String installBuildPolicy;
+    public static List<String> buildPolicies = Arrays.asList("missing", "always", "cascade", "outdated", "never");
 
     public static ConanProjectSettings getInstance(Project project) {
         return ServiceManager.getService(project, ConanProjectSettings.class);
@@ -45,18 +49,43 @@ public class ConanProjectSettings implements PersistentStateComponent<ConanProje
     }
 
     public String getInstallArgs() {
+        String installArgs = "--build";
+        if (installBuildPolicy != "always") {
+            installArgs += "=" + installBuildPolicy;
+        }
+        if (installUpdate) {
+            installArgs += " --update";
+        }
         return installArgs;
+    }
+
+    public void setConanPath(String conanPath) {
+        this.conanPath = conanPath;
     }
 
     public String getConanPath() {
         return conanPath;
     }
 
-    public void setInstallArgs(String installArgs) {
-        this.installArgs = installArgs;
+    public boolean getInstallUpdate() {
+        return installUpdate;
     }
 
-    public void setConanPath(String conanPath) {
-        this.conanPath = conanPath;
+    public void setInstallUpdate(boolean value) {
+        this.installUpdate = value;
     }
+
+    public boolean setInstallBuildPolicy(String value) {
+        if (buildPolicies.contains(value)) {
+            this.installBuildPolicy = value;
+            return true;
+        }
+        return false;
+    }
+
+    public String getInstallBuildPolicy() {
+        return installBuildPolicy;
+    }
+
+
 }
