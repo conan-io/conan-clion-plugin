@@ -1,6 +1,7 @@
 package conan.testUtils;
 
 import com.google.common.io.Resources;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.extensions.ExtensionPointName;
 import com.intellij.openapi.project.Project;
@@ -9,7 +10,6 @@ import com.intellij.openapi.util.Key;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.newvfs.impl.StubVirtualFile;
 import com.intellij.util.messages.MessageBus;
-import com.intellij.util.messages.impl.MessageBusImpl;
 import com.intellij.util.pico.DefaultPicoContainer;
 import conan.persistency.settings.ConanProjectSettings;
 import org.jetbrains.annotations.NotNull;
@@ -135,7 +135,7 @@ public class OpenSSLProjectImpl implements Project {
     @NotNull
     @Override
     public MessageBus getMessageBus() {
-        return new MessageBusImpl.RootBus("");
+        return ApplicationManager.getApplication().getMessageBus();
     }
 
     @Override

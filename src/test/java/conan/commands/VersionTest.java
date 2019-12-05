@@ -1,7 +1,6 @@
 package conan.commands;
 
 import conan.testUtils.OpenSSLProjectImpl;
-import org.gradle.internal.impldep.org.junit.platform.commons.util.StringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,7 +14,7 @@ public class VersionTest extends ConanCommandTestBase {
         String[] parts = vString.split("\\s+");
         Assert.assertEquals(parts[0], "Conan");
         Assert.assertEquals(parts[1], "version");
-        Assert.assertTrue(!StringUtils.isBlank(parts[2]));
+        Assert.assertFalse(parts[2].trim().isEmpty());
     }
 
 }
