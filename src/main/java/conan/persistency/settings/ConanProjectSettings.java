@@ -57,7 +57,7 @@ public class ConanProjectSettings implements PersistentStateComponent<ConanProje
         if (installUpdate) {
             installArgsCommand += " --update";
         }
-        if (!installArgs.isEmpty()) {
+        if (installArgs != null && !installArgs.isEmpty()) {
             installArgsCommand += " " + installArgs;
         }
         return installArgsCommand;
