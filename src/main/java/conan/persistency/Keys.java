@@ -12,4 +12,6 @@ public class Keys {
     public static final String CONFIG_CONAN_EXE_PATH = "conan.path";
     public static final String CONFIG_INSTALL_CHECK_UPDATE = "conan.config.install.checkUpdate";
     public static final String CONFIG_INSTALL_BUILD_POLICY = "conan.config.install.buildPolicy";
+    public static final String CONFIG_INSTALL_ARGS = "conan.config.install.installArgs";
+    public static final String CONFIG_ADVANCED_CONFIG = "conan.config.install.advancedConfig";
 }

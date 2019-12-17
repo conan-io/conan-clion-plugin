@@ -15,9 +15,6 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBTextField;
-import com.intellij.uiDesigner.core.GridConstraints;
-import com.intellij.uiDesigner.core.GridLayoutManager;
-import com.intellij.uiDesigner.core.Spacer;
 import conan.commands.ConfigInstall;
 import conan.commands.Version;
 import conan.persistency.PersistencyUtils;
@@ -29,13 +26,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 
-import static conan.persistency.Keys.CONFIG_CONAN_EXE_PATH;
-import static conan.persistency.Keys.CONFIG_INSTALL_SOURCE;
-import static conan.persistency.Keys.CONFIG_INSTALL_BUILD_POLICY;
-import static conan.persistency.Keys.CONFIG_INSTALL_CHECK_UPDATE;
+import static conan.persistency.Keys.*;
 
 /**
  * Represents the Conan settings form.
@@ -61,13 +54,21 @@ public class ConanConfig implements Configurable {
 
     private JCheckBox checkUpdate;
     private JComboBox buildPolicy;
+    private JCheckBox advancedConfig;
+    private JTextField installArgs;
+    private JLabel installArgsLabel;
+    private JPanel panelWorkingEnvironment;
+    private JPanel panelInstallCommand;
+    private JPanel panelConanConfiguration;
 
     public ConanConfig(@NotNull Project project) {
         this.project = project;
         if (project.isDefault()) { // No project
-            conanPathLabel.setVisible(false);
-            conanPath.setVisible(false);
-            conanPathValidate.setVisible(false);
+            panelWorkingEnvironment.setVisible(false);
+            panelInstallCommand.setVisible(false);
+            panelConanConfiguration.setVisible(false);
+
+            advancedConfig.setVisible(false);
         }
     }
 
@@ -100,6 +101,7 @@ public class ConanConfig implements Configurable {
 
         // Install arguments
         ConanProjectSettings.buildPolicies.forEach(item -> buildPolicy.addItem(item));
+        //installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
 
         // Path to Conan
         String envExePath = System.getenv("CONAN_EXE_PATH");
@@ -118,6 +120,11 @@ public class ConanConfig implements Configurable {
             logger.info("Chosen file for conanPath: " + conanPath.getText());
         });
         conanPathCheck.addActionListener(actionEvent -> this.validateConanPath());
+
+        // Advanced configuration
+        advancedConfig.addActionListener(actionEvent -> {
+            toggleAdvancedConfig(advancedConfig.isSelected());
+        });
 
         return rootPanel;
     }
@@ -163,6 +170,15 @@ public class ConanConfig implements Configurable {
         }
     }
 
+    private void toggleAdvancedConfig(boolean checked) {
+        installArgs.setVisible(checked);
+        installArgsLabel.setVisible(checked);
+        if (!checked) {
+            // We really want to get rid of `installArgs` free text field
+            installArgs.setText("");
+        }
+    }
+
     @Override
     public boolean isModified() {
         return true;
@@ -172,12 +188,26 @@ public class ConanConfig implements Configurable {
     public void reset() {
         configInstallSource.setText(PersistencyUtils.getValue(CONFIG_INSTALL_SOURCE));
         conanPath.setText(PersistencyUtils.getValue(CONFIG_CONAN_EXE_PATH));
+
         checkUpdate.setSelected(PersistencyUtils.getValue(CONFIG_INSTALL_CHECK_UPDATE).equals("true"));
         buildPolicy.setSelectedItem(PersistencyUtils.getValue(CONFIG_INSTALL_BUILD_POLICY));
+        installArgs.setText(PersistencyUtils.getValue(CONFIG_INSTALL_ARGS));
+
+        advancedConfig.setSelected(PersistencyUtils.getValue(CONFIG_ADVANCED_CONFIG).equals("true"));
+
         if (!project.isDefault()) {
             conanPath.setText(ConanProjectSettings.getInstance(project).getConanPath());
+
             checkUpdate.setSelected(ConanProjectSettings.getInstance(project).getInstallUpdate());
             buildPolicy.setSelectedItem(ConanProjectSettings.getInstance(project).getInstallBuildPolicy());
+            String settingsInstallArgs = ConanProjectSettings.getInstance(project).getConfigInstallArgs();
+            if (!settingsInstallArgs.isEmpty()) {
+                installArgs.setText(settingsInstallArgs);
+                advancedConfig.setSelected(true);
+            }
+            else {
+                advancedConfig.setSelected(false);
+            }
         }
     }
 
@@ -185,12 +215,23 @@ public class ConanConfig implements Configurable {
     public void apply() {
         PersistencyUtils.setValue(CONFIG_INSTALL_SOURCE, configInstallSource.getText());
         PersistencyUtils.setValue(CONFIG_CONAN_EXE_PATH, conanPath.getText());
+
         PersistencyUtils.setValue(CONFIG_INSTALL_CHECK_UPDATE, checkUpdate.isSelected() ? "true" : "false");
         PersistencyUtils.setValue(CONFIG_INSTALL_BUILD_POLICY, buildPolicy.getSelectedItem().toString());
+        PersistencyUtils.setValue(CONFIG_INSTALL_ARGS, installArgs.getText());
+
+        PersistencyUtils.setValue(CONFIG_ADVANCED_CONFIG, advancedConfig.isSelected() ? "true" : "false");
         if (!project.isDefault()) {
             ConanProjectSettings.getInstance(project).setConanPath(conanPath.getText());
+
             ConanProjectSettings.getInstance(project).setInstallUpdate(checkUpdate.isSelected());
             ConanProjectSettings.getInstance(project).setInstallBuildPolicy(buildPolicy.getSelectedItem().toString());
+            if (advancedConfig.isSelected() && !installArgs.getText().isEmpty()) {
+                ConanProjectSettings.getInstance(project).setConfigInstallArgs(installArgs.getText());
+            }
+            else {
+                ConanProjectSettings.getInstance(project).setConfigInstallArgs("");
+            }
         }
         this.validateConanPath();
     }

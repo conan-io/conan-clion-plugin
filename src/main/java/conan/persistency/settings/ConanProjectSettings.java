@@ -24,6 +24,7 @@ public class ConanProjectSettings implements PersistentStateComponent<ConanProje
     private String conanPath;
     private boolean installUpdate;
     private String installBuildPolicy;
+    private String installArgs;
     public static List<String> buildPolicies = Arrays.asList("missing", "always", "cascade", "outdated", "never");
 
     public static ConanProjectSettings getInstance(Project project) {
@@ -49,14 +50,26 @@ public class ConanProjectSettings implements PersistentStateComponent<ConanProje
     }
 
     public String getInstallArgs() {
-        String installArgs = "--build";
+        String installArgsCommand = "--build";
         if (installBuildPolicy != "always") {
-            installArgs += "=" + installBuildPolicy;
+            installArgsCommand += "=" + installBuildPolicy;
         }
         if (installUpdate) {
-            installArgs += " --update";
+            installArgsCommand += " --update";
         }
-        return installArgs;
+        if (!installArgs.isEmpty()) {
+            installArgsCommand += " " + installArgs;
+        }
+        return installArgsCommand;
+    }
+
+    /* Getters and setters for Config window */
+    public void setConfigInstallArgs(String configInstallArgs) {
+        this.installArgs = configInstallArgs;
+    }
+
+    public String getConfigInstallArgs() {
+        return installArgs == null ? "" : installArgs;
     }
 
     public void setConanPath(String conanPath) {
