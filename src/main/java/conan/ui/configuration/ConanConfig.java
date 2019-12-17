@@ -55,7 +55,7 @@ public class ConanConfig implements Configurable {
     private JCheckBox checkUpdate;
     private JComboBox buildPolicy;
     private JCheckBox advancedConfig;
-    private JTextField installArgs;
+    private JBTextField installArgs;
     private JLabel installArgsLabel;
     private JPanel panelWorkingEnvironment;
     private JPanel panelInstallCommand;
@@ -101,7 +101,7 @@ public class ConanConfig implements Configurable {
 
         // Install arguments
         ConanProjectSettings.buildPolicies.forEach(item -> buildPolicy.addItem(item));
-        //installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
+        installArgs.getEmptyText().setText("Extra arguments to append to install command (deprecated)");
 
         // Path to Conan
         String envExePath = System.getenv("CONAN_EXE_PATH");
@@ -202,11 +202,13 @@ public class ConanConfig implements Configurable {
             buildPolicy.setSelectedItem(ConanProjectSettings.getInstance(project).getInstallBuildPolicy());
             String settingsInstallArgs = ConanProjectSettings.getInstance(project).getConfigInstallArgs();
             if (!settingsInstallArgs.isEmpty()) {
-                installArgs.setText(settingsInstallArgs);
                 advancedConfig.setSelected(true);
+                installArgs.setText(settingsInstallArgs);
+                this.toggleAdvancedConfig(true);
             }
             else {
                 advancedConfig.setSelected(false);
+                this.toggleAdvancedConfig(false);
             }
         }
     }
