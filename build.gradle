@@ -46,6 +46,19 @@ task setupClion() {
 
 compileJava.dependsOn('setupClion')
 
+sourceSets {
+    test {
+        java {
+            if (clionVersion < "2019.3")
+                exclude 'conan/platform/**'
+        }
+    }
+}
+
+task platformTests(type: Test) {
+    useJUnit()
+}
+
 test {
     maxParallelForks = (int) (Runtime.runtime.availableProcessors().intdiv(2) ?: 1)
     useTestNG()
