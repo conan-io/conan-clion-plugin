@@ -3,6 +3,7 @@ package conan.ui.configuration;
 import com.intellij.execution.Output;
 import com.intellij.execution.OutputListener;
 import com.intellij.execution.process.ProcessEvent;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
@@ -18,6 +19,7 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 import conan.commands.ConfigInstall;
+import conan.commands.Version;
 import conan.persistency.PersistencyUtils;
 import conan.persistency.settings.ConanProjectSettings;
 import conan.utils.Utils;
@@ -40,6 +42,8 @@ import static conan.persistency.Keys.CONFIG_INSTALL_SOURCE;
  */
 public class ConanConfig implements Configurable, Configurable.NoScroll {
 
+    private static final Logger logger = Logger.getInstance(ConanConfig.class);
+
     public static final String CONFIG_NAME = "Conan";
     private Project project;
     private JPanel rootPanel;
@@ -52,6 +56,8 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
 
     private JLabel conanPathLabel;
     private TextFieldWithBrowseButton conanPath;
+    private JButton conanPathCheck;
+    private JLabel conanPathValidate;
 
     public ConanConfig(@NotNull Project project) {
         this.project = project;
@@ -60,6 +66,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
             installArgsLabel.setVisible(false);
             conanPathLabel.setVisible(false);
             conanPath.setVisible(false);
+            conanPathValidate.setVisible(false);
         }
     }
 
@@ -72,6 +79,9 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     @Nullable
     @Override
     public JComponent createComponent() {
+        conanPathValidate.setVisible(false);
+        configInstallRes.setVisible(false);
+
         installConfigButton.addActionListener(actionEvent -> {
             String source = configInstallSource.getText();
             if (StringUtils.isBlank(source)) {
@@ -87,12 +97,13 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
         });
         configInstallSource.getEmptyText().setText("Git repository, local folder or ZIP file (local or http)");
         installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
+
+        // Path to Conan
         String envExePath = System.getenv("CONAN_EXE_PATH");
         if( envExePath != null) {
             conanPath.setText(envExePath);
         }
         conanPath.setToolTipText("Path to the Conan executable, by default it will search in the path");
-
         conanPath.addActionListener(actionEvent -> {
             final FileChooserDescriptor d = FileChooserDescriptorFactory.createSingleFileDescriptor();
             VirtualFile initialFile = StringUtil.isNotEmpty(conanPath.getText()) ? LocalFileSystem.getInstance().findFileByPath(conanPath.getText()) : null;
@@ -100,7 +111,10 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
             if (file != null) {
                 conanPath.setText(file.getCanonicalPath());
             }
+            this.validateConanPath();
+            logger.info("Chosen file for conanPath: " + conanPath.getText());
         });
+        conanPathCheck.addActionListener(actionEvent -> this.validateConanPath());
 
         return rootPanel;
     }
@@ -117,7 +131,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
                 super.processTerminated(processEvent);
                 Output configInstallOut = getOutput();
                 if (configInstallOut.getExitCode() == 0) {
-                    setConfigInstallRes("Success", true);
+                    setConfigInstallRes("Config installed!", true);
                 } else {
                     setConfigInstallRes(Utils.getLastLine(configInstallOut.getStdout()), false);
                 }
@@ -127,8 +141,24 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     }
 
     private void setConfigInstallRes(String results, boolean isSuccess) {
+        configInstallRes.setVisible(true);
         configInstallRes.setForeground(isSuccess ? JBColor.GREEN : JBColor.RED);
         configInstallRes.setText(results);
+    }
+
+    private void validateConanPath() {
+        String testPath = conanPath.getText();
+        testPath = testPath.isEmpty() ? "conan" : testPath;
+        String v = new Version(testPath, this.project).run_sync();
+        conanPathValidate.setVisible(true);
+        if (v != null) {
+            conanPathValidate.setForeground(JBColor.BLACK);
+            conanPathValidate.setText(v);
+        }
+        else {
+            conanPathValidate.setForeground(JBColor.RED);
+            conanPathValidate.setText("Conan client not found!");
+        }
     }
 
     @Override
@@ -153,6 +183,7 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
             ConanProjectSettings.getInstance(project).setInstallArgs(installArgs.getText());
             ConanProjectSettings.getInstance(project).setConanPath(conanPath.getText());
         }
+        this.validateConanPath();
     }
 
     {

@@ -38,20 +38,20 @@ public class SyncConanTask extends Task.Modal {
 
     @Override
     public void run(@NotNull ProgressIndicator indicator) {
+        String commandLineString = args.getCommandLineString();
         try {
-            String message = args.getCommandLineString();
-            log(logger, message, "", NotificationType.INFORMATION);
+            log(logger, commandLineString, "", NotificationType.INFORMATION);
             ProcessHandler processHandler = new OSProcessHandler(args);
             processHandler.startNotify();
             if (processListener != null) {
                 processHandler.addProcessListener(processListener);
             } else {
                 ConanToolWindow conanToolWindow = ServiceManager.getService(getProject(), ConanToolWindow.class);
-                conanToolWindow.attachConsoleToProcess(processHandler, message, null);
+                conanToolWindow.attachConsoleToProcess(processHandler, commandLineString, null);
             }
             processHandler.waitFor();
         } catch (ExecutionException e) {
-            log(logger, e.getMessage(), Arrays.toString(e.getStackTrace()), NotificationType.ERROR);
+            log(logger, "Error running Conan command: '" + commandLineString + "'", e.getMessage(), NotificationType.ERROR);
         }
     }
 }

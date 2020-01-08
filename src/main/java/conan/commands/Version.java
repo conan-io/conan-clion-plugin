@@ -11,6 +11,11 @@ import conan.commands.process_adapters.VersionProcessAdapter;
  */
 public class Version extends ConanCommandBase {
 
+    public Version(String conanPath, Project project) {
+        super(conanPath, project, "--version");
+        this.args.withEnvironment("CONAN_COLOR_DISPLAY", "0");
+    }
+
     public Version(Project project) {
         super(project, "--version");
         this.args.withEnvironment("CONAN_COLOR_DISPLAY", "0");
