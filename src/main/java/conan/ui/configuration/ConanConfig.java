@@ -15,9 +15,6 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBTextField;
-import com.intellij.uiDesigner.core.GridConstraints;
-import com.intellij.uiDesigner.core.GridLayoutManager;
-import com.intellij.uiDesigner.core.Spacer;
 import conan.commands.ConfigInstall;
 import conan.commands.Version;
 import conan.persistency.PersistencyUtils;
@@ -29,18 +26,16 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 
-import static conan.persistency.Keys.CONFIG_CONAN_EXE_PATH;
-import static conan.persistency.Keys.CONFIG_INSTALL_SOURCE;
+import static conan.persistency.Keys.*;
 
 /**
  * Represents the Conan settings form.
  * <p>
  * Created by Yahav Itzhak on Feb 2018.
  */
-public class ConanConfig implements Configurable, Configurable.NoScroll {
+public class ConanConfig implements Configurable {
 
     private static final Logger logger = Logger.getInstance(ConanConfig.class);
 
@@ -51,22 +46,29 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     private JBTextField configInstallSource;
     private JButton installConfigButton;
     private JLabel configInstallRes;
-    private JBTextField installArgs;
-    private JLabel installArgsLabel;
 
     private JLabel conanPathLabel;
     private TextFieldWithBrowseButton conanPath;
     private JButton conanPathCheck;
     private JLabel conanPathValidate;
 
+    private JCheckBox checkUpdate;
+    private JComboBox buildPolicy;
+    private JCheckBox advancedConfig;
+    private JBTextField installArgs;
+    private JLabel installArgsLabel;
+    private JPanel panelWorkingEnvironment;
+    private JPanel panelInstallCommand;
+    private JPanel panelConanConfiguration;
+
     public ConanConfig(@NotNull Project project) {
         this.project = project;
         if (project.isDefault()) { // No project
-            installArgs.setVisible(false);
-            installArgsLabel.setVisible(false);
-            conanPathLabel.setVisible(false);
-            conanPath.setVisible(false);
-            conanPathValidate.setVisible(false);
+            panelWorkingEnvironment.setVisible(false);
+            panelInstallCommand.setVisible(false);
+            panelConanConfiguration.setVisible(false);
+
+            advancedConfig.setVisible(false);
         }
     }
 
@@ -96,14 +98,17 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
             runConfigInstall(source);
         });
         configInstallSource.getEmptyText().setText("Git repository, local folder or ZIP file (local or http)");
-        installArgs.getEmptyText().setText("Arguments other than '--if', '--pr' and '--update'");
+
+        // Install arguments
+        ConanProjectSettings.buildPolicies.forEach(item -> buildPolicy.addItem(item));
+        installArgs.getEmptyText().setText("Extra arguments to append to install command (deprecated)");
 
         // Path to Conan
         String envExePath = System.getenv("CONAN_EXE_PATH");
-        if( envExePath != null) {
+        if (envExePath != null) {
             conanPath.setText(envExePath);
         }
-        conanPath.setToolTipText("Path to the Conan executable, by default it will search in the path");
+        conanPath.setToolTipText("Path to the Conan executable (default: 'conan' into PATH)");
         conanPath.addActionListener(actionEvent -> {
             final FileChooserDescriptor d = FileChooserDescriptorFactory.createSingleFileDescriptor();
             VirtualFile initialFile = StringUtil.isNotEmpty(conanPath.getText()) ? LocalFileSystem.getInstance().findFileByPath(conanPath.getText()) : null;
@@ -115,6 +120,11 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
             logger.info("Chosen file for conanPath: " + conanPath.getText());
         });
         conanPathCheck.addActionListener(actionEvent -> this.validateConanPath());
+
+        // Advanced configuration
+        advancedConfig.addActionListener(actionEvent -> {
+            toggleAdvancedConfig(advancedConfig.isSelected());
+        });
 
         return rootPanel;
     }
@@ -154,10 +164,18 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
         if (v != null) {
             conanPathValidate.setForeground(JBColor.BLACK);
             conanPathValidate.setText(v);
-        }
-        else {
+        } else {
             conanPathValidate.setForeground(JBColor.RED);
             conanPathValidate.setText("Conan client not found!");
+        }
+    }
+
+    private void toggleAdvancedConfig(boolean checked) {
+        installArgs.setVisible(checked);
+        installArgsLabel.setVisible(checked);
+        if (!checked) {
+            // We really want to get rid of `installArgs` free text field
+            installArgs.setText("");
         }
     }
 
@@ -169,9 +187,29 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     @Override
     public void reset() {
         configInstallSource.setText(PersistencyUtils.getValue(CONFIG_INSTALL_SOURCE));
+        conanPath.setText(PersistencyUtils.getValue(CONFIG_CONAN_EXE_PATH));
+
+        checkUpdate.setSelected(PersistencyUtils.getValue(CONFIG_INSTALL_CHECK_UPDATE).equals("true"));
+        buildPolicy.setSelectedItem(PersistencyUtils.getValue(CONFIG_INSTALL_BUILD_POLICY));
+        installArgs.setText(PersistencyUtils.getValue(CONFIG_INSTALL_ARGS));
+
+        advancedConfig.setSelected(PersistencyUtils.getValue(CONFIG_ADVANCED_CONFIG).equals("true"));
+
         if (!project.isDefault()) {
-            installArgs.setText(ConanProjectSettings.getInstance(project).getInstallArgs());
             conanPath.setText(ConanProjectSettings.getInstance(project).getConanPath());
+
+            checkUpdate.setSelected(ConanProjectSettings.getInstance(project).getInstallUpdate());
+            buildPolicy.setSelectedItem(ConanProjectSettings.getInstance(project).getInstallBuildPolicy());
+            String settingsInstallArgs = ConanProjectSettings.getInstance(project).getConfigInstallArgs();
+            if (!settingsInstallArgs.isEmpty()) {
+                advancedConfig.setSelected(true);
+                installArgs.setText(settingsInstallArgs);
+                this.toggleAdvancedConfig(true);
+            }
+            else {
+                advancedConfig.setSelected(false);
+                this.toggleAdvancedConfig(false);
+            }
         }
     }
 
@@ -179,55 +217,25 @@ public class ConanConfig implements Configurable, Configurable.NoScroll {
     public void apply() {
         PersistencyUtils.setValue(CONFIG_INSTALL_SOURCE, configInstallSource.getText());
         PersistencyUtils.setValue(CONFIG_CONAN_EXE_PATH, conanPath.getText());
+
+        PersistencyUtils.setValue(CONFIG_INSTALL_CHECK_UPDATE, checkUpdate.isSelected() ? "true" : "false");
+        PersistencyUtils.setValue(CONFIG_INSTALL_BUILD_POLICY, buildPolicy.getSelectedItem().toString());
+        PersistencyUtils.setValue(CONFIG_INSTALL_ARGS, installArgs.getText());
+
+        PersistencyUtils.setValue(CONFIG_ADVANCED_CONFIG, advancedConfig.isSelected() ? "true" : "false");
         if (!project.isDefault()) {
-            ConanProjectSettings.getInstance(project).setInstallArgs(installArgs.getText());
             ConanProjectSettings.getInstance(project).setConanPath(conanPath.getText());
+
+            ConanProjectSettings.getInstance(project).setInstallUpdate(checkUpdate.isSelected());
+            ConanProjectSettings.getInstance(project).setInstallBuildPolicy(buildPolicy.getSelectedItem().toString());
+            if (advancedConfig.isSelected() && !installArgs.getText().isEmpty()) {
+                ConanProjectSettings.getInstance(project).setConfigInstallArgs(installArgs.getText());
+            }
+            else {
+                ConanProjectSettings.getInstance(project).setConfigInstallArgs("");
+            }
         }
         this.validateConanPath();
     }
 
-    {
-// GUI initializer generated by IntelliJ IDEA GUI Designer
-// >>> IMPORTANT!! <<<
-// DO NOT EDIT OR ADD ANY CODE HERE!
-        $$$setupUI$$$();
-    }
-
-    /**
-     * Method generated by IntelliJ IDEA GUI Designer
-     * >>> IMPORTANT!! <<<
-     * DO NOT edit this method OR call it in your code!
-     *
-     * @noinspection ALL
-     */
-    private void $$$setupUI$$$() {
-        rootPanel = new JPanel();
-        rootPanel.setLayout(new GridLayoutManager(4, 4, new Insets(0, 0, 0, 0), -1, -1));
-        final JLabel label1 = new JLabel();
-        label1.setText("Config install source");
-        rootPanel.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final Spacer spacer1 = new Spacer();
-        rootPanel.add(spacer1, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        configInstallSource = new JBTextField();
-        rootPanel.add(configInstallSource, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        installConfigButton = new JButton();
-        installConfigButton.setText("Install");
-        rootPanel.add(installConfigButton, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        configInstallRes = new JLabel();
-        configInstallRes.setText("");
-        rootPanel.add(configInstallRes, new GridConstraints(2, 0, 1, 4, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        installArgs = new JBTextField();
-        rootPanel.add(installArgs, new GridConstraints(1, 1, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        installArgsLabel = new JLabel();
-        installArgsLabel.setRequestFocusEnabled(true);
-        installArgsLabel.setText("Install args");
-        rootPanel.add(installArgsLabel, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-    }
-
-    /**
-     * @noinspection ALL
-     */
-    public JComponent $$$getRootComponent$$$() {
-        return rootPanel;
-    }
 }

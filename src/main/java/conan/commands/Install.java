@@ -21,15 +21,15 @@ import java.util.Arrays;
 public class Install extends ConanCommandBase {
 
     public Install(Project project, CMakeProfile cMakeProfile, ConanProfile conanProfile, boolean update) {
-        super(project, "install", project.getBasePath(), "-if=" + cMakeProfile.getTargetDir(), "-pr=" + conanProfile.getName());
+        super(project, "install", project.getBasePath(), "--install-folder=" + cMakeProfile.getTargetDir(), "--profile=" + conanProfile.getName());
         addArguments(project, update);
     }
 
     private void addArguments(Project project, boolean update) {
-        if (update) {
+        String installArgs = ConanProjectSettings.getInstance(project).getInstallArgs();
+        if (update && !installArgs.contains("update")) {
             addParameter("--update");
         }
-        String installArgs = ConanProjectSettings.getInstance(project).getInstallArgs();
         String[] tokens = StringUtils.split(installArgs);
         if (ArrayUtils.isNotEmpty(tokens)) {
             Arrays.stream(tokens).forEach(super::addParameter);

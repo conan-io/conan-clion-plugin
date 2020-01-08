@@ -8,6 +8,8 @@ import conan.profiles.CMakeProfile;
 import conan.profiles.ConanProfile;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,8 +21,11 @@ import java.util.Map;
 public class ConanProjectSettings implements PersistentStateComponent<ConanProjectSettings> {
 
     private Map<CMakeProfile, ConanProfile> profileMapping = Maps.newHashMap();
-    private String installArgs;
     private String conanPath;
+    private boolean installUpdate;
+    private String installBuildPolicy;
+    private String installArgs;
+    public static List<String> buildPolicies = Arrays.asList("missing", "always", "cascade", "outdated", "never");
 
     public static ConanProjectSettings getInstance(Project project) {
         return ServiceManager.getService(project, ConanProjectSettings.class);
@@ -45,18 +50,55 @@ public class ConanProjectSettings implements PersistentStateComponent<ConanProje
     }
 
     public String getInstallArgs() {
-        return installArgs;
+        String installArgsCommand = "--build";
+        if (installBuildPolicy != "always") {
+            installArgsCommand += "=" + installBuildPolicy;
+        }
+        if (installUpdate) {
+            installArgsCommand += " --update";
+        }
+        if (installArgs != null && !installArgs.isEmpty()) {
+            installArgsCommand += " " + installArgs;
+        }
+        return installArgsCommand;
+    }
+
+    /* Getters and setters for Config window */
+    public void setConfigInstallArgs(String configInstallArgs) {
+        this.installArgs = configInstallArgs;
+    }
+
+    public String getConfigInstallArgs() {
+        return installArgs == null ? "" : installArgs;
+    }
+
+    public void setConanPath(String conanPath) {
+        this.conanPath = conanPath;
     }
 
     public String getConanPath() {
         return conanPath;
     }
 
-    public void setInstallArgs(String installArgs) {
-        this.installArgs = installArgs;
+    public boolean getInstallUpdate() {
+        return installUpdate;
     }
 
-    public void setConanPath(String conanPath) {
-        this.conanPath = conanPath;
+    public void setInstallUpdate(boolean value) {
+        this.installUpdate = value;
     }
+
+    public boolean setInstallBuildPolicy(String value) {
+        if (buildPolicies.contains(value)) {
+            this.installBuildPolicy = value;
+            return true;
+        }
+        return false;
+    }
+
+    public String getInstallBuildPolicy() {
+        return installBuildPolicy;
+    }
+
+
 }
