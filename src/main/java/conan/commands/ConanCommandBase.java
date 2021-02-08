@@ -42,7 +42,7 @@ public class ConanCommandBase {
         this.project = project;
         log(logger, "Conan at: ", conanPath, NotificationType.INFORMATION);
         this.args = new GeneralCommandLine(Lists.asList(conanPath, args));
-        this.args.setWorkDirectory(project.getBaseDir().getCanonicalPath());
+        this.args.setWorkDirectory(project.getBasePath());
         String conanHome = Utils.getConanHomeEnv();
         if (conanHome != null) {
             this.args.withEnvironment(CONAN_HOME_ENV, conanHome);
