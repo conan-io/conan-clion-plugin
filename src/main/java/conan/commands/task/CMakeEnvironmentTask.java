@@ -34,7 +34,7 @@ public class CMakeEnvironmentTask {
             commandLine.withEnvironment(variable, "TRUE");
         }
         commandLine.getEnvironment().putAll(parameters.getAdditionalEnvironment());
-        commandLine.setWorkDirectory(parameters.getOutputDir().toFile());
+        commandLine.setWorkDirectory(parameters.getProjectDir().toFile());
 
         commandLine.setRedirectErrorStream(true); // TODO: Check
 

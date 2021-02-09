@@ -74,9 +74,10 @@ addons:
     packages:
       - gcc-7
       - g++-7
+      - python3-pip
+      - python3-setuptools
 
 install:
   - python3 --version
-  - python3 -m pip || curl -s https://bootstrap.pypa.io/get-pip.py | python3 - --user
   - python3 -m pip install --user conan
   - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7;
