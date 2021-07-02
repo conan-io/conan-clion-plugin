@@ -26,6 +26,11 @@ public class CMakeProfile implements Serializable {
         this.targetDir = targetDir.getAbsolutePath();
     }
 
+    public CMakeProfile(String name, String targetDir) {
+        this.name = name;
+        this.targetDir = targetDir;
+    }
+
     public String getName() {
         return name;
     }

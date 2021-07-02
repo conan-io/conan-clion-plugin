@@ -1,0 +1,5 @@
+[requires]
+openssl/1.1.1h
+
+[generators]
+cmake
