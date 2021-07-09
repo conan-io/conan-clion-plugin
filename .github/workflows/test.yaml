@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        clion_version: [2018.3, 2019.1, 2019.2, 2019.3]
+        clion_version: [2019.3, 2020.1, 2020.2]
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-java@v2
