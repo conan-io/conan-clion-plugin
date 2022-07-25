@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
+import conan.commands.Build;
 import conan.commands.Install;
 import conan.commands.IsInstalledCommand;
 import conan.persistency.settings.ConanProjectSettings;
@@ -45,6 +46,21 @@ class ActionUtils {
         cMakeProfiles.forEach(cMakeProfile -> new Install(project, cMakeProfile, conanProfile, update).run_async(conanProfile, null, null));
     }
 
+    static void runBuildConfigure(Project project, Component component, boolean configure) {
+        if (!ConanToolWindow.isConanInstalled(project)){
+            return;
+        }
+        FileDocumentManager.getInstance().saveAllDocuments();
+        ConanToolWindow conanToolWindow = ServiceManager.getService(project, ConanToolWindow.class);
+        ConanProfile conanProfile = new ConanProfile(conanToolWindow.getSelectedTab());
+        ConanProjectSettings conanProjectSettings = ConanProjectSettings.getInstance(project);
+        List<CMakeProfile> cMakeProfiles = getMatchedCMakeProfiles(conanProjectSettings, conanProfile);
+        if (StringUtils.isBlank(conanProfile.getName())) {
+            matchProfilesAndInstall(project, component, true);
+            return;
+        }
+        cMakeProfiles.forEach(cMakeProfile -> new Build(project, cMakeProfile, conanProfile, configure).run_async(conanProfile, null, null));
+    }
     /**
      * In case the user clicks on install and no Conan-CMake matching exist, we open the matching dialog for him.
      *

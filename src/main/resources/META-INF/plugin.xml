@@ -54,6 +54,8 @@
 
         <action id="Conan.UpdateAndInstall" class="conan.actions.UpdateAndInstall" text="Update and install" description="Update from remotes and install Conan packages" icon="/icons/conan-update-install.png"/>
 
+        <action id="Conan.ConfigureBuild" class="conan.actions.ConfigureBuildAction" text="Configure build" description="Execute the configuration step of the build" icon="/icons/conan-build-configure.png"/>
+
         <action id="Conan.CleanCache" class="conan.actions.CleanCacheAction" text="Clean cache" description="Clean Conan cache" icon="/icons/trash.png"/>
 
         <action id="Conan.MatchProfiles" class="conan.actions.MatchProfilesAction" text="Match profile" description="Match CMake profile with Conan profile" icon="AllIcons.Actions.Properties"/>
