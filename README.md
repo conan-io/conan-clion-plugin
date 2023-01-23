@@ -1,6 +1,11 @@
 # Conan CLion Plugin [![Build Status](https://travis-ci.org/conan-io/conan-clion-plugin.svg?branch=master)](https://travis-ci.org/conan-io/conan-clion-plugin)
 Conan CLion plugin adds Conan support to Jetbrains CLion.
 
+
+> **WARNING: This plugin has stopped working since CLion 2022.3. The team is currently focused on releasing Conan 2.0, so this will be on hold for a while,
+and work on this plugin will be resumed after 2.0 launch**
+
+
 # Prerequisites
 * CLion version 2018.1 and above.
 * Conan executable in path environment variable.
