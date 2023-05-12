@@ -1,4 +1,4 @@
-package com.github.rubenrbs.conanclionplugin.listeners
+package com.jfrog.conan.clionplugin.listeners
 
 import com.intellij.ide.FrameStateListener
 import com.intellij.openapi.diagnostic.thisLogger

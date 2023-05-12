@@ -1,18 +1,20 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.rubenrbs.conanclionplugin</id>
-    <name>conan-clion-plugin Template</name>
-    <vendor>rubenrbs</vendor>
+    <id>com.jfrog.conan.clionplugin</id>
+    <name>conan-clion</name>
+    <vendor>JFrog</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <!-- TODO: Check if any dependency is needed -->
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
+
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.rubenrbs.conanclionplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow factoryClass="com.jfrog.conan.clionplugin.toolWindow.ConanWindowFactory" id="Conan"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.rubenrbs.conanclionplugin.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
+        <listener class="com.jfrog.conan.clionplugin.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
     </applicationListeners>
 </idea-plugin>

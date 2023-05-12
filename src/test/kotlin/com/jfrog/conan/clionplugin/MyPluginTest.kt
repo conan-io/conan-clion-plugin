@@ -1,4 +1,4 @@
-package com.github.rubenrbs.conanclionplugin
+package com.jfrog.conan.clionplugin
 
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.openapi.components.service

@@ -1,1 +1,1 @@
-rootProject.name = "conan-clion-plugin"
+rootProject.name = "conan-clion"

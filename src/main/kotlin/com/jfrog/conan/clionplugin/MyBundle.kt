@@ -1,4 +1,4 @@
-package com.github.rubenrbs.conanclionplugin
+package com.jfrog.conan.clionplugin
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls
