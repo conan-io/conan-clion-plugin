@@ -50,18 +50,23 @@ class ConanWindowFactory : ToolWindowFactory {
 
             add(OnePixelSplitter(false).apply {
                 firstComponent = DialogPanel().apply {
-                    val searchField = SearchTextField()
-                    add(searchField)
+                    add(SearchTextField().apply {
+
+                    })
                     add(JButton("Search").apply {
                         addActionListener {
-                            recipes.updateList(service.getConanPackages(searchField.text).conancenter.map {
-                                val (name, version) = it.key.split("/")
-                                ListResult.ListResultRow(name, version, "$name is a library currently in version $version")
-                            })
+                            // Do nothing for now
                         }
                     })
 
                     add(JBTable(recipes).apply {
+                        service.refreshListListeners.add { it -> recipes.updateList(
+                            it.conancenter.map {
+                                val (name, version) = it.key.split("/")
+                                ListResult.ListResultRow(name, version, "$name is a library currently in version $version")
+                            }
+                        )}
+
                         selectionModel.apply {
                             selectionMode = ListSelectionModel.SINGLE_SELECTION
                             addListSelectionListener {
