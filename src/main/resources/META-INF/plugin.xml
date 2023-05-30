@@ -11,7 +11,9 @@
 
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.jfrog.conan.clionplugin.toolWindow.ConanWindowFactory" id="Conan"/>
+        <toolWindow factoryClass="com.jfrog.conan.clionplugin.toolWindow.ConanWindowFactory"
+                    id="Conan"
+                    anchor="bottom"/>
     </extensions>
 
     <applicationListeners>
