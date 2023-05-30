@@ -53,33 +53,15 @@ class ConanWindowFactory : ToolWindowFactory {
                             // do something on button 2 click
                         }
                     })
-                    add(object : AnAction("Button 3") {
-                        override fun actionPerformed(e: AnActionEvent) {
-                            // do something on button 3 click
-                        }
-                    })
-                    add(object : AnAction("Button 4") {
-                        override fun actionPerformed(e: AnActionEvent) {
-                            // do something on button 4 click
-                        }
-                    })
                 }
-
                 val actionToolbar = ActionManager.getInstance().createActionToolbar("MyToolbar", actionGroup, true)
-
                 val dataModel = DefaultTableModel(arrayOf("Column 1", "Column 2", "Column 3"), 0)
                 val exampleTable = JBTable(dataModel)
-
-                val boxLayout = Box.createVerticalBox()
-                boxLayout.add(actionToolbar.component)
-
                 val scrollablePane = JBScrollPane(exampleTable)
 
-                boxLayout.add(scrollablePane)
-
-                this.add(boxLayout, BorderLayout.WEST)
+                add(actionToolbar.component, BorderLayout.NORTH)
+                add(scrollablePane, BorderLayout.CENTER)
             }
-
             secondComponent = JBPanelWithEmptyText().apply { withEmptyText("No selection") }
         }
 
