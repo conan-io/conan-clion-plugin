@@ -19,8 +19,11 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.jfrog.conan.clionplugin.services.MyProjectService
 import java.awt.BorderLayout
+import java.awt.FlowLayout
 import java.awt.Font
+import javax.swing.JButton
 import javax.swing.JLabel
+import javax.swing.JPanel
 import javax.swing.border.EmptyBorder
 import javax.swing.table.DefaultTableModel
 
@@ -101,6 +104,25 @@ class ConanWindowFactory : ToolWindowFactory {
                             font = font.deriveFont(Font.BOLD, 18f) // set font size to 18 and bold
                         }
                         secondComponentPanel.add(packageNameLabel, BorderLayout.NORTH)
+
+                        val installButtonPanel = JPanel(FlowLayout(FlowLayout.LEFT)).apply {
+                            val installButton = JButton("Install").apply {
+                                addActionListener {
+                                    try {
+                                        val processBuilder = ProcessBuilder("conan --version")
+                                        val process = processBuilder.start()
+                                        process.waitFor() // Wait for the process to finish
+                                        thisLogger().warn("call to install")
+                                    } catch (e: Exception) {
+                                        e.printStackTrace()
+                                    }
+                                }
+                            }
+                            add(installButton)
+                        }
+
+                        secondComponentPanel.add(installButtonPanel)
+
                         secondComponentPanel.revalidate()
                         secondComponentPanel.repaint()
                     }
