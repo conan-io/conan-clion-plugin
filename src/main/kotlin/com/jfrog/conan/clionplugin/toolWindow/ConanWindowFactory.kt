@@ -54,8 +54,8 @@ class ConanWindowFactory : ToolWindowFactory {
                         }
                     })
                 }
-                val actionToolbar = ActionManager.getInstance().createActionToolbar("MyToolbar", actionGroup, true)
-                val dataModel = DefaultTableModel(arrayOf("Column 1", "Column 2", "Column 3"), 0)
+                val actionToolbar = ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true)
+                val dataModel = DefaultTableModel(arrayOf("Name", "Version"), 0)
                 val exampleTable = JBTable(dataModel)
                 val scrollablePane = JBScrollPane(exampleTable)
 
