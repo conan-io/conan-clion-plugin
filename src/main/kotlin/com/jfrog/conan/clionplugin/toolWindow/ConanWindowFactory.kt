@@ -7,12 +7,13 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
-import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
+import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
+import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.OnePixelSplitter
@@ -50,22 +51,38 @@ fun saveConfig(data: ConfigData) {
     file.writeText(content)
 }
 
-class MyDialogWrapper(project: Project) : DialogWrapper(true) {
-    val configData = loadConfig()
+object PythonInterpreterChooserDescriptor : FileChooserDescriptor(true, true, false, false, false, false) {
 
-    val fileChooserField1 = TextFieldWithBrowseButton().apply {
+    init {
+        withFileFilter { it.isPythonInterpreter }
+        withTitle("Select Python interpreter")
+    }
+
+    override fun isFileSelectable(file: VirtualFile?): Boolean {
+        return super.isFileSelectable(file) && file != null && !file.isDirectory
+    }
+}
+
+val VirtualFile.isPythonInterpreter: Boolean
+    get() {
+        return name.startsWith("python")
+    }
+
+class MyDialogWrapper(project: Project) : DialogWrapper(true) {
+    private val configData = loadConfig()
+
+    private val fileChooserField1 = TextFieldWithBrowseButton().apply {
         addBrowseFolderListener(
                 "Python interpreter",
                 "Python interpreter",
                 project,
-                FileChooserDescriptorFactory.createSingleFileDescriptor()
+                PythonInterpreterChooserDescriptor
         )
         text = configData.field1
     }
 
-    val field2 = JTextField(configData.field2)
-    val field3 = JTextField(configData.field3)
-    private val project = project
+    private val field2 = JTextField(configData.field2)
+    private val field3 = JTextField(configData.field3)
 
     init {
         init()
