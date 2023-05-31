@@ -1,25 +1,17 @@
 package com.jfrog.conan.clionplugin.conan
+import com.intellij.execution.configurations.GeneralCommandLine
+import com.intellij.execution.process.ScriptRunnerUtil
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
-import com.intellij.openapi.diagnostic.thisLogger
-import com.intellij.openapi.progress.BackgroundTaskQueue
-import java.io.File
-import java.lang.ProcessBuilder
-import java.util.concurrent.TimeUnit
 import com.intellij.openapi.project.Project
+import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 
 class Conan (val project: Project) {
 
     private fun run(args: List<String>): String {
-        val conanExecutable: String = this.project.service<PropertiesComponent>().getValue("com.jfrog.conanplugin.conanexecutable", "conan")
-        val command = listOf(conanExecutable) + args
-        val proc = ProcessBuilder(command)
-            .directory(File("."))
-            .redirectOutput(ProcessBuilder.Redirect.PIPE)
-            .redirectError(ProcessBuilder.Redirect.PIPE)
-            .start()
-        val output = proc.waitFor()
-        return proc.inputStream.bufferedReader().readText()
+        val conanExecutable: String = this.project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
+        val handler = ScriptRunnerUtil.execute(conanExecutable, project.basePath, null, args.toTypedArray())
+        return ScriptRunnerUtil.getProcessOutput(handler, ScriptRunnerUtil.STDOUT_OUTPUT_KEY_FILTER, 1000 * 1000)
     }
 
     fun list(pattern: String): String {

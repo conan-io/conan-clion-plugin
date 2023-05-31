@@ -7,6 +7,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.openapi.vfs.VirtualFile
+import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import javax.swing.*
@@ -38,7 +39,7 @@ class ConanExecutableDialogWrapper(project: Project) : DialogWrapper(true) {
             project,
             ConanExecutableChooserDescriptor
         )
-        text = properties.getValue("com.jfrog.conanplugin.conanexecutable", "")
+        text = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
     }
 
     private val field2 = JTextField(properties.getValue("com.jfrog.conanplugin.field2", ""))
@@ -79,7 +80,7 @@ class ConanExecutableDialogWrapper(project: Project) : DialogWrapper(true) {
     }
 
     override fun doOKAction() {
-        properties.setValue("com.jfrog.conanplugin.conanexecutable", fileChooserField1.text)
+        properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, fileChooserField1.text)
         properties.setValue("com.jfrog.conanplugin.field2", field2.text)
         properties.setValue("com.jfrog.conanplugin.field3", field3.text)
         super.doOKAction()

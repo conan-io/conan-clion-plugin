@@ -14,6 +14,10 @@
         <toolWindow factoryClass="com.jfrog.conan.clionplugin.toolWindow.ConanWindowFactory"
                     id="Conan"
                     anchor="bottom"/>
+
+        <notificationGroup id="Conan Notifications Group"
+                           displayType="BALLOON"
+                           key="notificationKey"/>
     </extensions>
 
     <applicationListeners>

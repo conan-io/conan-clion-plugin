@@ -1,25 +1,35 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.icons.AllIcons
+import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
+import com.intellij.openapi.editor.event.DocumentListener
 import com.intellij.openapi.observable.util.whenItemSelected
+import com.intellij.openapi.observable.util.whenKeyReleased
+import com.intellij.openapi.observable.util.whenKeyTyped
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
+import com.intellij.ui.DocumentAdapter
+import com.intellij.ui.JBSplitter
 import com.intellij.ui.OnePixelSplitter
+import com.intellij.ui.SearchTextField
 import com.intellij.ui.components.JBLabel
+import com.intellij.ui.components.JBPanel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
+import com.intellij.util.ui.JBUI
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
@@ -27,12 +37,12 @@ import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import java.awt.BorderLayout
 import java.awt.FlowLayout
 import java.awt.Font
-import javax.swing.DefaultComboBoxModel
-import javax.swing.JButton
-import javax.swing.JLabel
-import javax.swing.JPanel
+import java.util.regex.Pattern
+import javax.swing.*
 import javax.swing.border.EmptyBorder
+import javax.swing.event.DocumentEvent
 import javax.swing.table.DefaultTableModel
+import javax.swing.table.TableRowSorter
 
 
 class ConanWindowFactory : ToolWindowFactory {
@@ -58,9 +68,13 @@ class ConanWindowFactory : ToolWindowFactory {
         fun getContent() = OnePixelSplitter(false).apply {
             val secondComponentPanel = JBPanelWithEmptyText().apply {
                 layout = BorderLayout()
-                border = EmptyBorder(10, 10, 10, 10)
+                border = JBUI.Borders.empty(10)
             }
+
             firstComponent = DialogPanel(BorderLayout()).apply {
+                border = JBUI.Borders.empty(5)
+                val searchTextField = SearchTextField()
+
                 val actionGroup = DefaultActionGroup().apply {
                     add(object : AnAction("Configure Conan", null, AllIcons.General.Settings) {
                         override fun actionPerformed(e: AnActionEvent) {
@@ -77,50 +91,44 @@ class ConanWindowFactory : ToolWindowFactory {
                             )
                         }
                     })
-                    add(object : AnAction("Clear", null, AllIcons.Actions.DeleteTag) {
-                        override fun actionPerformed(e: AnActionEvent) {
-                            stateService.loadState(RemotesDataStateService.State(hashMapOf()))
-                        }
-                    })
                 }
                 val actionToolbar = ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true)
 
-                // val packages = listOf(
-                //         Package("zlib", "1.2.13"),
-                //         Package("opencv", "4.5.5"),
-                //         // Add more packages here
-                // )
-                thisLogger().warn(stateService.state.toString())
-                thisLogger().warn(stateService.state?.conancenter.toString())
-                thisLogger().warn(stateService.state?.conancenter?.keys.toString())
-                var packages: List<Recipe>
+                var recipes: List<Recipe> = listOf()
                 val columnNames = arrayOf("Name", "version")
                 val dataModel = DefaultTableModel(columnNames, 0)
                 val versionModel = DefaultComboBoxModel<String>()
 
                 stateService.addStateChangeListener(object : RemotesDataStateService.RemoteDataStateListener {
                         override fun stateChanged(newState: RemotesDataStateService.State) {
-                            packages = newState.conancenter.keys.map {
+                            recipes = newState.conancenter.keys.map {
                                 val split = it.split("/")
                                 Pair(split[0], split[1])
                             }.groupBy { it.first }.map { Recipe(it.key, it.value.map{ it.second }) }
 
                             dataModel.rowCount = 0
-                            packages.forEach { pkg ->
-                                dataModel.addRow(arrayOf(pkg.name, pkg.versions))
+                            recipes.forEach { pkg ->
+                                dataModel.addRow(arrayOf(pkg.name))
                             }
                         }
                     }
                 )
 
                 val packagesTable = JBTable(dataModel).apply {
-                    setDefaultRenderer(getColumnClass(1)) { table, value, isSelected, hasFocus, row, column ->
-                        if (column == 0) {
-                            JBLabel(value as String)
-                        } else {
-                            JBLabel("")
-                        }
+                    tableHeader
+                    autoCreateRowSorter = true
+                    (rowSorter as TableRowSorter<DefaultTableModel>).apply {
+                        sortKeys = mutableListOf(RowSorter.SortKey(0, SortOrder.ASCENDING))
                     }
+                }
+
+
+                searchTextField.apply {
+                    addDocumentListener(object : DocumentAdapter() {
+                        override fun textChanged(e: DocumentEvent) {
+                            (packagesTable.rowSorter as TableRowSorter<DefaultTableModel>).rowFilter = RowFilter.regexFilter(".*$text.*")
+                        }
+                    })
                 }
 
                 packagesTable.selectionModel.addListSelectionListener {
@@ -128,7 +136,8 @@ class ConanWindowFactory : ToolWindowFactory {
                     if (selectedRow != -1) {
                         val name = packagesTable.getValueAt(selectedRow, 0) as String
 
-                        val versions = packagesTable.getValueAt(selectedRow, 1) as List<String>
+                        val recipe = recipes.find { it.name == name } ?: throw Exception()
+                        val versions = recipe.versions
                         versionModel.removeAllElements()
                         versionModel.addAll(versions)
 
@@ -142,12 +151,11 @@ class ConanWindowFactory : ToolWindowFactory {
                             val installButton = JButton("Install").apply {
                                 isEnabled = false
                                 addActionListener {
-                                    try {
-                                        val output = Conan(project).install(name, comboBox.selectedItem as String)
-                                        thisLogger().warn(output)
-                                    } catch (e: Exception) {
-                                        e.printStackTrace()
-                                    }
+                                    val output = Conan(project).install(name, comboBox.selectedItem as String)
+                                    NotificationGroupManager.getInstance()
+                                        .getNotificationGroup("Conan Notifications Group")
+                                        .createNotification("$name/${comboBox.selectedItem as String} installed successfully", "Conan output:\n$output", NotificationType.INFORMATION)
+                                        .notify(project);
                                 }
                             }
                             comboBox.apply {
@@ -166,7 +174,10 @@ class ConanWindowFactory : ToolWindowFactory {
 
                 val scrollablePane = JBScrollPane(packagesTable)
 
-                add(actionToolbar.component, BorderLayout.NORTH)
+                add(JBSplitter().apply {
+                    firstComponent = actionToolbar.component
+                    secondComponent = searchTextField
+                }, BorderLayout.PAGE_START)
                 add(scrollablePane, BorderLayout.CENTER)
             }
             secondComponent = secondComponentPanel.apply { withEmptyText("No selection") }
