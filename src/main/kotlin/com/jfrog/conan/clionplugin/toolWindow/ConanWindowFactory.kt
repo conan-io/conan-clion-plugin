@@ -51,11 +51,11 @@ fun saveConfig(data: ConfigData) {
     file.writeText(content)
 }
 
-object PythonInterpreterChooserDescriptor : FileChooserDescriptor(true, true, false, false, false, false) {
+object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, true, false, false, false, false) {
 
     init {
-        withFileFilter { it.isPythonInterpreter }
-        withTitle("Select Python interpreter")
+        withFileFilter { it.isConanExecutable }
+        withTitle("Select Conan executable")
     }
 
     override fun isFileSelectable(file: VirtualFile?): Boolean {
@@ -63,20 +63,19 @@ object PythonInterpreterChooserDescriptor : FileChooserDescriptor(true, true, fa
     }
 }
 
-val VirtualFile.isPythonInterpreter: Boolean
-    get() {
-        return name.startsWith("python")
-    }
+val VirtualFile.isConanExecutable: Boolean get() {
+    return (extension == null || extension == "exe") && name == "conan"
+}
 
 class MyDialogWrapper(project: Project) : DialogWrapper(true) {
     private val configData = loadConfig()
 
     private val fileChooserField1 = TextFieldWithBrowseButton().apply {
         addBrowseFolderListener(
-                "Python interpreter",
-                "Python interpreter",
+                "Conan executable",
+                "Conan executable",
                 project,
-                PythonInterpreterChooserDescriptor
+                ConanExecutableChooserDescriptor
         )
         text = configData.field1
     }
@@ -104,7 +103,7 @@ class MyDialogWrapper(project: Project) : DialogWrapper(true) {
             weighty = 0.0
             gridwidth = GridBagConstraints.REMAINDER
         }
-        panel.add(JLabel("Python interpreter"), gbcLabel)
+        panel.add(JLabel("Conan executable"), gbcLabel)
         panel.add(fileChooserField1, gbcField)
         panel.add(JLabel("Field 2"), gbcLabel)
         panel.add(field2, gbcField)
