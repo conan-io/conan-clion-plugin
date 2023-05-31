@@ -7,10 +7,12 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
+import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.Messages
+import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.OnePixelSplitter
@@ -48,11 +50,22 @@ fun saveConfig(data: ConfigData) {
     file.writeText(content)
 }
 
-class MyDialogWrapper : DialogWrapper(true) {
+class MyDialogWrapper(project: Project) : DialogWrapper(true) {
     val configData = loadConfig()
-    val field1 = JTextField(configData.field1)
+
+    val fileChooserField1 = TextFieldWithBrowseButton().apply {
+        addBrowseFolderListener(
+                "Python interpreter",
+                "Python interpreter",
+                project,
+                FileChooserDescriptorFactory.createSingleFileDescriptor()
+        )
+        text = configData.field1
+    }
+
     val field2 = JTextField(configData.field2)
     val field3 = JTextField(configData.field3)
+    private val project = project
 
     init {
         init()
@@ -74,9 +87,8 @@ class MyDialogWrapper : DialogWrapper(true) {
             weighty = 0.0
             gridwidth = GridBagConstraints.REMAINDER
         }
-
-        panel.add(JLabel("Field 1"), gbcLabel)
-        panel.add(field1, gbcField)
+        panel.add(JLabel("Python interpreter"), gbcLabel)
+        panel.add(fileChooserField1, gbcField)
         panel.add(JLabel("Field 2"), gbcLabel)
         panel.add(field2, gbcField)
         panel.add(JLabel("Field 3"), gbcLabel)
@@ -89,9 +101,8 @@ class MyDialogWrapper : DialogWrapper(true) {
         return panel
     }
 
-
     override fun doOKAction() {
-        saveConfig(ConfigData(field1.text, field2.text, field3.text))
+        saveConfig(ConfigData(fileChooserField1.text, field2.text, field3.text))
         super.doOKAction()
     }
 }
@@ -128,7 +139,7 @@ class ConanWindowFactory : ToolWindowFactory {
                 val actionGroup = DefaultActionGroup().apply {
                     add(object : AnAction("Configure Conan", null, AllIcons.General.Settings) {
                         override fun actionPerformed(e: AnActionEvent) {
-                            MyDialogWrapper().showAndGet()
+                            MyDialogWrapper(project).showAndGet()
                         }
                     })
                     add(object : AnAction("Update packages", null, AllIcons.Actions.Refresh) {
