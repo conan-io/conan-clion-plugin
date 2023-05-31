@@ -19,9 +19,12 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.jfrog.conan.clionplugin.services.MyProjectService
 import java.awt.BorderLayout
-import javax.swing.Box
+import java.awt.Font
+import javax.swing.JLabel
+import javax.swing.border.EmptyBorder
 import javax.swing.table.DefaultTableModel
 
+data class Package(val name: String, val version: String)
 
 class ConanWindowFactory : ToolWindowFactory {
 
@@ -43,7 +46,12 @@ class ConanWindowFactory : ToolWindowFactory {
 
         private val service = toolWindow.project.service<MyProjectService>()
         private val project = project
+
         fun getContent() = OnePixelSplitter(false).apply {
+            val secondComponentPanel = JBPanelWithEmptyText().apply {
+                layout = BorderLayout()
+                border = EmptyBorder(10, 10, 10, 10)
+            }
             firstComponent = DialogPanel(BorderLayout()).apply {
                 val actionGroup = DefaultActionGroup().apply {
                     add(object : AnAction("Configure Conan", null, AllIcons.General.Settings) {
@@ -68,14 +76,42 @@ class ConanWindowFactory : ToolWindowFactory {
                     })
                 }
                 val actionToolbar = ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true)
-                val dataModel = DefaultTableModel(arrayOf("Name", "Version"), 0)
-                val exampleTable = JBTable(dataModel)
-                val scrollablePane = JBScrollPane(exampleTable)
+
+                val packages = listOf(
+                        Package("zlib", "1.2.13"),
+                        Package("opencv", "4.5.5"),
+                        // Add more packages here
+                )
+
+                val columnNames = arrayOf("Name", "Version")
+                val dataModel = DefaultTableModel(columnNames, 0)
+
+                packages.forEach { pkg ->
+                    dataModel.addRow(arrayOf(pkg.name, pkg.version))
+                }
+
+                val packagesTable = JBTable(dataModel)
+                packagesTable.selectionModel.addListSelectionListener {
+                    val selectedRow = packagesTable.selectedRow
+                    if (selectedRow != -1) {
+                        val name = packagesTable.getValueAt(selectedRow, 0) as String
+                        val version = packagesTable.getValueAt(selectedRow, 1) as String
+                        secondComponentPanel.removeAll()
+                        val packageNameLabel = JLabel("$name/$version").apply {
+                            font = font.deriveFont(Font.BOLD, 18f) // set font size to 18 and bold
+                        }
+                        secondComponentPanel.add(packageNameLabel, BorderLayout.NORTH)
+                        secondComponentPanel.revalidate()
+                        secondComponentPanel.repaint()
+                    }
+                }
+
+                val scrollablePane = JBScrollPane(packagesTable)
 
                 add(actionToolbar.component, BorderLayout.NORTH)
                 add(scrollablePane, BorderLayout.CENTER)
             }
-            secondComponent = JBPanelWithEmptyText().apply { withEmptyText("No selection") }
+            secondComponent = secondComponentPanel.apply { withEmptyText("No selection") }
             proportion = 0.28f
         }
 
