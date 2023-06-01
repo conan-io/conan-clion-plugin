@@ -29,7 +29,7 @@ class Conan(val project: Project) {
         thisLogger().info("Command stdout: $stdout")
         thisLogger().warn("Command stderr: $stderr")
 
-        return stdout
+        return stderr
     }
 
     fun list(pattern: String): String {
