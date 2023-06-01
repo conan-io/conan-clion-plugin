@@ -175,8 +175,10 @@ class ConanWindowFactory : ToolWindowFactory {
                 val scrollablePane = JBScrollPane(packagesTable)
 
                 add(JBSplitter().apply {
-                    firstComponent = actionToolbar.component
-                    secondComponent = searchTextField
+                    firstComponent = searchTextField
+                    secondComponent = JPanel(BorderLayout()).apply {
+                        add(actionToolbar.component, BorderLayout.EAST)
+                    }
                 }, BorderLayout.PAGE_START)
                 add(scrollablePane, BorderLayout.CENTER)
             }
