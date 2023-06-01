@@ -20,18 +20,16 @@ class Conan(val project: Project) {
                 .redirectError(ProcessBuilder.Redirect.PIPE)
                 .start()
 
-        val output = process.inputStream.bufferedReader().use { it.readText() }
-        val errors = process.errorStream.bufferedReader().use { it.readText() }
+        val stdout = process.inputStream.bufferedReader().use { it.readText() }
+        val stderr = process.errorStream.bufferedReader().use { it.readText() }
 
         val exitCode = process.waitFor()
 
         thisLogger().info("Command exited with status $exitCode")
-        thisLogger().info("Command output: $output")
-        if (errors.isNotEmpty()) {
-            thisLogger().warn("Command errors: $errors")
-        }
+        thisLogger().info("Command stdout: $stdout")
+        thisLogger().warn("Command stderr: $stderr")
 
-        return output
+        return stdout
     }
 
     fun list(pattern: String): String {
