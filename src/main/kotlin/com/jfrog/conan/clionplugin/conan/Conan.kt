@@ -9,7 +9,13 @@ import java.io.File
 
 class Conan(val project: Project) {
 
-    private fun run(args: List<String>): String {
+    data class RunOutout (
+        val exitCode: Int,
+        val stdout: String,
+        val stderr: String
+    )
+
+    private fun run(args: List<String>): RunOutout {
         val conanExecutable: String = this.project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
         val command = listOf(conanExecutable) + args
         thisLogger().info("Running command: $command")
@@ -29,15 +35,15 @@ class Conan(val project: Project) {
         thisLogger().info("Command stdout: $stdout")
         thisLogger().warn("Command stderr: $stderr")
 
-        return stderr
+        return RunOutout(exitCode, stdout, stderr)
     }
 
-    fun list(pattern: String): String {
-        val args = "list $pattern -r conancenter".split(" ").toList()
+    fun list(pattern: String): RunOutout {
+        val args = "list $pattern -r conancenter --format=json".split(" ").toList()
         return run(args)
     }
 
-    fun install(name: String, version: String): String {
+    fun install(name: String, version: String): RunOutout {
         val args = "install --requires=$name/$version -r=conancenter --build=missing".split(" ").toList()
         return run(args)
     }

@@ -24,11 +24,14 @@ import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
+import com.intellij.util.application
 import com.intellij.util.ui.JBUI
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import java.awt.BorderLayout
 import java.awt.FlowLayout
 import java.awt.Font
@@ -76,12 +79,24 @@ class ConanWindowFactory : ToolWindowFactory {
                     })
                     add(object : AnAction("Update packages", null, AllIcons.Actions.Refresh) {
                         override fun actionPerformed(e: AnActionEvent) {
-                            Messages.showMessageDialog(
-                                    project,
-                                    "Update packages",
-                                    "This will update Conan packages",
-                                    Messages.getInformationIcon()
-                            )
+                            val output = Conan(project).list("*")
+                            if (output.exitCode == 0) {
+                                val newJson = Json.decodeFromString<RemotesDataStateService.State>(output.stdout)
+                                stateService.loadState(newJson)
+                                NotificationGroupManager.getInstance()
+                                    .getNotificationGroup("Conan Notifications Group")
+                                    .createNotification("Updated remote data",
+                                        "Remote data has been updated",
+                                        NotificationType.INFORMATION)
+                                    .notify(project);
+                            } else {
+                                NotificationGroupManager.getInstance()
+                                    .getNotificationGroup("Conan Notifications Group")
+                                    .createNotification("Error updating remote data",
+                                        "Conan returned non 0 exit for the installation",
+                                        NotificationType.ERROR)
+                                    .notify(project);
+                            }
                         }
                     })
                 }
@@ -93,13 +108,20 @@ class ConanWindowFactory : ToolWindowFactory {
                 val versionModel = DefaultComboBoxModel<String>()
 
                 stateService.addStateChangeListener(object : RemotesDataStateService.RemoteDataStateListener {
-                        override fun stateChanged(newState: RemotesDataStateService.State) {
-                            recipes = newState.conancenter.keys.map {
-                                val split = it.split("/")
-                                Pair(split[0], split[1])
-                            }.groupBy { it.first }.map { Recipe(it.key, it.value.map{ it.second }) }
-
+                        override fun stateChanged(newState: RemotesDataStateService.State?) {
                             dataModel.rowCount = 0
+                            recipes = listOf()
+
+                            if (newState == null) return
+
+                            recipes = newState.conancenter.keys
+                                .map {
+                                    val split = it.split("/")
+                                    Pair(split[0], split[1])
+                                }
+                                .groupBy { it.first }
+                                .map { Recipe(it.key, it.value.map{ it.second }) }
+
                             recipes.forEach { pkg ->
                                 dataModel.addRow(arrayOf(pkg.name))
                             }

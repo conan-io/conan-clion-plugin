@@ -20,10 +20,9 @@
                            key="notificationKey"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.jfrog.conan.clionplugin.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
-    </applicationListeners>
     <projectListeners>
-        <listener class="com.jfrog.conan.clionplugin.listeners.ConanToolWindowManagerListener" topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
+        <listener
+                class="com.jfrog.conan.clionplugin.listeners.ConanToolWindowManagerListener"
+                topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
     </projectListeners>
 </idea-plugin>
