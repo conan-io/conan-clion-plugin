@@ -9,10 +9,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
-import com.intellij.openapi.editor.event.DocumentListener
 import com.intellij.openapi.observable.util.whenItemSelected
-import com.intellij.openapi.observable.util.whenKeyReleased
-import com.intellij.openapi.observable.util.whenKeyTyped
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
@@ -23,8 +20,6 @@ import com.intellij.ui.DocumentAdapter
 import com.intellij.ui.JBSplitter
 import com.intellij.ui.OnePixelSplitter
 import com.intellij.ui.SearchTextField
-import com.intellij.ui.components.JBLabel
-import com.intellij.ui.components.JBPanel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.content.ContentFactory
@@ -37,9 +32,7 @@ import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import java.awt.BorderLayout
 import java.awt.FlowLayout
 import java.awt.Font
-import java.util.regex.Pattern
 import javax.swing.*
-import javax.swing.border.EmptyBorder
 import javax.swing.event.DocumentEvent
 import javax.swing.table.DefaultTableModel
 import javax.swing.table.TableRowSorter
@@ -95,7 +88,7 @@ class ConanWindowFactory : ToolWindowFactory {
                 val actionToolbar = ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true)
 
                 var recipes: List<Recipe> = listOf()
-                val columnNames = arrayOf("Name", "version")
+                val columnNames = arrayOf("Name")
                 val dataModel = DefaultTableModel(columnNames, 0)
                 val versionModel = DefaultComboBoxModel<String>()
 
@@ -163,8 +156,8 @@ class ConanWindowFactory : ToolWindowFactory {
                                     installButton.isEnabled = true
                                 }
                             }
-                            add(installButton)
                             add(comboBox)
+                            add(installButton)
                         })
 
                         secondComponentPanel.revalidate()
@@ -183,7 +176,7 @@ class ConanWindowFactory : ToolWindowFactory {
                 add(scrollablePane, BorderLayout.CENTER)
             }
             secondComponent = secondComponentPanel.apply { withEmptyText("No selection") }
-            proportion = 0.28f
+            proportion = 0.2f
         }
 
     }
