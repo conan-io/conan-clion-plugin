@@ -1,17 +1,35 @@
 package com.jfrog.conan.clionplugin.conan
-import com.intellij.execution.configurations.GeneralCommandLine
-import com.intellij.execution.process.ScriptRunnerUtil
+
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
+import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
+import java.io.File
 
-class Conan (val project: Project) {
+class Conan(val project: Project) {
 
     private fun run(args: List<String>): String {
         val conanExecutable: String = this.project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
-        val handler = ScriptRunnerUtil.execute(conanExecutable, project.basePath, null, args.toTypedArray())
-        return ScriptRunnerUtil.getProcessOutput(handler, ScriptRunnerUtil.STDOUT_OUTPUT_KEY_FILTER, 1000 * 1000)
+        val command = listOf(conanExecutable) + args
+        thisLogger().info("Running command: $command")
+
+        val process = ProcessBuilder(command)
+                .directory(File(project.basePath!!))
+                .redirectOutput(ProcessBuilder.Redirect.PIPE)
+                .redirectError(ProcessBuilder.Redirect.PIPE)
+                .start()
+
+        val stdout = process.inputStream.bufferedReader().use { it.readText() }
+        val stderr = process.errorStream.bufferedReader().use { it.readText() }
+
+        val exitCode = process.waitFor()
+
+        thisLogger().info("Command exited with status $exitCode")
+        thisLogger().info("Command stdout: $stdout")
+        thisLogger().warn("Command stderr: $stderr")
+
+        return stderr
     }
 
     fun list(pattern: String): String {
@@ -20,7 +38,7 @@ class Conan (val project: Project) {
     }
 
     fun install(name: String, version: String): String {
-        val args = "install $name/$version -r conancenter".split(" ").toList()
+        val args = "install --requires=$name/$version -r=conancenter --build=missing".split(" ").toList()
         return run(args)
     }
 }
