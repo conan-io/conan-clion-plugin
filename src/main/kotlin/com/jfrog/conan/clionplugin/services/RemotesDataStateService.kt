@@ -49,7 +49,6 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
         state = newState
 
         try {
-            // val pluginHomeFile = File(getPluginHome())
             File(getPluginHome()).mkdir()
             val path = File(getRemoteStateFilePath())
             val fileCreationResult = path.createNewFile()
