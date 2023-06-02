@@ -10,20 +10,30 @@ import com.intellij.util.ThreeState
 import com.intellij.util.application
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException
+import kotlinx.serialization.SerializationStrategy
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.encodeToString
+import java.io.File
+import java.nio.file.Paths
 import java.util.*
 import javax.swing.event.EventListenerList
 import javax.swing.event.TableModelEvent
 
 // TODO: Figure out why settings (IE, this persitence) is not persisted, but just sometimes!
 @Service(Service.Level.PROJECT)
-@State(name = "remotes-data", storages = [Storage("conanPlugin.xml", useSaveThreshold = ThreeState.NO)])
 class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService.State> {
 
 
     val listeners: EventListenerList = EventListenerList()
 
+    public fun getPluginHome(): String {
+        return  Paths.get(System.getProperty("user.home"), ".conan-clion-plugin").toString()
+    }
+
+    private fun getRemoteStateFilePath(): String {
+        return Paths.get(getPluginHome(),"remote-data.json").toString()
+    }
 
     override fun getState(): State? {
         return state
@@ -37,18 +47,41 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
     override fun loadState(newState: State) {
         fireStateChangeListener(newState)
         state = newState
-        application.saveSettings()
+
+        try {
+            // val pluginHomeFile = File(getPluginHome())
+            File(getPluginHome()).mkdir()
+            val path = File(getRemoteStateFilePath())
+            val fileCreationResult = path.createNewFile()
+
+            if (!fileCreationResult) {
+                thisLogger().warn("Could not create storage file")
+            }
+            path.writeText(Json.encodeToString(state))
+        } catch (e: Exception) {
+            thisLogger().error(e.message)
+        }
+
     }
 
     override fun noStateLoaded() {
-        val baseContent = javaClass.classLoader.getResource("conan/base-data.json")?.readText()
-        if (baseContent != null) {
-            try {
-                val newState = Json.decodeFromString<State>(baseContent)
-                loadState(newState)
-            } catch (e: SerializationException) {
-                thisLogger().error(e.message)
-            }
+        val remoteStateStoreFile = File(getRemoteStateFilePath())
+
+        val initialText = if (remoteStateStoreFile.exists()) {
+            remoteStateStoreFile.readText()
+        } else {
+            javaClass.classLoader.getResource("conan/base-data.json")?.readText()
+        }
+
+        if (initialText == null) {
+            throw Exception()
+        }
+
+        try {
+            val newState = Json.decodeFromString<State>(initialText)
+            loadState(newState)
+        } catch (e: SerializationException) {
+            thisLogger().error(e.message)
         }
     }
 
@@ -58,7 +91,7 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
          * This fine grain notification tells listeners the exact range
          * of cells, rows, or columns that changed.
          *
-         * @param e a `TableModelEvent` to notify listener that a table model
+         * @param `TableModelEvent` to notify listener that a table model
          * has changed
          */
         fun stateChanged(newState: State?)

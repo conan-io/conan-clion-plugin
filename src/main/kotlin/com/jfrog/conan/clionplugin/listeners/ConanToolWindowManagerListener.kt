@@ -16,6 +16,7 @@ internal class ConanToolWindowManagerListener(private val project: Project) : To
     override fun toolWindowRegistered(id: String) {
         if (id == "Conan") {
             // Things to do
+            this.project.service<RemotesDataStateService>().noStateLoaded()
         }
     }
 }
