@@ -15,20 +15,8 @@ internal class ConanToolWindowManagerListener(private val project: Project) : To
 
     override fun toolWindowRegistered(id: String) {
         if (id == "Conan") {
-            val remoteDataService = this.project.service<RemotesDataStateService>()
-            if (remoteDataService.state == null) {
-                val baseContent = javaClass.classLoader.getResource("conan/base-data.json")?.readText()
-                if (baseContent != null) {
-                    try {
-                        val newState = Json.decodeFromString<RemotesDataStateService.State>(baseContent)
-                        remoteDataService.loadState(newState)
-                    } catch (e: SerializationException) {
-                        thisLogger().error(e.message)
-                    }
-
-                }
-
-            }
+            // Things to do
+            this.project.service<RemotesDataStateService>().noStateLoaded()
         }
     }
 }
