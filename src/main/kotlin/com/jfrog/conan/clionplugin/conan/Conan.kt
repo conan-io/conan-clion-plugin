@@ -4,6 +4,7 @@ import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.process.CapturingProcessAdapter
 import com.intellij.execution.process.CapturingProcessHandler
 import com.intellij.execution.process.ProcessEvent
+import com.intellij.execution.process.ProcessOutputType
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
@@ -44,7 +45,12 @@ class Conan(val project: Project) {
 
                 processHandler.addProcessListener(object : CapturingProcessAdapter() {
                     override fun onTextAvailable(event: ProcessEvent, outputType: Key<*>) {
-                        indicator.text = "Installing using Conan..."
+                        if (outputType == ProcessOutputType.STDOUT) {
+                            stdout += event.text
+                        } else if (outputType == ProcessOutputType.STDERR) {
+                            stderr += event.text
+                        }
+                        indicator.text = "Running Conan..."
                         indicator.text2 = event.text.trim()
                     }
 
@@ -54,10 +60,6 @@ class Conan(val project: Project) {
                 })
 
                 processHandler.runProcess()
-
-                thisLogger().info("Command exited with status $exitCode")
-                thisLogger().info("Command stdout: $stdout")
-                thisLogger().info("Command stdout: $stderr")
 
                 onSuccess(RunOutput(exitCode, stdout, stderr))
             }
