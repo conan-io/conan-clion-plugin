@@ -9,6 +9,7 @@ import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.progress.ProgressIndicator
+import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
@@ -45,6 +46,7 @@ class Conan(val project: Project) {
 
                 processHandler.addProcessListener(object : CapturingProcessAdapter() {
                     override fun onTextAvailable(event: ProcessEvent, outputType: Key<*>) {
+
                         if (outputType == ProcessOutputType.STDOUT) {
                             stdout += event.text
                         } else if (outputType == ProcessOutputType.STDERR) {
@@ -55,12 +57,22 @@ class Conan(val project: Project) {
                         if (line.startsWith("========")) {
                             indicator.text = line.trim('=').trim()
                         }
+
+                        ProgressManager.checkCanceled()
+                        if (indicator.isCanceled) {
+                            processHandler.destroyProcess()
+                            exitCode = 130
+                            return
+                        }
                     }
 
                     override fun processTerminated(event: ProcessEvent) {
-                        exitCode = event.exitCode
+                        if (exitCode == Int.MIN_VALUE) {
+                            exitCode = event.exitCode
+                        }
                     }
                 })
+
 
                 processHandler.runProcess()
 

@@ -169,9 +169,16 @@ class ConanWindowFactory : ToolWindowFactory {
                                         thisLogger().info("Command exited with status ${runOutput.exitCode}")
                                         thisLogger().info("Command stdout: ${runOutput.stdout}")
                                         thisLogger().info("Command stderr: ${runOutput.stderr}")
+                                        var message = ""
+                                        if (runOutput.exitCode != 130) {
+                                            message = "$name/${comboBox.selectedItem as String} installed successfully"
+                                        }
+                                        else {
+                                            message = "Conan process canceled by user"
+                                        }
                                         NotificationGroupManager.getInstance()
                                                 .getNotificationGroup("Conan Notifications Group")
-                                                .createNotification("$name/${comboBox.selectedItem as String} installed successfully",
+                                                .createNotification( message,
                                                         runOutput.stdout,
                                                         NotificationType.INFORMATION)
                                                 .notify(project);
