@@ -50,8 +50,11 @@ class Conan(val project: Project) {
                         } else if (outputType == ProcessOutputType.STDERR) {
                             stderr += event.text
                         }
-                        indicator.text = "Running Conan..."
-                        indicator.text2 = event.text.trim()
+                        var line = event.text.trim()
+                        indicator.text2 = line
+                        if (line.startsWith("========")) {
+                            indicator.text = line.trim('=').trim()
+                        }
                     }
 
                     override fun processTerminated(event: ProcessEvent) {
