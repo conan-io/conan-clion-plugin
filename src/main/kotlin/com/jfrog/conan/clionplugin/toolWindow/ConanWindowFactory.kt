@@ -166,6 +166,9 @@ class ConanWindowFactory : ToolWindowFactory {
                                 isEnabled = false
                                 addActionListener {
                                     Conan(project).install(name, comboBox.selectedItem as String) { runOutput ->
+                                        thisLogger().info("Command exited with status ${runOutput.exitCode}")
+                                        thisLogger().info("Command stdout: ${runOutput.stdout}")
+                                        thisLogger().info("Command stderr: ${runOutput.stderr}")
                                         NotificationGroupManager.getInstance()
                                                 .getNotificationGroup("Conan Notifications Group")
                                                 .createNotification("$name/${comboBox.selectedItem as String} installed successfully",
