@@ -13,7 +13,6 @@ import com.intellij.openapi.observable.util.whenItemSelected
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
-import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.DocumentAdapter
@@ -24,7 +23,6 @@ import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
-import com.intellij.util.application
 import com.intellij.util.ui.JBUI
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
@@ -79,23 +77,24 @@ class ConanWindowFactory : ToolWindowFactory {
                     })
                     add(object : AnAction("Update packages", null, AllIcons.Actions.Refresh) {
                         override fun actionPerformed(e: AnActionEvent) {
-                            val output = Conan(project).list("*")
-                            if (output.exitCode == 0) {
-                                val newJson = Json.decodeFromString<RemotesDataStateService.State>(output.stdout)
-                                stateService.loadState(newJson)
-                                NotificationGroupManager.getInstance()
-                                    .getNotificationGroup("Conan Notifications Group")
-                                    .createNotification("Updated remote data",
-                                        "Remote data has been updated",
-                                        NotificationType.INFORMATION)
-                                    .notify(project);
-                            } else {
-                                NotificationGroupManager.getInstance()
-                                    .getNotificationGroup("Conan Notifications Group")
-                                    .createNotification("Error updating remote data",
-                                        "Conan returned non 0 exit for the installation",
-                                        NotificationType.ERROR)
-                                    .notify(project);
+                            Conan(project).list("*") { runOutput ->
+                                if (runOutput.exitCode == 0) {
+                                    val newJson = Json.decodeFromString<RemotesDataStateService.State>(runOutput.stdout)
+                                    stateService.loadState(newJson)
+                                    NotificationGroupManager.getInstance()
+                                            .getNotificationGroup("Conan Notifications Group")
+                                            .createNotification("Updated remote data",
+                                                    "Remote data has been updated",
+                                                    NotificationType.INFORMATION)
+                                            .notify(project);
+                                } else {
+                                    NotificationGroupManager.getInstance()
+                                            .getNotificationGroup("Conan Notifications Group")
+                                            .createNotification("Error updating remote data",
+                                                    "Conan returned non 0 exit for the installation",
+                                                    NotificationType.ERROR)
+                                            .notify(project);
+                                }
                             }
                         }
                     })
@@ -108,25 +107,25 @@ class ConanWindowFactory : ToolWindowFactory {
                 val versionModel = DefaultComboBoxModel<String>()
 
                 stateService.addStateChangeListener(object : RemotesDataStateService.RemoteDataStateListener {
-                        override fun stateChanged(newState: RemotesDataStateService.State?) {
-                            dataModel.rowCount = 0
-                            recipes = listOf()
+                    override fun stateChanged(newState: RemotesDataStateService.State?) {
+                        dataModel.rowCount = 0
+                        recipes = listOf()
 
-                            if (newState == null) return
+                        if (newState == null) return
 
-                            recipes = newState.conancenter.keys
+                        recipes = newState.conancenter.keys
                                 .map {
                                     val split = it.split("/")
                                     Pair(split[0], split[1])
                                 }
                                 .groupBy { it.first }
-                                .map { Recipe(it.key, it.value.map{ it.second }) }
+                                .map { Recipe(it.key, it.value.map { it.second }) }
 
-                            recipes.forEach { pkg ->
-                                dataModel.addRow(arrayOf(pkg.name))
-                            }
+                        recipes.forEach { pkg ->
+                            dataModel.addRow(arrayOf(pkg.name))
                         }
                     }
+                }
                 )
 
                 val packagesTable = JBTable(dataModel).apply {
@@ -166,11 +165,24 @@ class ConanWindowFactory : ToolWindowFactory {
                             val installButton = JButton("Install").apply {
                                 isEnabled = false
                                 addActionListener {
-                                    val output = Conan(project).install(name, comboBox.selectedItem as String)
-                                    NotificationGroupManager.getInstance()
-                                        .getNotificationGroup("Conan Notifications Group")
-                                        .createNotification("$name/${comboBox.selectedItem as String} installed successfully", "Conan output:\n$output", NotificationType.INFORMATION)
-                                        .notify(project);
+                                    Conan(project).install(name, comboBox.selectedItem as String) { runOutput ->
+                                        thisLogger().info("Command exited with status ${runOutput.exitCode}")
+                                        thisLogger().info("Command stdout: ${runOutput.stdout}")
+                                        thisLogger().info("Command stderr: ${runOutput.stderr}")
+                                        var message = ""
+                                        if (runOutput.exitCode != 130) {
+                                            message = "$name/${comboBox.selectedItem as String} installed successfully"
+                                        }
+                                        else {
+                                            message = "Conan process canceled by user"
+                                        }
+                                        NotificationGroupManager.getInstance()
+                                                .getNotificationGroup("Conan Notifications Group")
+                                                .createNotification( message,
+                                                        runOutput.stdout,
+                                                        NotificationType.INFORMATION)
+                                                .notify(project);
+                                    }
                                 }
                             }
                             comboBox.apply {
