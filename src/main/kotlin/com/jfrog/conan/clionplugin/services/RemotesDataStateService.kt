@@ -20,14 +20,15 @@ import java.util.*
 import javax.swing.event.EventListenerList
 import javax.swing.event.TableModelEvent
 
-// TODO: Figure out why settings (IE, this persitence) is not persisted, but just sometimes!
 @Service(Service.Level.PROJECT)
-class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService.State> {
+// This used to be a PersistentStateComponent, but we couldn't get `noStateLoaded` to work,
+// so reverted back to using a json in the home config folder and handing it ourselves
+class RemotesDataStateService {
 
 
     val listeners: EventListenerList = EventListenerList()
 
-    public fun getPluginHome(): String {
+    fun getPluginHome(): String {
         return  Paths.get(System.getProperty("user.home"), ".conan-clion-plugin").toString()
     }
 
@@ -35,7 +36,7 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
         return Paths.get(getPluginHome(),"remote-data.json").toString()
     }
 
-    override fun getState(): State? {
+    fun getState(): State? {
         return state
     }
 
@@ -44,7 +45,7 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
 
     private var state: State? = null
 
-    override fun loadState(newState: State) {
+    fun loadState(newState: State) {
         fireStateChangeListener(newState)
         state = newState
 
@@ -63,7 +64,7 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
 
     }
 
-    override fun noStateLoaded() {
+    fun noStateLoaded() {
         val remoteStateStoreFile = File(getRemoteStateFilePath())
 
         val initialText = if (remoteStateStoreFile.exists()) {
