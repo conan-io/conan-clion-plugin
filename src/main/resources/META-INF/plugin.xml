@@ -6,6 +6,7 @@
 
     <depends>com.intellij.modules.platform</depends>
     <!-- TODO: Check if any dependency is needed -->
+    <depends>com.intellij.modules.clion</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
@@ -18,6 +19,10 @@
         <notificationGroup id="Conan Notifications Group"
                            displayType="BALLOON"
                            key="notificationKey"/>
+
+
+        <cmake.runnerStep implementation="com.jfrog.conan.clionplugin.conan.extensions.ConanCMakeRunnerStep" />
+        <projectService serviceImplementation="com.jfrog.conan.clionplugin.conan.extensions.ConanCMakeRunnerStep"/>
     </extensions>
 
     <projectListeners>
