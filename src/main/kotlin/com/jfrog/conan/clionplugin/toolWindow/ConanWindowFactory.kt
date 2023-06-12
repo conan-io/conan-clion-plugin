@@ -29,6 +29,7 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
+import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.actions.CMakeAddFileToProjectDialog
 import com.jetbrains.cidr.cpp.cmake.model.CMakeConfiguration
 import com.jetbrains.cidr.cpp.cmake.model.CMakeGeneratorParameters
@@ -41,6 +42,7 @@ import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfigurationType
 import com.jetbrains.cidr.cpp.execution.CMakeRunConfigurationType
 import com.jetbrains.cidr.cpp.execution.CMakeTargetToConfigProvider
 import com.jetbrains.cidr.cpp.execution.build.CMakeBuildConfigurationProvider
+import com.jetbrains.rd.util.string.printToString
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.conan.extensions.ConanCMakeRunnerStep
@@ -126,6 +128,20 @@ class ConanWindowFactory : ToolWindowFactory {
                             workspace.modelConfigurationData.forEach {
 
                             }
+
+                            val cmakeSettings = CMakeSettings.getInstance(project)
+                            val profiles = cmakeSettings.profiles
+                            val modifiedProfiles: MutableList<CMakeSettings.Profile> = mutableListOf()
+
+                            for (profile in profiles) {
+                                println(profile.printToString())
+                                // FIXME: get the generation dir from the profiles or settings in CLion or
+                                // calculate with the build_type
+                                val newProfile = profile.withGenerationOptions("-DCMAKE_TOOLCHAIN_FILE=\"cmake-build-release/generators/conan_toolchain.cmake\"")
+                                modifiedProfiles.add(newProfile)
+                            }
+                            cmakeSettings.setProfiles(modifiedProfiles)
+
                         }
                     })
                 }
