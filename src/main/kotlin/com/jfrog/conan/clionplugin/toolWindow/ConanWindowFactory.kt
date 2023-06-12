@@ -1,5 +1,6 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
+import com.intellij.collaboration.ui.selectFirst
 import com.intellij.icons.AllIcons
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
@@ -23,6 +24,7 @@ import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
+import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
@@ -100,10 +102,17 @@ class ConanWindowFactory : ToolWindowFactory {
                     })
                 }
                 val actionToolbar = ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true)
+                actionToolbar.targetComponent = this
 
                 var recipes: List<Recipe> = listOf()
                 val columnNames = arrayOf("Name")
-                val dataModel = DefaultTableModel(columnNames, 0)
+                val dataModel = object : DefaultTableModel(columnNames, 0) {
+                    // By default cells are editable and that's no good. Override the function that tells the UI it is
+                    // TODO: Find the proper configuration for this, this can't be the proper way to make it static
+                    override fun isCellEditable(row: Int, column: Int): Boolean {
+                        return false
+                    }
+                }
                 val versionModel = DefaultComboBoxModel<String>()
 
                 stateService.addStateChangeListener(object : RemotesDataStateService.RemoteDataStateListener {
@@ -113,17 +122,18 @@ class ConanWindowFactory : ToolWindowFactory {
 
                         if (newState == null) return
 
+                        // conancenter has one entry per recipe version, this collates all versions into 1 recipe object,
+                        // with a versions list of each of the existing ones
                         recipes = newState.conancenter.keys
-                                .map {
-                                    val split = it.split("/")
-                                    Pair(split[0], split[1])
-                                }
-                                .groupBy { it.first }
-                                .map { Recipe(it.key, it.value.map { it.second }) }
-
-                        recipes.forEach { pkg ->
-                            dataModel.addRow(arrayOf(pkg.name))
-                        }
+                            .map {
+                                val split = it.split("/")
+                                Pair(split[0], split[1])
+                            }
+                            .groupBy { it.first }
+                            .map {
+                                dataModel.addRow(arrayOf(it.key))
+                                Recipe(it.key, it.value.map{ it.second })
+                            }
                     }
                 }
                 )
@@ -131,9 +141,8 @@ class ConanWindowFactory : ToolWindowFactory {
                 val packagesTable = JBTable(dataModel).apply {
                     tableHeader
                     autoCreateRowSorter = true
-                    (rowSorter as TableRowSorter<DefaultTableModel>).apply {
-                        sortKeys = mutableListOf(RowSorter.SortKey(0, SortOrder.ASCENDING))
-                    }
+                    (rowSorter as TableRowSorter<DefaultTableModel>).sortKeys =
+                        mutableListOf(RowSorter.SortKey(0, SortOrder.ASCENDING))
                 }
 
 
@@ -151,9 +160,12 @@ class ConanWindowFactory : ToolWindowFactory {
                         val name = packagesTable.getValueAt(selectedRow, 0) as String
 
                         val recipe = recipes.find { it.name == name } ?: throw Exception()
-                        val versions = recipe.versions
-                        versionModel.removeAllElements()
-                        versionModel.addAll(versions)
+                        val versions = recipe.versions.sortedByDescending(SemVer::parseFromText)
+                        versionModel.apply {
+                            removeAllElements()
+                            addAll(versions)
+                            selectFirst()
+                        }
 
                         secondComponentPanel.removeAll()
                         secondComponentPanel.add(JLabel(name).apply {
@@ -162,8 +174,9 @@ class ConanWindowFactory : ToolWindowFactory {
 
                         secondComponentPanel.add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
                             val comboBox = ComboBox(versionModel)
-                            val installButton = JButton("Install").apply {
-                                isEnabled = false
+
+                            add(comboBox)
+                            add(JButton("Install").apply {
                                 addActionListener {
                                     Conan(project).install(name, comboBox.selectedItem as String) { runOutput ->
                                         thisLogger().info("Command exited with status ${runOutput.exitCode}")
@@ -177,21 +190,14 @@ class ConanWindowFactory : ToolWindowFactory {
                                             message = "Conan process canceled by user"
                                         }
                                         NotificationGroupManager.getInstance()
-                                                .getNotificationGroup("Conan Notifications Group")
-                                                .createNotification( message,
-                                                        runOutput.stdout,
-                                                        NotificationType.INFORMATION)
-                                                .notify(project);
+                                            .getNotificationGroup("Conan Notifications Group")
+                                            .createNotification( message,
+                                                runOutput.stdout,
+                                                NotificationType.INFORMATION)
+                                            .notify(project);
                                     }
                                 }
-                            }
-                            comboBox.apply {
-                                whenItemSelected {
-                                    installButton.isEnabled = true
-                                }
-                            }
-                            add(comboBox)
-                            add(installButton)
+                            })
                         })
 
                         secondComponentPanel.revalidate()
@@ -199,15 +205,13 @@ class ConanWindowFactory : ToolWindowFactory {
                     }
                 }
 
-                val scrollablePane = JBScrollPane(packagesTable)
-
                 add(JBSplitter().apply {
                     firstComponent = searchTextField
                     secondComponent = JPanel(BorderLayout()).apply {
                         add(actionToolbar.component, BorderLayout.EAST)
                     }
                 }, BorderLayout.PAGE_START)
-                add(scrollablePane, BorderLayout.CENTER)
+                add(JBScrollPane(packagesTable), BorderLayout.CENTER)
             }
             secondComponent = secondComponentPanel.apply { withEmptyText("No selection") }
             proportion = 0.2f

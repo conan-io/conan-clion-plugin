@@ -5,7 +5,7 @@
     <vendor>JFrog</vendor>
 
     <depends>com.intellij.modules.platform</depends>
-    <!-- TODO: Check if any dependency is needed -->
+    <depends>com.intellij.modules.clion</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
@@ -13,7 +13,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.jfrog.conan.clionplugin.toolWindow.ConanWindowFactory"
                     id="Conan"
-                    anchor="bottom"/>
+                    anchor="bottom"
+                    icon="com.jfrog.conan.clionplugin.icons.ConanIcons.Logo"/>
 
         <notificationGroup id="Conan Notifications Group"
                            displayType="BALLOON"
