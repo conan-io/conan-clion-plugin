@@ -15,7 +15,9 @@ internal class ConanToolWindowManagerListener(private val project: Project) : To
 
     override fun toolWindowRegistered(id: String) {
         if (id == "Conan") {
-            // Things to do
+            // Things to do when the plugin first loads.
+            // As we have not been able to get the remote data state service to realibly sotre its json,
+            // we fire the noStateLoaded function manually (As it does not actually implement the @State decorator!)
             this.project.service<RemotesDataStateService>().noStateLoaded()
         }
     }
