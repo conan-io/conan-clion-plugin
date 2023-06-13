@@ -191,7 +191,7 @@ class ConanWindowFactory : ToolWindowFactory {
                                     val activeProfiles = cmakeSettings.activeProfiles
                                     activeProfiles.forEach() { profile ->
                                         println(profile.printToString())
-
+                                    }
 
                                     Conan(project).install(name, comboBox.selectedItem as String) { runOutput ->
                                         thisLogger().info("Command exited with status ${runOutput.exitCode}")
