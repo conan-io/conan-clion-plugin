@@ -88,10 +88,27 @@ class ConanWindowFactory : ToolWindowFactory {
                     
                         def requirements(self):
                             # add requirements dinamically, from a json file stored in the user's path?  
-                            pass
-                            #self.requires("openssl/3.1.1")
+                            self.requires("openssl/3.1.1")
                 
                 """.trimIndent())
+        }
+
+        private fun addGenerationOptions(profileName: String?, generationOptions: String) {
+            val cmakeSettings = CMakeSettings.getInstance(project)
+            val profiles = cmakeSettings.profiles
+            val modifiedProfiles: MutableList<CMakeSettings.Profile> = mutableListOf()
+
+            for (profile in profiles) {
+                println(profile.printToString())
+                if (profile.name == profileName) {
+                    val newProfile = profile.withGenerationOptions(generationOptions)
+                    modifiedProfiles.add(newProfile)
+                }
+                else {
+                    modifiedProfiles.add(profile)
+                }
+            }
+            cmakeSettings.setProfiles(modifiedProfiles)
         }
 
         fun getContent() = OnePixelSplitter(false).apply {
@@ -224,6 +241,7 @@ class ConanWindowFactory : ToolWindowFactory {
                                     println(selectedBuildConfig?.configurationAndTargetGenerationDir)
                                     println(selectedBuildConfig?.configurationGenerationDir)
 
+                                    addGenerationOptions(selectedBuildConfig?.profileName, "-DCMAKE_TOOLCHAIN_FILE=\"${selectedBuildConfig?.configurationAndTargetGenerationDir}/generators/conan_toolchain.cmake\"")
                                     createConanfile(project)
 
                                     Conan(project).install(name, comboBox.selectedItem as String) { runOutput ->
