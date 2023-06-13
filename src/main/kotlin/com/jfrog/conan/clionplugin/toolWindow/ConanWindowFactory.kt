@@ -1,7 +1,6 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.collaboration.ui.selectFirst
-import com.intellij.execution.RunManager
 import com.intellij.icons.AllIcons
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
@@ -11,9 +10,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
-import com.intellij.openapi.observable.util.whenItemSelected
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.roots.ModuleRootManager
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.wm.ToolWindow
@@ -28,15 +25,8 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
-import com.jetbrains.cidr.cpp.cmake.CMakeRunner
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
-import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
-import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfigurationType
-import com.jetbrains.cidr.cpp.execution.CMakeBuildConfigurationHelper
-import com.jetbrains.cidr.cpp.execution.CMakeRunConfigurationUtil
-import com.jetbrains.cidr.cpp.execution.build.CMakeBuild
-import com.jetbrains.cidr.cpp.execution.build.CMakeBuildConfigurationProvider
 import com.jetbrains.rd.util.string.printToString
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
