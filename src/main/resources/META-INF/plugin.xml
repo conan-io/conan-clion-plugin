@@ -19,8 +19,8 @@
         <notificationGroup id="Conan Notifications Group"
                            displayType="BALLOON"
                            key="notificationKey"/>
-        <cmake.runnerStep implementation="com.jfrog.conan.clionplugin.conan.extensions.ConanCMakeRunnerStep"/>
-        <projectService serviceImplementation="com.jfrog.conan.clionplugin.conan.extensions.ConanCMakeRunnerStep"/>
+        <cmake.runnerStep implementation="com.jfrog.conan.clionplugin.cmake.extensions.ConanCMakeRunnerStep"/>
+        <projectService serviceImplementation="com.jfrog.conan.clionplugin.cmake.extensions.ConanCMakeRunnerStep"/>
     </extensions>
 
     <projectListeners>

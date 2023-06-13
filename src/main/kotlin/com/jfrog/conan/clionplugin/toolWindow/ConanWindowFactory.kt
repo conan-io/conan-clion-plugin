@@ -1,6 +1,7 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.collaboration.ui.selectFirst
+import com.intellij.execution.RunManager
 import com.intellij.icons.AllIcons
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
@@ -29,9 +30,12 @@ import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
 import com.jetbrains.rd.util.string.printToString
+import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
+import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
+import com.jfrog.conan.clionplugin.services.ConanService
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -64,52 +68,6 @@ class ConanWindowFactory : ToolWindowFactory {
     class ConanWindow(toolWindow: ToolWindow, project: Project) {
         private val project = project
         private val stateService = this.project.service<RemotesDataStateService>()
-
-        private fun createConanfile(project: Project) {
-            val workspace = CMakeWorkspace.getInstance(project)
-            val file = File(workspace.projectPath.toString(), "conanfile.py")
-            file.createNewFile()
-            file.writeText("""
-                    import os
-                    from conan import ConanFile
-                    
-                    
-                    class ConanApplication(ConanFile):
-                        package_type = "application"
-                        settings = "os", "compiler", "build_type", "arch"
-                        generators = "CMakeDeps", "CMakeToolchain"
-                    
-                        def layout(self):
-                            # consider other generators? Clion uses Ninja by default
-                            self.conf.define("tools.cmake.cmaketoolchain:generator", "Ninja")
-                            self.folders.source = "."
-                            self.folders.build = f"cmake-build-{str(self.settings.build_type).lower()}"
-                            self.folders.generators = os.path.join(self.folders.build, "generators")
-                    
-                        def requirements(self):
-                            # add requirements dinamically, from a json file stored in the user's path?  
-                            self.requires("openssl/3.1.1")
-                
-                """.trimIndent())
-        }
-
-        private fun addGenerationOptions(profileName: String?, generationOptions: String) {
-            val cmakeSettings = CMakeSettings.getInstance(project)
-            val profiles = cmakeSettings.profiles
-            val modifiedProfiles: MutableList<CMakeSettings.Profile> = mutableListOf()
-
-            for (profile in profiles) {
-                println(profile.printToString())
-                if (profile.name == profileName) {
-                    val newProfile = profile.withGenerationOptions(generationOptions)
-                    modifiedProfiles.add(newProfile)
-                }
-                else {
-                    modifiedProfiles.add(profile)
-                }
-            }
-            cmakeSettings.setProfiles(modifiedProfiles)
-        }
 
         fun getContent() = OnePixelSplitter(false).apply {
 
@@ -229,39 +187,7 @@ class ConanWindowFactory : ToolWindowFactory {
                             add(comboBox)
                             add(JButton("Install").apply {
                                 addActionListener {
-                                    val selectedRunConfig = CMakeAppRunConfiguration.getSelectedRunConfiguration(project)
-                                    //println(selectedRunConfig.printToString())
-                                    val selectedBuildConfig = CMakeAppRunConfiguration.getSelectedBuildAndRunConfigurations(project)?.buildConfiguration
-                                    //println(selectedBuildConfig.printToString())
-                                    val cmakeSettings = CMakeSettings.getInstance(project)
-                                    val activeProfiles = cmakeSettings.activeProfiles
-                                    var selectedProfile = activeProfiles.find { it.name == selectedBuildConfig?.profileName }
-                                    println(selectedProfile.printToString())
-                                    println(selectedBuildConfig?.buildWorkingDir)
-                                    println(selectedBuildConfig?.configurationAndTargetGenerationDir)
-                                    println(selectedBuildConfig?.configurationGenerationDir)
-
-                                    addGenerationOptions(selectedBuildConfig?.profileName, "-DCMAKE_TOOLCHAIN_FILE=\"${selectedBuildConfig?.configurationAndTargetGenerationDir}/generators/conan_toolchain.cmake\"")
-                                    createConanfile(project)
-
-                                    Conan(project).install(name, comboBox.selectedItem as String) { runOutput ->
-                                        thisLogger().info("Command exited with status ${runOutput.exitCode}")
-                                        thisLogger().info("Command stdout: ${runOutput.stdout}")
-                                        thisLogger().info("Command stderr: ${runOutput.stderr}")
-                                        var message = ""
-                                        if (runOutput.exitCode != 130) {
-                                            message = "$name/${comboBox.selectedItem as String} installed successfully"
-                                        }
-                                        else {
-                                            message = "Conan process canceled by user"
-                                        }
-                                        NotificationGroupManager.getInstance()
-                                            .getNotificationGroup("Conan Notifications Group")
-                                            .createNotification( message,
-                                                runOutput.stdout,
-                                                NotificationType.INFORMATION)
-                                            .notify(project);
-                                    }
+                                    project.service<ConanService>().runInstallFlow(name, comboBox.selectedItem as String)
                                 }
                             })
                         })
