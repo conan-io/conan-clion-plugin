@@ -26,6 +26,7 @@ import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
+import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
 import com.jetbrains.rd.util.string.printToString
 import com.jfrog.conan.clionplugin.conan.Conan
@@ -37,6 +38,7 @@ import kotlinx.serialization.json.Json
 import java.awt.BorderLayout
 import java.awt.FlowLayout
 import java.awt.Font
+import java.io.File
 import javax.swing.*
 import javax.swing.event.DocumentEvent
 import javax.swing.table.DefaultTableModel
@@ -62,6 +64,35 @@ class ConanWindowFactory : ToolWindowFactory {
     class ConanWindow(toolWindow: ToolWindow, project: Project) {
         private val project = project
         private val stateService = this.project.service<RemotesDataStateService>()
+
+        private fun createConanfile(project: Project) {
+            val workspace = CMakeWorkspace.getInstance(project)
+            val file = File(workspace.projectPath.toString(), "conanfile.py")
+            file.createNewFile()
+            file.writeText("""
+                    import os
+                    from conan import ConanFile
+                    
+                    
+                    class ConanApplication(ConanFile):
+                        package_type = "application"
+                        settings = "os", "compiler", "build_type", "arch"
+                        generators = "CMakeDeps", "CMakeToolchain"
+                    
+                        def layout(self):
+                            # consider other generators? Clion uses Ninja by default
+                            self.conf.define("tools.cmake.cmaketoolchain:generator", "Ninja")
+                            self.folders.source = "."
+                            self.folders.build = f"cmake-build-{str(self.settings.build_type).lower()}"
+                            self.folders.generators = os.path.join(self.folders.build, "generators")
+                    
+                        def requirements(self):
+                            # add requirements dinamically, from a json file stored in the user's path?  
+                            pass
+                            #self.requires("openssl/3.1.1")
+                
+                """.trimIndent())
+        }
 
         fun getContent() = OnePixelSplitter(false).apply {
 
@@ -181,17 +212,19 @@ class ConanWindowFactory : ToolWindowFactory {
                             add(comboBox)
                             add(JButton("Install").apply {
                                 addActionListener {
-                                    val selectedConfig = CMakeAppRunConfiguration.getSelectedRunConfiguration(project)
-                                    println(selectedConfig.printToString())
-                                    val buildRunConfig = CMakeAppRunConfiguration.getSelectedBuildAndRunConfigurations(project)
-                                    val selectedBuildConfig = buildRunConfig?.buildConfiguration
-                                    println(buildRunConfig.printToString())
-                                    println(selectedBuildConfig.printToString())
+                                    val selectedRunConfig = CMakeAppRunConfiguration.getSelectedRunConfiguration(project)
+                                    //println(selectedRunConfig.printToString())
+                                    val selectedBuildConfig = CMakeAppRunConfiguration.getSelectedBuildAndRunConfigurations(project)?.buildConfiguration
+                                    //println(selectedBuildConfig.printToString())
                                     val cmakeSettings = CMakeSettings.getInstance(project)
                                     val activeProfiles = cmakeSettings.activeProfiles
-                                    activeProfiles.forEach() { profile ->
-                                        println(profile.printToString())
-                                    }
+                                    var selectedProfile = activeProfiles.find { it.name == selectedBuildConfig?.profileName }
+                                    println(selectedProfile.printToString())
+                                    println(selectedBuildConfig?.buildWorkingDir)
+                                    println(selectedBuildConfig?.configurationAndTargetGenerationDir)
+                                    println(selectedBuildConfig?.configurationGenerationDir)
+
+                                    createConanfile(project)
 
                                     Conan(project).install(name, comboBox.selectedItem as String) { runOutput ->
                                         thisLogger().info("Command exited with status ${runOutput.exitCode}")
