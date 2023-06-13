@@ -36,20 +36,19 @@ class ConanService(val project: Project) {
         val conan = Conan(project)
         val dialog = ConanInstallDialogWrapper(project)
         if (dialog.showAndGet()) {
+            addStoredDependency(name, version)
+            createConanfile()
             dialog.getSelectedInstallProfiles().forEach { profileName ->
                 // TODO: Pass extra info to conan install for each one of the it profiles
                 thisLogger().info("Installing for $profileName")
                 val buildType = activeProfiles.find { it.name == profileName }?.buildType
-                conan.install(name, version, profileName) { runOutput ->
+                conan.install(name, version, buildType) { runOutput ->
                     thisLogger().info("Command exited with status ${runOutput.exitCode}")
                     thisLogger().info("Command stdout: ${runOutput.stdout}")
                     thisLogger().info("Command stderr: ${runOutput.stderr}")
                     var message = ""
                     if (runOutput.exitCode != 130) {
                         message = "$name/$version installed successfully"
-
-                        addStoredDependency(name, version)
-                        createConanfile()
                         CMake(project).addGenerationOptions(
                             selectedBuildConfig?.profileName,
                             "-DCMAKE_TOOLCHAIN_FILE=\"${selectedBuildConfig?.configurationAndTargetGenerationDir}/generators/conan_toolchain.cmake\""

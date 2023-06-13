@@ -95,7 +95,7 @@ class Conan(val project: Project) {
 
     fun install(name: String, version: String, buildType: String?, onSuccess: (RunOutput) -> Unit) {
         val buildTypeArg = if (buildType != null) "-s build_type=$buildType" else ""
-        val args = "install --requires=$name/$version $buildTypeArg -r conancenter --build=missing".split(" ").toList()
+        val args = "install . --name=conan-clion-plugin-app --version=0.0 $buildTypeArg -r conancenter --build=missing".split(" ").toList()
         runInBackground(args, "Running Conan Install Command", onSuccess)
     }
 
