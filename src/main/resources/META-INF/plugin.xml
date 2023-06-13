@@ -19,11 +19,16 @@
         <notificationGroup id="Conan Notifications Group"
                            displayType="BALLOON"
                            key="notificationKey"/>
+        <cmake.runnerStep implementation="com.jfrog.conan.clionplugin.conan.extensions.ConanCMakeRunnerStep"/>
+        <projectService serviceImplementation="com.jfrog.conan.clionplugin.conan.extensions.ConanCMakeRunnerStep"/>
     </extensions>
 
     <projectListeners>
         <listener
                 class="com.jfrog.conan.clionplugin.listeners.ConanToolWindowManagerListener"
                 topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
+
+        <listener class="com.jfrog.conan.clionplugin.listeners.ConanCMakeSettingsListener"
+                  topic="com.jetbrains.cidr.cpp.cmake.CMakeSettingsListener" />
     </projectListeners>
 </idea-plugin>
