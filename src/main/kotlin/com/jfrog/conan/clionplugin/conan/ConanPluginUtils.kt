@@ -1,11 +1,7 @@
 package com.jfrog.conan.clionplugin.conan
 
-import com.intellij.openapi.diagnostic.thisLogger
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.jfrog.conan.clionplugin.conan.extensions.downloadFromUrl
 import java.io.File
-import java.net.URL
 import java.nio.file.Paths
 
 object ConanPluginUtils {
@@ -23,24 +19,6 @@ object ConanPluginUtils {
         if (update || !targetFile.exists()) {
             targetFile.parentFile.mkdirs()
             targetFile.downloadFromUrl(cmakeProviderURL)
-        }
-    }
-
-    private fun File.downloadFromUrl(url: String) {
-        val targetFile = this
-
-        GlobalScope.launch(Dispatchers.IO) {
-            try {
-                val fileUrl = URL(url)
-                fileUrl.openStream().use { input ->
-                    targetFile.outputStream().use { output ->
-                        input.copyTo(output)
-                    }
-                }
-                thisLogger().info("Conan CMake provider downloaded: ${targetFile.absolutePath}")
-            } catch (e: Exception) {
-                thisLogger().warn("Error downloading: ${e.message}")
-            }
         }
     }
 }
