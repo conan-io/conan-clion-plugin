@@ -1,5 +1,6 @@
 package com.jfrog.conan.clionplugin.conan
 
+import com.intellij.openapi.diagnostic.thisLogger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -36,9 +37,9 @@ object ConanPluginUtils {
                         input.copyTo(output)
                     }
                 }
-                println("Conan CMake provider downloaded: ${targetFile.absolutePath}")
+                thisLogger().info("Conan CMake provider downloaded: ${targetFile.absolutePath}")
             } catch (e: Exception) {
-                println("Error downloading: ${e.message}")
+                thisLogger().warn("Error downloading: ${e.message}")
             }
         }
     }
