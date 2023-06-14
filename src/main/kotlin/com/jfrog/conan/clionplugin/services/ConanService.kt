@@ -48,8 +48,6 @@ class ConanService(val project: Project) {
                 generators = "CMakeDeps", "CMakeToolchain"
 
                 def layout(self):
-                    # consider other generators? Clion uses Ninja by default
-                    self.conf.define("tools.cmake.cmaketoolchain:generator", "Ninja")
                     self.folders.source = "."
                     self.folders.build = f"cmake-build-{str(self.settings.build_type).lower()}"
                     self.folders.generators = os.path.join(self.folders.build, "generators")
