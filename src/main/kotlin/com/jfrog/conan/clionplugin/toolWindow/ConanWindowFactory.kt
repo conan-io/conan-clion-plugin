@@ -1,7 +1,6 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.collaboration.ui.selectFirst
-import com.intellij.execution.RunManager
 import com.intellij.icons.AllIcons
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
@@ -26,15 +25,10 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
-import com.jetbrains.cidr.cpp.cmake.CMakeSettings
-import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
-import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
-import com.jetbrains.rd.util.string.printToString
-import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.Conan
+import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
-import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
 import com.jfrog.conan.clionplugin.services.ConanService
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import kotlinx.serialization.decodeFromString
@@ -42,7 +36,6 @@ import kotlinx.serialization.json.Json
 import java.awt.BorderLayout
 import java.awt.FlowLayout
 import java.awt.Font
-import java.io.File
 import javax.swing.*
 import javax.swing.event.DocumentEvent
 import javax.swing.table.DefaultTableModel
@@ -88,6 +81,9 @@ class ConanWindowFactory : ToolWindowFactory {
                     })
                     add(object : AnAction("Update packages", null, AllIcons.Actions.Refresh) {
                         override fun actionPerformed(e: AnActionEvent) {
+
+                            ConanPluginUtils.downloadCMakeProvider(true)
+
                             Conan(project).list("*") { runOutput ->
                                 if (runOutput.exitCode == 0) {
                                     val newJson = Json.decodeFromString<RemotesDataStateService.State>(runOutput.stdout)

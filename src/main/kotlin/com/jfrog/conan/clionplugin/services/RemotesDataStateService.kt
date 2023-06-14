@@ -1,24 +1,18 @@
 package com.jfrog.conan.clionplugin.services
 
-import com.intellij.openapi.application.Application
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.Service
-import com.intellij.openapi.components.State
-import com.intellij.openapi.components.Storage
 import com.intellij.openapi.diagnostic.thisLogger
-import com.intellij.util.ThreeState
-import com.intellij.util.application
+import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException
-import kotlinx.serialization.SerializationStrategy
 import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import java.io.File
 import java.nio.file.Paths
 import java.util.*
 import javax.swing.event.EventListenerList
-import javax.swing.event.TableModelEvent
 
 // TODO: Figure out why settings (IE, this persitence) is not persisted, but just sometimes!
 @Service(Service.Level.PROJECT)
@@ -27,12 +21,8 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
 
     val listeners: EventListenerList = EventListenerList()
 
-    public fun getPluginHome(): String {
-        return  Paths.get(System.getProperty("user.home"), ".conan-clion-plugin").toString()
-    }
-
     private fun getRemoteStateFilePath(): String {
-        return Paths.get(getPluginHome(),"remote-data.json").toString()
+        return Paths.get(ConanPluginUtils.getPluginHome(),"remote-data.json").toString()
     }
 
     override fun getState(): State? {
@@ -49,7 +39,7 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
         state = newState
 
         try {
-            File(getPluginHome()).mkdir()
+            File(ConanPluginUtils.getPluginHome()).mkdir()
             val path = File(getRemoteStateFilePath())
             val fileCreationResult = path.createNewFile()
 
