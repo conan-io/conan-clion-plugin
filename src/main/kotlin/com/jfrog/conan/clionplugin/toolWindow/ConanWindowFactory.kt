@@ -2,6 +2,7 @@ package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.collaboration.ui.selectFirst
 import com.intellij.icons.AllIcons
+import com.intellij.ide.util.PropertiesComponent
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.ActionManager
@@ -25,10 +26,13 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
+import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
+import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
+import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import com.jfrog.conan.clionplugin.services.ConanService
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import kotlinx.serialization.decodeFromString
@@ -77,6 +81,26 @@ class ConanWindowFactory : ToolWindowFactory {
                     add(object : AnAction("Configure Conan", null, AllIcons.General.Settings) {
                         override fun actionPerformed(e: AnActionEvent) {
                             ConanExecutableDialogWrapper(project).showAndGet()
+                        }
+                    })
+                    add(object : AnAction("Add Conan support to Project", null, AllIcons.General.Add) {
+                        // TODO: probably add for all configurations by default would be better
+                        override fun actionPerformed(e: AnActionEvent) {
+                            val dialog = ConanInstallDialogWrapper(project)
+                            // FIXME: duplicated code from runUseFlow
+                            if (dialog.showAndGet()) {
+                                val conanExecutable: String = project.service<PropertiesComponent>().getValue(
+                                        PersistentStorageKeys.CONAN_EXECUTABLE,
+                                        "conan"
+                                )
+                                dialog.getSelectedInstallProfiles().forEach { profileName ->
+                                    thisLogger().info("Adding Conan configuration to $profileName")
+                                    CMake(project).addGenerationOptions(profileName,
+                                            listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
+                                                    "-DCONAN_COMMAND=\"${conanExecutable}\"")
+                                    )
+                                }
+                            }
                         }
                     })
                     add(object : AnAction("Update packages", null, AllIcons.Actions.Refresh) {
