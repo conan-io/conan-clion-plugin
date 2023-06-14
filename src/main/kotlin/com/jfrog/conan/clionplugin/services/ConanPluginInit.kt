@@ -13,10 +13,10 @@ class ConanPluginInit : ProjectActivity {
 
     override suspend fun execute(project: Project) {
         val pluginHome = ConanPluginInfo.getPluginHome()
-        val targetFile = File(pluginHome, ConanPluginInfo.providerFileName)
+        val targetFile = File(pluginHome, ConanPluginInfo.cmakeProviderFileName)
 
         if (!targetFile.exists()) {
-            val fileUrl = ConanPluginInfo.providerURL
+            val fileUrl = ConanPluginInfo.cmakeProviderURL
             downloadFile(fileUrl, targetFile)
         }
     }
