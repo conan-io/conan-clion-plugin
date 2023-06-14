@@ -36,8 +36,8 @@ class ConanService(val project: Project) {
         val conan = Conan(project)
         val dialog = ConanInstallDialogWrapper(project)
         if (dialog.showAndGet()) {
-            addStoredDependency(name, version)
             createConanfile()
+            addStoredDependency(name, version)
             dialog.getSelectedInstallProfiles().forEach { profileName ->
                 // TODO: Pass extra info to conan install for each one of the it profiles
                 thisLogger().info("Installing for $profileName")
@@ -71,33 +71,31 @@ class ConanService(val project: Project) {
     }
 
     fun createConanfile() {
-        val workspace = getCMakeWorkspace()
-        val file = File(workspace.projectPath.toString(), "conanfile.py")
-        file.createNewFile()
-        val requirements = getStoredDependencies().joinToString("\n") {
-            "        self.requires('$it')"
+        val file = File(getCMakeWorkspace().projectPath.toString(), "conanfile.py")
+        if (!file.exists()) {
+            file.createNewFile()
+            file.writeText("""
+            import os
+            from conan import ConanFile
+            
+            class ConanApplication(ConanFile):
+                package_type = "application"
+                settings = "os", "compiler", "build_type", "arch"
+                generators = "CMakeDeps", "CMakeToolchain"
+
+                def layout(self):
+                    # consider other generators? Clion uses Ninja by default
+                    self.conf.define("tools.cmake.cmaketoolchain:generator", "Ninja")
+                    self.folders.source = "."
+                    self.folders.build = f"cmake-build-{str(self.settings.build_type).lower()}"
+                    self.folders.generators = os.path.join(self.folders.build, "generators")
+
+                def requirements(self):
+                    requirements = self.conan_data.get('requirements', [])
+                    for requirement in requirements:
+                        self.requires(requirement)""".trimIndent()
+            )
         }
-        file.writeText("""
-import os
-from conan import ConanFile
-
-
-class ConanApplication(ConanFile):
-    package_type = "application"
-    settings = "os", "compiler", "build_type", "arch"
-    generators = "CMakeDeps", "CMakeToolchain"
-
-    def layout(self):
-        # consider other generators? Clion uses Ninja by default
-        self.conf.define("tools.cmake.cmaketoolchain:generator", "Ninja")
-        self.folders.source = "."
-        self.folders.build = f"cmake-build-{str(self.settings.build_type).lower()}"
-        self.folders.generators = os.path.join(self.folders.build, "generators")
-
-    def requirements(self):
-        # add requirements dinamically, from a json file stored in the user's path?  
-$requirements
-""")
     }
 
 
@@ -105,20 +103,21 @@ $requirements
         return CMakeWorkspace.getInstance(project)
     }
 
-
-
     fun addStoredDependency(name: String, version: String) {
-        val dependencies = mutableListOf("$name/$version")
-        dependencies.addAll(getStoredDependencies())
-        val dependencyFile = File(getCMakeWorkspace().projectPath.toString(), "conan.json")
-        dependencyFile.writeText(Json.encodeToString(dependencies.toSet()))
-    }
-
-    private fun getStoredDependencies(): List<String> {
-        val dependencyFile = File(getCMakeWorkspace().projectPath.toString(), "conan.json")
-        if (dependencyFile.exists()) {
-            return Json.decodeFromString<List<String>>(dependencyFile.readText())
+        try {
+            val dependencyFile = File(getCMakeWorkspace().projectPath.toString(), "conandata.yml")
+            var text = if (!dependencyFile.exists()) {
+                "requirements:"
+            } else {
+                dependencyFile.readText()
+            }
+            val newDependency = "$name/$version"
+            if (!text.contains(newDependency)) {
+                text += "\n    - \"$newDependency\""
+            }
+            dependencyFile.writeText(text)
+        } catch (e: Exception) {
+            thisLogger().warn(e.message)
         }
-        return listOf()
     }
 }
