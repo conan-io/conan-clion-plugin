@@ -21,6 +21,7 @@
                            key="notificationKey"/>
         <cmake.runnerStep implementation="com.jfrog.conan.clionplugin.cmake.extensions.ConanCMakeRunnerStep"/>
         <projectService serviceImplementation="com.jfrog.conan.clionplugin.cmake.extensions.ConanCMakeRunnerStep"/>
+        <postStartupActivity implementation="com.jfrog.conan.clionplugin.services.ConanPluginInit" />
     </extensions>
 
     <projectListeners>
