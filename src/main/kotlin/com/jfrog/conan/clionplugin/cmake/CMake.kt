@@ -7,29 +7,38 @@ import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
 import com.jetbrains.rd.util.string.printToString
 
 class CMake(val project: Project) {
-    public fun addGenerationOptions(profileName: String?, generationOptions: String) {
+
+    fun addGenerationOptions(profileName: String?, generationOptions: List<String>) {
         val cmakeSettings = CMakeSettings.getInstance(project)
         val profiles = cmakeSettings.profiles
         val modifiedProfiles: MutableList<CMakeSettings.Profile> = mutableListOf()
 
         for (profile in profiles) {
-            println(profile.printToString())
             if (profile.name == profileName) {
-                val newProfile = profile.withGenerationOptions(generationOptions)
+                val existingGenerationOptions = profile.generationOptions ?: ""
+                val newGenerationOptions = mutableListOf<String>()
+
+                newGenerationOptions.add(existingGenerationOptions)
+
+                generationOptions.forEach() { option ->
+                    if (!existingGenerationOptions.contains(option)) {
+                        newGenerationOptions.add(option)
+                    }
+                }
+                val newProfile = profile.withGenerationOptions(newGenerationOptions.joinToString(separator=" "))
                 modifiedProfiles.add(newProfile)
-            }
-            else {
+            } else {
                 modifiedProfiles.add(profile)
             }
         }
         cmakeSettings.setProfiles(modifiedProfiles)
     }
 
-    public fun getActiveProfiles(): List<CMakeSettings.Profile> {
+    fun getActiveProfiles(): List<CMakeSettings.Profile> {
         return CMakeSettings.getInstance(project).activeProfiles
     }
 
-    public fun getSelectedBuildConfiguration(): CMakeConfiguration? {
+    fun getSelectedBuildConfiguration(): CMakeConfiguration? {
         return CMakeAppRunConfiguration.getSelectedBuildAndRunConfigurations(project)?.buildConfiguration
     }
 }

@@ -181,9 +181,9 @@ class ConanWindowFactory : ToolWindowFactory {
                             val comboBox = ComboBox(versionModel)
 
                             add(comboBox)
-                            add(JButton("Install").apply {
+                            add(JButton("Use in project").apply {
                                 addActionListener {
-                                    project.service<ConanService>().runInstallFlow(name, comboBox.selectedItem as String)
+                                    project.service<ConanService>().runUseFlow(name, comboBox.selectedItem as String)
                                 }
                             })
                         })

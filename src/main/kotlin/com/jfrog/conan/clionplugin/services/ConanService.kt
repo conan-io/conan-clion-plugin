@@ -1,71 +1,35 @@
 package com.jfrog.conan.clionplugin.services
 
-import com.intellij.notification.NotificationGroupManager
-import com.intellij.notification.NotificationType
+import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.Service
+import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
-import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
-import com.jetbrains.rd.util.string.printToString
 import com.jfrog.conan.clionplugin.cmake.CMake
-import com.jfrog.conan.clionplugin.conan.Conan
+import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
+import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.io.File
 
 @Service(Service.Level.PROJECT)
 class ConanService(val project: Project) {
 
-    public fun runInstallFlow(name: String, version: String) {
-        val selectedRunConfig = CMakeAppRunConfiguration.getSelectedRunConfiguration(project)
-        //println(selectedRunConfig.printToString())
-        val selectedBuildConfig = CMakeAppRunConfiguration.getSelectedBuildAndRunConfigurations(project)?.buildConfiguration
-        //println(selectedBuildConfig.printToString())
-        val cmakeSettings = CMakeSettings.getInstance(project)
-        val activeProfiles = cmakeSettings.activeProfiles
-        val selectedProfile = activeProfiles.find { it.name == selectedBuildConfig?.profileName }
-        println(selectedProfile.printToString())
-        println(selectedBuildConfig?.buildWorkingDir)
-        println(selectedBuildConfig?.configurationAndTargetGenerationDir)
-        println(selectedBuildConfig?.configurationGenerationDir)
-
-        val conan = Conan(project)
+    fun runUseFlow(name: String, version: String) {
         val dialog = ConanInstallDialogWrapper(project)
         if (dialog.showAndGet()) {
             createConanfile()
             addStoredDependency(name, version)
+            val conanExecutable: String = project.service<PropertiesComponent>().getValue(
+                    PersistentStorageKeys.CONAN_EXECUTABLE,
+                    "conan"
+            )
             dialog.getSelectedInstallProfiles().forEach { profileName ->
-                // TODO: Pass extra info to conan install for each one of the it profiles
-                thisLogger().info("Installing for $profileName")
-                val buildType = activeProfiles.find { it.name == profileName }?.buildType
-                conan.install(name, version, buildType) { runOutput ->
-                    thisLogger().info("Command exited with status ${runOutput.exitCode}")
-                    thisLogger().info("Command stdout: ${runOutput.stdout}")
-                    thisLogger().info("Command stderr: ${runOutput.stderr}")
-                    var message = ""
-                    if (runOutput.exitCode != 130) {
-                        message = "$name/$version installed successfully"
-                        CMake(project).addGenerationOptions(
-                            selectedBuildConfig?.profileName,
-                            "-DCMAKE_TOOLCHAIN_FILE=\"${selectedBuildConfig?.configurationAndTargetGenerationDir}/generators/conan_toolchain.cmake\""
-                        )
-                    } else {
-                        message = "Conan process canceled by user"
-                    }
-                    NotificationGroupManager.getInstance()
-                        .getNotificationGroup("Conan Notifications Group")
-                        .createNotification(
-                            message,
-                            runOutput.stdout,
-                            NotificationType.INFORMATION
-                        )
-                        .notify(project);
-                }
-
+                thisLogger().info("Adding Conan configuration to $profileName")
+                CMake(project).addGenerationOptions(profileName,
+                                                    listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
+                                                           "-DCONAN_COMMAND=\"${conanExecutable}\"")
+                )
             }
         }
     }
@@ -97,7 +61,6 @@ class ConanService(val project: Project) {
             )
         }
     }
-
 
     private fun getCMakeWorkspace(): CMakeWorkspace {
         return CMakeWorkspace.getInstance(project)
