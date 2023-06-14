@@ -104,20 +104,16 @@ class ConanService(val project: Project) {
     }
 
     fun addStoredDependency(name: String, version: String) {
-        try {
-            val dependencyFile = File(getCMakeWorkspace().projectPath.toString(), "conandata.yml")
-            var text = if (!dependencyFile.exists()) {
-                "requirements:"
-            } else {
-                dependencyFile.readText()
-            }
-            val newDependency = "$name/$version"
-            if (!text.contains(newDependency)) {
-                text += "\n    - \"$newDependency\""
-            }
-            dependencyFile.writeText(text)
-        } catch (e: Exception) {
-            thisLogger().warn(e.message)
+        val dependencyFile = File(getCMakeWorkspace().projectPath.toString(), "conandata.yml")
+        var text = if (!dependencyFile.exists()) {
+            "requirements:"
+        } else {
+            dependencyFile.readText()
         }
+        val newDependency = "$name/$version"
+        if (!text.contains(newDependency)) {
+            text += "\n    - \"$newDependency\""
+        }
+        dependencyFile.writeText(text)
     }
 }
