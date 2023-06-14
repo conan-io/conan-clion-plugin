@@ -41,6 +41,7 @@ class ConanService(val project: Project) {
             file.writeText("""
             import os
             from conan import ConanFile
+            from conan.tools.cmake import cmake_layout
             
             class ConanApplication(ConanFile):
                 package_type = "application"
@@ -48,9 +49,7 @@ class ConanService(val project: Project) {
                 generators = "CMakeDeps", "CMakeToolchain"
 
                 def layout(self):
-                    self.folders.source = "."
-                    self.folders.build = f"cmake-build-{str(self.settings.build_type).lower()}"
-                    self.folders.generators = os.path.join(self.folders.build, "generators")
+                    cmake_layout(self)
 
                 def requirements(self):
                     requirements = self.conan_data.get('requirements', [])
