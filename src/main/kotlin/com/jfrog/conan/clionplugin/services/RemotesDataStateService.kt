@@ -3,7 +3,7 @@ package com.jfrog.conan.clionplugin.services
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
-import com.jfrog.conan.clionplugin.conan.ConanPluginInfo
+import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.decodeFromString
@@ -22,7 +22,7 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
     val listeners: EventListenerList = EventListenerList()
 
     private fun getRemoteStateFilePath(): String {
-        return Paths.get(ConanPluginInfo.getPluginHome(),"remote-data.json").toString()
+        return Paths.get(ConanPluginUtils.getPluginHome(),"remote-data.json").toString()
     }
 
     override fun getState(): State? {
@@ -39,7 +39,7 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
         state = newState
 
         try {
-            File(ConanPluginInfo.getPluginHome()).mkdir()
+            File(ConanPluginUtils.getPluginHome()).mkdir()
             val path = File(getRemoteStateFilePath())
             val fileCreationResult = path.createNewFile()
 
