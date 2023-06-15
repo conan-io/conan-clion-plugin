@@ -219,7 +219,6 @@ class ConanWindowFactory : ToolWindowFactory {
                                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                                 addButton.isVisible = !isRequired
                                 removeButton.isVisible = isRequired
-                                validate()
                             }
 
                             removeButton.addActionListener {
@@ -227,7 +226,6 @@ class ConanWindowFactory : ToolWindowFactory {
                                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                                 addButton.isVisible = !isRequired
                                 removeButton.isVisible = isRequired
-                                validate()
                             }
 
                             val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }

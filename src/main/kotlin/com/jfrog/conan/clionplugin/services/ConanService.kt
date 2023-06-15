@@ -3,6 +3,7 @@ package com.jfrog.conan.clionplugin.services
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.vfs.LocalFileSystem
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
@@ -56,6 +57,7 @@ class ConanService(val project: Project) {
                     for requirement in requirements:
                         self.requires(requirement)""".trimIndent()
             )
+            LocalFileSystem.getInstance().refreshAndFindFileByIoFile(file)
         }
     }
 
@@ -103,5 +105,6 @@ class ConanService(val project: Project) {
         dependencyFile.createNewFile()
         val text = "requirements:\n" + requirements.joinToString("\n") { "  - \"$it\"" }
         dependencyFile.writeText(text)
+        LocalFileSystem.getInstance().refreshAndFindFileByIoFile(dependencyFile)
     }
 }
