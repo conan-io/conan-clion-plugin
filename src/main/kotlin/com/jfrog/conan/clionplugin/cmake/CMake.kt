@@ -88,7 +88,7 @@ class CMake(val project: Project) {
                 thisLogger().info("Adding Conan configuration to ${profile.name}")
                 CMake(project).addGenerationOptions(profile.name,
                         listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
-                                "-DCONAN_COMMAND=\"${project.service<PropertiesComponent>().getValue("CONAN_EXECUTABLE", "conan")}\"")
+                                "-DCONAN_COMMAND=\"${project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")}\"")
                 )
             }
         }
