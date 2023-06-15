@@ -88,18 +88,11 @@ class ConanWindowFactory : ToolWindowFactory {
                         // TODO: probably add for all configurations by default would be better
                         override fun actionPerformed(e: AnActionEvent) {
                             val dialog = ConanInstallDialogWrapper(project)
-                            // FIXME: duplicated code from runUseFlow
                             if (dialog.showAndGet()) {
-                                val conanExecutable: String = project.service<PropertiesComponent>().getValue(
-                                        PersistentStorageKeys.CONAN_EXECUTABLE,
-                                        "conan"
-                                )
+                                val cmake = CMake(project)
                                 dialog.getSelectedInstallProfiles().forEach { profileName ->
                                     thisLogger().info("Adding Conan configuration to $profileName")
-                                    CMake(project).addGenerationOptions(profileName,
-                                            listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
-                                                    "-DCONAN_COMMAND=\"${conanExecutable}\"")
-                                    )
+                                    cmake.injectDependencyProviderToProfile(profileName)
                                 }
                             }
                         }

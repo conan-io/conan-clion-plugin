@@ -16,20 +16,19 @@ import java.io.File
 class ConanService(val project: Project) {
 
     fun runUseFlow(name: String, version: String) {
-        val dialog = ConanInstallDialogWrapper(project)
-        if (dialog.showAndGet()) {
+        val installDialog = ConanInstallDialogWrapper(project)
+        if (installDialog.showAndGet()) {
             createConanfile()
             addRequirement(name, version)
-            val conanExecutable: String = project.service<PropertiesComponent>().getValue(
-                    PersistentStorageKeys.CONAN_EXECUTABLE,
-                    "conan"
-            )
-            dialog.getSelectedInstallProfiles().forEach { profileName ->
-                thisLogger().info("Adding Conan configuration to $profileName")
-                CMake(project).addGenerationOptions(profileName,
-                                                    listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
-                                                           "-DCONAN_COMMAND=\"${conanExecutable}\"")
-                )
+            val cmake = CMake(project)
+            installDialog.getSelectedInstallProfiles().forEach {
+                thisLogger().info("Adding Conan configuration to $it")
+                cmake.injectDependencyProviderToProfile(it)
+            }
+
+            installDialog.getUnselectedInstallProfiles().forEach {
+                thisLogger().info("Removing Conan configuration from $it")
+                cmake.removeDependencyProviderFromProfile(it)
             }
         }
     }

@@ -29,7 +29,28 @@ class CMake(val project: Project) {
         cmakeSettings.setProfiles(modifiedProfiles)
         return true
     }
-    fun addGenerationOptions(profileName: String?, generationOptions: List<String>) {
+
+    fun injectDependencyProviderToProfile(profileName: String) {
+        val conanExecutable: String = project.service<PropertiesComponent>().getValue(
+            PersistentStorageKeys.CONAN_EXECUTABLE,
+            "conan"
+        )
+        addGenerationOptions(profileName,
+            listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
+                "-DCONAN_COMMAND=\"${conanExecutable}\""))
+    }
+
+    fun removeDependencyProviderFromProfile(profileName: String) {
+        val conanExecutable: String = project.service<PropertiesComponent>().getValue(
+            PersistentStorageKeys.CONAN_EXECUTABLE,
+            "conan"
+        )
+        removeGenerationOptions(profileName,
+            listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
+                "-DCONAN_COMMAND=\"${conanExecutable}\""))
+    }
+
+    private fun addGenerationOptions(profileName: String?, generationOptions: List<String>) {
         val cmakeSettings = CMakeSettings.getInstance(project)
         val profiles = cmakeSettings.profiles
         val modifiedProfiles: MutableList<CMakeSettings.Profile> = mutableListOf()
@@ -55,7 +76,7 @@ class CMake(val project: Project) {
         cmakeSettings.setProfiles(modifiedProfiles)
     }
 
-    fun removeGenerationOptions(profileName: String?, generationOptions: List<String>) {
+    private fun removeGenerationOptions(profileName: String?, generationOptions: List<String>) {
         // no need to specify the whole line, with just passing CMAKE_PROJECT_TOP_LEVEL_INCLUDES will remove
         // the whole option
         val cmakeSettings = CMakeSettings.getInstance(project)

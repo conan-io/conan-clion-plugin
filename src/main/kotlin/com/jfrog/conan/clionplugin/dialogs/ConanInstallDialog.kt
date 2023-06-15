@@ -35,6 +35,13 @@ class ConanInstallDialogWrapper(val project: Project) : DialogWrapper(true) {
         }
     }
 
+    fun getUnselectedInstallProfiles(): List<String> {
+        return checkboxes.mapNotNull {
+            if (!it.value.isSelected) it.key
+            else null
+        }
+    }
+
     override fun createCenterPanel(): JComponent? {
         return JPanel(GridBagLayout()).apply {
 
