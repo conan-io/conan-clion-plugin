@@ -8,6 +8,10 @@ import com.jetbrains.rd.util.string.printToString
 
 class CMake(val project: Project) {
 
+    fun checkConanDependencyUsed(profileName: String?) {
+
+
+    }
     fun addGenerationOptions(profileName: String?, generationOptions: List<String>) {
         val cmakeSettings = CMakeSettings.getInstance(project)
         val profiles = cmakeSettings.profiles
@@ -35,6 +39,8 @@ class CMake(val project: Project) {
     }
 
     fun removeGenerationOptions(profileName: String?, generationOptions: List<String>) {
+        // no need to specify the whole line, with just passing CMAKE_PROJECT_TOP_LEVEL_INCLUDES will remove
+        // the whole option
         val cmakeSettings = CMakeSettings.getInstance(project)
         val profiles = cmakeSettings.profiles
         val modifiedProfiles: MutableList<CMakeSettings.Profile> = mutableListOf()
@@ -45,7 +51,7 @@ class CMake(val project: Project) {
                 val newGenerationOptions = mutableListOf<String>()
 
                 existingGenerationOptions.split(" ").forEach { option ->
-                    if (!generationOptions.contains(option)) {
+                    if (!generationOptions.any { option.contains(it) }) {
                         newGenerationOptions.add(option)
                     }
                 }
