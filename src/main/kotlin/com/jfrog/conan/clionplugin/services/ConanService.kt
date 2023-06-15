@@ -19,7 +19,7 @@ class ConanService(val project: Project) {
         val dialog = ConanInstallDialogWrapper(project)
         if (dialog.showAndGet()) {
             createConanfile()
-            addStoredDependency(name, version)
+            addRequirement(name, version)
             val conanExecutable: String = project.service<PropertiesComponent>().getValue(
                     PersistentStorageKeys.CONAN_EXECUTABLE,
                     "conan"
@@ -34,7 +34,11 @@ class ConanService(val project: Project) {
         }
     }
 
-    fun createConanfile() {
+    fun runRemoveRequirementFlow(name: String, version: String) {
+        removeRequirement(name, version)
+    }
+
+    private fun createConanfile() {
         val file = File(getCMakeWorkspace().projectPath.toString(), "conanfile.py")
         if (!file.exists()) {
             file.createNewFile()
@@ -59,21 +63,49 @@ class ConanService(val project: Project) {
         }
     }
 
-    fun getCMakeWorkspace(): CMakeWorkspace {
+    private fun getCMakeWorkspace(): CMakeWorkspace {
         return CMakeWorkspace.getInstance(project)
     }
 
-    fun addStoredDependency(name: String, version: String) {
+    private fun addRequirement(name: String, version: String) {
+        val requirements = getRequirements()
+        if (!requirements.any { it.startsWith("$name/") }) {
+            writeRequirementsFile(listOf("$name/$version", *requirements.toTypedArray()))
+        }
+    }
+
+    private fun removeRequirement(name: String, version: String) {
+        val requirements = getRequirements()
+        if (requirements.any { it.startsWith("$name/")}) {
+            writeRequirementsFile(requirements.filter { it != "$name/$version" })
+        }
+    }
+
+    fun getRequirements(): List<String> {
+        val file = File(getCMakeWorkspace().projectPath.toString(), "conandata.yml")
+        if (!file.exists()) return listOf()
+        val requirements = mutableListOf<String>()
+        val lines = file.readLines()
+
+        var startReading = false
+        for (line in lines) {
+            if (line.trim() == "requirements:") {
+                startReading = true
+                continue
+            }
+
+            if (startReading && line.trim().startsWith("-")) {
+                requirements.add(line.substringAfter("-").trim().replace("\"", ""))
+            }
+        }
+
+        return requirements
+    }
+
+    private fun writeRequirementsFile(requirements: List<String>) {
         val dependencyFile = File(getCMakeWorkspace().projectPath.toString(), "conandata.yml")
-        var text = if (!dependencyFile.exists()) {
-            "requirements:"
-        } else {
-            dependencyFile.readText()
-        }
-        val newDependency = "$name/$version"
-        if (!text.contains(newDependency)) {
-            text += "\n    - \"$newDependency\""
-        }
+        dependencyFile.createNewFile()
+        val text = "requirements:\n" + requirements.joinToString("\n") { "  - \"$it\"" }
         dependencyFile.writeText(text)
     }
 }

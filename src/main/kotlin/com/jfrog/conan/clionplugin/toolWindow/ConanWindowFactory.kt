@@ -210,12 +210,35 @@ class ConanWindowFactory : ToolWindowFactory {
                         secondComponentPanel.add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
                             val comboBox = ComboBox(versionModel)
 
+                            val conanService = project.service<ConanService>()
                             add(comboBox)
-                            add(JButton("Use in project").apply {
-                                addActionListener {
-                                    project.service<ConanService>().runUseFlow(name, comboBox.selectedItem as String)
-                                }
-                            })
+
+
+                            val addButton = JButton("Use in project")
+                            val removeButton = JButton("Stop using in project")
+
+                            add(addButton)
+                            add(removeButton)
+
+                            addButton.addActionListener {
+                                conanService.runUseFlow(name, comboBox.selectedItem as String)
+                                val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
+                                addButton.isVisible = !isRequired
+                                removeButton.isVisible = isRequired
+                                validate()
+                            }
+
+                            removeButton.addActionListener {
+                                conanService.runRemoveRequirementFlow(name, comboBox.selectedItem as String)
+                                val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
+                                addButton.isVisible = !isRequired
+                                removeButton.isVisible = isRequired
+                                validate()
+                            }
+
+                            val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
+                            addButton.isVisible = !isRequired
+                            removeButton.isVisible = isRequired
                         })
 
                         secondComponentPanel.revalidate()

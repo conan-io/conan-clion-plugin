@@ -20,30 +20,12 @@ class ConanInspectPackagesDialogWrapper(val project: Project) : DialogWrapper(tr
         val textArea = JTextArea()
         textArea.isEditable = false
         textArea.border = EmptyBorder(10, 10, 10, 10)
-        val dependencyFile = File(project.service<ConanService>().getCMakeWorkspace().projectPath.toString(), "conandata.yml")
-        val requirements = parseRequirements(dependencyFile)
+        val requirements = project.service<ConanService>().getRequirements()
 
         textArea.text = requirements.joinToString("\n")
 
         return textArea
     }
 
-    private fun parseRequirements(file: File): List<String> {
-        val requirements = mutableListOf<String>()
-        val lines = file.readLines()
 
-        var startReading = false
-        for (line in lines) {
-            if (line.trim() == "requirements:") {
-                startReading = true
-                continue
-            }
-
-            if (startReading && line.trim().startsWith("-")) {
-                requirements.add(line.substringAfter("-").trim().replace("\"", ""))
-            }
-        }
-
-        return requirements
-    }
 }
