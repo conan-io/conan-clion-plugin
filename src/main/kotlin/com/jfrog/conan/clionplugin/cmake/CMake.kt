@@ -1,10 +1,14 @@
 package com.jfrog.conan.clionplugin.cmake
 
+import com.intellij.ide.util.PropertiesComponent
+import com.intellij.openapi.components.service
+import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.model.CMakeConfiguration
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
-import com.jetbrains.rd.util.string.printToString
+import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
+import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 
 class CMake(val project: Project) {
 
@@ -77,6 +81,17 @@ class CMake(val project: Project) {
         }
 
         cmakeSettings.setProfiles(modifiedProfiles)
+    }
+    fun addConanSupport() {
+        if (project.service<PropertiesComponent>().getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true") {
+            getActiveProfiles().forEach() { profile ->
+                thisLogger().info("Adding Conan configuration to ${profile.name}")
+                CMake(project).addGenerationOptions(profile.name,
+                        listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
+                                "-DCONAN_COMMAND=\"${project.service<PropertiesComponent>().getValue("CONAN_EXECUTABLE", "conan")}\"")
+                )
+            }
+        }
     }
 
     fun getActiveProfiles(): List<CMakeSettings.Profile> {

@@ -46,7 +46,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     private val automaticallyAddCheckbox = JCheckBox("Automatically add Conan support for all configurations").apply {
-        val selected = properties.getValue(PersistentStorageKeys.ADD_CONAN_SUPPORT, "true")
+        val selected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "true")
         isSelected = selected == "true"
     }
 
@@ -126,7 +126,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     override fun doOKAction() {
         properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, fileChooserField1.text)
         val selected = if (automaticallyAddCheckbox.isSelected) "true" else "false"
-        properties.setValue(PersistentStorageKeys.ADD_CONAN_SUPPORT, selected)
+        properties.setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, selected)
         super.doOKAction()
     }
 }
