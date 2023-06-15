@@ -21,7 +21,7 @@ class RemotesDataStateService {
     private val listeners: EventListenerList = EventListenerList()
 
     private fun getRemoteStateFilePath(): String {
-        return Paths.get(ConanPluginUtils.getPluginHome(),"remote-data.json").toString()
+        return Paths.get(ConanPluginUtils.getPluginHome(), "remote-data.json").toString()
     }
 
     fun getState(): State? {

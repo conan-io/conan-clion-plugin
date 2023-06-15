@@ -7,7 +7,6 @@ import com.intellij.util.ui.JBUI
 import com.jfrog.conan.clionplugin.services.ConanService
 import javax.swing.JComponent
 import javax.swing.JTextArea
-import javax.swing.border.EmptyBorder
 
 class ConanInspectPackagesDialogWrapper(val project: Project) : DialogWrapper(true) {
 

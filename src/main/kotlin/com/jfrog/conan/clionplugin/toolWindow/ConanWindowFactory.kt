@@ -61,7 +61,7 @@ class ConanWindowFactory : ToolWindowFactory {
 
     override fun shouldBeAvailable(project: Project) = true
 
-    class ConanWindow(_: ToolWindow, val project: Project) {
+    class ConanWindow(toolWindow: ToolWindow, val project: Project) {
         private val stateService = this.project.service<RemotesDataStateService>()
 
         fun getContent() = OnePixelSplitter(false).apply {
@@ -104,18 +104,22 @@ class ConanWindowFactory : ToolWindowFactory {
                                     val newJson = Json.decodeFromString<RemotesDataStateService.State>(runOutput.stdout)
                                     stateService.loadState(newJson)
                                     NotificationGroupManager.getInstance()
-                                            .getNotificationGroup("Conan Notifications Group")
-                                            .createNotification("Updated remote data",
-                                                    "Remote data has been updated",
-                                                    NotificationType.INFORMATION)
-                                            .notify(project)
+                                        .getNotificationGroup("Conan Notifications Group")
+                                        .createNotification(
+                                            "Updated remote data",
+                                            "Remote data has been updated",
+                                            NotificationType.INFORMATION
+                                        )
+                                        .notify(project)
                                 } else {
                                     NotificationGroupManager.getInstance()
-                                            .getNotificationGroup("Conan Notifications Group")
-                                            .createNotification("Error updating remote data",
-                                                    "Conan returned non 0 exit for the installation",
-                                                    NotificationType.ERROR)
-                                            .notify(project)
+                                        .getNotificationGroup("Conan Notifications Group")
+                                        .createNotification(
+                                            "Error updating remote data",
+                                            "Conan returned non 0 exit for the installation",
+                                            NotificationType.ERROR
+                                        )
+                                        .notify(project)
                                 }
                             }
                         }
@@ -157,11 +161,10 @@ class ConanWindowFactory : ToolWindowFactory {
                             .groupBy { it.first }
                             .map {
                                 dataModel.addRow(arrayOf(it.key))
-                                Recipe(it.key, it.value.map{ it.second })
+                                Recipe(it.key, it.value.map { it.second })
                             }
                     }
-                }
-                )
+                })
 
                 val packagesTable = JBTable(dataModel).apply {
                     tableHeader
@@ -174,7 +177,8 @@ class ConanWindowFactory : ToolWindowFactory {
                 searchTextField.apply {
                     addDocumentListener(object : DocumentAdapter() {
                         override fun textChanged(e: DocumentEvent) {
-                            (packagesTable.rowSorter as TableRowSorter<DefaultTableModel>).rowFilter = RowFilter.regexFilter(".*$text.*")
+                            (packagesTable.rowSorter as TableRowSorter<DefaultTableModel>).rowFilter =
+                                RowFilter.regexFilter(".*$text.*")
                         }
                     })
                 }

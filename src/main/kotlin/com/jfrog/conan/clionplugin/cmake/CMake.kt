@@ -35,9 +35,13 @@ class CMake(val project: Project) {
             PersistentStorageKeys.CONAN_EXECUTABLE,
             "conan"
         )
-        addGenerationOptions(profileName,
-            listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
-                "-DCONAN_COMMAND=\"${conanExecutable}\""))
+        addGenerationOptions(
+            profileName,
+            listOf(
+                "-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
+                "-DCONAN_COMMAND=\"${conanExecutable}\""
+            )
+        )
     }
 
     fun removeDependencyProviderFromProfile(profileName: String) {
@@ -45,9 +49,13 @@ class CMake(val project: Project) {
             PersistentStorageKeys.CONAN_EXECUTABLE,
             "conan"
         )
-        removeGenerationOptions(profileName,
-            listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
-                "-DCONAN_COMMAND=\"${conanExecutable}\""))
+        removeGenerationOptions(
+            profileName,
+            listOf(
+                "-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
+                "-DCONAN_COMMAND=\"${conanExecutable}\""
+            )
+        )
     }
 
     private fun addGenerationOptions(profileName: String?, generationOptions: List<String>) {
@@ -67,7 +75,7 @@ class CMake(val project: Project) {
                         newGenerationOptions.add(option)
                     }
                 }
-                val newProfile = profile.withGenerationOptions(newGenerationOptions.joinToString(separator=" "))
+                val newProfile = profile.withGenerationOptions(newGenerationOptions.joinToString(separator = " "))
                 modifiedProfiles.add(newProfile)
             } else {
                 modifiedProfiles.add(profile)
@@ -103,13 +111,22 @@ class CMake(val project: Project) {
 
         cmakeSettings.setProfiles(modifiedProfiles)
     }
+
     fun addConanSupport() {
-        if (project.service<PropertiesComponent>().getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true") {
+        if (project.service<PropertiesComponent>()
+                .getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true"
+        ) {
             getActiveProfiles().forEach { profile ->
                 thisLogger().info("Adding Conan configuration to ${profile.name}")
-                CMake(project).addGenerationOptions(profile.name,
-                        listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
-                                "-DCONAN_COMMAND=\"${project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")}\"")
+                CMake(project).addGenerationOptions(
+                    profile.name,
+                    listOf(
+                        "-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
+                        "-DCONAN_COMMAND=\"${
+                            project.service<PropertiesComponent>()
+                                .getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
+                        }\""
+                    )
                 )
             }
         }

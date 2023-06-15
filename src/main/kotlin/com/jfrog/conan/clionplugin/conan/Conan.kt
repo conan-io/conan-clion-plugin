@@ -19,9 +19,9 @@ import java.io.File
 class Conan(val project: Project) {
 
     data class RunOutput(
-            val exitCode: Int,
-            val stdout: String,
-            val stderr: String
+        val exitCode: Int,
+        val stdout: String,
+        val stderr: String
     )
 
     private fun runInBackground(args: List<String>, taskTitle: String, onSuccess: (RunOutput) -> Unit) {
@@ -29,14 +29,14 @@ class Conan(val project: Project) {
             override fun run(indicator: ProgressIndicator) {
                 indicator.isIndeterminate = true
                 val conanExecutable: String = project.service<PropertiesComponent>().getValue(
-                        PersistentStorageKeys.CONAN_EXECUTABLE,
-                        "conan"
+                    PersistentStorageKeys.CONAN_EXECUTABLE,
+                    "conan"
                 )
                 val command = listOf(conanExecutable) + args
                 thisLogger().info("Running command: $command")
 
                 val commandLine = GeneralCommandLine(command)
-                        .withWorkDirectory(File(project.basePath!!))
+                    .withWorkDirectory(File(project.basePath!!))
 
                 val processHandler = CapturingProcessHandler(commandLine)
 

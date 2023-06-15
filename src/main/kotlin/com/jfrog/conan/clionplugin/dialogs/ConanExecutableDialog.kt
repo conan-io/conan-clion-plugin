@@ -15,7 +15,6 @@ import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import java.awt.Insets
 import javax.swing.*
-import javax.swing.border.EmptyBorder
 
 object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, true, false, false, false, false) {
     init {
@@ -38,10 +37,10 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     private val fileChooserField1 = TextFieldWithBrowseButton().apply {
         addBrowseFolderListener(
-                "Conan executable",
-                "Conan executable",
-                project,
-                ConanExecutableChooserDescriptor
+            "Conan executable",
+            "Conan executable",
+            project,
+            ConanExecutableChooserDescriptor
         )
         text = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
     }
@@ -62,7 +61,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             anchor = GridBagConstraints.WEST
             weightx = 0.0
             weighty = 0.0
-            insets = Insets(10, 0, 0, 0)
+            insets = JBUI.insetsTop(10)
         }
         val gbcField = GridBagConstraints().apply {
             anchor = GridBagConstraints.WEST
@@ -84,7 +83,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             weightx = 1.0
             weighty = 0.0
             gridwidth = GridBagConstraints.REMAINDER
-            insets = Insets(10, 0, 0, 0)
+            insets = JBUI.insetsTop(10)
         }
         val gbcPlaceholder = GridBagConstraints().apply {
             fill = GridBagConstraints.VERTICAL

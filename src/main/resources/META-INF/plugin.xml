@@ -21,7 +21,7 @@
                            key="notificationKey"/>
         <cmake.runnerStep implementation="com.jfrog.conan.clionplugin.cmake.extensions.ConanCMakeRunnerStep"/>
         <projectService serviceImplementation="com.jfrog.conan.clionplugin.cmake.extensions.ConanCMakeRunnerStep"/>
-        <postStartupActivity implementation="com.jfrog.conan.clionplugin.services.ConanPluginInit" />
+        <postStartupActivity implementation="com.jfrog.conan.clionplugin.services.ConanPluginInit"/>
     </extensions>
 
     <projectListeners>
@@ -30,6 +30,6 @@
                 topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
 
         <listener class="com.jfrog.conan.clionplugin.listeners.ConanCMakeSettingsListener"
-                  topic="com.jetbrains.cidr.cpp.cmake.CMakeSettingsListener" />
+                  topic="com.jetbrains.cidr.cpp.cmake.CMakeSettingsListener"/>
     </projectListeners>
 </idea-plugin>

@@ -6,7 +6,8 @@ import java.nio.file.Paths
 
 object ConanPluginUtils {
     private const val cmakeProviderFileName = "conan_provider.cmake"
-    private const val cmakeProviderURL = "https://raw.githubusercontent.com/conan-io/cmake-conan/develop2/conan_provider.cmake"
+    private const val cmakeProviderURL =
+        "https://raw.githubusercontent.com/conan-io/cmake-conan/develop2/conan_provider.cmake"
 
     fun getPluginHome(): String {
         return Paths.get(System.getProperty("user.home"), ".conan-clion-plugin").toString()

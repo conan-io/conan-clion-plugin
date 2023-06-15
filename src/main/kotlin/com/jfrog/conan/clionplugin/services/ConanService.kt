@@ -37,7 +37,8 @@ class ConanService(val project: Project) {
         val file = File(getCMakeWorkspace().projectPath.toString(), "conanfile.py")
         if (!file.exists()) {
             file.createNewFile()
-            file.writeText("""
+            file.writeText(
+                """
             import os
             from conan import ConanFile
             from conan.tools.cmake import cmake_layout
@@ -71,7 +72,7 @@ class ConanService(val project: Project) {
 
     private fun removeRequirement(name: String, version: String) {
         val requirements = getRequirements()
-        if (requirements.any { it.startsWith("$name/")}) {
+        if (requirements.any { it.startsWith("$name/") }) {
             writeRequirementsFile(requirements.filter { it != "$name/$version" })
         }
     }
