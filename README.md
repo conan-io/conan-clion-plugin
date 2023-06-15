@@ -21,7 +21,8 @@
 <!-- Next tags are used by the build workflow to generate the description, don't remove -->
 
 <!-- Plugin description -->
-CLion plugin for Conan, the C and C++ package manager
+Conan, the C and C++ package manager, now directly in your IDE.
+List available libraries, install and use them without leaving CLion
 
 <!-- Plugin description end -->
 
