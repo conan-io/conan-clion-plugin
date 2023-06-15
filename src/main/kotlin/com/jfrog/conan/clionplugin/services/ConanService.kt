@@ -59,7 +59,7 @@ class ConanService(val project: Project) {
         }
     }
 
-    private fun getCMakeWorkspace(): CMakeWorkspace {
+    fun getCMakeWorkspace(): CMakeWorkspace {
         return CMakeWorkspace.getInstance(project)
     }
 

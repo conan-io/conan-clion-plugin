@@ -31,6 +31,7 @@ import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
+import com.jfrog.conan.clionplugin.dialogs.ConanInspectPackagesDialogWrapper
 import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import com.jfrog.conan.clionplugin.services.ConanService
@@ -127,6 +128,11 @@ class ConanWindowFactory : ToolWindowFactory {
                                             .notify(project);
                                 }
                             }
+                        }
+                    })
+                    add(object : AnAction("Check used packages", null, AllIcons.General.InspectionsEye) {
+                        override fun actionPerformed(e: AnActionEvent) {
+                            ConanInspectPackagesDialogWrapper(project).showAndGet()
                         }
                     })
                 }
