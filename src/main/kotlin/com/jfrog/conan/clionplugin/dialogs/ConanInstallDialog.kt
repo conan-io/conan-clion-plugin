@@ -2,21 +2,16 @@ package com.jfrog.conan.clionplugin.dialogs
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
-import com.intellij.openapi.diagnostic.thisLogger
-import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
-import com.intellij.openapi.ui.TextFieldWithBrowseButton
-import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.components.JBCheckBox
-import com.intellij.ui.components.JBCheckBoxMenuItem
-import com.intellij.ui.components.JBLabel
 import com.jfrog.conan.clionplugin.cmake.CMake
-import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.awt.Font
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
-import javax.swing.*
+import javax.swing.Box
+import javax.swing.JComponent
+import javax.swing.JPanel
 
 
 class ConanInstallDialogWrapper(val project: Project) : DialogWrapper(true) {
@@ -42,7 +37,7 @@ class ConanInstallDialogWrapper(val project: Project) : DialogWrapper(true) {
         }
     }
 
-    override fun createCenterPanel(): JComponent? {
+    override fun createCenterPanel(): JComponent {
         return JPanel(GridBagLayout()).apply {
 
             val gbcField = GridBagConstraints().apply {
@@ -75,9 +70,5 @@ class ConanInstallDialogWrapper(val project: Project) : DialogWrapper(true) {
             gbcField.weighty = 1.0
             add(Box.createVerticalGlue(), gbcField)
         }
-    }
-
-    override fun doOKAction() {
-        super.doOKAction()
     }
 }

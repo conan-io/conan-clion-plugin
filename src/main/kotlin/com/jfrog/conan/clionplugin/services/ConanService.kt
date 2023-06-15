@@ -1,15 +1,11 @@
 package com.jfrog.conan.clionplugin.services
 
-import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.Service
-import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jfrog.conan.clionplugin.cmake.CMake
-import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
-import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.io.File
 
 @Service(Service.Level.PROJECT)

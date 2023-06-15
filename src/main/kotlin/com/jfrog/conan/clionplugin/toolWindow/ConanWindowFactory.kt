@@ -2,7 +2,6 @@ package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.collaboration.ui.selectFirst
 import com.intellij.icons.AllIcons
-import com.intellij.ide.util.PropertiesComponent
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.ActionManager
@@ -33,7 +32,6 @@ import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
 import com.jfrog.conan.clionplugin.dialogs.ConanInspectPackagesDialogWrapper
 import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
-import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import com.jfrog.conan.clionplugin.services.ConanService
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import kotlinx.serialization.decodeFromString
@@ -63,8 +61,7 @@ class ConanWindowFactory : ToolWindowFactory {
 
     override fun shouldBeAvailable(project: Project) = true
 
-    class ConanWindow(toolWindow: ToolWindow, project: Project) {
-        private val project = project
+    class ConanWindow(_: ToolWindow, val project: Project) {
         private val stateService = this.project.service<RemotesDataStateService>()
 
         fun getContent() = OnePixelSplitter(false).apply {
@@ -111,14 +108,14 @@ class ConanWindowFactory : ToolWindowFactory {
                                             .createNotification("Updated remote data",
                                                     "Remote data has been updated",
                                                     NotificationType.INFORMATION)
-                                            .notify(project);
+                                            .notify(project)
                                 } else {
                                     NotificationGroupManager.getInstance()
                                             .getNotificationGroup("Conan Notifications Group")
                                             .createNotification("Error updating remote data",
                                                     "Conan returned non 0 exit for the installation",
                                                     NotificationType.ERROR)
-                                            .notify(project);
+                                            .notify(project)
                                 }
                             }
                         }

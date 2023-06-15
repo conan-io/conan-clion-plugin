@@ -13,12 +13,7 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
-import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
-import com.jfrog.conan.clionplugin.services.RemotesDataStateService
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.encodeToString
 import java.io.File
 
 class Conan(val project: Project) {
@@ -57,7 +52,7 @@ class Conan(val project: Project) {
                         } else if (outputType == ProcessOutputType.STDERR) {
                             stderr += event.text
                         }
-                        var line = event.text.trim()
+                        val line = event.text.trim()
                         indicator.text2 = line
                         if (line.startsWith("========")) {
                             indicator.text = line.trim('=').trim()
@@ -92,11 +87,4 @@ class Conan(val project: Project) {
         val args = "list $pattern -r conancenter --format=json".split(" ").toList()
         runInBackground(args, "Running Conan List Command", onSuccess)
     }
-
-    fun install(name: String, version: String, buildType: String?, onSuccess: (RunOutput) -> Unit) {
-        val buildTypeArg = if (buildType != null) "-s build_type=$buildType" else ""
-        val args = "install . --name=conan-clion-plugin-app --version=0.0 $buildTypeArg -r conancenter --build=missing".split(" ").toList()
-        runInBackground(args, "Running Conan Install Command", onSuccess)
-    }
-
 }

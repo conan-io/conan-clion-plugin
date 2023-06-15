@@ -8,6 +8,7 @@ import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.components.JBCheckBox
+import com.intellij.util.ui.JBUI
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.awt.GridBagConstraints
@@ -55,7 +56,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         title = "Configuration"
     }
 
-    override fun createCenterPanel(): JComponent? {
+    override fun createCenterPanel(): JComponent {
         val panel = JPanel(GridBagLayout())
         val gbcLabel = GridBagConstraints().apply {
             anchor = GridBagConstraints.WEST
@@ -102,7 +103,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         }
 
         val configurationsLabel = JLabel("Use Conan for the following configurations:").apply {
-            border = EmptyBorder(10, 0, 0, 0)
+            border = JBUI.Borders.emptyTop(10)
         }
 
         checkboxPanel.add(configurationsLabel)

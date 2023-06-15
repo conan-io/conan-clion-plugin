@@ -62,7 +62,7 @@ class CMake(val project: Project) {
 
                 newGenerationOptions.add(existingGenerationOptions)
 
-                generationOptions.forEach() { option ->
+                generationOptions.forEach { option ->
                     if (!existingGenerationOptions.contains(option)) {
                         newGenerationOptions.add(option)
                     }
@@ -105,7 +105,7 @@ class CMake(val project: Project) {
     }
     fun addConanSupport() {
         if (project.service<PropertiesComponent>().getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true") {
-            getActiveProfiles().forEach() { profile ->
+            getActiveProfiles().forEach { profile ->
                 thisLogger().info("Adding Conan configuration to ${profile.name}")
                 CMake(project).addGenerationOptions(profile.name,
                         listOf("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
