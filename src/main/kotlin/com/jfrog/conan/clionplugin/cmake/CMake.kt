@@ -8,9 +8,22 @@ import com.jetbrains.rd.util.string.printToString
 
 class CMake(val project: Project) {
 
-    fun checkConanDependencyUsed(profileName: String?) {
+    fun checkConanUsedInProfile(profileName: String?): Boolean {
+        val cmakeSettings = CMakeSettings.getInstance(project)
+        val profiles = cmakeSettings.profiles
+        val modifiedProfiles: MutableList<CMakeSettings.Profile> = mutableListOf()
 
+        for (profile in profiles) {
+            if (profile.name == profileName) {
+                val existingGenerationOptions = profile.generationOptions ?: ""
+                return listOf("CONAN_COMMAND", "conan_provider.cmake").any { existingGenerationOptions.contains(it) }
+            } else {
+                modifiedProfiles.add(profile)
+            }
+        }
 
+        cmakeSettings.setProfiles(modifiedProfiles)
+        return true
     }
     fun addGenerationOptions(profileName: String?, generationOptions: List<String>) {
         val cmakeSettings = CMakeSettings.getInstance(project)
