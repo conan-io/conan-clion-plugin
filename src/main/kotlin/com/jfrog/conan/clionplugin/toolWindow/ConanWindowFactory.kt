@@ -13,9 +13,9 @@ import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
+import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
-import com.intellij.openapi.ui.Messages
 import com.intellij.ui.DocumentAdapter
 import com.intellij.ui.JBSplitter
 import com.intellij.ui.OnePixelSplitter
@@ -32,13 +32,11 @@ import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
 import com.jfrog.conan.clionplugin.dialogs.ConanInspectPackagesDialogWrapper
-import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
 import com.jfrog.conan.clionplugin.services.ConanService
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.awt.BorderLayout
-import java.awt.Color
 import java.awt.FlowLayout
 import java.awt.Font
 import javax.swing.*
@@ -84,16 +82,9 @@ class ConanWindowFactory : ToolWindowFactory {
                         }
                     })
                     add(object : AnAction("Add Conan support to Project", null, AllIcons.General.Add) {
-                        // TODO: probably add for all configurations by default would be better
                         override fun actionPerformed(e: AnActionEvent) {
-                            val dialog = ConanInstallDialogWrapper(project)
-                            if (dialog.showAndGet()) {
-                                val cmake = CMake(project)
-                                dialog.getSelectedInstallProfiles().forEach { profileName ->
-                                    thisLogger().info("Adding Conan configuration to $profileName")
-                                    cmake.injectDependencyProviderToProfile(profileName)
-                                }
-                            }
+                            val cmake = CMake(project)
+                            cmake.addConanSupport()
                         }
                     })
                     add(object : AnAction("Update packages", null, AllIcons.Actions.Refresh) {

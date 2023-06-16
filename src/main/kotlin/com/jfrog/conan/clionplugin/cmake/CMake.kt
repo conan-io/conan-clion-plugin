@@ -4,6 +4,7 @@ import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.Messages
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.model.CMakeConfiguration
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
@@ -42,27 +43,22 @@ class CMake(val project: Project) {
     fun injectDependencyProviderToProfile(profileName: String) {
         val conanExecutable: String = project.service<PropertiesComponent>().getValue(
             PersistentStorageKeys.CONAN_EXECUTABLE,
-            "conan"
+            ""
         )
-        addGenerationOptions(
-            profileName,
-            listOf(
-                "-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
-                "-DCONAN_COMMAND=\"${conanExecutable}\""
-            )
-        )
+        val generationOptions: MutableList<String> = mutableListOf()
+        generationOptions.add("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"")
+        if (conanExecutable != "") {
+            generationOptions.add("-DCONAN_COMMAND=\"${conanExecutable}\"")
+        }
+        addGenerationOptions(profileName, generationOptions)
     }
 
     fun removeDependencyProviderFromProfile(profileName: String) {
-        val conanExecutable: String = project.service<PropertiesComponent>().getValue(
-            PersistentStorageKeys.CONAN_EXECUTABLE,
-            "conan"
-        )
         removeGenerationOptions(
             profileName,
             listOf(
-                "-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
-                "-DCONAN_COMMAND=\"${conanExecutable}\""
+                "CMAKE_PROJECT_TOP_LEVEL_INCLUDES",
+                "CONAN_COMMAND"
             )
         )
     }
@@ -121,22 +117,22 @@ class CMake(val project: Project) {
         cmakeSettings.setProfiles(modifiedProfiles)
     }
 
+    fun checkConanExecutable(): Boolean {
+        val exeConfigured = (project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "") != "")
+        if (!exeConfigured) {
+            // TODO: still missing implementing the 'Use conan in system path' checkbox
+            Messages.showMessageDialog("Looks like you have not configured the path to the Conan executable," +
+                    " if you want to use the system one please check the 'Use conan in system path' " +
+                    "option in the configuration window.","Conan executable path not configured", Messages.getWarningIcon())
+        }
+        return exeConfigured
+    }
+
     fun addConanSupport() {
-        if (project.service<PropertiesComponent>()
-                .getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true"
-        ) {
+        if (checkConanExecutable()) {
             getActiveProfiles().forEach { profile ->
                 thisLogger().info("Adding Conan configuration to ${profile.name}")
-                CMake(project).addGenerationOptions(
-                    profile.name,
-                    listOf(
-                        "-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"",
-                        "-DCONAN_COMMAND=\"${
-                            project.service<PropertiesComponent>()
-                                .getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
-                        }\""
-                    )
-                )
+                injectDependencyProviderToProfile(profile.name)
             }
         }
     }

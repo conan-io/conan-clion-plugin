@@ -13,7 +13,6 @@ import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
-import java.awt.Insets
 import javax.swing.*
 
 object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, true, false, false, false, false) {
@@ -34,6 +33,8 @@ val VirtualFile.isConanExecutable: Boolean
 
 class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     private val properties = project.service<PropertiesComponent>()
+    private val cmake = CMake(project)
+    private val profileCheckboxes:  MutableList<JBCheckBox> = mutableListOf()
 
     private val fileChooserField1 = TextFieldWithBrowseButton().apply {
         addBrowseFolderListener(
@@ -46,7 +47,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     private val automaticallyAddCheckbox = JCheckBox("Automatically add Conan support for all configurations").apply {
-        val selected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "true")
+        val selected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false")
         isSelected = selected == "true"
     }
 
@@ -94,9 +95,6 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         panel.add(JLabel("Conan executable"), gbcLabel)
         panel.add(fileChooserField1, gbcField)
 
-        val cmake = CMake(project)
-        val selectedBuildConfiguration = cmake.getSelectedBuildConfiguration()
-
         val checkboxPanel = JPanel().apply {
             layout = BoxLayout(this, BoxLayout.Y_AXIS)
         }
@@ -107,10 +105,10 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
         checkboxPanel.add(configurationsLabel)
 
-        cmake.getActiveProfiles().forEach {
-            // TODO: here we have to check if the dependency provider is already applied to the profile
-            // let the user decide to deactivate it or not for certain profiles
-            val checkbox = JBCheckBox(it.name, it.name == selectedBuildConfiguration?.profileName)
+        cmake.getActiveProfiles().forEach { profile ->
+            val selected = cmake.checkConanUsedInProfile(profile.name)
+            val checkbox = JBCheckBox(profile.name, selected)
+            profileCheckboxes.add(checkbox)
             checkboxPanel.add(checkbox)
         }
 
@@ -127,6 +125,16 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, fileChooserField1.text)
         val selected = if (automaticallyAddCheckbox.isSelected) "true" else "false"
         properties.setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, selected)
+
+        profileCheckboxes.forEach { checkbox ->
+            val profileName = checkbox.text
+            if (checkbox.isSelected) {
+                cmake.injectDependencyProviderToProfile(profileName)
+            } else {
+                cmake.removeDependencyProviderFromProfile(profileName)
+            }
+        }
+
         super.doOKAction()
     }
 }

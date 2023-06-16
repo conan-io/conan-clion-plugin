@@ -13,6 +13,9 @@ class ConanService(val project: Project) {
 
     fun runUseFlow(name: String, version: String) {
         val cmake = CMake(project)
+        // TODO: Launch a warning also if we have not configured a path for the Conan executable?
+        //       In that case we could check with a conan --version if Conan is in the path
+        //       or maybe doing that on startup
         if (!cmake.checkConanUsedInAnyActiveProfile()) {
             Messages.showMessageDialog("Looks like Conan support may have not been added to the project. \n" +
                                                 "Please click on the add button to add Conan support", "Add Conan support to the project",
