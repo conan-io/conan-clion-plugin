@@ -46,6 +46,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         text = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
     }
 
+    // TODO: Still pending to detect when a profile is added, then setting the Conan configuration for the profile
     private val automaticallyAddCheckbox = JCheckBox("Automatically add Conan support for all configurations").apply {
         val selected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false")
         isSelected = selected == "true"

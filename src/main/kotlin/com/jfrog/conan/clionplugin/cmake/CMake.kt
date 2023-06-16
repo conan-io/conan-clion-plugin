@@ -129,15 +129,15 @@ class CMake(val project: Project) {
     }
 
     fun addConanSupport() {
-        var profiles = ""
+        val profiles: MutableList<String> = mutableListOf()
         if (checkConanExecutable()) {
             getActiveProfiles().forEach { profile ->
                 thisLogger().info("Adding Conan configuration to ${profile.name}")
                 injectDependencyProviderToProfile(profile.name)
-                profiles = "$profiles ${profile.name}"
+                profiles.add(profile.name)
             }
+            Messages.showMessageDialog("Conan support added for: ${profiles.joinToString(separator = ", ")}","Conan support added", Messages.getInformationIcon())
         }
-        Messages.showMessageDialog("Conan support added for: $profiles","Conan support added", Messages.getInformationIcon())
     }
 
     fun getActiveProfiles(): List<CMakeSettings.Profile> {

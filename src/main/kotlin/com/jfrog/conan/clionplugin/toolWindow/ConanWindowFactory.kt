@@ -202,7 +202,7 @@ class ConanWindowFactory : ToolWindowFactory {
 
 
                             val addButton = JButton("Use in project")
-                            val removeButton = JButton("Stop using in project")
+                            val removeButton = JButton("Remove from project")
 
                             add(addButton)
                             add(removeButton)
