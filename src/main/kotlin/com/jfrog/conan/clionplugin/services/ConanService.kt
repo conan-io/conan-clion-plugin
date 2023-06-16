@@ -13,21 +13,8 @@ import java.io.File
 class ConanService(val project: Project) {
 
     fun runUseFlow(name: String, version: String) {
-        val installDialog = ConanInstallDialogWrapper(project)
-        if (installDialog.showAndGet()) {
-            createConanfile()
-            addRequirement(name, version)
-            val cmake = CMake(project)
-            installDialog.getSelectedInstallProfiles().forEach {
-                thisLogger().info("Adding Conan configuration to $it")
-                cmake.injectDependencyProviderToProfile(it)
-            }
-
-            installDialog.getUnselectedInstallProfiles().forEach {
-                thisLogger().info("Removing Conan configuration from $it")
-                cmake.removeDependencyProviderFromProfile(it)
-            }
-        }
+        createConanfile()
+        addRequirement(name, version)
     }
 
     fun runRemoveRequirementFlow(name: String, version: String) {
