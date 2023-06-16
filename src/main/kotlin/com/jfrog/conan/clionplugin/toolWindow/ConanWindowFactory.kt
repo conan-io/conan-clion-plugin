@@ -15,6 +15,7 @@ import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
+import com.intellij.openapi.ui.Messages
 import com.intellij.ui.DocumentAdapter
 import com.intellij.ui.JBSplitter
 import com.intellij.ui.OnePixelSplitter
@@ -37,6 +38,7 @@ import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.awt.BorderLayout
+import java.awt.Color
 import java.awt.FlowLayout
 import java.awt.Font
 import javax.swing.*
@@ -219,6 +221,7 @@ class ConanWindowFactory : ToolWindowFactory {
                                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                                 addButton.isVisible = !isRequired
                                 removeButton.isVisible = isRequired
+                                Messages.showMessageDialog("${comboBox.selectedItem} added", "Library added to project", Messages.getInformationIcon())
                             }
 
                             removeButton.addActionListener {
@@ -226,6 +229,7 @@ class ConanWindowFactory : ToolWindowFactory {
                                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                                 addButton.isVisible = !isRequired
                                 removeButton.isVisible = isRequired
+                                Messages.showMessageDialog("${comboBox.selectedItem} removed", "Library removed from project", Messages.getInformationIcon())
                             }
 
                             val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
