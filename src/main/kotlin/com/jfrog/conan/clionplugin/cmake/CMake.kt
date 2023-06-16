@@ -12,6 +12,15 @@ import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 
 class CMake(val project: Project) {
 
+    fun checkConanUsedInAnyActiveProfile(): Boolean {
+        getActiveProfiles().forEach() { profile ->
+            if (checkConanUsedInProfile(profile.name)) {
+                return true
+            }
+        }
+        return false
+    }
+
     fun checkConanUsedInProfile(profileName: String?): Boolean {
         val cmakeSettings = CMakeSettings.getInstance(project)
         val profiles = cmakeSettings.profiles

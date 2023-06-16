@@ -1,18 +1,23 @@
 package com.jfrog.conan.clionplugin.services
 
 import com.intellij.openapi.components.Service
-import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.LocalFileSystem
+import com.intellij.openapi.ui.Messages
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jfrog.conan.clionplugin.cmake.CMake
-import com.jfrog.conan.clionplugin.dialogs.ConanInstallDialogWrapper
 import java.io.File
 
 @Service(Service.Level.PROJECT)
 class ConanService(val project: Project) {
 
     fun runUseFlow(name: String, version: String) {
+        val cmake = CMake(project)
+        if (!cmake.checkConanUsedInAnyActiveProfile()) {
+            Messages.showMessageDialog("Looks like Conan support may have not been added to the project. \n" +
+                                                "Please click on the add button to add Conan support", "Add Conan support to the project",
+                                       Messages.getWarningIcon())
+        }
         createConanfile()
         addRequirement(name, version)
     }
