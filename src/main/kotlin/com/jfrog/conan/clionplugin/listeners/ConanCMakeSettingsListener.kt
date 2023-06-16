@@ -1,8 +1,12 @@
 package com.jfrog.conan.clionplugin.listeners
 
+import com.intellij.ide.util.PropertiesComponent
+import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.CMakeSettingsListener
+import com.jfrog.conan.clionplugin.cmake.CMake
+import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 
 
 internal class ConanCMakeSettingsListener(private val project: Project) : CMakeSettingsListener {
@@ -11,6 +15,12 @@ internal class ConanCMakeSettingsListener(private val project: Project) : CMakeS
     }
 
     override fun profilesChanged(old: List<CMakeSettings.Profile>, current: List<CMakeSettings.Profile>) {
-        println("profilesChanged")
+        val properties = project.service<PropertiesComponent>()
+        val autoAdd = (properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true")
+        if (autoAdd) {
+            current.forEach() { profile ->
+                CMake(project).injectDependencyProviderToProfile(profile.name)
+            }
+        }
     }
 }
