@@ -136,6 +136,7 @@ class CMake(val project: Project) {
                 injectDependencyProviderToProfile(profile.name)
                 profiles.add(profile.name)
             }
+            project.service<PropertiesComponent>().setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, true)
             Messages.showMessageDialog("Conan support added for: ${profiles.joinToString(separator = ", ")}","Conan support added", Messages.getInformationIcon())
         }
     }
