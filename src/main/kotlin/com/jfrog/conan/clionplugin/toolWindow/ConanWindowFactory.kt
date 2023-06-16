@@ -13,6 +13,7 @@ import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
+import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.DocumentAdapter
@@ -25,10 +26,12 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
+import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
+import com.jfrog.conan.clionplugin.dialogs.ConanInspectPackagesDialogWrapper
 import com.jfrog.conan.clionplugin.services.ConanService
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import kotlinx.serialization.decodeFromString
@@ -58,8 +61,7 @@ class ConanWindowFactory : ToolWindowFactory {
 
     override fun shouldBeAvailable(project: Project) = true
 
-    class ConanWindow(toolWindow: ToolWindow, project: Project) {
-        private val project = project
+    class ConanWindow(toolWindow: ToolWindow, val project: Project) {
         private val stateService = this.project.service<RemotesDataStateService>()
 
         fun getContent() = OnePixelSplitter(false).apply {
@@ -79,6 +81,12 @@ class ConanWindowFactory : ToolWindowFactory {
                             ConanExecutableDialogWrapper(project).showAndGet()
                         }
                     })
+                    add(object : AnAction("Add Conan support to Project", null, AllIcons.General.Add) {
+                        override fun actionPerformed(e: AnActionEvent) {
+                            val cmake = CMake(project)
+                            cmake.addConanSupport()
+                        }
+                    })
                     add(object : AnAction("Update packages", null, AllIcons.Actions.Refresh) {
                         override fun actionPerformed(e: AnActionEvent) {
 
@@ -89,20 +97,29 @@ class ConanWindowFactory : ToolWindowFactory {
                                     val newJson = Json.decodeFromString<RemotesDataStateService.State>(runOutput.stdout)
                                     stateService.loadState(newJson)
                                     NotificationGroupManager.getInstance()
-                                            .getNotificationGroup("Conan Notifications Group")
-                                            .createNotification("Updated remote data",
-                                                    "Remote data has been updated",
-                                                    NotificationType.INFORMATION)
-                                            .notify(project);
+                                        .getNotificationGroup("Conan Notifications Group")
+                                        .createNotification(
+                                            "Updated remote data",
+                                            "Remote data has been updated",
+                                            NotificationType.INFORMATION
+                                        )
+                                        .notify(project)
                                 } else {
                                     NotificationGroupManager.getInstance()
-                                            .getNotificationGroup("Conan Notifications Group")
-                                            .createNotification("Error updating remote data",
-                                                    "Conan returned non 0 exit for the installation",
-                                                    NotificationType.ERROR)
-                                            .notify(project);
+                                        .getNotificationGroup("Conan Notifications Group")
+                                        .createNotification(
+                                            "Error updating remote data",
+                                            "Conan returned non 0 exit for the installation",
+                                            NotificationType.ERROR
+                                        )
+                                        .notify(project)
                                 }
                             }
+                        }
+                    })
+                    add(object : AnAction("Check used packages", null, AllIcons.General.InspectionsEye) {
+                        override fun actionPerformed(e: AnActionEvent) {
+                            ConanInspectPackagesDialogWrapper(project).showAndGet()
                         }
                     })
                 }
@@ -137,11 +154,10 @@ class ConanWindowFactory : ToolWindowFactory {
                             .groupBy { it.first }
                             .map {
                                 dataModel.addRow(arrayOf(it.key))
-                                Recipe(it.key, it.value.map{ it.second })
+                                Recipe(it.key, it.value.map { it.second })
                             }
                     }
-                }
-                )
+                })
 
                 val packagesTable = JBTable(dataModel).apply {
                     tableHeader
@@ -154,7 +170,8 @@ class ConanWindowFactory : ToolWindowFactory {
                 searchTextField.apply {
                     addDocumentListener(object : DocumentAdapter() {
                         override fun textChanged(e: DocumentEvent) {
-                            (packagesTable.rowSorter as TableRowSorter<DefaultTableModel>).rowFilter = RowFilter.regexFilter(".*$text.*")
+                            (packagesTable.rowSorter as TableRowSorter<DefaultTableModel>).rowFilter =
+                                RowFilter.regexFilter(".*$text.*")
                         }
                     })
                 }
@@ -180,12 +197,35 @@ class ConanWindowFactory : ToolWindowFactory {
                         secondComponentPanel.add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
                             val comboBox = ComboBox(versionModel)
 
+                            val conanService = project.service<ConanService>()
                             add(comboBox)
-                            add(JButton("Install").apply {
-                                addActionListener {
-                                    project.service<ConanService>().runInstallFlow(name, comboBox.selectedItem as String)
-                                }
-                            })
+
+
+                            val addButton = JButton("Use in project")
+                            val removeButton = JButton("Remove from project")
+
+                            add(addButton)
+                            add(removeButton)
+
+                            addButton.addActionListener {
+                                conanService.runUseFlow(name, comboBox.selectedItem as String)
+                                val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
+                                addButton.isVisible = !isRequired
+                                removeButton.isVisible = isRequired
+                                Messages.showMessageDialog("${comboBox.selectedItem} added", "Library added to project", Messages.getInformationIcon())
+                            }
+
+                            removeButton.addActionListener {
+                                conanService.runRemoveRequirementFlow(name, comboBox.selectedItem as String)
+                                val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
+                                addButton.isVisible = !isRequired
+                                removeButton.isVisible = isRequired
+                                Messages.showMessageDialog("${comboBox.selectedItem} removed", "Library removed from project", Messages.getInformationIcon())
+                            }
+
+                            val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
+                            addButton.isVisible = !isRequired
+                            removeButton.isVisible = isRequired
                         })
 
                         secondComponentPanel.revalidate()

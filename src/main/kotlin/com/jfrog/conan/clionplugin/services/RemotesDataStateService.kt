@@ -1,6 +1,5 @@
 package com.jfrog.conan.clionplugin.services
 
-import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
@@ -14,18 +13,18 @@ import java.nio.file.Paths
 import java.util.*
 import javax.swing.event.EventListenerList
 
-// TODO: Figure out why settings (IE, this persitence) is not persisted, but just sometimes!
+// TODO: Figure out why settings (IE, this persistence) is not persisted, but just sometimes!
 @Service(Service.Level.PROJECT)
-class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService.State> {
+class RemotesDataStateService {
 
 
-    val listeners: EventListenerList = EventListenerList()
+    private val listeners: EventListenerList = EventListenerList()
 
     private fun getRemoteStateFilePath(): String {
-        return Paths.get(ConanPluginUtils.getPluginHome(),"remote-data.json").toString()
+        return Paths.get(ConanPluginUtils.getPluginHome(), "remote-data.json").toString()
     }
 
-    override fun getState(): State? {
+    fun getState(): State? {
         return state
     }
 
@@ -34,7 +33,7 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
 
     private var state: State? = null
 
-    override fun loadState(newState: State) {
+    fun loadState(newState: State) {
         fireStateChangeListener(newState)
         state = newState
 
@@ -53,7 +52,7 @@ class RemotesDataStateService : PersistentStateComponent<RemotesDataStateService
 
     }
 
-    override fun noStateLoaded() {
+    fun noStateLoaded() {
         val remoteStateStoreFile = File(getRemoteStateFilePath())
 
         val initialText = if (remoteStateStoreFile.exists()) {
