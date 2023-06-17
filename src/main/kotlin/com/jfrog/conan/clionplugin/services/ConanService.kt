@@ -31,29 +31,45 @@ class ConanService(val project: Project) {
 
     private fun createConanfile() {
         val file = File(getCMakeWorkspace().projectPath.toString(), "conanfile.py")
-        if (!file.exists()) {
+        if (fileHasOverwriteComment(file)) {
             file.createNewFile()
-            file.writeText(
-                """
-            import os
-            from conan import ConanFile
-            from conan.tools.cmake import cmake_layout
-            
-            class ConanApplication(ConanFile):
-                package_type = "application"
-                settings = "os", "compiler", "build_type", "arch"
-                generators = "CMakeDeps", "CMakeToolchain"
+            writeToFileWithOverwriteComment(file, """
+                import os
+                from conan import ConanFile
+                from conan.tools.cmake import cmake_layout, CMakeToolchain
+                
+                class ConanApplication(ConanFile):
+                    package_type = "application"
+                    settings = "os", "compiler", "build_type", "arch"
+                    generators = "CMakeDeps"
 
-                def layout(self):
-                    cmake_layout(self)
+                    def layout(self):
+                        cmake_layout(self)
 
-                def requirements(self):
-                    requirements = self.conan_data.get('requirements', [])
-                    for requirement in requirements:
-                        self.requires(requirement)""".trimIndent()
-            )
+                    def generate(self):
+                        tc = CMakeToolchain(self)
+                        tc.user_presets_path = False
+                        tc.generate()
+
+                    def requirements(self):
+                        requirements = self.conan_data.get('requirements', [])
+                        for requirement in requirements:
+                            self.requires(requirement)""".trimIndent())
             LocalFileSystem.getInstance().refreshAndFindFileByIoFile(file)
         }
+    }
+
+    private val OVERWRITE_HEADER = "# This file is managed by Conan, contents will be overwritten.\n" +
+            "# To keep your changes, remove these comment lines, but the plugin won't be able to modify your requirements\n"
+    private fun fileHasOverwriteComment(file: File): Boolean {
+        if (!file.exists()) return true
+        val text = file.readText()
+        val startsWith = text.startsWith(OVERWRITE_HEADER)
+        return startsWith
+    }
+
+    private fun writeToFileWithOverwriteComment(file: File, content: String) {
+        file.writeText("$OVERWRITE_HEADER\n$content")
     }
 
     private fun getCMakeWorkspace(): CMakeWorkspace {
@@ -97,9 +113,11 @@ class ConanService(val project: Project) {
 
     private fun writeRequirementsFile(requirements: List<String>) {
         val dependencyFile = File(getCMakeWorkspace().projectPath.toString(), "conandata.yml")
-        dependencyFile.createNewFile()
-        val text = "requirements:\n" + requirements.joinToString("\n") { "  - \"$it\"" }
-        dependencyFile.writeText(text)
-        LocalFileSystem.getInstance().refreshAndFindFileByIoFile(dependencyFile)
+        if (fileHasOverwriteComment(dependencyFile)) {
+            dependencyFile.createNewFile()
+            val text = "requirements:\n" + requirements.joinToString("\n") { "  - \"$it\"" }
+            writeToFileWithOverwriteComment(dependencyFile, text)
+            LocalFileSystem.getInstance().refreshAndFindFileByIoFile(dependencyFile)
+        }
     }
 }
