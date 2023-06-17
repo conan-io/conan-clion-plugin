@@ -23,6 +23,7 @@ import com.intellij.ui.SearchTextField
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.content.ContentFactory
+import com.intellij.ui.jcef.JCEFHtmlPanel
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
@@ -189,47 +190,52 @@ class ConanWindowFactory : ToolWindowFactory {
                             selectFirst()
                         }
 
-                        secondComponentPanel.removeAll()
-                        secondComponentPanel.add(JLabel(name).apply {
-                            font = font.deriveFont(Font.BOLD, 18f) // set font size to 18 and bold
-                        }, BorderLayout.NORTH)
+                        secondComponentPanel.apply {
+                            removeAll()
 
-                        secondComponentPanel.add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
-                            val comboBox = ComboBox(versionModel)
+                            add(JLabel(name).apply {
+                                font = font.deriveFont(Font.BOLD, 18f) // set font size to 18 and bold
+                            }, BorderLayout.NORTH)
 
-                            val conanService = project.service<ConanService>()
-                            add(comboBox)
+                            add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
+                                val comboBox = ComboBox(versionModel)
+
+                                val conanService = project.service<ConanService>()
+                                add(comboBox)
 
 
-                            val addButton = JButton("Use in project")
-                            val removeButton = JButton("Remove from project")
+                                val addButton = JButton("Use in project")
+                                val removeButton = JButton("Remove from project")
 
-                            add(addButton)
-                            add(removeButton)
+                                add(addButton)
+                                add(removeButton)
 
-                            addButton.addActionListener {
-                                conanService.runUseFlow(name, comboBox.selectedItem as String)
+                                addButton.addActionListener {
+                                    conanService.runUseFlow(name, comboBox.selectedItem as String)
+                                    val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
+                                    addButton.isVisible = !isRequired
+                                    removeButton.isVisible = isRequired
+                                    Messages.showMessageDialog("${comboBox.selectedItem} added", "Library added to project", Messages.getInformationIcon())
+                                }
+
+                                removeButton.addActionListener {
+                                    conanService.runRemoveRequirementFlow(name, comboBox.selectedItem as String)
+                                    val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
+                                    addButton.isVisible = !isRequired
+                                    removeButton.isVisible = isRequired
+                                    Messages.showMessageDialog("${comboBox.selectedItem} removed", "Library removed from project", Messages.getInformationIcon())
+                                }
+
                                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                                 addButton.isVisible = !isRequired
                                 removeButton.isVisible = isRequired
-                                Messages.showMessageDialog("${comboBox.selectedItem} added", "Library added to project", Messages.getInformationIcon())
-                            }
+                            })
 
-                            removeButton.addActionListener {
-                                conanService.runRemoveRequirementFlow(name, comboBox.selectedItem as String)
-                                val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
-                                addButton.isVisible = !isRequired
-                                removeButton.isVisible = isRequired
-                                Messages.showMessageDialog("${comboBox.selectedItem} removed", "Library removed from project", Messages.getInformationIcon())
-                            }
+                            add(JCEFHtmlPanel("https://prev.conan.io/center/$name").component)
 
-                            val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
-                            addButton.isVisible = !isRequired
-                            removeButton.isVisible = isRequired
-                        })
-
-                        secondComponentPanel.revalidate()
-                        secondComponentPanel.repaint()
+                            revalidate()
+                            repaint()
+                        }
                     }
                 }
 
