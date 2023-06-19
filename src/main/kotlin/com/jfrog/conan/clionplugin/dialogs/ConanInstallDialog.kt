@@ -21,7 +21,7 @@ class ConanInstallDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     init {
         init()
-        title = "Choose which profiles to install this dependency for"
+        title = DialogsBundle.message("install.title")
     }
 
     fun getSelectedInstallProfiles(): List<String> {

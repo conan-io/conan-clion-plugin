@@ -8,19 +8,13 @@ import com.intellij.openapi.ui.Messages
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.model.CMakeConfiguration
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
-import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import com.jfrog.conan.clionplugin.services.ConanService
 
 class CMake(val project: Project) {
 
     fun checkConanUsedInAnyActiveProfile(): Boolean {
-        getActiveProfiles().forEach() { profile ->
-            if (checkConanUsedInProfile(profile.name)) {
-                return true
-            }
-        }
-        return false
+        return getActiveProfiles().any { checkConanUsedInProfile(it.name) }
     }
 
     fun checkConanUsedInProfile(profileName: String?): Boolean {
@@ -120,12 +114,17 @@ class CMake(val project: Project) {
     }
 
     fun checkConanExecutable(): Boolean {
-        val exeConfigured = (project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "") != "")
+        val exeConfigured =
+            (project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "") != "")
         if (!exeConfigured) {
             // TODO: still missing implementing the 'Use conan in system path' checkbox
-            Messages.showMessageDialog("Looks like you have not configured the path to the Conan executable," +
-                    " if you want to use the system one please check the 'Use conan in system path' " +
-                    "option in the configuration window.","Conan executable path not configured", Messages.getWarningIcon())
+            Messages.showMessageDialog(
+                "Looks like you have not configured the path to the Conan executable," +
+                        " if you want to use the system one please check the 'Use conan in system path' " +
+                        "option in the configuration window.",
+                "Conan executable path not configured",
+                Messages.getWarningIcon()
+            )
         }
         return exeConfigured
     }
@@ -139,7 +138,11 @@ class CMake(val project: Project) {
                 profiles.add(profile.name)
             }
             project.service<PropertiesComponent>().setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, true)
-            Messages.showMessageDialog("Conan support added for: ${profiles.joinToString(separator = ", ")}","Conan support added", Messages.getInformationIcon())
+            Messages.showMessageDialog(
+                "Conan support added for: ${profiles.joinToString(separator = ", ")}",
+                "Conan support added",
+                Messages.getInformationIcon()
+            )
         }
     }
 

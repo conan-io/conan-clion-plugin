@@ -22,13 +22,15 @@ class ConanCMakeRunnerStep : CMakeRunnerStep {
         val cmakeSettings = CMakeSettings.getInstance(project)
         val profile = cmakeSettings.profiles.find { it.name == profileName }
 
-        if (project.service<PropertiesComponent>().getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)) {
+        if (project.service<PropertiesComponent>()
+                .getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
+        ) {
             AdvancedSettings.setBoolean("cmake.reload.profiles.sequentially", true)
             NotificationGroupManager.getInstance()
                 .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                 .createNotification(
                     NotificationsBundle.message("cmake.parallel.autoactivated.title"),
-                    NotificationsBundle.getMessage("cmake.parallel.autoactivated.body"),
+                    NotificationsBundle.message("cmake.parallel.autoactivated.body"),
                     NotificationType.INFORMATION
                 )
                 .notify(project)
@@ -36,9 +38,8 @@ class ConanCMakeRunnerStep : CMakeRunnerStep {
             NotificationGroupManager.getInstance()
                 .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                 .createNotification(
-                    "Running CMake in parallel mode with multiple profiles might be a bad idea",
-                    "Conan installations are not concurrent. You might find some sporadic installation errors. " +
-                            "Go to advanced settings to do it nicer",
+                    NotificationsBundle.message("cmake.parallel.notactivated.title"),
+                    NotificationsBundle.message("cmake.parallel.notactivated.body"),
                     NotificationType.WARNING
                 )
                 .notify(project)

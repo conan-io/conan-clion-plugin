@@ -9,7 +9,6 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.components.service
-import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
@@ -27,10 +26,10 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
+import com.jfrog.conan.clionplugin.bundles.NotificationsBundle
 import com.jfrog.conan.clionplugin.bundles.WindowBundle
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.Conan
-import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
 import com.jfrog.conan.clionplugin.dialogs.ConanInspectPackagesDialogWrapper
@@ -48,10 +47,6 @@ import javax.swing.table.TableRowSorter
 
 
 class ConanWindowFactory : ToolWindowFactory {
-
-    init {
-        thisLogger().warn("Don't forget to remove all non-needed sample code files with their corresponding registration entries in `plugin.xml`.")
-    }
 
     private val contentFactory = ContentFactory.getInstance()
 
@@ -79,18 +74,24 @@ class ConanWindowFactory : ToolWindowFactory {
                 val searchTextField = SearchTextField()
 
                 val actionGroup = DefaultActionGroup().apply {
-                    add(object : AnAction(WindowBundle.message("toolbar.action.show.dialog.configure"), null, AllIcons.General.Settings) {
+                    add(object : AnAction(
+                        WindowBundle.message("toolbar.action.show.dialog.configure"),
+                        null,
+                        AllIcons.General.Settings
+                    ) {
                         override fun actionPerformed(e: AnActionEvent) {
                             ConanExecutableDialogWrapper(project).showAndGet()
                         }
                     })
-                    add(object : AnAction(WindowBundle.message("toolbar.action.add.conan.support"), null, AllIcons.General.Add) {
+                    add(object :
+                        AnAction(WindowBundle.message("toolbar.action.add.conan.support"), null, AllIcons.General.Add) {
                         override fun actionPerformed(e: AnActionEvent) {
                             val cmake = CMake(project)
                             cmake.addConanSupport()
                         }
                     })
-                    add(object : AnAction(WindowBundle.message("toolbar.action.update"), null, AllIcons.Actions.Refresh) {
+                    add(object :
+                        AnAction(WindowBundle.message("toolbar.action.update"), null, AllIcons.Actions.Refresh) {
                         override fun actionPerformed(e: AnActionEvent) {
 
                             conanService.downloadCMakeProvider(true)
@@ -102,8 +103,8 @@ class ConanWindowFactory : ToolWindowFactory {
                                     NotificationGroupManager.getInstance()
                                         .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                                         .createNotification(
-                                            "Updated remote data",
-                                            "Remote data has been updated",
+                                            NotificationsBundle.message("update.successful.title"),
+                                            NotificationsBundle.message("update.successful.body"),
                                             NotificationType.INFORMATION
                                         )
                                         .notify(project)
@@ -111,8 +112,8 @@ class ConanWindowFactory : ToolWindowFactory {
                                     NotificationGroupManager.getInstance()
                                         .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                                         .createNotification(
-                                            "Error updating remote data",
-                                            "Conan returned non 0 exit for the installation",
+                                            NotificationsBundle.message("update.error.title"),
+                                            NotificationsBundle.message("update.error.body"),
                                             NotificationType.ERROR
                                         )
                                         .notify(project)
@@ -120,7 +121,11 @@ class ConanWindowFactory : ToolWindowFactory {
                             }
                         }
                     })
-                    add(object : AnAction(WindowBundle.message("toolbar.action.show.used.packages"), null, AllIcons.General.InspectionsEye) {
+                    add(object : AnAction(
+                        WindowBundle.message("toolbar.action.show.used.packages"),
+                        null,
+                        AllIcons.General.InspectionsEye
+                    ) {
                         override fun actionPerformed(e: AnActionEvent) {
                             ConanInspectPackagesDialogWrapper(project).showAndGet()
                         }
@@ -214,7 +219,11 @@ class ConanWindowFactory : ToolWindowFactory {
                                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                                 addButton.isVisible = !isRequired
                                 removeButton.isVisible = isRequired
-                                Messages.showMessageDialog("${comboBox.selectedItem} added", "Library added to project", Messages.getInformationIcon())
+                                Messages.showMessageDialog(
+                                    NotificationsBundle.message("library.added.body", comboBox.selectedItem as String),
+                                    NotificationsBundle.message("library.added.title"),
+                                    Messages.getInformationIcon()
+                                )
                             }
 
                             removeButton.addActionListener {
@@ -222,7 +231,11 @@ class ConanWindowFactory : ToolWindowFactory {
                                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                                 addButton.isVisible = !isRequired
                                 removeButton.isVisible = isRequired
-                                Messages.showMessageDialog("${comboBox.selectedItem} removed", "Library removed from project", Messages.getInformationIcon())
+                                Messages.showMessageDialog(
+                                    NotificationsBundle.message("library.removed.body", comboBox.selectedItem as String),
+                                    NotificationsBundle.message("library.removed.title"),
+                                    Messages.getInformationIcon()
+                                )
                             }
 
                             val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
@@ -243,7 +256,8 @@ class ConanWindowFactory : ToolWindowFactory {
                 }, BorderLayout.PAGE_START)
                 add(JBScrollPane(packagesTable), BorderLayout.CENTER)
             }
-            secondComponent = secondComponentPanel.apply { withEmptyText(WindowBundle.message("library.description.empty")) }
+            secondComponent =
+                secondComponentPanel.apply { withEmptyText(WindowBundle.message("library.description.empty")) }
             proportion = 0.2f
         }
 

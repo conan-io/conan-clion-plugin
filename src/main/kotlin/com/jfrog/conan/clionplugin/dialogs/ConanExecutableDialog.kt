@@ -43,8 +43,8 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     private val fileChooserField1 = TextFieldWithBrowseButton().apply {
         addBrowseFolderListener(
-            "Conan executable",
-            "Conan executable",
+            DialogsBundle.message("config.file.selector.title"),
+            DialogsBundle.message("config.file.selector.description"),
             project,
             ConanExecutableChooserDescriptor
         )
@@ -60,7 +60,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     init {
         init()
-        title = "Configuration"
+        title = DialogsBundle.message("config.title")
     }
 
     override fun createCenterPanel(): JComponent {
