@@ -59,6 +59,9 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             if (!isSelected) {
                 properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
             }
+            else {
+                properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
+            }
         }
     }
 
