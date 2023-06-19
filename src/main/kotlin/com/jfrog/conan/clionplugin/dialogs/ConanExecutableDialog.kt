@@ -38,23 +38,22 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     private val fileChooserField1 = TextFieldWithBrowseButton().apply {
         addBrowseFolderListener(
-            "Conan executable",
-            "Conan executable",
-            project,
-            ConanExecutableChooserDescriptor
+                "Conan executable",
+                "Conan executable",
+                project,
+                ConanExecutableChooserDescriptor
         )
-        if (useConanFromSystemCheckBox.isSelected) {
-            text = ""
-        }
-        else {
-            text = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
-
-        }
     }
 
     private val useConanFromSystemCheckBox = JCheckBox("Use conan installed in the system").apply {
         val conanExe = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
         isSelected = conanExe == "conan"
+        if (isSelected) {
+            fileChooserField1.text = ""
+        } else {
+            fileChooserField1.text = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
+        }
+        fileChooserField1.isEnabled = !isSelected
         addActionListener {
             fileChooserField1.isEnabled = !isSelected
             if (!isSelected) {
@@ -62,6 +61,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             }
         }
     }
+
 
     // TODO: Still pending to detect when a profile is added, then setting the Conan configuration for the profile
     private val automaticallyAddCheckbox = JCheckBox("Automatically add Conan support for all configurations").apply {
