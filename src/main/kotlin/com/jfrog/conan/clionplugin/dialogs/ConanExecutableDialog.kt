@@ -43,7 +43,13 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             project,
             ConanExecutableChooserDescriptor
         )
-        text = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
+        if (useConanFromSystemCheckBox.isSelected) {
+            text = ""
+        }
+        else {
+            text = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
+
+        }
     }
 
     private val useConanFromSystemCheckBox = JCheckBox("Use conan installed in the system").apply {
