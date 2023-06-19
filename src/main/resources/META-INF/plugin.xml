@@ -12,7 +12,6 @@
     <resource-bundle>messages.notifications</resource-bundle>
 
 
-
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.jfrog.conan.clionplugin.toolWindow.ConanWindowFactory"
                     id="Conan"

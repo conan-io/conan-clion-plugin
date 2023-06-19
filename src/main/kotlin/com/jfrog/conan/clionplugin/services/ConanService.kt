@@ -2,8 +2,8 @@ package com.jfrog.conan.clionplugin.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.ui.Messages
+import com.intellij.openapi.vfs.LocalFileSystem
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
@@ -19,9 +19,11 @@ class ConanService(val project: Project) {
         //       In that case we could check with a conan --version if Conan is in the path
         //       or maybe doing that on startup
         if (!cmake.checkConanUsedInAnyActiveProfile()) {
-            Messages.showMessageDialog("Looks like Conan support may have not been added to the project. \n" +
-                                                "Please click on the add button to add Conan support", "Add Conan support to the project",
-                                       Messages.getWarningIcon())
+            Messages.showMessageDialog(
+                "Looks like Conan support may have not been added to the project. \n" +
+                        "Please click on the add button to add Conan support", "Add Conan support to the project",
+                Messages.getWarningIcon()
+            )
         }
         createConanfile()
         addRequirement(name, version)
@@ -35,7 +37,8 @@ class ConanService(val project: Project) {
         val file = File(getCMakeWorkspace().projectPath.toString(), "conanfile.py")
         if (ConanPluginUtils.fileHasOverwriteComment(file)) {
             file.createNewFile()
-            ConanPluginUtils.writeToFileWithOverwriteComment(file, """
+            ConanPluginUtils.writeToFileWithOverwriteComment(
+                file, """
                 import os
                 from conan import ConanFile
                 from conan.tools.cmake import cmake_layout, CMakeToolchain
@@ -56,7 +59,8 @@ class ConanService(val project: Project) {
                     def requirements(self):
                         requirements = self.conan_data.get('requirements', [])
                         for requirement in requirements:
-                            self.requires(requirement)""".trimIndent())
+                            self.requires(requirement)""".trimIndent()
+            )
             LocalFileSystem.getInstance().refreshAndFindFileByIoFile(file)
         }
     }
@@ -111,7 +115,7 @@ class ConanService(val project: Project) {
         }
     }
 
-    fun getCMakeProviderFilename(): String {
+    private fun getCMakeProviderFilename(): String {
         return "conan_provider.cmake"
     }
 

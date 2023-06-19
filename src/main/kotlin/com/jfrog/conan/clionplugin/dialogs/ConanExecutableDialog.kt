@@ -15,7 +15,10 @@ import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
-import javax.swing.*
+import javax.swing.Box
+import javax.swing.BoxLayout
+import javax.swing.JComponent
+import javax.swing.JPanel
 
 object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, true, false, false, false, false) {
     init {
@@ -36,7 +39,7 @@ val VirtualFile.isConanExecutable: Boolean
 class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     private val properties = project.service<PropertiesComponent>()
     private val cmake = CMake(project)
-    private val profileCheckboxes:  MutableList<JBCheckBox> = mutableListOf()
+    private val profileCheckboxes: MutableList<JBCheckBox> = mutableListOf()
 
     private val fileChooserField1 = TextFieldWithBrowseButton().apply {
         addBrowseFolderListener(
@@ -49,10 +52,11 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     // TODO: Still pending to detect when a profile is added, then setting the Conan configuration for the profile
-    private val automaticallyAddCheckbox = JBCheckBox(DialogsBundle.message("config.automanage.cmake.integrations")).apply {
-        val selected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false")
-        isSelected = selected == "true"
-    }
+    private val automaticallyAddCheckbox =
+        JBCheckBox(DialogsBundle.message("config.automanage.cmake.integrations")).apply {
+            val selected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false")
+            isSelected = selected == "true"
+        }
 
     init {
         init()
@@ -121,10 +125,15 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
             add(Box.createVerticalGlue(), gbcPlaceholder)
 
-            val automanageCMakeAdvancedSettings = project.service<PropertiesComponent>().getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
-            val checkboxAdvancedSetting = JBCheckBox(DialogsBundle.message("config.automanage.cmake.parallel"), automanageCMakeAdvancedSettings).apply {
+            val automanageCMakeAdvancedSettings = project.service<PropertiesComponent>()
+                .getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
+            val checkboxAdvancedSetting = JBCheckBox(
+                DialogsBundle.message("config.automanage.cmake.parallel"),
+                automanageCMakeAdvancedSettings
+            ).apply {
                 addActionListener {
-                    project.service<PropertiesComponent>().setValue(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS, isSelected)
+                    project.service<PropertiesComponent>()
+                        .setValue(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS, isSelected)
                 }
             }
 

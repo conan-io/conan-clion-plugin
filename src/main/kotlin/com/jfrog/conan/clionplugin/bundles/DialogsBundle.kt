@@ -1,7 +1,6 @@
 package com.jfrog.conan.clionplugin.bundles
 
 import com.intellij.DynamicBundle
-import com.jfrog.conan.clionplugin.bundles.DIALOGS_BUNDLE
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.annotations.PropertyKey
 

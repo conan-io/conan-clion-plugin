@@ -11,6 +11,7 @@ object ConanPluginUtils {
 
     private val OVERWRITE_HEADER = "# This file is managed by Conan, contents will be overwritten.\n" +
             "# To keep your changes, remove these comment lines, but the plugin won't be able to modify your requirements\n"
+
     fun fileHasOverwriteComment(file: File): Boolean {
         if (!file.exists()) return true
         val text = file.readText()
