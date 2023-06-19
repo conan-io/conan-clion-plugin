@@ -46,6 +46,17 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         text = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
     }
 
+    private val useConanFromSystemCheckBox = JCheckBox("Use conan installed in the system").apply {
+        val conanExe = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
+        isSelected = conanExe == "conan"
+        addActionListener {
+            fileChooserField1.isEnabled = !isSelected
+            if (!isSelected) {
+                properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
+            }
+        }
+    }
+
     // TODO: Still pending to detect when a profile is added, then setting the Conan configuration for the profile
     private val automaticallyAddCheckbox = JCheckBox("Automatically add Conan support for all configurations").apply {
         val selected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false")
@@ -79,7 +90,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             weighty = 1.0
             gridwidth = GridBagConstraints.REMAINDER
         }
-        val gbcAutomaticallyAddCheckbox = GridBagConstraints().apply {
+        val newCheckConstraint = GridBagConstraints().apply {
             anchor = GridBagConstraints.WEST
             fill = GridBagConstraints.HORIZONTAL
             weightx = 1.0
@@ -95,6 +106,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
         panel.add(JLabel("Conan executable"), gbcLabel)
         panel.add(fileChooserField1, gbcField)
+        panel.add(useConanFromSystemCheckBox, newCheckConstraint)
 
         val checkboxPanel = JPanel().apply {
             layout = BoxLayout(this, BoxLayout.Y_AXIS)
@@ -115,7 +127,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
         panel.add(checkboxPanel, gbcCheckboxPanel)
 
-        panel.add(automaticallyAddCheckbox, gbcAutomaticallyAddCheckbox)
+        panel.add(automaticallyAddCheckbox, newCheckConstraint)
 
         panel.add(Box.createVerticalGlue(), gbcPlaceholder)
 

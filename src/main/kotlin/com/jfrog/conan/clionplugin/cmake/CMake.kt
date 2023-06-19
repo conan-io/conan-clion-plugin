@@ -47,7 +47,7 @@ class CMake(val project: Project) {
         )
         val generationOptions: MutableList<String> = mutableListOf()
         generationOptions.add("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"")
-        if (conanExecutable != "") {
+        if (conanExecutable != "" && conanExecutable != "conan") {
             generationOptions.add("-DCONAN_COMMAND=\"${conanExecutable}\"")
         }
         addGenerationOptions(profileName, generationOptions)
