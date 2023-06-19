@@ -135,7 +135,12 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     override fun doOKAction() {
-        properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, fileChooserField1.text)
+        if (!useConanFromSystemCheckBox.isSelected) {
+            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, fileChooserField1.text)
+        }
+        else {
+            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
+        }
         val selected = if (automaticallyAddCheckbox.isSelected) "true" else "false"
         properties.setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, selected)
 
