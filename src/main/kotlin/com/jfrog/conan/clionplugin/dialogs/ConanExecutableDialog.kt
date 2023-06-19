@@ -8,7 +8,10 @@ import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.components.JBCheckBox
+import com.intellij.ui.components.JBLabel
+import com.intellij.ui.components.JBPanel
 import com.intellij.util.ui.JBUI
+import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.awt.GridBagConstraints

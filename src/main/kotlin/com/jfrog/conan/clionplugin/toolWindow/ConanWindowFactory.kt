@@ -63,6 +63,7 @@ class ConanWindowFactory : ToolWindowFactory {
 
     class ConanWindow(toolWindow: ToolWindow, val project: Project) {
         private val stateService = this.project.service<RemotesDataStateService>()
+        private val conanService = project.service<ConanService>()
 
         fun getContent() = OnePixelSplitter(false).apply {
 
@@ -90,7 +91,7 @@ class ConanWindowFactory : ToolWindowFactory {
                     add(object : AnAction("Update packages", null, AllIcons.Actions.Refresh) {
                         override fun actionPerformed(e: AnActionEvent) {
 
-                            ConanPluginUtils.downloadCMakeProvider(true)
+                            conanService.downloadCMakeProvider(true)
 
                             Conan(project).list("*") { runOutput ->
                                 if (runOutput.exitCode == 0) {
@@ -197,7 +198,6 @@ class ConanWindowFactory : ToolWindowFactory {
                         secondComponentPanel.add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
                             val comboBox = ComboBox(versionModel)
 
-                            val conanService = project.service<ConanService>()
                             add(comboBox)
 
 

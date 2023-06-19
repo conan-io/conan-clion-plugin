@@ -6,6 +6,8 @@ import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.ui.Messages
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jfrog.conan.clionplugin.cmake.CMake
+import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
+import com.jfrog.conan.clionplugin.conan.extensions.downloadFromUrl
 import java.io.File
 
 @Service(Service.Level.PROJECT)
@@ -31,9 +33,9 @@ class ConanService(val project: Project) {
 
     private fun createConanfile() {
         val file = File(getCMakeWorkspace().projectPath.toString(), "conanfile.py")
-        if (fileHasOverwriteComment(file)) {
+        if (ConanPluginUtils.fileHasOverwriteComment(file)) {
             file.createNewFile()
-            writeToFileWithOverwriteComment(file, """
+            ConanPluginUtils.writeToFileWithOverwriteComment(file, """
                 import os
                 from conan import ConanFile
                 from conan.tools.cmake import cmake_layout, CMakeToolchain
@@ -59,18 +61,6 @@ class ConanService(val project: Project) {
         }
     }
 
-    private val OVERWRITE_HEADER = "# This file is managed by Conan, contents will be overwritten.\n" +
-            "# To keep your changes, remove these comment lines, but the plugin won't be able to modify your requirements\n"
-    private fun fileHasOverwriteComment(file: File): Boolean {
-        if (!file.exists()) return true
-        val text = file.readText()
-        val startsWith = text.startsWith(OVERWRITE_HEADER)
-        return startsWith
-    }
-
-    private fun writeToFileWithOverwriteComment(file: File, content: String) {
-        file.writeText("$OVERWRITE_HEADER\n$content")
-    }
 
     private fun getCMakeWorkspace(): CMakeWorkspace {
         return CMakeWorkspace.getInstance(project)
@@ -113,11 +103,36 @@ class ConanService(val project: Project) {
 
     private fun writeRequirementsFile(requirements: List<String>) {
         val dependencyFile = File(getCMakeWorkspace().projectPath.toString(), "conandata.yml")
-        if (fileHasOverwriteComment(dependencyFile)) {
+        if (ConanPluginUtils.fileHasOverwriteComment(dependencyFile)) {
             dependencyFile.createNewFile()
             val text = "requirements:\n" + requirements.joinToString("\n") { "  - \"$it\"" }
-            writeToFileWithOverwriteComment(dependencyFile, text)
+            ConanPluginUtils.writeToFileWithOverwriteComment(dependencyFile, text)
             LocalFileSystem.getInstance().refreshAndFindFileByIoFile(dependencyFile)
+        }
+    }
+
+    fun getCMakeProviderFilename(): String {
+        return "conan_provider.cmake"
+    }
+
+    fun getCMakeProviderFile(): File {
+        return File(CMakeWorkspace.getInstance(project).projectPath.toString(), getCMakeProviderFilename())
+    }
+
+    fun downloadCMakeProvider(update: Boolean = false) {
+        val cmakeProviderURL = "https://raw.githubusercontent.com/conan-io/cmake-conan/develop2/conan_provider.cmake"
+        val targetFile = getCMakeProviderFile()
+
+        if (!targetFile.exists() || update && ConanPluginUtils.fileHasOverwriteComment(targetFile)) {
+            val tempTargetFile = File(ConanPluginUtils.getPluginHome(), getCMakeProviderFilename())
+            tempTargetFile.parentFile.mkdirs()
+            tempTargetFile.downloadFromUrl(cmakeProviderURL)
+
+            val originalText = tempTargetFile.readText()
+            targetFile.parentFile.mkdirs()
+
+            ConanPluginUtils.writeToFileWithOverwriteComment(targetFile, originalText)
+            LocalFileSystem.getInstance().refreshAndFindFileByIoFile(targetFile)
         }
     }
 }

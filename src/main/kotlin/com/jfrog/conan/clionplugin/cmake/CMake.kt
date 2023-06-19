@@ -10,6 +10,7 @@ import com.jetbrains.cidr.cpp.cmake.model.CMakeConfiguration
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
+import com.jfrog.conan.clionplugin.services.ConanService
 
 class CMake(val project: Project) {
 
@@ -46,7 +47,8 @@ class CMake(val project: Project) {
             ""
         )
         val generationOptions: MutableList<String> = mutableListOf()
-        generationOptions.add("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${ConanPluginUtils.getCmakeProviderPath()}\"")
+        val conanProviderPath = project.service<ConanService>().getCMakeProviderFile().toString()
+        generationOptions.add("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${conanProviderPath}\"")
         if (conanExecutable != "") {
             generationOptions.add("-DCONAN_COMMAND=\"${conanExecutable}\"")
         }
