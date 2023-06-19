@@ -9,9 +9,8 @@ import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.components.JBLabel
-import com.intellij.ui.components.JBPanel
 import com.intellij.util.ui.JBUI
-import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
+import com.jfrog.conan.clionplugin.bundles.DialogsBundle
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.awt.GridBagConstraints
@@ -50,7 +49,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     // TODO: Still pending to detect when a profile is added, then setting the Conan configuration for the profile
-    private val automaticallyAddCheckbox = JCheckBox("Automatically add Conan support for all configurations").apply {
+    private val automaticallyAddCheckbox = JBCheckBox(DialogsBundle.message("config.automanage.cmake.integrations")).apply {
         val selected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false")
         isSelected = selected == "true"
     }
@@ -61,68 +60,78 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     override fun createCenterPanel(): JComponent {
-        val panel = JPanel(GridBagLayout())
-        val gbcLabel = GridBagConstraints().apply {
-            anchor = GridBagConstraints.WEST
-            weightx = 0.0
-            weighty = 0.0
-            insets = JBUI.insetsTop(10)
+        return JPanel(GridBagLayout()).apply {
+            val gbcLabel = GridBagConstraints().apply {
+                anchor = GridBagConstraints.WEST
+                weightx = 0.0
+                weighty = 0.0
+                insets = JBUI.insetsTop(10)
+            }
+            val gbcField = GridBagConstraints().apply {
+                anchor = GridBagConstraints.WEST
+                fill = GridBagConstraints.HORIZONTAL
+                weightx = 1.0
+                weighty = 0.0
+                gridwidth = GridBagConstraints.REMAINDER
+            }
+            val gbcCheckboxPanel = GridBagConstraints().apply {
+                anchor = GridBagConstraints.WEST
+                fill = GridBagConstraints.BOTH
+                weightx = 1.0
+                weighty = 1.0
+                gridwidth = GridBagConstraints.REMAINDER
+            }
+            val gbcAutomaticallyAddCheckbox = GridBagConstraints().apply {
+                anchor = GridBagConstraints.WEST
+                fill = GridBagConstraints.HORIZONTAL
+                weightx = 1.0
+                weighty = 0.0
+                gridwidth = GridBagConstraints.REMAINDER
+                insets = JBUI.insetsTop(10)
+            }
+            val gbcPlaceholder = GridBagConstraints().apply {
+                fill = GridBagConstraints.VERTICAL
+                weighty = 1.0
+                gridwidth = GridBagConstraints.REMAINDER
+            }
+
+            add(JBLabel(DialogsBundle.message("config.executable")), gbcLabel)
+            add(fileChooserField1, gbcField)
+
+            val checkboxPanel = JPanel().apply {
+                layout = BoxLayout(this, BoxLayout.Y_AXIS)
+            }
+
+            val configurationsLabel = JBLabel(DialogsBundle.message("config.configurations.use")).apply {
+                border = JBUI.Borders.emptyTop(10)
+            }
+
+            checkboxPanel.add(configurationsLabel)
+
+            cmake.getActiveProfiles().forEach { profile ->
+                val selected = cmake.checkConanUsedInProfile(profile.name)
+                val checkbox = JBCheckBox(profile.name, selected)
+                profileCheckboxes.add(checkbox)
+                checkboxPanel.add(checkbox)
+            }
+
+            add(checkboxPanel, gbcCheckboxPanel)
+
+            add(automaticallyAddCheckbox, gbcAutomaticallyAddCheckbox)
+
+            add(Box.createVerticalGlue(), gbcPlaceholder)
+
+            val automanageCMakeAdvancedSettings = project.service<PropertiesComponent>().getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
+            val checkboxAdvancedSetting = JBCheckBox(DialogsBundle.message("config.automanage.cmake.parallel"), automanageCMakeAdvancedSettings).apply {
+                addActionListener {
+                    project.service<PropertiesComponent>().setValue(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS, isSelected)
+                }
+            }
+
+            add(JBLabel(DialogsBundle.message("config.automanage.cmake.parallel.description")))
+
+            add(checkboxAdvancedSetting)
         }
-        val gbcField = GridBagConstraints().apply {
-            anchor = GridBagConstraints.WEST
-            fill = GridBagConstraints.HORIZONTAL
-            weightx = 1.0
-            weighty = 0.0
-            gridwidth = GridBagConstraints.REMAINDER
-        }
-        val gbcCheckboxPanel = GridBagConstraints().apply {
-            anchor = GridBagConstraints.WEST
-            fill = GridBagConstraints.BOTH
-            weightx = 1.0
-            weighty = 1.0
-            gridwidth = GridBagConstraints.REMAINDER
-        }
-        val gbcAutomaticallyAddCheckbox = GridBagConstraints().apply {
-            anchor = GridBagConstraints.WEST
-            fill = GridBagConstraints.HORIZONTAL
-            weightx = 1.0
-            weighty = 0.0
-            gridwidth = GridBagConstraints.REMAINDER
-            insets = JBUI.insetsTop(10)
-        }
-        val gbcPlaceholder = GridBagConstraints().apply {
-            fill = GridBagConstraints.VERTICAL
-            weighty = 1.0
-            gridwidth = GridBagConstraints.REMAINDER
-        }
-
-        panel.add(JLabel("Conan executable"), gbcLabel)
-        panel.add(fileChooserField1, gbcField)
-
-        val checkboxPanel = JPanel().apply {
-            layout = BoxLayout(this, BoxLayout.Y_AXIS)
-        }
-
-        val configurationsLabel = JLabel("Use Conan for the following configurations:").apply {
-            border = JBUI.Borders.emptyTop(10)
-        }
-
-        checkboxPanel.add(configurationsLabel)
-
-        cmake.getActiveProfiles().forEach { profile ->
-            val selected = cmake.checkConanUsedInProfile(profile.name)
-            val checkbox = JBCheckBox(profile.name, selected)
-            profileCheckboxes.add(checkbox)
-            checkboxPanel.add(checkbox)
-        }
-
-        panel.add(checkboxPanel, gbcCheckboxPanel)
-
-        panel.add(automaticallyAddCheckbox, gbcAutomaticallyAddCheckbox)
-
-        panel.add(Box.createVerticalGlue(), gbcPlaceholder)
-
-        return panel
     }
 
     override fun doOKAction() {

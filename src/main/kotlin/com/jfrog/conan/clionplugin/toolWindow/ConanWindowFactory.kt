@@ -20,12 +20,14 @@ import com.intellij.ui.DocumentAdapter
 import com.intellij.ui.JBSplitter
 import com.intellij.ui.OnePixelSplitter
 import com.intellij.ui.SearchTextField
+import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
+import com.jfrog.conan.clionplugin.bundles.WindowBundle
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
@@ -77,18 +79,18 @@ class ConanWindowFactory : ToolWindowFactory {
                 val searchTextField = SearchTextField()
 
                 val actionGroup = DefaultActionGroup().apply {
-                    add(object : AnAction("Configure Conan", null, AllIcons.General.Settings) {
+                    add(object : AnAction(WindowBundle.message("toolbar.action.show.dialog.configure"), null, AllIcons.General.Settings) {
                         override fun actionPerformed(e: AnActionEvent) {
                             ConanExecutableDialogWrapper(project).showAndGet()
                         }
                     })
-                    add(object : AnAction("Add Conan support to Project", null, AllIcons.General.Add) {
+                    add(object : AnAction(WindowBundle.message("toolbar.action.add.conan.support"), null, AllIcons.General.Add) {
                         override fun actionPerformed(e: AnActionEvent) {
                             val cmake = CMake(project)
                             cmake.addConanSupport()
                         }
                     })
-                    add(object : AnAction("Update packages", null, AllIcons.Actions.Refresh) {
+                    add(object : AnAction(WindowBundle.message("toolbar.action.update"), null, AllIcons.Actions.Refresh) {
                         override fun actionPerformed(e: AnActionEvent) {
 
                             conanService.downloadCMakeProvider(true)
@@ -98,7 +100,7 @@ class ConanWindowFactory : ToolWindowFactory {
                                     val newJson = Json.decodeFromString<RemotesDataStateService.State>(runOutput.stdout)
                                     stateService.loadState(newJson)
                                     NotificationGroupManager.getInstance()
-                                        .getNotificationGroup("Conan Notifications Group")
+                                        .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                                         .createNotification(
                                             "Updated remote data",
                                             "Remote data has been updated",
@@ -107,7 +109,7 @@ class ConanWindowFactory : ToolWindowFactory {
                                         .notify(project)
                                 } else {
                                     NotificationGroupManager.getInstance()
-                                        .getNotificationGroup("Conan Notifications Group")
+                                        .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                                         .createNotification(
                                             "Error updating remote data",
                                             "Conan returned non 0 exit for the installation",
@@ -118,7 +120,7 @@ class ConanWindowFactory : ToolWindowFactory {
                             }
                         }
                     })
-                    add(object : AnAction("Check used packages", null, AllIcons.General.InspectionsEye) {
+                    add(object : AnAction(WindowBundle.message("toolbar.action.show.used.packages"), null, AllIcons.General.InspectionsEye) {
                         override fun actionPerformed(e: AnActionEvent) {
                             ConanInspectPackagesDialogWrapper(project).showAndGet()
                         }
@@ -128,7 +130,7 @@ class ConanWindowFactory : ToolWindowFactory {
                 actionToolbar.targetComponent = this
 
                 var recipes: List<Recipe> = listOf()
-                val columnNames = arrayOf("Name")
+                val columnNames = arrayOf(WindowBundle.message("libraries.list.table.name"))
                 val dataModel = object : DefaultTableModel(columnNames, 0) {
                     // By default cells are editable and that's no good. Override the function that tells the UI it is
                     // TODO: Find the proper configuration for this, this can't be the proper way to make it static
@@ -191,7 +193,7 @@ class ConanWindowFactory : ToolWindowFactory {
                         }
 
                         secondComponentPanel.removeAll()
-                        secondComponentPanel.add(JLabel(name).apply {
+                        secondComponentPanel.add(JBLabel(name).apply {
                             font = font.deriveFont(Font.BOLD, 18f) // set font size to 18 and bold
                         }, BorderLayout.NORTH)
 
@@ -201,8 +203,8 @@ class ConanWindowFactory : ToolWindowFactory {
                             add(comboBox)
 
 
-                            val addButton = JButton("Use in project")
-                            val removeButton = JButton("Remove from project")
+                            val addButton = JButton(WindowBundle.message("library.description.button.install"))
+                            val removeButton = JButton(WindowBundle.message("library.description.button.remove"))
 
                             add(addButton)
                             add(removeButton)
@@ -241,7 +243,7 @@ class ConanWindowFactory : ToolWindowFactory {
                 }, BorderLayout.PAGE_START)
                 add(JBScrollPane(packagesTable), BorderLayout.CENTER)
             }
-            secondComponent = secondComponentPanel.apply { withEmptyText("No selection") }
+            secondComponent = secondComponentPanel.apply { withEmptyText(WindowBundle.message("library.description.empty")) }
             proportion = 0.2f
         }
 
