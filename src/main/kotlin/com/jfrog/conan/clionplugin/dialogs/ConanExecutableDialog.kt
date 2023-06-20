@@ -55,7 +55,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             isSelected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true"
         }
 
-    private val useConanFromSystemCheckBox = JCheckBox("Use conan installed in the system").apply {
+    private val useConanFromSystemCheckBox = JBCheckBox(DialogsBundle.message("config.use.system.conan")).apply {
         val conanExe = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
         isSelected = conanExe == "conan"
         fileChooserField1.text = if (isSelected) "" else properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
@@ -100,19 +100,6 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 weighty = 0.0
                 gridwidth = GridBagConstraints.REMAINDER
                 insets = JBUI.insetsTop(10)
-            }
-            val gbcAutomaticallyAddCheckbox = GridBagConstraints().apply {
-                anchor = GridBagConstraints.WEST
-                fill = GridBagConstraints.HORIZONTAL
-                weightx = 1.0
-                weighty = 0.0
-                gridwidth = GridBagConstraints.REMAINDER
-                insets = JBUI.insetsTop(10)
-            }
-            val gbcPlaceholder = GridBagConstraints().apply {
-                fill = GridBagConstraints.VERTICAL
-                weighty = 1.0
-                gridwidth = GridBagConstraints.REMAINDER
             }
 
             add(JBLabel(DialogsBundle.message("config.executable")), gbcLabel)
