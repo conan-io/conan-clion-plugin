@@ -10,12 +10,11 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.components.JBLabel
 import com.intellij.util.ui.JBUI
-import com.jfrog.conan.clionplugin.bundles.DialogsBundle
+import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
-import javax.swing.Box
 import javax.swing.BoxLayout
 import javax.swing.JComponent
 import javax.swing.JPanel
@@ -43,19 +42,19 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     private val fileChooserField1 = TextFieldWithBrowseButton().apply {
         addBrowseFolderListener(
-            DialogsBundle.message("config.file.selector.title"),
-            DialogsBundle.message("config.file.selector.description"),
+            UIBundle.message("config.file.selector.title"),
+            UIBundle.message("config.file.selector.description"),
             project,
             ConanExecutableChooserDescriptor
         )
     }
 
     private val automaticallyAddCheckbox =
-        JBCheckBox(DialogsBundle.message("config.automanage.cmake.integrations")).apply {
+        JBCheckBox(UIBundle.message("config.automanage.cmake.integrations")).apply {
             isSelected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true"
         }
 
-    private val useConanFromSystemCheckBox = JBCheckBox(DialogsBundle.message("config.use.system.conan")).apply {
+    private val useConanFromSystemCheckBox = JBCheckBox(UIBundle.message("config.use.system.conan")).apply {
         val conanExe = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
         isSelected = conanExe == "conan"
         fileChooserField1.text = if (isSelected) "" else properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
@@ -68,7 +67,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     init {
         init()
-        title = DialogsBundle.message("config.title")
+        title = UIBundle.message("config.title")
     }
 
     override fun createCenterPanel(): JComponent {
@@ -102,7 +101,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 insets = JBUI.insetsTop(10)
             }
 
-            add(JBLabel(DialogsBundle.message("config.executable")), gbcLabel)
+            add(JBLabel(UIBundle.message("config.executable")), gbcLabel)
             add(fileChooserField1, gbcField)
             add(useConanFromSystemCheckBox, newCheckConstraint)
 
@@ -110,7 +109,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 layout = BoxLayout(this, BoxLayout.Y_AXIS)
             }
 
-            val configurationsLabel = JBLabel(DialogsBundle.message("config.configurations.use")).apply {
+            val configurationsLabel = JBLabel(UIBundle.message("config.configurations.use")).apply {
                 border = JBUI.Borders.emptyTop(10)
             }
 
@@ -130,7 +129,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             val automanageCMakeAdvancedSettings = project.service<PropertiesComponent>()
                 .getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
             val checkboxAdvancedSetting = JBCheckBox(
-                DialogsBundle.message("config.automanage.cmake.parallel"),
+                UIBundle.message("config.automanage.cmake.parallel"),
                 automanageCMakeAdvancedSettings
             ).apply {
                 addActionListener {

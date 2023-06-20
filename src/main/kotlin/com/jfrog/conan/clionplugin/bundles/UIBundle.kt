@@ -5,17 +5,17 @@ import org.jetbrains.annotations.NonNls
 import org.jetbrains.annotations.PropertyKey
 
 @NonNls
-private const val NOTIFICATIONS_BUNDLE = "messages.notifications"
+private const val UI_BUNDLE = "messages.ui"
 
-object NotificationsBundle : DynamicBundle(NOTIFICATIONS_BUNDLE) {
+object UIBundle : DynamicBundle(UI_BUNDLE) {
 
     @Suppress("SpreadOperator")
     @JvmStatic
-    fun message(@PropertyKey(resourceBundle = NOTIFICATIONS_BUNDLE) key: String, vararg params: Any) =
+    fun message(@PropertyKey(resourceBundle = UI_BUNDLE) key: String, vararg params: Any) =
         getMessage(key, *params)
 
     @Suppress("SpreadOperator", "unused")
     @JvmStatic
-    fun messagePointer(@PropertyKey(resourceBundle = NOTIFICATIONS_BUNDLE) key: String, vararg params: Any) =
+    fun messagePointer(@PropertyKey(resourceBundle = UI_BUNDLE) key: String, vararg params: Any) =
         getLazyMessage(key, *params)
 }

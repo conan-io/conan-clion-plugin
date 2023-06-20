@@ -7,9 +7,7 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.clion</depends>
 
-    <resource-bundle>messages.window</resource-bundle>
-    <resource-bundle>messages.dialogs</resource-bundle>
-    <resource-bundle>messages.notifications</resource-bundle>
+    <resource-bundle>messages.ui</resource-bundle>
 
 
     <extensions defaultExtensionNs="com.intellij">

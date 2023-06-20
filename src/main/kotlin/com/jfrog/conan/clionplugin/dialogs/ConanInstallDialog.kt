@@ -5,7 +5,7 @@ import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.components.JBCheckBox
-import com.jfrog.conan.clionplugin.bundles.DialogsBundle
+import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.cmake.CMake
 import java.awt.Font
 import java.awt.GridBagConstraints
@@ -21,7 +21,7 @@ class ConanInstallDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     init {
         init()
-        title = DialogsBundle.message("install.title")
+        title = UIBundle.message("install.title")
     }
 
     fun getSelectedInstallProfiles(): List<String> {
@@ -52,7 +52,7 @@ class ConanInstallDialogWrapper(val project: Project) : DialogWrapper(true) {
             checkboxes.clear()
             val cmake = CMake(project)
             val selectedBuildConfiguration = cmake.getSelectedBuildConfiguration()
-            add(JBCheckBox(DialogsBundle.message("install.configurations.all")).apply {
+            add(JBCheckBox(UIBundle.message("install.configurations.all")).apply {
                 font = font.deriveFont(Font.BOLD)
                 addActionListener {
                     checkboxes.forEach { (_, control) ->

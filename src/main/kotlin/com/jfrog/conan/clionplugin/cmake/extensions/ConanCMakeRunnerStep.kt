@@ -12,7 +12,7 @@ import com.jetbrains.cidr.cpp.cmake.CMakeRunnerStep
 import com.jetbrains.cidr.cpp.cmake.CMakeRunnerStep.Parameters
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.rd.util.string.printToString
-import com.jfrog.conan.clionplugin.bundles.NotificationsBundle
+import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 
 @Service(Service.Level.PROJECT)
@@ -29,8 +29,8 @@ class ConanCMakeRunnerStep : CMakeRunnerStep {
             NotificationGroupManager.getInstance()
                 .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                 .createNotification(
-                    NotificationsBundle.message("cmake.parallel.autoactivated.title"),
-                    NotificationsBundle.message("cmake.parallel.autoactivated.body"),
+                    UIBundle.message("cmake.parallel.autoactivated.title"),
+                    UIBundle.message("cmake.parallel.autoactivated.body"),
                     NotificationType.INFORMATION
                 )
                 .notify(project)
@@ -38,8 +38,8 @@ class ConanCMakeRunnerStep : CMakeRunnerStep {
             NotificationGroupManager.getInstance()
                 .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                 .createNotification(
-                    NotificationsBundle.message("cmake.parallel.notactivated.title"),
-                    NotificationsBundle.message("cmake.parallel.notactivated.body"),
+                    UIBundle.message("cmake.parallel.notactivated.title"),
+                    UIBundle.message("cmake.parallel.notactivated.body"),
                     NotificationType.WARNING
                 )
                 .notify(project)

@@ -26,8 +26,7 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
-import com.jfrog.conan.clionplugin.bundles.NotificationsBundle
-import com.jfrog.conan.clionplugin.bundles.WindowBundle
+import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
@@ -75,7 +74,7 @@ class ConanWindowFactory : ToolWindowFactory {
 
                 val actionGroup = DefaultActionGroup().apply {
                     add(object : AnAction(
-                        WindowBundle.message("toolbar.action.show.dialog.configure"),
+                        UIBundle.message("toolbar.action.show.dialog.configure"),
                         null,
                         AllIcons.General.Settings
                     ) {
@@ -84,14 +83,14 @@ class ConanWindowFactory : ToolWindowFactory {
                         }
                     })
                     add(object :
-                        AnAction(WindowBundle.message("toolbar.action.add.conan.support"), null, AllIcons.General.Add) {
+                        AnAction(UIBundle.message("toolbar.action.add.conan.support"), null, AllIcons.General.Add) {
                         override fun actionPerformed(e: AnActionEvent) {
                             val cmake = CMake(project)
                             cmake.addConanSupport()
                         }
                     })
                     add(object :
-                        AnAction(WindowBundle.message("toolbar.action.update"), null, AllIcons.Actions.Refresh) {
+                        AnAction(UIBundle.message("toolbar.action.update"), null, AllIcons.Actions.Refresh) {
                         override fun actionPerformed(e: AnActionEvent) {
 
                             conanService.downloadCMakeProvider(true)
@@ -103,8 +102,8 @@ class ConanWindowFactory : ToolWindowFactory {
                                     NotificationGroupManager.getInstance()
                                         .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                                         .createNotification(
-                                            NotificationsBundle.message("update.successful.title"),
-                                            NotificationsBundle.message("update.successful.body"),
+                                            UIBundle.message("update.successful.title"),
+                                            UIBundle.message("update.successful.body"),
                                             NotificationType.INFORMATION
                                         )
                                         .notify(project)
@@ -112,8 +111,8 @@ class ConanWindowFactory : ToolWindowFactory {
                                     NotificationGroupManager.getInstance()
                                         .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                                         .createNotification(
-                                            NotificationsBundle.message("update.error.title"),
-                                            NotificationsBundle.message("update.error.body"),
+                                            UIBundle.message("update.error.title"),
+                                            UIBundle.message("update.error.body"),
                                             NotificationType.ERROR
                                         )
                                         .notify(project)
@@ -122,7 +121,7 @@ class ConanWindowFactory : ToolWindowFactory {
                         }
                     })
                     add(object : AnAction(
-                        WindowBundle.message("toolbar.action.show.used.packages"),
+                        UIBundle.message("toolbar.action.show.used.packages"),
                         null,
                         AllIcons.General.InspectionsEye
                     ) {
@@ -135,7 +134,7 @@ class ConanWindowFactory : ToolWindowFactory {
                 actionToolbar.targetComponent = this
 
                 var recipes: List<Recipe> = listOf()
-                val columnNames = arrayOf(WindowBundle.message("libraries.list.table.name"))
+                val columnNames = arrayOf(UIBundle.message("libraries.list.table.name"))
                 val dataModel = object : DefaultTableModel(columnNames, 0) {
                     // By default cells are editable and that's no good. Override the function that tells the UI it is
                     // TODO: Find the proper configuration for this, this can't be the proper way to make it static
@@ -208,8 +207,8 @@ class ConanWindowFactory : ToolWindowFactory {
                             add(comboBox)
 
 
-                            val addButton = JButton(WindowBundle.message("library.description.button.install"))
-                            val removeButton = JButton(WindowBundle.message("library.description.button.remove"))
+                            val addButton = JButton(UIBundle.message("library.description.button.install"))
+                            val removeButton = JButton(UIBundle.message("library.description.button.remove"))
 
                             add(addButton)
                             add(removeButton)
@@ -220,8 +219,8 @@ class ConanWindowFactory : ToolWindowFactory {
                                 addButton.isVisible = !isRequired
                                 removeButton.isVisible = isRequired
                                 Messages.showMessageDialog(
-                                    NotificationsBundle.message("library.added.body", comboBox.selectedItem as String),
-                                    NotificationsBundle.message("library.added.title"),
+                                    UIBundle.message("library.added.body", comboBox.selectedItem as String),
+                                    UIBundle.message("library.added.title"),
                                     Messages.getInformationIcon()
                                 )
                             }
@@ -232,8 +231,8 @@ class ConanWindowFactory : ToolWindowFactory {
                                 addButton.isVisible = !isRequired
                                 removeButton.isVisible = isRequired
                                 Messages.showMessageDialog(
-                                    NotificationsBundle.message("library.removed.body", comboBox.selectedItem as String),
-                                    NotificationsBundle.message("library.removed.title"),
+                                    UIBundle.message("library.removed.body", comboBox.selectedItem as String),
+                                    UIBundle.message("library.removed.title"),
                                     Messages.getInformationIcon()
                                 )
                             }
@@ -257,7 +256,7 @@ class ConanWindowFactory : ToolWindowFactory {
                 add(JBScrollPane(packagesTable), BorderLayout.CENTER)
             }
             secondComponent =
-                secondComponentPanel.apply { withEmptyText(WindowBundle.message("library.description.empty")) }
+                secondComponentPanel.apply { withEmptyText(UIBundle.message("library.description.empty")) }
             proportion = 0.2f
         }
 
