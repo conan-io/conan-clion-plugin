@@ -4,6 +4,7 @@ import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.util.ui.JBUI
+import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.services.ConanService
 import javax.swing.JComponent
 import javax.swing.JTextArea
@@ -12,7 +13,7 @@ class ConanInspectPackagesDialogWrapper(val project: Project) : DialogWrapper(tr
 
     init {
         init()
-        title = "Packages used by the project"
+        title = UIBundle.message("inspect.title")
     }
 
     override fun createCenterPanel(): JComponent {

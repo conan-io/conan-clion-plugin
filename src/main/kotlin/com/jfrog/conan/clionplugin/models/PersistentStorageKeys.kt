@@ -8,5 +8,6 @@ class PersistentStorageKeys {
         // - value="conan" the user selected "Use conan from system"
         // - value="" not yet configured
         const val CONAN_EXECUTABLE = "com.jfrog.conanplugin.conanexecutable"
+        const val AUTOMANAGE_CMAKE_ADVANCED_SETTINGS = "com.jfrog.conanplugin.automanage.cmake.advanced.settings"
     }
 }
