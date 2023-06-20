@@ -139,9 +139,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 }
             }
 
-            add(JBLabel(DialogsBundle.message("config.automanage.cmake.parallel.description")))
-
-            add(checkboxAdvancedSetting)
+            add(checkboxAdvancedSetting, newCheckConstraint)
         }
     }
 
