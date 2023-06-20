@@ -48,15 +48,23 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             project,
             ConanExecutableChooserDescriptor
         )
-        text = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
     }
 
-    // TODO: Still pending to detect when a profile is added, then setting the Conan configuration for the profile
     private val automaticallyAddCheckbox =
         JBCheckBox(DialogsBundle.message("config.automanage.cmake.integrations")).apply {
-            val selected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false")
-            isSelected = selected == "true"
+            isSelected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true"
         }
+
+    private val useConanFromSystemCheckBox = JCheckBox("Use conan installed in the system").apply {
+        val conanExe = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
+        isSelected = conanExe == "conan"
+        fileChooserField1.text = if (isSelected) "" else properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
+        fileChooserField1.isEnabled = !isSelected
+        addActionListener {
+            fileChooserField1.isEnabled = !isSelected
+            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, if (!isSelected) "" else "conan")
+        }
+    }
 
     init {
         init()
@@ -85,6 +93,14 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 weighty = 1.0
                 gridwidth = GridBagConstraints.REMAINDER
             }
+            val newCheckConstraint = GridBagConstraints().apply {
+                anchor = GridBagConstraints.WEST
+                fill = GridBagConstraints.HORIZONTAL
+                weightx = 1.0
+                weighty = 0.0
+                gridwidth = GridBagConstraints.REMAINDER
+                insets = JBUI.insetsTop(10)
+            }
             val gbcAutomaticallyAddCheckbox = GridBagConstraints().apply {
                 anchor = GridBagConstraints.WEST
                 fill = GridBagConstraints.HORIZONTAL
@@ -101,6 +117,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
             add(JBLabel(DialogsBundle.message("config.executable")), gbcLabel)
             add(fileChooserField1, gbcField)
+            add(useConanFromSystemCheckBox, newCheckConstraint)
 
             val checkboxPanel = JPanel().apply {
                 layout = BoxLayout(this, BoxLayout.Y_AXIS)
@@ -120,10 +137,8 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             }
 
             add(checkboxPanel, gbcCheckboxPanel)
+            add(automaticallyAddCheckbox, newCheckConstraint)
 
-            add(automaticallyAddCheckbox, gbcAutomaticallyAddCheckbox)
-
-            add(Box.createVerticalGlue(), gbcPlaceholder)
 
             val automanageCMakeAdvancedSettings = project.service<PropertiesComponent>()
                 .getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
@@ -144,7 +159,12 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     override fun doOKAction() {
-        properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, fileChooserField1.text)
+        if (!useConanFromSystemCheckBox.isSelected) {
+            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, fileChooserField1.text)
+        }
+        else {
+            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
+        }
         val selected = if (automaticallyAddCheckbox.isSelected) "true" else "false"
         properties.setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, selected)
 
