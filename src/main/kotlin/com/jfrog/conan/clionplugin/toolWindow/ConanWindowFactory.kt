@@ -250,24 +250,39 @@ class ConanWindowFactory : ToolWindowFactory {
                         }
                         secondComponentPanel.add(buttonsPanel)
 
-                        val htmlContent = """
-                                <html>
-                                <body>
-                                <h1>$name</h1>
-                                <pre>    
-                                "tsl-sparse-map": {
-                                    "cmake_file_name": "tsl-sparse-map",
-                                    "cmake_target_name": "tsl::sparse_map",
-                                    "components": {
-                                        "sparse_map": {
-                                            "cmake_target_name": "tsl::sparse_map"
-                                        }
-                                    }
+                        val recipeUrl = "https://github.com/conan-io/conan-center-index/blob/master/recipes/$name"
+                        val recipeUrlMessage = UIBundle.message(
+                            "library.description.extra.error",
+                            recipeUrl
+                        )
+                        val resourceFile = ConanWindowFactory::class.java.classLoader.getResource("conan/targets-data.json")
+                        val targetsData = resourceFile?.readText() ?: "{}"
+
+                        val script = """
+                            function fillExtraData() {
+                                const data = $targetsData
+                                const pre = document.getElementById("pre");
+                                if ("$name" in data) {
+                                    pre.innerText = JSON.stringify(data["$name"]);
+                                } else {
+                                    pre.innerHtml = '$recipeUrlMessage';
                                 }
+                            }
+                        """.trimIndent()
+
+                        val htmlContent = """
+                            <html>
+                            <head>
+                                <script>
+                                    $script
+                                </script>
+                            </head>
+                            <body onload="fillExtraData()">
+                                <pre id="pre">
                                 </pre>
-                                </body>
-                                </html>
-                            """.trimIndent()
+                            </body>
+                            </html>
+                        """.trimIndent()
 
                         htmlPanel.loadHTML(htmlContent)
 
