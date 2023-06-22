@@ -1,0 +1,3655 @@
+{
+    "edlib": {
+        "cmake_file_name": "edlib",
+        "cmake_target_name": "edlib::edlib"
+    },
+    "gcem": {
+        "cmake_file_name": "gcem",
+        "cmake_target_name": "gcem"
+    },
+    "gtsam": {
+        "cmake_file_name": "GTSAM",
+        "components": {
+            "libgtsam": {
+                "cmake_target_name": "gtsam"
+            }
+        }
+    },
+    "boost-ext-ut": {
+        "cmake_file_name": "ut"
+    },
+    "mosquitto": {
+        "components": {
+            "libmosquitto": {}
+        }
+    },
+    "litehtml": {
+        "cmake_file_name": "litehtml",
+        "cmake_target_name": "litehtml",
+        "components": {
+            "litehtml_litehtml": {
+                "cmake_target_name": "litehtml"
+            }
+        }
+    },
+    "soci": {
+        "cmake_file_name": "SOCI"
+    },
+    "libpqxx": {
+        "cmake_file_name": "libpqxx",
+        "cmake_target_name": "libpqxx::pqxx",
+        "components": {
+            "pqxx": {
+                "cmake_target_name": "libpqxx::pqxx"
+            }
+        }
+    },
+    "aws-c-compression": {
+        "cmake_file_name": "aws-c-compression",
+        "cmake_target_name": "AWS::aws-c-compression"
+    },
+    "intel-neon2sse": {
+        "cmake_file_name": "NEON_2_SSE",
+        "cmake_target_name": "NEON_2_SSE::NEON_2_SSE"
+    },
+    "certify": {
+        "cmake_file_name": "certify",
+        "cmake_target_name": "certify::core"
+    },
+    "benchmark": {
+        "cmake_file_name": "benchmark",
+        "components": {
+            "benchmark_main": {
+                "cmake_target_name": "benchmark::benchmark_main"
+            }
+        },
+        "cmake_target_name": "benchmark::benchmark_main"
+    },
+    "tsl-sparse-map": {
+        "cmake_file_name": "tsl-sparse-map",
+        "cmake_target_name": "tsl::sparse_map",
+        "components": {
+            "sparse_map": {
+                "cmake_target_name": "tsl::sparse_map"
+            }
+        }
+    },
+    "qxmpp": {
+        "cmake_file_name": "QXmpp",
+        "cmake_target_name": "QXmpp::QXmpp"
+    },
+    "tlx": {
+        "cmake_file_name": "tlx",
+        "cmake_target_name": "tlx"
+    },
+    "inih": {
+        "components": {
+            "libinih": {},
+            "inireader": {}
+        }
+    },
+    "cjson": {
+        "cmake_file_name": "cJSON"
+    },
+    "xsimd": {
+        "cmake_file_name": "xsimd",
+        "cmake_target_name": "xsimd"
+    },
+    "qcoro": {
+        "cmake_file_name": "QCoro6",
+        "components": {
+            "qcoro-core": {
+                "cmake_target_name": "QCoro::Core"
+            },
+            "qcoro-network": {
+                "cmake_target_name": "QCoro::Network"
+            }
+        }
+    },
+    "status-code": {
+        "cmake_file_name": "status-code",
+        "cmake_target_name": "status-code::hl"
+    },
+    "zfp": {
+        "cmake_file_name": "zfp",
+        "cmake_target_name": "zfp::cfp",
+        "components": {
+            "cfp": {
+                "cmake_target_name": "zfp::cfp"
+            }
+        }
+    },
+    "soundtouch": {
+        "cmake_file_name": "SoundTouch"
+    },
+    "z3": {
+        "cmake_file_name": "Z3",
+        "cmake_target_name": "z3::libz3",
+        "components": {
+            "libz3": {
+                "cmake_target_name": "z3::libz3"
+            }
+        }
+    },
+    "ceres-solver": {
+        "cmake_file_name": "Ceres",
+        "cmake_target_name": "Ceres::ceres",
+        "components": {
+            "ceres": {
+                "cmake_target_name": "Ceres::ceres"
+            }
+        }
+    },
+    "llhttp": {
+        "cmake_file_name": "llhttp",
+        "cmake_target_name": "llhttp::llhttp"
+    },
+    "proj": {
+        "components": {
+            "projlib": {}
+        }
+    },
+    "capnproto": {
+        "cmake_file_name": "CapnProto"
+    },
+    "thelink2012-any": {
+        "cmake_target_name": "any::any"
+    },
+    "taocpp-json": {
+        "cmake_file_name": "taocpp-json",
+        "cmake_target_name": "taocpp::json",
+        "components": {
+            "json": {
+                "cmake_target_name": "taocpp::json"
+            }
+        }
+    },
+    "cryptopp-pem": {
+        "cmake_file_name": "cryptopp-pem",
+        "components": {
+            "libcryptopp-pem": {}
+        }
+    },
+    "libheif": {
+        "cmake_file_name": "libheif",
+        "cmake_target_name": "libheif::heif",
+        "components": {
+            "heif": {
+                "cmake_target_name": "libheif::heif"
+            }
+        }
+    },
+    "libtiff": {
+        "cmake_file_name": "TIFF",
+        "cmake_target_name": "TIFF::TIFF"
+    },
+    "imutils-cpp": {
+        "cmake_file_name": "imutils_cpp",
+        "cmake_target_name": "imutils_cpp::imutils_cpp"
+    },
+    "boost-leaf": {
+        "cmake_file_name": "boost-leaf",
+        "cmake_target_name": "boost::leaf"
+    },
+    "geos": {
+        "cmake_file_name": "geos",
+        "cmake_target_name": "GEOS::geos_c",
+        "components": {
+            "geos_cxx_flags": {
+                "cmake_target_name": "GEOS::geos_cxx_flags"
+            },
+            "geos_cpp": {
+                "cmake_target_name": "GEOS::geos"
+            },
+            "geos_c": {
+                "cmake_target_name": "GEOS::geos_c"
+            }
+        }
+    },
+    "sentry-crashpad": {
+        "cmake_file_name": "crashpad",
+        "components": {
+            "crashpad_mini_chromium": {
+                "cmake_target_name": "crashpad::mini_chromium"
+            },
+            "crashpad_compat": {
+                "cmake_target_name": "crashpad::compat"
+            },
+            "crashpad_util": {
+                "cmake_target_name": "crashpad::util"
+            },
+            "crashpad_client": {
+                "cmake_target_name": "crashpad::client"
+            },
+            "crashpad_snapshot": {
+                "cmake_target_name": "crashpad::snapshot"
+            },
+            "crashpad_minidump": {
+                "cmake_target_name": "crashpad::minidump"
+            },
+            "crashpad_handler": {
+                "cmake_target_name": "crashpad::handler"
+            },
+            "crashpad_tools": {
+                "cmake_target_name": "crashpad::tools"
+            }
+        }
+    },
+    "fast_float": {
+        "cmake_file_name": "FastFloat",
+        "cmake_target_name": "FastFloat::fast_float",
+        "components": {
+            "fastfloat": {
+                "cmake_target_name": "FastFloat::fast_float"
+            }
+        }
+    },
+    "jansson": {
+        "cmake_file_name": "jansson",
+        "cmake_target_name": "jansson::jansson"
+    },
+    "gmp": {
+        "components": {
+            "libgmp": {}
+        }
+    },
+    "caf": {
+        "cmake_file_name": "CAF",
+        "components": {
+            "caf_core": {
+                "cmake_target_name": "CAF::core"
+            },
+            "caf_io": {
+                "cmake_target_name": "CAF::io"
+            }
+        }
+    },
+    "mbits-diags": {
+        "cmake_file_name": "mbits-diags",
+        "cmake_target_name": "mbits::diags",
+        "components": {
+            "diags": {
+                "cmake_target_name": "mbits::diags"
+            }
+        }
+    },
+    "rtmidi": {
+        "cmake_file_name": "RtMidi",
+        "cmake_target_name": "RtMidi::rtmidi",
+        "components": {
+            "librtmidi": {
+                "cmake_target_name": "RtMidi::rtmidi"
+            }
+        }
+    },
+    "magnum-extras": {
+        "cmake_file_name": "MagnumExtras"
+    },
+    "rocksdb": {
+        "cmake_file_name": "RocksDB"
+    },
+    "seqan3": {
+        "cmake_file_name": "seqan3",
+        "cmake_target_name": "seqan3::seqan3"
+    },
+    "dragonbox": {
+        "components": {
+            "dragonbox_to_chars_headers": {
+                "cmake_target_name": "dragonbox::dragonbox_to_chars"
+            }
+        }
+    },
+    "easyhttpcpp": {
+        "cmake_file_name": "easyhttpcppeasyhttp",
+        "cmake_target_name": "easyhttpcpp::easyhttp",
+        "components": {
+            "easyhttp": {
+                "cmake_target_name": "easyhttpcpp::easyhttp"
+            }
+        }
+    },
+    "libiconv": {
+        "cmake_file_name": "Iconv",
+        "cmake_target_name": "Iconv::Iconv"
+    },
+    "wise_enum": {
+        "cmake_file_name": "WiseEnum",
+        "cmake_target_name": "WiseEnum::wise_enum"
+    },
+    "log4cplus": {
+        "cmake_file_name": "log4cplus",
+        "cmake_target_name": "log4cplus::log4cplus"
+    },
+    "yaclib": {
+        "cmake_file_name": "yaclib",
+        "cmake_target_name": "yaclib"
+    },
+    "ffmpeg": {
+        "components": {
+            "avutil": {}
+        }
+    },
+    "taocpp-sequences": {
+        "cmake_file_name": "taocpp-sequences",
+        "cmake_target_name": "taocpp::sequences"
+    },
+    "leveldb": {
+        "cmake_file_name": "leveldb",
+        "cmake_target_name": "leveldb::leveldb"
+    },
+    "cglm": {
+        "cmake_file_name": "cglm",
+        "cmake_target_name": "cglm::cglm"
+    },
+    "bacnet-stack": {
+        "cmake_file_name": "bacnet-stack",
+        "cmake_target_name": "bacnet-stack::bacnet-stack"
+    },
+    "mbits-mstch": {
+        "cmake_file_name": "mbits-mstch",
+        "cmake_target_name": "mbits::mstch",
+        "components": {
+            "mstch": {
+                "cmake_target_name": "mbits::mstch"
+            }
+        }
+    },
+    "variant-lite": {
+        "cmake_file_name": "variant-lite",
+        "cmake_target_name": "nonstd::variant-lite",
+        "components": {
+            "variantlite": {
+                "cmake_target_name": "nonstd::variant-lite"
+            }
+        }
+    },
+    "amqp-cpp": {
+        "cmake_file_name": "amqpcpp",
+        "cmake_target_name": "amqpcpp"
+    },
+    "asyncplusplus": {
+        "cmake_file_name": "Async++",
+        "cmake_target_name": "Async++"
+    },
+    "crc32c": {
+        "cmake_file_name": "Crc32c",
+        "cmake_target_name": "Crc32c::crc32c"
+    },
+    "oatpp": {
+        "cmake_file_name": "oatpp",
+        "components": {
+            "oatpp-test": {
+                "cmake_target_name": "oatpp-test::oatpp-test"
+            }
+        },
+        "cmake_target_name": "oatpp::oatpp-test"
+    },
+    "absent": {
+        "cmake_file_name": "absent",
+        "cmake_target_name": "rvarago::absent",
+        "components": {
+            "absentlib": {
+                "cmake_target_name": "rvarago::absent"
+            }
+        }
+    },
+    "json-c": {
+        "cmake_file_name": "json-c",
+        "cmake_target_name": "json-c::json-c"
+    },
+    "inja": {
+        "cmake_file_name": "inja",
+        "cmake_target_name": "pantor::inja",
+        "components": {
+            "libinja": {
+                "cmake_target_name": "pantor::inja"
+            }
+        }
+    },
+    "eabase": {
+        "cmake_file_name": "EABase",
+        "cmake_target_name": "EABase::EABase"
+    },
+    "ogg": {
+        "cmake_file_name": "Ogg",
+        "cmake_target_name": "Ogg::ogg",
+        "components": {
+            "ogglib": {
+                "cmake_target_name": "Ogg::ogg"
+            }
+        }
+    },
+    "prometheus-cpp": {
+        "cmake_file_name": "prometheus-cpp",
+        "components": {
+            "prometheus-cpp-core": {
+                "cmake_target_name": "prometheus-cpp::core"
+            }
+        }
+    },
+    "optional-lite": {
+        "cmake_file_name": "optional-lite",
+        "cmake_target_name": "nonstd::optional-lite",
+        "components": {
+            "optionallite": {
+                "cmake_target_name": "nonstd::optional-lite"
+            }
+        }
+    },
+    "daw_json_link": {
+        "cmake_file_name": "daw-json-link",
+        "cmake_target_name": "daw::daw-json-link",
+        "components": {
+            "daw": {
+                "cmake_target_name": "daw::daw-json-link"
+            }
+        }
+    },
+    "yder": {
+        "cmake_file_name": "Yder"
+    },
+    "quantlib": {
+        "cmake_file_name": "QuantLib",
+        "cmake_target_name": "QuantLib::QuantLib"
+    },
+    "ctml": {
+        "cmake_file_name": "CTML",
+        "cmake_target_name": "CTML::CTML"
+    },
+    "libassert": {
+        "cmake_file_name": "assert",
+        "cmake_target_name": "assert::assert"
+    },
+    "onetbb": {
+        "cmake_file_name": "TBB"
+    },
+    "meshoptimizer": {
+        "cmake_file_name": "meshoptimizer",
+        "cmake_target_name": "meshoptimizer::meshoptimizer"
+    },
+    "g3log": {
+        "cmake_file_name": "g3log",
+        "cmake_target_name": "g3log"
+    },
+    "concurrentqueue": {
+        "cmake_file_name": "concurrentqueue",
+        "cmake_target_name": "concurrentqueue::concurrentqueue"
+    },
+    "opencolorio": {
+        "cmake_file_name": "OpenColorIO",
+        "cmake_target_name": "OpenColorIO::OpenColorIO"
+    },
+    "sophus": {
+        "cmake_file_name": "Sophus",
+        "cmake_target_name": "Sophus::Sophus"
+    },
+    "libxml2": {
+        "cmake_file_name": "libxml2",
+        "cmake_target_name": "LibXml2::LibXml2"
+    },
+    "czmq": {
+        "cmake_file_name": "czmq"
+    },
+    "octomap": {
+        "cmake_file_name": "octomap"
+    },
+    "dataframe": {
+        "cmake_file_name": "DataFrame",
+        "cmake_target_name": "DataFrame::DataFrame"
+    },
+    "wavelet_buffer": {
+        "cmake_file_name": "wavelet_buffer",
+        "cmake_target_name": "wavelet_buffer::wavelet_buffer"
+    },
+    "mfast": {
+        "cmake_file_name": "mFAST"
+    },
+    "roaring": {
+        "cmake_file_name": "roaring",
+        "cmake_target_name": "roaring::roaring"
+    },
+    "bertrand": {
+        "cmake_file_name": "bertrand",
+        "cmake_target_name": "bertrand::bertrand"
+    },
+    "websocketpp": {
+        "cmake_file_name": "websocketpp",
+        "cmake_target_name": "websocketpp::websocketpp"
+    },
+    "yyjson": {
+        "cmake_file_name": "yyjson",
+        "cmake_target_name": "yyjson::yyjson"
+    },
+    "circularbuffer": {
+        "cmake_file_name": "CircularBuffer",
+        "cmake_target_name": "CircularBuffer::CircularBuffer"
+    },
+    "blaze": {
+        "cmake_file_name": "blaze",
+        "cmake_target_name": "blaze::blaze"
+    },
+    "octo-keygen-cpp": {
+        "cmake_file_name": "octo-keygen-cpp",
+        "cmake_target_name": "octo::octo-keygen-cpp"
+    },
+    "openfst": {
+        "cmake_file_name": "OpenFst",
+        "cmake_target_name": "OpenFst::OpenFst"
+    },
+    "mdnsresponder": {
+        "cmake_file_name": "DNSSD",
+        "cmake_target_name": "DNSSD::DNSSD"
+    },
+    "ogre": {
+        "cmake_file_name": "OGRE"
+    },
+    "simdjson": {
+        "cmake_file_name": "simdjson",
+        "cmake_target_name": "simdjson::simdjson"
+    },
+    "any-lite": {
+        "cmake_file_name": "any-lite",
+        "cmake_target_name": "nonstd::any-lite",
+        "components": {
+            "anylite": {
+                "cmake_target_name": "nonstd::any-lite"
+            }
+        }
+    },
+    "bdwgc": {
+        "cmake_file_name": "BDWgc",
+        "cmake_target_name": "BDWgc::BDWgc",
+        "components": {
+            "gc": {
+                "cmake_target_name": "BDWgc::gc"
+            }
+        }
+    },
+    "libccd": {
+        "cmake_file_name": "ccd",
+        "cmake_target_name": "ccd"
+    },
+    "seasocks": {
+        "cmake_file_name": "Seasocks",
+        "cmake_target_name": "Seasocks::seasocks",
+        "components": {
+            "libseasocks": {
+                "cmake_target_name": "Seasocks::seasocks"
+            }
+        }
+    },
+    "opencl-clhpp-headers": {
+        "cmake_file_name": "OpenCLHeadersCpp"
+    },
+    "skyr-url": {
+        "cmake_file_name": "skyr-url",
+        "cmake_target_name": "skyr::skyr-url"
+    },
+    "flann": {
+        "cmake_file_name": "flann"
+    },
+    "libjpeg": {
+        "cmake_file_name": "JPEG",
+        "cmake_target_name": "JPEG::JPEG"
+    },
+    "pulseaudio": {
+        "components": {
+            "pulse": {},
+            "pulse-simple": {}
+        }
+    },
+    "libpng": {
+        "cmake_file_name": "PNG",
+        "cmake_target_name": "PNG::PNG"
+    },
+    "utfcpp": {
+        "cmake_file_name": "utf8cpp",
+        "cmake_target_name": "utf8cpp"
+    },
+    "opencl-icd-loader": {
+        "cmake_file_name": "OpenCLICDLoader",
+        "cmake_target_name": "OpenCL::OpenCL"
+    },
+    "antlr4-cppruntime": {
+        "cmake_file_name": "antlr4-runtime"
+    },
+    "vorbis": {
+        "cmake_file_name": "Vorbis",
+        "components": {
+            "vorbismain": {
+                "cmake_target_name": "Vorbis::vorbis"
+            },
+            "vorbisenc": {
+                "cmake_target_name": "Vorbis::vorbisenc"
+            },
+            "vorbisfile": {
+                "cmake_target_name": "Vorbis::vorbisfile"
+            }
+        }
+    },
+    "cub": {
+        "cmake_file_name": "cub",
+        "cmake_target_name": "CUB::CUB"
+    },
+    "tracy": {
+        "cmake_file_name": "Tracy",
+        "cmake_target_name": "Tracy::TracyClient",
+        "components": {
+            "tracyclient": {
+                "cmake_target_name": "Tracy::TracyClient"
+            }
+        }
+    },
+    "physx": {
+        "cmake_file_name": "PhysX",
+        "components": {
+            "physxfoundation": {
+                "cmake_target_name": "PhysX::PhysXFoundation"
+            },
+            "physxcommon": {
+                "cmake_target_name": "PhysX::PhysXCommon"
+            },
+            "physxpvdsdk": {
+                "cmake_target_name": "PhysX::PhysXPvdSDK"
+            },
+            "physxmain": {
+                "cmake_target_name": "PhysX::PhysX"
+            },
+            "physxcharacterkinematic": {
+                "cmake_target_name": "PhysX::PhysXCharacterKinematic"
+            },
+            "physxcooking": {
+                "cmake_target_name": "PhysX::PhysXCooking"
+            },
+            "physxvehicle": {
+                "cmake_target_name": "PhysX::PhysXVehicle"
+            },
+            "physxextensions": {
+                "cmake_target_name": "PhysX::PhysXExtensions"
+            }
+        }
+    },
+    "tensorflow-lite": {
+        "cmake_file_name": "tensorflowlite",
+        "cmake_target_name": "tensorflow::tensorflowlite"
+    },
+    "sentry-native": {
+        "cmake_file_name": "sentry",
+        "cmake_target_name": "sentry::sentry"
+    },
+    "libxslt": {
+        "cmake_file_name": "LibXslt",
+        "components": {
+            "xslt": {
+                "cmake_target_name": "LibXslt::LibXslt"
+            },
+            "exslt": {
+                "cmake_target_name": "LibXslt::LibExslt"
+            }
+        }
+    },
+    "miniupnpc": {
+        "cmake_file_name": "miniupnpc",
+        "cmake_target_name": "miniupnpc::miniupnpc"
+    },
+    "taglib": {
+        "components": {
+            "tag": {}
+        }
+    },
+    "libnabo": {
+        "cmake_file_name": "libnabo",
+        "cmake_target_name": "libnabo::nabo",
+        "components": {
+            "nabo": {
+                "cmake_target_name": "libnabo::nabo"
+            }
+        }
+    },
+    "soxr": {
+        "components": {
+            "core": {}
+        }
+    },
+    "libmorton": {
+        "cmake_file_name": "libmorton",
+        "cmake_target_name": "libmorton::libmorton"
+    },
+    "opensubdiv": {
+        "cmake_file_name": "OpenSubdiv"
+    },
+    "daw_utf_range": {
+        "cmake_file_name": "daw-utf-range",
+        "cmake_target_name": "daw::daw-utf-range",
+        "components": {
+            "daw": {
+                "cmake_target_name": "daw::daw-utf-range"
+            }
+        }
+    },
+    "jsoncpp": {
+        "cmake_file_name": "jsoncpp",
+        "cmake_target_name": "JsonCpp::JsonCpp"
+    },
+    "clickhouse-cpp": {
+        "cmake_target_name": "clickhouse-cpp-lib::clickhouse-cpp-lib"
+    },
+    "nettle": {
+        "components": {
+            "libnettle": {},
+            "hogweed": {}
+        }
+    },
+    "freeglut": {
+        "cmake_file_name": "FreeGLUT",
+        "components": {
+            "freeglut_": {}
+        }
+    },
+    "liblsl": {
+        "cmake_file_name": "LSL",
+        "cmake_target_name": "LSL::lsl"
+    },
+    "aws-c-sdkutils": {
+        "cmake_file_name": "aws-c-sdkutils",
+        "cmake_target_name": "AWS::aws-c-sdkutils"
+    },
+    "tixi3": {
+        "cmake_file_name": "tixi3",
+        "cmake_target_name": "tixi3"
+    },
+    "apriltag": {
+        "cmake_file_name": "apriltag",
+        "cmake_target_name": "apriltag::apriltag"
+    },
+    "toml11": {
+        "cmake_file_name": "toml11",
+        "cmake_target_name": "toml11::toml11"
+    },
+    "bx": {
+        "cmake_file_name": "bx",
+        "cmake_target_name": "bx::bx"
+    },
+    "spectra": {
+        "cmake_file_name": "spectra",
+        "cmake_target_name": "Spectra::Spectra"
+    },
+    "oatpp-postgresql": {
+        "cmake_file_name": "oatpp-postgresql",
+        "cmake_target_name": "oatpp::oatpp-postgresql"
+    },
+    "cprocessing": {
+        "cmake_file_name": "CProcessing",
+        "cmake_target_name": "CProcessing::CProcessing"
+    },
+    "string-view-lite": {
+        "cmake_file_name": "string-view-lite",
+        "cmake_target_name": "nonstd::string-view-lite",
+        "components": {
+            "stringviewlite": {
+                "cmake_target_name": "nonstd::string-view-lite"
+            }
+        }
+    },
+    "gdal": {
+        "cmake_file_name": "GDAL",
+        "cmake_target_name": "GDAL::GDAL"
+    },
+    "canary": {
+        "cmake_file_name": "canary",
+        "cmake_target_name": "canary::canary"
+    },
+    "libalsa": {
+        "cmake_file_name": "ALSA",
+        "cmake_target_name": "ALSA::ALSA"
+    },
+    "libgeotiff": {
+        "cmake_file_name": "geotiff",
+        "cmake_target_name": "geotiff_library"
+    },
+    "opus": {
+        "cmake_file_name": "Opus",
+        "cmake_target_name": "Opus::opus",
+        "components": {
+            "libopus": {
+                "cmake_target_name": "Opus::opus"
+            }
+        }
+    },
+    "libpointmatcher": {
+        "cmake_file_name": "libpointmatcher"
+    },
+    "daw_header_libraries": {
+        "cmake_file_name": "daw-header-libraries",
+        "cmake_target_name": "daw::daw-header-libraries",
+        "components": {
+            "daw": {
+                "cmake_target_name": "daw::daw-header-libraries"
+            }
+        }
+    },
+    "libuv": {
+        "cmake_file_name": "libuv"
+    },
+    "angelscript": {
+        "cmake_file_name": "Angelscript",
+        "cmake_target_name": "Angelscript::angelscript"
+    },
+    "onnx": {
+        "cmake_file_name": "ONNX"
+    },
+    "ms-gsl": {
+        "cmake_file_name": "Microsoft.GSL",
+        "cmake_target_name": "Microsoft.GSL::GSL"
+    },
+    "volk": {
+        "cmake_file_name": "volk",
+        "components": {
+            "libvolk": {
+                "cmake_target_name": "volk::volk"
+            },
+            "volk_headers": {
+                "cmake_target_name": "volk::volk_headers"
+            }
+        }
+    },
+    "async_simple": {
+        "cmake_file_name": "async_simple",
+        "cmake_target_name": "async_simple::async_simple"
+    },
+    "freetype": {
+        "cmake_file_name": "freetype",
+        "cmake_target_name": "Freetype::Freetype"
+    },
+    "aws-c-http": {
+        "cmake_file_name": "aws-c-http",
+        "cmake_target_name": "AWS::aws-c-http"
+    },
+    "log4cxx": {
+        "cmake_file_name": "log4cxx",
+        "cmake_target_name": "log4cxx"
+    },
+    "observer-ptr-lite": {
+        "cmake_file_name": "observer-ptr-lite",
+        "cmake_target_name": "nonstd::observer-ptr-lite",
+        "components": {
+            "observerptrlite": {
+                "cmake_target_name": "nonstd::observer-ptr-lite"
+            }
+        }
+    },
+    "assimp": {
+        "cmake_file_name": "assimp",
+        "cmake_target_name": "assimp::assimp"
+    },
+    "libbsd": {
+        "components": {
+            "bsd": {},
+            "libbsd-overlay": {}
+        }
+    },
+    "nlohmann_json": {
+        "cmake_file_name": "nlohmann_json",
+        "cmake_target_name": "nlohmann_json::nlohmann_json"
+    },
+    "grpc": {
+        "cmake_file_name": "gRPC"
+    },
+    "sigslot": {
+        "cmake_file_name": "PalSigslot",
+        "cmake_target_name": "Pal::Sigslot"
+    },
+    "hdf5": {
+        "cmake_file_name": "HDF5",
+        "cmake_target_name": "HDF5::HDF5"
+    },
+    "imath": {
+        "cmake_file_name": "Imath",
+        "cmake_target_name": "Imath::Imath"
+    },
+    "cmocka": {
+        "cmake_file_name": "cmocka"
+    },
+    "oatpp-openssl": {
+        "cmake_file_name": "oatpp-openssl",
+        "cmake_target_name": "oatpp::oatpp-openssl"
+    },
+    "entt": {
+        "cmake_file_name": "EnTT",
+        "cmake_target_name": "EnTT::EnTT"
+    },
+    "clhep": {
+        "cmake_file_name": "CLHEP",
+        "components": {
+            "clheplib": {}
+        }
+    },
+    "tinygltf": {
+        "cmake_file_name": "TinyGLTF",
+        "cmake_target_name": "TinyGLTF::TinyGLTF"
+    },
+    "id3v2lib": {
+        "cmake_file_name": "id3v2lib",
+        "cmake_target_name": "id3v2lib::id3v2lib"
+    },
+    "cpr": {
+        "cmake_file_name": "cpr",
+        "cmake_target_name": "cpr::cpr"
+    },
+    "md4c": {
+        "cmake_file_name": "md4c",
+        "components": {
+            "md4c_html": {
+                "cmake_target_name": "md4c::md4c-html"
+            }
+        },
+        "cmake_target_name": "md4c::md4c-html"
+    },
+    "h3": {
+        "cmake_file_name": "h3",
+        "cmake_target_name": "h3::h3"
+    },
+    "open-dis-cpp": {
+        "cmake_file_name": "OpenDIS",
+        "components": {
+            "OpenDIS6": {
+                "cmake_target_name": "OpenDIS::OpenDIS6"
+            },
+            "OpenDIS7": {
+                "cmake_target_name": "OpenDIS::OpenDIS7"
+            }
+        }
+    },
+    "easy_profiler": {
+        "cmake_file_name": "easy_profiler",
+        "cmake_target_name": "easy_profiler"
+    },
+    "libsamplerate": {
+        "cmake_file_name": "SampleRate",
+        "cmake_target_name": "SampleRate::samplerate",
+        "components": {
+            "samplerate": {
+                "cmake_target_name": "SampleRate::samplerate"
+            }
+        }
+    },
+    "zint": {
+        "cmake_file_name": "Zint",
+        "components": {
+            "libzint": {
+                "cmake_target_name": "Zint::Zint"
+            }
+        }
+    },
+    "so5extra": {
+        "cmake_file_name": "so5extra",
+        "cmake_target_name": "sobjectizer::so5extra",
+        "components": {
+            "so_5_extra": {
+                "cmake_target_name": "sobjectizer::so5extra"
+            }
+        }
+    },
+    "nlopt": {
+        "cmake_file_name": "NLopt",
+        "cmake_target_name": "NLopt::nlopt",
+        "components": {
+            "nloptlib": {
+                "cmake_target_name": "NLopt::nlopt"
+            }
+        }
+    },
+    "asmjit": {
+        "cmake_file_name": "asmjit",
+        "cmake_target_name": "asmjit::asmjit"
+    },
+    "celero": {
+        "cmake_file_name": "Celero",
+        "cmake_target_name": "celero"
+    },
+    "gemmlowp": {
+        "cmake_file_name": "gemmlowp",
+        "cmake_target_name": "gemmlowp::gemmlowp",
+        "components": {
+            "eight_bit_int_gemm": {
+                "cmake_target_name": "gemmlowp::eight_bit_int_gemm"
+            }
+        }
+    },
+    "arrow": {
+        "cmake_file_name": "Arrow",
+        "components": {
+            "libarrow": {}
+        }
+    },
+    "boost": {
+        "cmake_file_name": "Boost",
+        "components": {
+            "headers": {
+                "cmake_target_name": "Boost::headers"
+            }
+        }
+    },
+    "cyclonedds": {
+        "cmake_file_name": "CycloneDDS",
+        "cmake_target_name": "CycloneDDS::ddsc",
+        "components": {
+            "CycloneDDS": {
+                "cmake_target_name": "CycloneDDS::ddsc"
+            }
+        }
+    },
+    "flecs": {
+        "cmake_file_name": "flecs"
+    },
+    "pybind11": {
+        "cmake_target_name": "pybind11_all_do_not_use",
+        "components": {
+            "pybind11_": {
+                "cmake_target_name": "pybind11::pybind11"
+            }
+        }
+    },
+    "kangaru": {
+        "cmake_file_name": "kangaru",
+        "cmake_target_name": "kangaru"
+    },
+    "soplex": {
+        "cmake_target_name": "soplex"
+    },
+    "libavif": {
+        "cmake_file_name": "libavif",
+        "cmake_target_name": "avif"
+    },
+    "mpg123": {
+        "cmake_file_name": "mpg123",
+        "components": {
+            "libmpg123": {
+                "cmake_target_name": "MPG123::libmpg123"
+            },
+            "libout123": {
+                "cmake_target_name": "MPG123::libout123"
+            },
+            "libsyn123": {
+                "cmake_target_name": "MPG123::libsyn123"
+            }
+        }
+    },
+    "fmt": {
+        "cmake_file_name": "fmt"
+    },
+    "libmediainfo": {
+        "cmake_file_name": "MediaInfoLib",
+        "cmake_target_name": "mediainfo"
+    },
+    "expat": {
+        "cmake_file_name": "expat",
+        "cmake_target_name": "expat::expat"
+    },
+    "iceoryx": {
+        "cmake_file_name": "iceoryx"
+    },
+    "openjpeg": {
+        "cmake_file_name": "OpenJPEG",
+        "cmake_target_name": "openjp2"
+    },
+    "bimg": {
+        "cmake_file_name": "bimg",
+        "cmake_target_name": "bimg::bimg"
+    },
+    "libftdi": {
+        "cmake_file_name": "LibFTDI1",
+        "components": {
+            "ftdi": {}
+        }
+    },
+    "highway": {
+        "components": {
+            "hwy": {}
+        }
+    },
+    "tinyobjloader": {
+        "cmake_file_name": "tinyobjloader"
+    },
+    "libyaml": {
+        "cmake_file_name": "yaml",
+        "cmake_target_name": "yaml"
+    },
+    "rang": {
+        "cmake_file_name": "rang",
+        "cmake_target_name": "rang::rang"
+    },
+    "aws-c-mqtt": {
+        "cmake_file_name": "aws-c-mqtt",
+        "cmake_target_name": "AWS::aws-c-mqtt",
+        "components": {
+            "aws-c-mqtt-lib": {
+                "cmake_target_name": "AWS::aws-c-mqtt"
+            }
+        }
+    },
+    "robin-hood-hashing": {
+        "cmake_file_name": "robin_hood",
+        "cmake_target_name": "robin_hood::robin_hood"
+    },
+    "ecos": {
+        "cmake_file_name": "ecos",
+        "cmake_target_name": "ecos::ecos"
+    },
+    "tuplet": {
+        "cmake_file_name": "tuplet",
+        "cmake_target_name": "tuplet::tuplet"
+    },
+    "muparserx": {
+        "cmake_file_name": "muparserx"
+    },
+    "brotli": {
+        "components": {
+            "brotlicommon": {},
+            "brotlidec": {},
+            "brotlienc": {}
+        }
+    },
+    "systemc": {
+        "cmake_file_name": "SystemCLanguage",
+        "cmake_target_name": "SystemC::systemc"
+    },
+    "xlnt": {
+        "cmake_file_name": "Xlnt",
+        "cmake_target_name": "xlnt::xlnt"
+    },
+    "7bitconf": {
+        "cmake_file_name": "7bitConf",
+        "cmake_target_name": "7bitConf::7bitConf"
+    },
+    "sdl_image": {
+        "cmake_file_name": "SDL2_image",
+        "cmake_target_name": "SDL2_image::SDL2_image"
+    },
+    "etl": {
+        "cmake_file_name": "etl",
+        "cmake_target_name": "etl"
+    },
+    "jthread-lite": {
+        "cmake_file_name": "jthread-lite",
+        "cmake_target_name": "nonstd::jthread-lite",
+        "components": {
+            "jthreadlite": {
+                "cmake_target_name": "nonstd::jthread-lite"
+            }
+        }
+    },
+    "spirv-tools": {
+        "cmake_file_name": "SPIRV-Tools"
+    },
+    "edyn": {
+        "cmake_file_name": "Edyn",
+        "cmake_target_name": "Edyn::Edyn"
+    },
+    "argparse": {
+        "cmake_file_name": "argparse",
+        "cmake_target_name": "argparse::argparse"
+    },
+    "ktx": {
+        "cmake_file_name": "Ktx",
+        "cmake_target_name": "KTX::ktx",
+        "components": {
+            "libktx": {
+                "cmake_target_name": "KTX::ktx"
+            }
+        }
+    },
+    "aws-c-event-stream": {
+        "cmake_file_name": "aws-c-event-stream",
+        "cmake_target_name": "AWS::aws-c-event-stream"
+    },
+    "libunifex": {
+        "cmake_file_name": "unifex",
+        "cmake_target_name": "unifex::unifex",
+        "components": {
+            "unifex": {
+                "cmake_target_name": "unifex::unifex"
+            }
+        }
+    },
+    "xproperty": {
+        "cmake_file_name": "xproperty",
+        "cmake_target_name": "xproperty"
+    },
+    "libuvc": {
+        "cmake_file_name": "libuvc"
+    },
+    "rpclib": {
+        "cmake_file_name": "rpclib",
+        "cmake_target_name": "rpclib::rpc"
+    },
+    "aggeom-agg": {
+        "cmake_file_name": "agg",
+        "components": {
+            "agg": {
+                "cmake_target_name": "agg::agg"
+            }
+        }
+    },
+    "highfive": {
+        "cmake_file_name": "HighFive",
+        "cmake_target_name": "HighFive"
+    },
+    "tsl-ordered-map": {
+        "cmake_file_name": "tsl-ordered-map",
+        "cmake_target_name": "tsl::ordered_map",
+        "components": {
+            "ordered_map": {
+                "cmake_target_name": "tsl::ordered_map"
+            }
+        }
+    },
+    "libjpeg-turbo": {
+        "cmake_file_name": "libjpeg-turbo",
+        "components": {
+            "jpeg": {}
+        }
+    },
+    "hexl": {
+        "cmake_file_name": "Hexl",
+        "components": {
+            "Hexl": {
+                "cmake_target_name": "Hexl::hexl"
+            }
+        }
+    },
+    "charls": {
+        "cmake_file_name": "charls",
+        "cmake_target_name": "charls"
+    },
+    "zeromq": {
+        "cmake_file_name": "ZeroMQ"
+    },
+    "cppkafka": {
+        "cmake_file_name": "CppKafka",
+        "cmake_target_name": "CppKafka::cppkafka"
+    },
+    "fusepp": {
+        "cmake_file_name": "fusepp",
+        "cmake_target_name": "fusepp"
+    },
+    "harfbuzz": {
+        "cmake_file_name": "harfbuzz",
+        "cmake_target_name": "harfbuzz::harfbuzz"
+    },
+    "amgcl": {
+        "cmake_file_name": "amgcl",
+        "cmake_target_name": "amgcl::amgcl"
+    },
+    "cubicinterpolation": {
+        "cmake_file_name": "CubicInterpolation",
+        "cmake_target_name": "CubicInterpolation::CubicInterpolation"
+    },
+    "platform.interfaces": {
+        "cmake_file_name": "Platform.Interfaces",
+        "cmake_target_name": "Platform.Interfaces::Platform.Interfaces"
+    },
+    "kuba-zip": {
+        "cmake_file_name": "zip",
+        "cmake_target_name": "zip::zip"
+    },
+    "foonathan-memory": {
+        "cmake_file_name": "foonathan_memory",
+        "cmake_target_name": "foonathan_memory"
+    },
+    "mbits-semver": {
+        "cmake_file_name": "mbits-semver",
+        "cmake_target_name": "mbits::semver",
+        "components": {
+            "semver": {
+                "cmake_target_name": "mbits::semver"
+            }
+        }
+    },
+    "libconfig": {
+        "components": {
+            "libconfig_": {
+                "cmake_target_name": "libconfig::libconfig"
+            },
+            "libconfig++": {
+                "cmake_target_name": "libconfig::libconfig++"
+            }
+        }
+    },
+    "libfdk_aac": {
+        "cmake_file_name": "fdk-aac",
+        "cmake_target_name": "FDK-AAC::fdk-aac",
+        "components": {
+            "fdk-aac": {
+                "cmake_target_name": "FDK-AAC::fdk-aac"
+            }
+        }
+    },
+    "doctest": {
+        "cmake_file_name": "doctest",
+        "cmake_target_name": "doctest::doctest"
+    },
+    "libhydrogen": {
+        "cmake_file_name": "hydrogen",
+        "cmake_target_name": "hydrogen::hydrogen"
+    },
+    "glib": {
+        "components": {
+            "glib-2.0": {},
+            "gmodule-no-export-2.0": {},
+            "gmodule-export-2.0": {},
+            "gmodule-2.0": {},
+            "gobject-2.0": {},
+            "gthread-2.0": {},
+            "gio-2.0": {},
+            "gresource": {}
+        }
+    },
+    "gsl-lite": {
+        "cmake_file_name": "gsl-lite",
+        "cmake_target_name": "gsl::gsl-lite",
+        "components": {
+            "gsllite": {
+                "cmake_target_name": "gsl::gsl-lite"
+            }
+        }
+    },
+    "date": {
+        "cmake_target_name": "date::date"
+    },
+    "tiny-dnn": {
+        "cmake_file_name": "tinydnn",
+        "cmake_target_name": "TinyDNN::tiny_dnn",
+        "components": {
+            "tinydnn": {
+                "cmake_target_name": "TinyDNN::tiny_dnn"
+            }
+        }
+    },
+    "cpputest": {
+        "cmake_file_name": "CppUTest",
+        "components": {
+            "CppUTest": {
+                "cmake_target_name": "CppUTest"
+            }
+        }
+    },
+    "indirect_value": {
+        "cmake_file_name": "indirect_value",
+        "cmake_target_name": "indirect_value::indirect_value"
+    },
+    "libcoro": {
+        "cmake_file_name": "libcoro",
+        "cmake_target_name": "libcoro::libcoro"
+    },
+    "cryptopp": {
+        "cmake_file_name": "cryptopp",
+        "cmake_target_name": "cryptopp::cryptopp",
+        "components": {
+            "libcryptopp": {
+                "cmake_target_name": "cryptopp::cryptopp"
+            }
+        }
+    },
+    "libdrm": {
+        "components": {
+            "libdrm_libdrm": {}
+        }
+    },
+    "glog": {
+        "cmake_file_name": "glog",
+        "cmake_target_name": "glog::glog"
+    },
+    "aws-sdk-cpp": {
+        "cmake_file_name": "AWSSDK",
+        "components": {
+            "core": {
+                "cmake_target_name": "AWS::aws-sdk-cpp-core"
+            }
+        }
+    },
+    "unordered_dense": {
+        "cmake_file_name": "unordered_dense",
+        "cmake_target_name": "unordered_dense::unordered_dense"
+    },
+    "opentdf-client": {
+        "cmake_file_name": "opentdf-client",
+        "cmake_target_name": "opentdf-client::opentdf-client",
+        "components": {
+            "libopentdf": {
+                "cmake_target_name": "copentdf-client::opentdf-client"
+            }
+        }
+    },
+    "msgpack-cxx": {
+        "cmake_file_name": "msgpack",
+        "cmake_target_name": "msgpackc-cxx"
+    },
+    "xapian-core": {
+        "cmake_file_name": "xapian"
+    },
+    "libinterpolate": {
+        "cmake_file_name": "libInterpolate",
+        "cmake_target_name": "libInterpolate::Interpolate"
+    },
+    "tinyspline": {
+        "cmake_file_name": "tinyspline",
+        "components": {
+            "libtinyspline": {
+                "cmake_target_name": "tinyspline::tinyspline"
+            }
+        }
+    },
+    "pdal": {
+        "cmake_file_name": "PDAL",
+        "components": {
+            "pdal_util": {
+                "cmake_target_name": "pdal_util"
+            }
+        }
+    },
+    "libnfs": {
+        "cmake_file_name": "libnfs",
+        "cmake_target_name": "libnfs::libnfs"
+    },
+    "hiredis": {
+        "cmake_file_name": "hiredis",
+        "components": {
+            "hiredislib": {
+                "cmake_target_name": "hiredis::hiredis"
+            }
+        }
+    },
+    "shapelib": {
+        "cmake_file_name": "shapelib",
+        "cmake_target_name": "shapelib::shp"
+    },
+    "tng": {
+        "cmake_file_name": "tng_io",
+        "cmake_target_name": "tng_io::tng_io"
+    },
+    "opencl-headers": {
+        "cmake_file_name": "OpenCLHeaders"
+    },
+    "arg_router": {
+        "cmake_file_name": "arg_router",
+        "cmake_target_name": "arg_router::arg_router"
+    },
+    "timsort": {
+        "cmake_file_name": "gfx-timsort",
+        "cmake_target_name": "gfx::timsort",
+        "components": {
+            "gfx-timsort": {
+                "cmake_target_name": "gfx::timsort"
+            }
+        }
+    },
+    "qt": {
+        "cmake_file_name": "Qt6",
+        "components": {
+            "qtPlatform": {
+                "cmake_target_name": "Qt6::Platform"
+            }
+        }
+    },
+    "avcpp": {
+        "cmake_file_name": "avcpp"
+    },
+    "glbinding": {
+        "cmake_file_name": "glbinding",
+        "components": {
+            "glbinding-aux": {
+                "cmake_target_name": "glbinding::glbinding-aux"
+            },
+            "khrplatform": {
+                "cmake_target_name": "glbinding::KHRplatform"
+            }
+        },
+        "cmake_target_name": "glbinding::glbinding-aux"
+    },
+    "tinyply": {
+        "cmake_file_name": "tinyply",
+        "cmake_target_name": "tinyply::tinyply"
+    },
+    "mbedtls": {
+        "cmake_file_name": "MbedTLS",
+        "cmake_target_name": "MbedTLS::mbedtls",
+        "components": {
+            "mbedcrypto": {
+                "cmake_target_name": "MbedTLS::mbedcrypto"
+            },
+            "mbedx509": {
+                "cmake_target_name": "MbedTLS::mbedx509"
+            },
+            "libembedtls": {
+                "cmake_target_name": "MbedTLS::mbedtls"
+            }
+        }
+    },
+    "libde265": {
+        "cmake_file_name": "libde265",
+        "cmake_target_name": "de265"
+    },
+    "lz4": {
+        "cmake_file_name": "lz4"
+    },
+    "quazip": {
+        "cmake_target_name": "QuaZip::QuaZip"
+    },
+    "taocpp-taopq": {
+        "cmake_file_name": "taopq",
+        "cmake_target_name": "taocpp::taopq"
+    },
+    "tbb": {
+        "cmake_file_name": "TBB",
+        "components": {
+            "libtbb": {
+                "cmake_target_name": "TBB::tbb"
+            }
+        }
+    },
+    "foonathan-lexy": {
+        "cmake_file_name": "lexy",
+        "cmake_target_name": "foonathan::lexy",
+        "components": {
+            "lexy_core": {
+                "cmake_target_name": "foonathan::lexy::lexy_core"
+            },
+            "lexy_file": {
+                "cmake_target_name": "foonathan::lexy::lexy_file"
+            },
+            "lexy_unicode": {
+                "cmake_target_name": "lexy::lexy_unicode"
+            },
+            "lexy_ext": {
+                "cmake_target_name": "lexy::lexy_ext"
+            }
+        }
+    },
+    "parallel-hashmap": {
+        "cmake_file_name": "phmap",
+        "cmake_target_name": "phmap"
+    },
+    "aws-c-common": {
+        "cmake_file_name": "aws-c-common",
+        "cmake_target_name": "AWS::aws-c-common"
+    },
+    "cgns": {
+        "cmake_file_name": "CGNS",
+        "cmake_target_name": "CGNS::CGNS"
+    },
+    "playrho": {
+        "cmake_file_name": "PlayRho",
+        "cmake_target_name": "PlayRho::PlayRho"
+    },
+    "trompeloeil": {
+        "cmake_file_name": "trompeloeil",
+        "cmake_target_name": "trompeloeil::trompeloeil"
+    },
+    "gli": {
+        "cmake_file_name": "gli",
+        "cmake_target_name": "gli::gli"
+    },
+    "xtensor": {
+        "cmake_file_name": "xtensor",
+        "cmake_target_name": "xtensor"
+    },
+    "openal": {
+        "cmake_file_name": "OpenAL",
+        "cmake_target_name": "OpenAL::OpenAL"
+    },
+    "dbus": {
+        "cmake_file_name": "DBus1",
+        "cmake_target_name": "dbus-1"
+    },
+    "libarchive": {
+        "cmake_file_name": "LibArchive",
+        "cmake_target_name": "LibArchive::LibArchive"
+    },
+    "oatpp-websocket": {
+        "cmake_file_name": "oatpp-websocket",
+        "cmake_target_name": "oatpp::oatpp-websocket"
+    },
+    "openddl-parser": {
+        "cmake_file_name": "openddlparser",
+        "cmake_target_name": "openddlparser::openddlparser"
+    },
+    "zopfli": {
+        "cmake_file_name": "Zopfli",
+        "components": {
+            "libzopfli": {
+                "cmake_target_name": "Zopfli::libzopfli"
+            },
+            "libzopflipng": {
+                "cmake_target_name": "Zopfli::libzopflipng"
+            }
+        }
+    },
+    "cgal": {
+        "cmake_target_name": "CGAL::CGAL"
+    },
+    "asio-grpc": {
+        "cmake_file_name": "asio-grpc",
+        "cmake_target_name": "asio-grpc::asio-grpc"
+    },
+    "nanorange": {
+        "cmake_file_name": "nanorange",
+        "cmake_target_name": "nanorange::nanorange"
+    },
+    "libcurl": {
+        "cmake_file_name": "CURL",
+        "cmake_target_name": "CURL::libcurl",
+        "components": {
+            "curl": {
+                "cmake_target_name": "CURL::libcurl"
+            }
+        }
+    },
+    "libcpuid": {
+        "cmake_file_name": "cpuid",
+        "cmake_target_name": "cpuid::cpuid"
+    },
+    "tesseract": {
+        "cmake_file_name": "Tesseract",
+        "cmake_target_name": "Tesseract::libtesseract",
+        "components": {
+            "libtesseract": {}
+        }
+    },
+    "cairo": {
+        "components": {
+            "cairo_": {}
+        }
+    },
+    "arduinojson": {
+        "cmake_file_name": "ArduinoJson",
+        "cmake_target_name": "ArduinoJson"
+    },
+    "s2n": {
+        "cmake_file_name": "s2n",
+        "cmake_target_name": "AWS::s2n"
+    },
+    "libe57format": {
+        "cmake_file_name": "e57format",
+        "cmake_target_name": "E57Format"
+    },
+    "nudb": {
+        "cmake_target_name": "NuDB"
+    },
+    "byte-lite": {
+        "cmake_file_name": "byte-lite",
+        "cmake_target_name": "nonstd::byte-lite",
+        "components": {
+            "bytelite": {
+                "cmake_target_name": "nonstd::byte-lite"
+            }
+        }
+    },
+    "cpptoml": {
+        "cmake_file_name": "cpptoml",
+        "cmake_target_name": "cpptoml"
+    },
+    "c-ares": {
+        "cmake_file_name": "c-ares",
+        "cmake_target_name": "c-ares::cares",
+        "components": {
+            "cares": {
+                "cmake_target_name": "c-ares::cares"
+            }
+        }
+    },
+    "xerces-c": {
+        "cmake_file_name": "XercesC",
+        "cmake_target_name": "XercesC::XercesC"
+    },
+    "miniz": {
+        "cmake_file_name": "miniz",
+        "cmake_target_name": "miniz::miniz"
+    },
+    "greg7mdp-gtl": {
+        "cmake_file_name": "gtl",
+        "cmake_target_name": "gtl::gtl"
+    },
+    "tensorpipe": {
+        "cmake_file_name": "Tensorpipe",
+        "cmake_target_name": "tensorpipe"
+    },
+    "sobjectizer": {
+        "cmake_file_name": "sobjectizer"
+    },
+    "modern-cpp-kafka": {
+        "cmake_file_name": "ModernCppKafka",
+        "cmake_target_name": "ModernCppKafka::ModernCppKafka"
+    },
+    "mimalloc": {
+        "cmake_file_name": "mimalloc"
+    },
+    "hipony-enumerate": {
+        "cmake_file_name": "hipony-enumerate",
+        "cmake_target_name": "hipony::enumerate",
+        "components": {
+            "enumerate": {
+                "cmake_target_name": "hipony::enumerate"
+            }
+        }
+    },
+    "eigen": {
+        "cmake_file_name": "Eigen3",
+        "cmake_target_name": "Eigen3::Eigen",
+        "components": {
+            "eigen3": {
+                "cmake_target_name": "Eigen3::Eigen"
+            }
+        }
+    },
+    "zlib": {
+        "cmake_file_name": "ZLIB",
+        "cmake_target_name": "ZLIB::ZLIB"
+    },
+    "glslang": {
+        "cmake_file_name": "glslang",
+        "cmake_target_name": "glslang::glslang-do-not-use",
+        "components": {
+            "glslang-core": {
+                "cmake_target_name": "glslang::glslang"
+            },
+            "spirv": {
+                "cmake_target_name": "glslang::SPIRV"
+            }
+        }
+    },
+    "mdns": {
+        "cmake_file_name": "mdns",
+        "cmake_target_name": "mdns::mdns"
+    },
+    "sdl_ttf": {
+        "cmake_file_name": "SDL2_ttf"
+    },
+    "libipt": {
+        "cmake_file_name": "libipt",
+        "cmake_target_name": "libipt::libipt"
+    },
+    "kissfft": {
+        "cmake_file_name": "kissfft",
+        "cmake_target_name": "kissfft::kissfft",
+        "components": {
+            "libkissfft": {
+                "cmake_target_name": "kissfft::kissfft"
+            }
+        }
+    },
+    "hdrhistogram-c": {
+        "cmake_file_name": "hdr_histogram"
+    },
+    "parson": {
+        "cmake_file_name": "parson",
+        "cmake_target_name": "parson::parson"
+    },
+    "beauty": {
+        "cmake_file_name": "beauty",
+        "cmake_target_name": "beauty::beauty"
+    },
+    "libnghttp2": {
+        "components": {
+            "nghttp2": {}
+        }
+    },
+    "xlsxio": {
+        "cmake_file_name": "xlsxio",
+        "components": {
+            "xlsxio_read": {
+                "cmake_target_name": "xlsxio::xlsxio_read"
+            },
+            "xlsxio_write": {
+                "cmake_target_name": "xlsxio::xlsxio_write"
+            }
+        }
+    },
+    "iir1": {
+        "cmake_file_name": "iir"
+    },
+    "util-linux-libuuid": {
+        "cmake_target_name": "LibUUID::LibUUID",
+        "cmake_file_name": "LibUUID"
+    },
+    "libglvnd": {
+        "components": {
+            "opengl": {}
+        }
+    },
+    "tl-optional": {
+        "cmake_file_name": "tl-optional",
+        "cmake_target_name": "tl::optional",
+        "components": {
+            "optional": {
+                "cmake_target_name": "tl::optional"
+            }
+        }
+    },
+    "arcus": {
+        "cmake_file_name": "Arcus",
+        "cmake_target_name": "Arcus"
+    },
+    "openmvg": {
+        "cmake_file_name": "OpenMVG"
+    },
+    "discount": {
+        "cmake_file_name": "discount",
+        "cmake_target_name": "discount::libmarkdown"
+    },
+    "scope-lite": {
+        "cmake_file_name": "scope-lite",
+        "cmake_target_name": "nonstd::scope-lite",
+        "components": {
+            "scopelite": {
+                "cmake_target_name": "nonstd::scope-lite"
+            }
+        }
+    },
+    "yaml-cpp": {
+        "cmake_file_name": "yaml-cpp",
+        "cmake_target_name": "yaml-cpp"
+    },
+    "osqp": {
+        "cmake_file_name": "osqp",
+        "cmake_target_name": "osqp::osqp"
+    },
+    "openexr": {
+        "cmake_file_name": "OpenEXR"
+    },
+    "jsoncons": {
+        "cmake_file_name": "jsoncons",
+        "cmake_target_name": "jsoncons"
+    },
+    "logr": {
+        "cmake_file_name": "logr"
+    },
+    "numcpp": {
+        "cmake_file_name": "NumCpp",
+        "cmake_target_name": "NumCpp::NumCpp"
+    },
+    "concurrencpp": {
+        "cmake_file_name": "concurrencpp",
+        "cmake_target_name": "concurrencpp::concurrencpp"
+    },
+    "c4core": {
+        "cmake_file_name": "c4core",
+        "cmake_target_name": "c4core::c4core"
+    },
+    "fontconfig": {
+        "cmake_file_name": "Fontconfig",
+        "cmake_target_name": "Fontconfig::Fontconfig"
+    },
+    "opencascade": {
+        "cmake_file_name": "OpenCASCADE"
+    },
+    "gegles-spdlog_setup": {
+        "cmake_file_name": "spdlog_setup",
+        "cmake_target_name": "spdlog_setup::spdlog_setup"
+    },
+    "json-schema-validator": {
+        "cmake_file_name": "nlohmann_json_schema_validator",
+        "cmake_target_name": "nlohmann_json_schema_validator"
+    },
+    "taocpp-operators": {
+        "cmake_file_name": "taocpp-operators",
+        "cmake_target_name": "taocpp::operators"
+    },
+    "paho-mqtt-c": {
+        "cmake_file_name": "eclipse-paho-mqtt-c"
+    },
+    "thrift": {
+        "cmake_file_name": "Thrift",
+        "cmake_target_name": "thrift::thrift-conan-do-not-use",
+        "components": {
+            "libthrift": {
+                "cmake_target_name": "thrift::thrift"
+            }
+        }
+    },
+    "wayland": {
+        "components": {
+            "wayland-scanner": {}
+        }
+    },
+    "polymorphic_value": {
+        "cmake_file_name": "polymorphic_value",
+        "cmake_target_name": "polymorphic_value::polymorphic_value"
+    },
+    "termcolor": {
+        "cmake_file_name": "termcolor",
+        "cmake_target_name": "termcolor::termcolor"
+    },
+    "draco": {
+        "cmake_file_name": "draco",
+        "cmake_target_name": "draco::draco"
+    },
+    "xbyak": {
+        "cmake_file_name": "xbyak",
+        "cmake_target_name": "xbyak::xbyak"
+    },
+    "onedpl": {
+        "cmake_file_name": "ParallelSTL",
+        "cmake_target_name": "pstl::ParallelSTL"
+    },
+    "fastpfor": {
+        "cmake_file_name": "FastPFOR",
+        "cmake_target_name": "FastPFOR::FastPFOR"
+    },
+    "redis-plus-plus": {
+        "cmake_file_name": "redis++",
+        "components": {
+            "redis++lib": {}
+        }
+    },
+    "double-conversion": {
+        "cmake_file_name": "double-conversion",
+        "cmake_target_name": "double-conversion::double-conversion"
+    },
+    "pranav-csv2": {
+        "cmake_file_name": "csv2",
+        "cmake_target_name": "csv2::csv2"
+    },
+    "units": {
+        "cmake_file_name": "units",
+        "cmake_target_name": "units::units"
+    },
+    "gflags": {
+        "cmake_file_name": "gflags",
+        "cmake_target_name": "gflags::gflags"
+    },
+    "sail": {
+        "cmake_file_name": "Sail",
+        "components": {
+            "sail-common": {
+                "cmake_target_name": "SAIL::SailCommon"
+            },
+            "sail-codecs": {
+                "cmake_target_name": "SAIL::SailCodecs"
+            },
+            "libsail": {
+                "cmake_target_name": "SAIL::Sail"
+            },
+            "sail-manip": {
+                "cmake_target_name": "SAIL::SailManip"
+            },
+            "sail-c++": {
+                "cmake_target_name": "SAIL::SailC++"
+            }
+        }
+    },
+    "mbits-args": {
+        "cmake_file_name": "mbits-args",
+        "cmake_target_name": "mbits::args",
+        "components": {
+            "args": {
+                "cmake_target_name": "mbits::args"
+            }
+        }
+    },
+    "cwalk": {
+        "cmake_file_name": "Cwalk",
+        "cmake_target_name": "cwalk"
+    },
+    "spdlog": {
+        "cmake_file_name": "spdlog"
+    },
+    "libdeflate": {
+        "cmake_file_name": "libdeflate"
+    },
+    "magic_enum": {
+        "cmake_file_name": "magic_enum",
+        "cmake_target_name": "magic_enum::magic_enum"
+    },
+    "restinio": {
+        "cmake_file_name": "restinio",
+        "cmake_target_name": "restinio::restinio"
+    },
+    "octo-logger-cpp": {
+        "cmake_file_name": "octo-logger-cpp",
+        "cmake_target_name": "octo::octo-logger-cpp"
+    },
+    "redboltz-mqtt_cpp": {
+        "cmake_file_name": "mqtt_cpp",
+        "cmake_target_name": "mqtt_cpp::mqtt_cpp"
+    },
+    "cocoyaxi": {
+        "cmake_file_name": "cocoyaxi",
+        "cmake_target_name": "cocoyaxi::co",
+        "components": {
+            "co": {
+                "cmake_target_name": "cocoyaxi::co"
+            }
+        }
+    },
+    "h5pp": {
+        "cmake_file_name": "h5pp",
+        "cmake_target_name": "h5pp::h5pp",
+        "components": {
+            "h5pp_headers": {
+                "cmake_target_name": "h5pp::headers"
+            },
+            "h5pp_deps": {
+                "cmake_target_name": "h5pp::deps"
+            },
+            "h5pp_flags": {
+                "cmake_target_name": "h5pp::flags"
+            }
+        }
+    },
+    "openblas": {
+        "cmake_file_name": "OpenBLAS",
+        "cmake_target_name": "OpenBLAS::OpenBLAS",
+        "components": {
+            "openblas_component": {}
+        }
+    },
+    "mgs": {
+        "cmake_file_name": "mgs",
+        "components": {
+            "mgs-config": {
+                "cmake_target_name": "mgs::config"
+            },
+            "mgs-meta": {
+                "cmake_target_name": "mgs::meta"
+            },
+            "mgs-exceptions": {
+                "cmake_target_name": "mgs::exceptions"
+            },
+            "mgs-codecs": {
+                "cmake_target_name": "mgs::codecs"
+            },
+            "mgs-base_n": {
+                "cmake_target_name": "mgs::base_n"
+            },
+            "mgs-base16": {
+                "cmake_target_name": "mgs::base16"
+            },
+            "mgs-base32": {
+                "cmake_target_name": "mgs::base32"
+            },
+            "mgs-base64": {
+                "cmake_target_name": "mgs::base64"
+            },
+            "mgs-base64url": {
+                "cmake_target_name": "mgs::base64url"
+            },
+            "mgs-base32hex": {
+                "cmake_target_name": "mgs::base32hex"
+            }
+        }
+    },
+    "mikelankamp-fpm": {
+        "cmake_file_name": "fpm",
+        "cmake_target_name": "fpm::fpm"
+    },
+    "cctag": {
+        "cmake_file_name": "CCTag",
+        "cmake_target_name": "CCTag::CCTag"
+    },
+    "bullet3": {
+        "cmake_file_name": "Bullet",
+        "cmake_target_name": "Bullet::Bullet"
+    },
+    "giflib": {
+        "cmake_file_name": "GIF",
+        "cmake_target_name": "GIF::GIF"
+    },
+    "ade": {
+        "cmake_file_name": "ade",
+        "cmake_target_name": "ade"
+    },
+    "libbigwig": {
+        "cmake_file_name": "BigWig",
+        "cmake_target_name": "BigWig::BigWig"
+    },
+    "libwebp": {
+        "cmake_file_name": "WebP",
+        "components": {
+            "webpdecoder": {
+                "cmake_target_name": "WebP::webpdecoder"
+            },
+            "webp": {
+                "cmake_target_name": "WebP::webp"
+            },
+            "webpdemux": {
+                "cmake_target_name": "WebP::webpdemux"
+            },
+            "webpmux": {
+                "cmake_target_name": "WebP::libwebpmux"
+            }
+        }
+    },
+    "norm": {
+        "cmake_file_name": "norm",
+        "cmake_target_name": "norm::norm"
+    },
+    "dcmtk": {
+        "cmake_file_name": "DCMTK"
+    },
+    "libmaxminddb": {
+        "cmake_file_name": "maxminddb",
+        "cmake_target_name": "maxminddb::maxminddb"
+    },
+    "tcl": {
+        "cmake_file_name": "TCL"
+    },
+    "nanoflann": {
+        "cmake_file_name": "nanoflann",
+        "cmake_target_name": "nanoflann::nanoflann"
+    },
+    "openimageio": {
+        "cmake_file_name": "OpenImageIO",
+        "cmake_target_name": "OpenImageIO::OpenImageIO",
+        "components": {
+            "openimageio_util": {
+                "cmake_target_name": "OpenImageIO::OpenImageIO_Util"
+            },
+            "main": {
+                "cmake_target_name": "OpenImageIO::OpenImageIO"
+            }
+        }
+    },
+    "mongo-cxx-driver": {
+        "cmake_file_name": "mongocxx"
+    },
+    "octo-encryption-cpp": {
+        "cmake_file_name": "octo-encryption-cpp",
+        "cmake_target_name": "octo::octo-encryption-cpp"
+    },
+    "proposal": {
+        "cmake_file_name": "PROPOSAL",
+        "cmake_target_name": "PROPOSAL::PROPOSAL"
+    },
+    "tsl-hopscotch-map": {
+        "cmake_file_name": "tsl-hopscotch-map",
+        "cmake_target_name": "tsl::hopscotch_map",
+        "components": {
+            "hopscotch_map": {
+                "cmake_target_name": "tsl::hopscotch_map"
+            }
+        }
+    },
+    "geographiclib": {
+        "cmake_file_name": "geographiclib",
+        "cmake_target_name": "GeographicLib::GeographicLib"
+    },
+    "libwebm": {
+        "cmake_file_name": "webm",
+        "cmake_target_name": "webm::webm"
+    },
+    "enum-flags": {
+        "cmake_file_name": "enumflags",
+        "cmake_target_name": "EnumFlags::EnumFlags"
+    },
+    "ptex": {
+        "cmake_file_name": "ptex"
+    },
+    "rapidyaml": {
+        "cmake_file_name": "ryml",
+        "cmake_target_name": "ryml::ryml"
+    },
+    "openmesh": {
+        "cmake_file_name": "OpenMesh",
+        "components": {
+            "openmeshcore": {
+                "cmake_target_name": "OpenMeshCore"
+            },
+            "openmeshtools": {
+                "cmake_target_name": "OpenMeshTools"
+            }
+        }
+    },
+    "7bitdi": {
+        "cmake_file_name": "7bitDI",
+        "cmake_target_name": "7bitDI::7bitDI"
+    },
+    "opencv": {
+        "cmake_file_name": "OpenCV"
+    },
+    "vc": {
+        "cmake_file_name": "Vc",
+        "cmake_target_name": "Vc::Vc"
+    },
+    "read-excel": {
+        "cmake_file_name": "read-excel",
+        "cmake_target_name": "read-excel::read-excel"
+    },
+    "ode": {
+        "cmake_file_name": "ode",
+        "cmake_target_name": "ODE::ODE"
+    },
+    "coin-clp": {
+        "components": {
+            "clp": {},
+            "osi-clp": {}
+        }
+    },
+    "msgpack-c": {
+        "cmake_file_name": "msgpack"
+    },
+    "re2": {
+        "cmake_file_name": "re2",
+        "cmake_target_name": "re2::re2"
+    },
+    "libvips": {
+        "components": {
+            "vips": {}
+        }
+    },
+    "llvm-core": {
+        "cmake_file_name": "LLVM"
+    },
+    "openal-soft": {
+        "cmake_file_name": "OpenAL",
+        "cmake_target_name": "OpenAL::OpenAL"
+    },
+    "gtest": {
+        "cmake_file_name": "GTest",
+        "components": {
+            "libgtest": {
+                "cmake_target_name": "GTest::gtest"
+            }
+        }
+    },
+    "qarchive": {
+        "cmake_file_name": "QArchive",
+        "cmake_target_name": "QArchive"
+    },
+    "zxing-cpp": {
+        "cmake_file_name": "ZXing",
+        "cmake_target_name": "ZXing::ZXing"
+    },
+    "mongo-c-driver": {
+        "cmake_file_name": "mongoc-1.0"
+    },
+    "snappy": {
+        "cmake_file_name": "Snappy",
+        "cmake_target_name": "Snappy::snappy",
+        "components": {
+            "snappylib": {
+                "cmake_target_name": "Snappy::snappy"
+            }
+        }
+    },
+    "flac": {
+        "cmake_file_name": "flac",
+        "components": {
+            "libflac": {
+                "cmake_target_name": "FLAC::FLAC"
+            },
+            "libflac++": {
+                "cmake_target_name": "FLAC::FLAC++"
+            }
+        }
+    },
+    "erkir": {
+        "cmake_file_name": "erkir",
+        "cmake_target_name": "erkir::erkir"
+    },
+    "enjincppsdk": {
+        "cmake_target_name": "enjinsdk::enjinsdk"
+    },
+    "exiv2": {
+        "cmake_file_name": "exiv2",
+        "components": {
+            "exiv2lib": {
+                "cmake_target_name": "exiv2lib"
+            }
+        }
+    },
+    "si": {
+        "cmake_target_name": "SI::SI"
+    },
+    "mbits-utfconv": {
+        "cmake_file_name": "mbits-utfconv",
+        "cmake_target_name": "mbits::utfconv",
+        "components": {
+            "utfconv": {
+                "cmake_target_name": "mbits::utfconv"
+            }
+        }
+    },
+    "sdl": {
+        "cmake_file_name": "SDL2",
+        "components": {
+            "libsdl2": {
+                "cmake_target_name": "SDL2::SDL2"
+            }
+        }
+    },
+    "vir-simd": {
+        "cmake_file_name": "vir-simd",
+        "cmake_target_name": "vir-simd::vir-simd"
+    },
+    "odbc": {
+        "cmake_file_name": "ODBC",
+        "cmake_target_name": "ODBC::ODBC",
+        "components": {
+            "odbcinst": {},
+            "odbccr": {}
+        }
+    },
+    "sdbus-cpp": {
+        "cmake_file_name": "sdbus-c++",
+        "cmake_target_name": "SDBusCpp::sdbus-c++",
+        "components": {
+            "sdbus-c++": {
+                "cmake_target_name": "SDBusCpp::sdbus-c++"
+            }
+        }
+    },
+    "graphene": {
+        "components": {
+            "graphene-1.0": {}
+        }
+    },
+    "aws-c-io": {
+        "cmake_file_name": "aws-c-io",
+        "cmake_target_name": "AWS::aws-c-io"
+    },
+    "bitserializer": {
+        "cmake_file_name": "bitserializer",
+        "components": {
+            "bitserializer-core": {
+                "cmake_target_name": "BitSerializer::core"
+            }
+        }
+    },
+    "tsl-hat-trie": {
+        "cmake_file_name": "tsl-hat-trie",
+        "cmake_target_name": "tsl::hat_trie",
+        "components": {
+            "hat_trie": {
+                "cmake_target_name": "tsl::hat_trie"
+            }
+        }
+    },
+    "libssh2": {
+        "cmake_file_name": "Libssh2",
+        "cmake_target_name": "Libssh2::libssh2"
+    },
+    "octo-wildcardmatching-cpp": {
+        "cmake_file_name": "octo-wildcardmatching-cpp",
+        "cmake_target_name": "octo::octo-wildcardmatching-cpp"
+    },
+    "cfgfile": {
+        "cmake_file_name": "cfgfile",
+        "cmake_target_name": "cfgfile::cfgfile"
+    },
+    "sqlite3": {
+        "cmake_file_name": "SQLite3",
+        "cmake_target_name": "SQLite::SQLite3",
+        "components": {
+            "sqlite": {
+                "cmake_target_name": "SQLite::SQLite3"
+            }
+        }
+    },
+    "cpp-jwt": {
+        "cmake_file_name": "cpp-jwt",
+        "cmake_target_name": "cpp-jwt::cpp-jwt"
+    },
+    "openassetio": {
+        "cmake_file_name": "OpenAssetIO",
+        "cmake_target_name": "OpenAssetIO::OpenAssetIO",
+        "components": {
+            "openassetio-core": {
+                "cmake_target_name": "OpenAssetIO::openassetio-core"
+            }
+        }
+    },
+    "erikzenker-hsm": {
+        "cmake_file_name": "hsm",
+        "cmake_target_name": "hsm::hsm"
+    },
+    "cppitertools": {
+        "cmake_file_name": "cppitertools",
+        "cmake_target_name": "cppitertools::cppitertools"
+    },
+    "metall": {
+        "cmake_file_name": "Metall",
+        "cmake_target_name": "Metall::Metall"
+    },
+    "reactiveplusplus": {
+        "cmake_file_name": "RPP",
+        "cmake_target_name": "RPP::rpp"
+    },
+    "gsl": {
+        "cmake_file_name": "GSL",
+        "cmake_target_name": "GSL::gsl",
+        "components": {
+            "libgsl": {
+                "cmake_target_name": "GSL::gsl"
+            },
+            "libgslcblas": {
+                "cmake_target_name": "GSL::gslcblas"
+            }
+        }
+    },
+    "sqlite_orm": {
+        "cmake_file_name": "SqliteOrm",
+        "cmake_target_name": "sqlite_orm::sqlite_orm"
+    },
+    "zstd": {
+        "cmake_file_name": "zstd",
+        "components": {
+            "zstdlib": {}
+        }
+    },
+    "hazelcast-cpp-client": {
+        "cmake_file_name": "hazelcast-cpp-client",
+        "cmake_target_name": "hazelcast-cpp-client::hazelcast-cpp-client"
+    },
+    "libzippp": {
+        "cmake_file_name": "libzippp",
+        "cmake_target_name": "libzippp::libzippp"
+    },
+    "uni-algo": {
+        "cmake_file_name": "uni-algo",
+        "cmake_target_name": "uni-algo::uni-algo"
+    },
+    "libverto": {
+        "components": {
+            "verto": {}
+        }
+    },
+    "taocpp-pegtl": {
+        "cmake_file_name": "pegtl",
+        "cmake_target_name": "taocpp::pegtl"
+    },
+    "magnum-integration": {
+        "cmake_file_name": "MagnumIntegration"
+    },
+    "jinja2cpp": {
+        "cmake_file_name": "jinja2cpp",
+        "cmake_target_name": "jinja2cpp"
+    },
+    "sfml": {
+        "cmake_file_name": "SFML"
+    },
+    "cctz": {
+        "cmake_file_name": "cctz",
+        "cmake_target_name": "cctz::cctz"
+    },
+    "librealsense": {
+        "cmake_file_name": "realsense2",
+        "components": {
+            "realsense2": {
+                "cmake_target_name": "realsense2::realsense2"
+            }
+        }
+    },
+    "libunwind": {
+        "components": {
+            "unwind": {},
+            "generic": {}
+        }
+    },
+    "dacap-clip": {
+        "cmake_file_name": "clip",
+        "cmake_target_name": "clip::clip"
+    },
+    "bitsery": {
+        "cmake_file_name": "Bitsery",
+        "cmake_target_name": "Bitsery::bitsery",
+        "components": {
+            "bitserylib": {
+                "cmake_target_name": "Bitsery::bitsery"
+            }
+        }
+    },
+    "cfitsio": {
+        "cmake_file_name": "cfitsio",
+        "cmake_target_name": "cfitsio::cfitsio"
+    },
+    "strong_type": {
+        "cmake_file_name": "strong_type",
+        "cmake_target_name": "rollbear::strong_type",
+        "components": {
+            "strong_type": {
+                "cmake_target_name": "rollbear::strong_type"
+            }
+        }
+    },
+    "trantor": {
+        "cmake_file_name": "Trantor",
+        "cmake_target_name": "Trantor::Trantor"
+    },
+    "fast-dds": {
+        "cmake_file_name": "fastdds",
+        "components": {
+            "fastrtps": {
+                "cmake_target_name": "fastrtps"
+            },
+            "fast-discovery-server": {
+                "cmake_target_name": "fastdds::fast-discovery-server"
+            }
+        }
+    },
+    "json_dto": {
+        "cmake_file_name": "json-dto",
+        "cmake_target_name": "json-dto::json-dto"
+    },
+    "cpp-sort": {
+        "cmake_file_name": "cpp-sort",
+        "cmake_target_name": "cpp-sort::cpp-sort"
+    },
+    "catch2": {
+        "cmake_file_name": "Catch2",
+        "cmake_target_name": "Catch2::Catch2WithMain",
+        "components": {
+            "catch2_with_main": {
+                "cmake_target_name": "Catch2::Catch2WithMain"
+            }
+        }
+    },
+    "tinyxml2": {
+        "cmake_file_name": "tinyxml2",
+        "cmake_target_name": "tinyxml2::tinyxml2"
+    },
+    "raylib": {
+        "cmake_file_name": "raylib",
+        "cmake_target_name": "raylib"
+    },
+    "libpq": {
+        "cmake_file_name": "PostgreSQL",
+        "cmake_target_name": "PostgreSQL::PostgreSQL"
+    },
+    "opencore-amr": {
+        "cmake_file_name": "opencore-amr",
+        "cmake_target_name": "opencore-amr::opencore-amr"
+    },
+    "im95able-rea": {
+        "cmake_file_name": "rea",
+        "cmake_target_name": "rea::rea"
+    },
+    "tl-function-ref": {
+        "cmake_file_name": "tl-function-ref",
+        "cmake_target_name": "tl::function-ref",
+        "components": {
+            "function-ref": {
+                "cmake_target_name": "tl::function-ref"
+            }
+        }
+    },
+    "luau": {
+        "cmake_file_name": "Luau",
+        "cmake_target_name": "Luau::Luau",
+        "components": {
+            "Ast": {
+                "cmake_target_name": "Luau::Ast"
+            },
+            "VM": {
+                "cmake_target_name": "Luau::VM"
+            },
+            "Analysis": {
+                "cmake_target_name": "Luau::Analysis"
+            },
+            "Compiler": {
+                "cmake_target_name": "Luau::Compiler"
+            },
+            "CodeGen": {
+                "cmake_target_name": "Luau::CodeGen"
+            }
+        }
+    },
+    "sqlitecpp": {
+        "cmake_file_name": "SQLiteCpp",
+        "cmake_target_name": "SQLiteCpp"
+    },
+    "libselinux": {
+        "components": {
+            "selinux": {},
+            "sepol": {}
+        }
+    },
+    "dlib": {
+        "cmake_file_name": "dlib",
+        "cmake_target_name": "dlib::dlib"
+    },
+    "ginkgo": {
+        "cmake_file_name": "Ginkgo",
+        "cmake_target_name": "Ginkgo::ginkgo",
+        "components": {
+            "ginkgo_core": {
+                "cmake_target_name": "Ginkgo::ginkgo"
+            },
+            "ginkgo_cuda": {
+                "cmake_target_name": "Ginkgo::ginkgo_cuda"
+            },
+            "ginkgo_omp": {
+                "cmake_target_name": "Ginkgo::ginkgo_omp"
+            },
+            "ginkgo_hip": {
+                "cmake_target_name": "Ginkgo::ginkgo_hip"
+            },
+            "ginkgo_reference": {
+                "cmake_target_name": "Ginkgo::ginkgo_reference"
+            }
+        }
+    },
+    "fcl": {
+        "cmake_file_name": "fcl",
+        "cmake_target_name": "fcl"
+    },
+    "netcdf": {
+        "cmake_file_name": "netCDF",
+        "cmake_target_name": "netCDF::netcdf",
+        "components": {
+            "libnetcdf": {
+                "cmake_target_name": "netCDF::netcdf"
+            }
+        }
+    },
+    "xtl": {
+        "cmake_file_name": "xtl",
+        "cmake_target_name": "xtl"
+    },
+    "ring-span-lite": {
+        "cmake_file_name": "ring-span-lite",
+        "cmake_target_name": "nonstd::ring-span-lite",
+        "components": {
+            "ringspanlite": {
+                "cmake_target_name": "nonstd::ring-span-lite"
+            }
+        }
+    },
+    "cpprestsdk": {
+        "cmake_file_name": "cpprestsdk",
+        "components": {
+            "cpprestsdk_boost_internal": {
+                "cmake_target_name": "cpprestsdk::cpprestsdk_boost_internal"
+            },
+            "cpprestsdk_openssl_internal": {
+                "cmake_target_name": "cpprestsdk::cpprestsdk_openssl_internal"
+            },
+            "cpprest": {
+                "cmake_target_name": "cpprestsdk::cpprest"
+            }
+        }
+    },
+    "rapidjson": {
+        "cmake_file_name": "RapidJSON",
+        "cmake_target_name": "rapidjson"
+    },
+    "muparser": {
+        "cmake_file_name": "muparser",
+        "cmake_target_name": "muparser::muparser"
+    },
+    "spirv-headers": {
+        "cmake_file_name": "SPIRV-Headers",
+        "cmake_target_name": "SPIRV-Headers::SPIRV-Headers"
+    },
+    "oniguruma": {
+        "cmake_file_name": "oniguruma",
+        "cmake_target_name": "oniguruma::onig",
+        "components": {
+            "onig": {
+                "cmake_target_name": "oniguruma::onig"
+            }
+        }
+    },
+    "sml": {
+        "cmake_file_name": "sml",
+        "cmake_target_name": "sml::sml"
+    },
+    "chef-fun": {
+        "cmake_file_name": "chef-fun",
+        "cmake_target_name": "chef-fun::chef-fun"
+    },
+    "openvdb": {
+        "cmake_file_name": "OpenVDB",
+        "cmake_target_name": "OpenVDB::openvdb",
+        "components": {
+            "openvdb-core": {
+                "cmake_target_name": "OpenVDB::openvdb"
+            }
+        }
+    },
+    "wslay": {
+        "cmake_file_name": "wslay"
+    },
+    "libressl": {
+        "cmake_file_name": "LibreSSL",
+        "components": {
+            "crypto": {
+                "cmake_target_name": "LibreSSL::Crypto"
+            },
+            "ssl": {
+                "cmake_target_name": "LibreSSL::SSL"
+            },
+            "tls": {
+                "cmake_target_name": "LibreSSL::TLS"
+            }
+        }
+    },
+    "xxhash": {
+        "cmake_file_name": "xxHash",
+        "cmake_target_name": "xxHash::xxhash",
+        "components": {
+            "libxxhash": {
+                "cmake_target_name": "xxHash::xxhash"
+            }
+        }
+    },
+    "msdfgen": {
+        "cmake_file_name": "msdfgen",
+        "cmake_target_name": "msdfgen::msdgen-all-unofficial",
+        "components": {
+            "msdfgen-ext": {
+                "cmake_target_name": "msdfgen::msdfgen-ext"
+            }
+        }
+    },
+    "glew": {
+        "cmake_file_name": "glew",
+        "cmake_target_name": "GLEW::GLEW",
+        "components": {
+            "glewlib": {}
+        }
+    },
+    "bitflags": {
+        "cmake_file_name": "bitflags",
+        "cmake_target_name": "bitflags::bitflags"
+    },
+    "gdcm": {
+        "cmake_file_name": "GDCM"
+    },
+    "vulkan-loader": {
+        "cmake_file_name": "Vulkan",
+        "cmake_target_name": "Vulkan::Vulkan"
+    },
+    "morton-nd": {
+        "cmake_file_name": "morton-nd",
+        "cmake_target_name": "morton-nd::MortonND",
+        "components": {
+            "mortonnd": {
+                "cmake_target_name": "morton-nd::MortonND"
+            }
+        }
+    },
+    "ulfius": {
+        "cmake_file_name": "Ulfius"
+    },
+    "functionalplus": {
+        "cmake_file_name": "FunctionalPlus",
+        "cmake_target_name": "FunctionalPlus::fplus",
+        "components": {
+            "fplus": {
+                "cmake_target_name": "FunctionalPlus::fplus"
+            }
+        }
+    },
+    "paho-mqtt-cpp": {
+        "cmake_file_name": "PahoMqttCpp"
+    },
+    "nng": {
+        "cmake_file_name": "nng",
+        "cmake_target_name": "nng::nng"
+    },
+    "pcre2": {
+        "cmake_file_name": "PCRE2"
+    },
+    "jwt-cpp": {
+        "cmake_file_name": "jwt-cpp",
+        "cmake_target_name": "jwt-cpp::jwt-cpp"
+    },
+    "libevent": {
+        "cmake_file_name": "Libevent",
+        "components": {
+            "core": {
+                "cmake_target_name": "libevent::core"
+            },
+            "extra": {
+                "cmake_target_name": "libevent::extra"
+            }
+        }
+    },
+    "alembic": {
+        "cmake_file_name": "Alembic",
+        "cmake_target_name": "Alembic::Alembic"
+    },
+    "libkml": {
+        "cmake_file_name": "LibKML"
+    },
+    "gstreamer": {
+        "components": {
+            "gstreamer-1.0": {},
+            "gstreamer-base-1.0": {},
+            "gstreamer-controller-1.0": {},
+            "gstreamer-net-1.0": {},
+            "gstreamer-check-1.0": {}
+        }
+    },
+    "cminpack": {
+        "cmake_target_name": "cminpack",
+        "components": {
+            "cminpack-double": {
+                "cmake_target_name": "cminpack::cminpack"
+            },
+            "cminpack-single": {
+                "cmake_target_name": "cminpack::cminpacks"
+            }
+        }
+    },
+    "psyinf-gmtl": {
+        "cmake_file_name": "gmtl",
+        "cmake_target_name": "gmtl::gmtl"
+    },
+    "leptonica": {
+        "cmake_file_name": "Leptonica",
+        "cmake_target_name": "leptonica"
+    },
+    "qxlsx": {
+        "cmake_file_name": "QXlsx",
+        "cmake_target_name": "QXlsx::Core",
+        "components": {
+            "qxlsx_core": {
+                "cmake_target_name": "QXlsx::Core"
+            }
+        }
+    },
+    "flatbuffers": {
+        "cmake_file_name": "flatbuffers",
+        "components": {
+            "libflatbuffers": {}
+        }
+    },
+    "libcheck": {
+        "cmake_file_name": "check",
+        "components": {
+            "liblibcheck": {}
+        }
+    },
+    "oatpp-libressl": {
+        "cmake_file_name": "oatpp-libressl",
+        "cmake_target_name": "oatpp::oatpp-libressl"
+    },
+    "physfs": {
+        "cmake_file_name": "PhysFS"
+    },
+    "unleash-client-cpp": {
+        "cmake_file_name": "unleash",
+        "cmake_target_name": "unleash::unleash"
+    },
+    "libcuckoo": {
+        "cmake_file_name": "libcuckoo",
+        "cmake_target_name": "libcuckoo::libcuckoo"
+    },
+    "wg21-linear_algebra": {
+        "cmake_file_name": "wg21_linear_algebra",
+        "cmake_target_name": "wg21_linear_algebra::wg21_linear_algebra"
+    },
+    "pugixml": {
+        "cmake_file_name": "pugixml",
+        "cmake_target_name": "pugixml::pugixml"
+    },
+    "tl-expected": {
+        "cmake_file_name": "tl-expected",
+        "cmake_target_name": "tl::expected",
+        "components": {
+            "expected": {
+                "cmake_target_name": "tl::expected"
+            }
+        }
+    },
+    "tsl-array-hash": {
+        "cmake_file_name": "tsl-array-hash",
+        "cmake_target_name": "tsl::array_hash",
+        "components": {
+            "array_hash": {
+                "cmake_target_name": "tsl::array_hash"
+            }
+        }
+    },
+    "ixwebsocket": {
+        "cmake_file_name": "ixwebsocket",
+        "cmake_target_name": "ixwebsocket::ixwebsocket"
+    },
+    "ghc-filesystem": {
+        "cmake_file_name": "ghc_filesystem",
+        "cmake_target_name": "ghcFilesystem::ghc_filesystem",
+        "components": {
+            "ghc_filesystem": {
+                "cmake_target_name": "ghcFilesystem::ghc_filesystem"
+            }
+        }
+    },
+    "coin-osi": {
+        "components": {
+            "libosi": {},
+            "osi-unittests": {}
+        }
+    },
+    "cppdap": {
+        "cmake_file_name": "cppdap",
+        "cmake_target_name": "cppdap::cppdap"
+    },
+    "md4qt": {
+        "cmake_file_name": "md4qt",
+        "cmake_target_name": "md4qt::md4qt"
+    },
+    "lightgbm": {
+        "cmake_file_name": "LightGBM",
+        "cmake_target_name": "LightGBM::LightGBM"
+    },
+    "taocpp-tuple": {
+        "cmake_file_name": "taocpp-tuple",
+        "cmake_target_name": "taocpp::tuple"
+    },
+    "lefticus-tools": {
+        "cmake_target_name": "lefticus::tools"
+    },
+    "aws-cdi-sdk": {
+        "cmake_file_name": "aws-cdi-sdk"
+    },
+    "cereal": {
+        "cmake_file_name": "cereal",
+        "cmake_target_name": "cereal::cereal"
+    },
+    "tsl-robin-map": {
+        "cmake_file_name": "tsl-robin-map",
+        "cmake_target_name": "tsl::robin_map",
+        "components": {
+            "robin_map": {
+                "cmake_target_name": "tsl::robin_map"
+            }
+        }
+    },
+    "mdspan": {
+        "cmake_file_name": "mdspan",
+        "cmake_target_name": "std::mdspan"
+    },
+    "status-value-lite": {
+        "cmake_file_name": "status-value-lite",
+        "cmake_target_name": "nonstd::status-value-lite",
+        "components": {
+            "status_valuelite": {
+                "cmake_target_name": "nonstd::status-value-lite"
+            }
+        }
+    },
+    "libwebsockets": {
+        "cmake_file_name": "Libwebsockets"
+    },
+    "mozjpeg": {
+        "cmake_file_name": "mozjpeg",
+        "components": {
+            "libjpeg": {}
+        }
+    },
+    "pro-mdnsd": {
+        "cmake_file_name": "mdnsd",
+        "cmake_target_name": "libmdnsd"
+    },
+    "ezc3d": {
+        "cmake_file_name": "ezc3d",
+        "cmake_target_name": "ezc3d"
+    },
+    "lexbor": {
+        "cmake_file_name": "lexbor"
+    },
+    "span-lite": {
+        "cmake_file_name": "span-lite",
+        "cmake_target_name": "nonstd::span-lite",
+        "components": {
+            "spanlite": {
+                "cmake_target_name": "nonstd::span-lite"
+            }
+        }
+    },
+    "fltk": {
+        "cmake_file_name": "fltk",
+        "cmake_target_name": "fltk::fltk"
+    },
+    "glfw": {
+        "cmake_file_name": "glfw3",
+        "cmake_target_name": "glfw"
+    },
+    "libcds": {
+        "cmake_file_name": "LibCDS"
+    },
+    "frozen": {
+        "cmake_file_name": "frozen",
+        "cmake_target_name": "frozen::frozen"
+    },
+    "aws-checksums": {
+        "cmake_file_name": "aws-checksums",
+        "cmake_target_name": "AWS::aws-checksums"
+    },
+    "nanomsg": {
+        "cmake_file_name": "nanomsg",
+        "cmake_target_name": "nanomsg::nanomsg"
+    },
+    "libvault": {
+        "cmake_file_name": "libvault",
+        "cmake_target_name": "libvault::libvault"
+    },
+    "backward-cpp": {
+        "cmake_file_name": "Backward",
+        "cmake_target_name": "Backward::Backward"
+    },
+    "rapidcheck": {
+        "cmake_file_name": "rapidcheck",
+        "components": {
+            "rapidcheck_rapidcheck": {
+                "cmake_target_name": "rapidcheck"
+            }
+        }
+    },
+    "libzen": {
+        "cmake_file_name": "ZenLib",
+        "cmake_target_name": "zen"
+    },
+    "valijson": {
+        "cmake_target_name": "ValiJSON::valijson",
+        "components": {
+            "libvalijson": {
+                "cmake_target_name": "ValiJSON::valijson"
+            }
+        }
+    },
+    "rabbitmq-c": {
+        "cmake_file_name": "rabbitmq-c",
+        "components": {
+            "rabbitmq": {}
+        }
+    },
+    "embree3": {
+        "cmake_file_name": "embree",
+        "cmake_target_name": "embree"
+    },
+    "perlinnoise": {
+        "cmake_file_name": "PerlinNoise",
+        "cmake_target_name": "siv::PerlinNoise",
+        "components": {
+            "siv": {
+                "cmake_target_name": "siv::PerlinNoise"
+            }
+        }
+    },
+    "opusfile": {
+        "components": {
+            "libopusfile": {}
+        }
+    },
+    "aws-c-cal": {
+        "cmake_file_name": "aws-c-cal",
+        "cmake_target_name": "AWS::aws-c-cal"
+    },
+    "wil": {
+        "cmake_file_name": "wil",
+        "cmake_target_name": "WIL::WIL"
+    },
+    "uriparser": {
+        "cmake_file_name": "uriparser",
+        "cmake_target_name": "uriparser::uriparser"
+    },
+    "minizip-ng": {
+        "cmake_file_name": "minizip",
+        "cmake_target_name": "MINIZIP::minizip",
+        "components": {
+            "minizip": {
+                "cmake_target_name": "MINIZIP::minizip"
+            }
+        }
+    },
+    "libtorrent": {
+        "cmake_file_name": "LibtorrentRasterbar",
+        "cmake_target_name": "LibtorrentRasterbar::torrent-rasterbar",
+        "components": {
+            "libtorrent-rasterbar": {
+                "cmake_target_name": "LibtorrentRasterbar::torrent-rasterbar"
+            }
+        }
+    },
+    "cista": {
+        "cmake_file_name": "cista",
+        "cmake_target_name": "cista::cista"
+    },
+    "bit-lite": {
+        "cmake_file_name": "bit-lite",
+        "cmake_target_name": "nonstd::bit-lite",
+        "components": {
+            "bitlite": {
+                "cmake_target_name": "nonstd::bit-lite"
+            }
+        }
+    },
+    "libzip": {
+        "cmake_file_name": "libzip",
+        "cmake_target_name": "libzip::zip"
+    },
+    "itk": {
+        "cmake_file_name": "ITK"
+    },
+    "cli11": {
+        "cmake_file_name": "CLI11",
+        "cmake_target_name": "CLI11::CLI11"
+    },
+    "aws-c-auth": {
+        "cmake_file_name": "aws-c-auth",
+        "cmake_target_name": "AWS::aws-c-auth",
+        "components": {
+            "aws-c-auth-lib": {
+                "cmake_target_name": "AWS::aws-c-auth"
+            }
+        }
+    },
+    "theora": {
+        "components": {
+            "theora": {},
+            "theoradec": {},
+            "theoraenc": {}
+        }
+    },
+    "cpp-httplib": {
+        "cmake_file_name": "httplib",
+        "cmake_target_name": "httplib::httplib"
+    },
+    "uchardet": {
+        "cmake_file_name": "uchardet",
+        "cmake_target_name": "uchardet"
+    },
+    "backport-cpp": {
+        "cmake_file_name": "Backport",
+        "cmake_target_name": "Backport::Backport"
+    },
+    "blend2d": {
+        "cmake_file_name": "blend2d",
+        "cmake_target_name": "blend2d::blend2d"
+    },
+    "approvaltests.cpp": {
+        "cmake_file_name": "ApprovalTests",
+        "cmake_target_name": "ApprovalTests::ApprovalTests"
+    },
+    "taskflow": {
+        "cmake_file_name": "Taskflow",
+        "cmake_target_name": "Taskflow::Taskflow"
+    },
+    "tiny-utf8": {
+        "cmake_file_name": "tinyutf8",
+        "cmake_target_name": "tinyutf8::tinyutf8"
+    },
+    "civetweb": {
+        "cmake_file_name": "civetweb"
+    },
+    "librdkafka": {
+        "cmake_file_name": "RdKafka",
+        "cmake_target_name": "RdKafka::rdkafka++",
+        "components": {
+            "rdkafka": {
+                "cmake_target_name": "RdKafka::rdkafka"
+            },
+            "rdkafka++": {
+                "cmake_target_name": "RdKafka::rdkafka++"
+            }
+        }
+    },
+    "wildmidi": {
+        "cmake_file_name": "WildMidi",
+        "cmake_target_name": "WildMidi::libwildmidi"
+    },
+    "oatpp-swagger": {
+        "cmake_file_name": "oatpp-swagger",
+        "cmake_target_name": "oatpp::oatpp-swagger"
+    },
+    "vulkan-headers": {
+        "cmake_file_name": "VulkanHeaders",
+        "components": {
+            "vulkanheaders": {
+                "cmake_target_name": "Vulkan::Headers"
+            },
+            "vulkanregistry": {
+                "cmake_target_name": "Vulkan::Registry"
+            }
+        }
+    },
+    "openssl": {
+        "cmake_file_name": "OpenSSL",
+        "components": {
+            "crypto": {
+                "cmake_target_name": "OpenSSL::Crypto"
+            },
+            "ssl": {
+                "cmake_target_name": "OpenSSL::SSL"
+            }
+        }
+    },
+    "llvm-openmp": {
+        "cmake_file_name": "OpenMP",
+        "cmake_target_name": "OpenMP::OpenMP"
+    },
+    "argh": {
+        "cmake_file_name": "argh",
+        "cmake_target_name": "argh"
+    },
+    "oatpp-sqlite": {
+        "cmake_file_name": "oatpp-sqlite",
+        "cmake_target_name": "oatpp::oatpp-sqlite"
+    },
+    "qpdf": {
+        "cmake_file_name": "qpdf",
+        "cmake_target_name": "qpdf::libqpdf",
+        "components": {
+            "libqpdf": {
+                "cmake_target_name": "qpdf::libqpdf"
+            }
+        }
+    },
+    "libcap": {
+        "components": {
+            "cap": {}
+        }
+    },
+    "glm": {
+        "cmake_file_name": "glm",
+        "cmake_target_name": "glm::glm"
+    },
+    "corrade": {
+        "cmake_file_name": "Corrade"
+    },
+    "crowcpp-crow": {
+        "cmake_file_name": "Crow",
+        "cmake_target_name": "Crow::Crow"
+    },
+    "libspatialindex": {
+        "cmake_file_name": "libspatialindex",
+        "components": {
+            "spatialindex": {
+                "cmake_target_name": "libspatialindex::spatialindex"
+            },
+            "spatialindex_c": {
+                "cmake_target_name": "libspatialindex::spatialindex_c"
+            }
+        }
+    },
+    "rttr": {
+        "cmake_file_name": "rttr"
+    },
+    "expected-lite": {
+        "cmake_file_name": "expected-lite",
+        "cmake_target_name": "nonstd::expected-lite",
+        "components": {
+            "expectedlite": {
+                "cmake_target_name": "nonstd::expected-lite"
+            }
+        }
+    },
+    "aws-crt-cpp": {
+        "cmake_file_name": "aws-crt-cpp",
+        "cmake_target_name": "AWS::aws-crt-cpp"
+    },
+    "csvmonkey": {
+        "cmake_file_name": "csvmonkey",
+        "cmake_target_name": "csvmonkey::csvmonkey"
+    },
+    "opengv": {
+        "cmake_file_name": "opengv",
+        "cmake_target_name": "opengv"
+    },
+    "cxxopts": {
+        "cmake_file_name": "cxxopts",
+        "cmake_target_name": "cxxopts::cxxopts"
+    },
+    "tinkerforge-bindings": {
+        "cmake_target_name": "tinkerforge::bindings"
+    },
+    "drogon": {
+        "cmake_file_name": "Drogon",
+        "cmake_target_name": "Drogon::Drogon"
+    },
+    "tomlplusplus": {
+        "cmake_file_name": "tomlplusplus",
+        "cmake_target_name": "tomlplusplus::tomlplusplus"
+    },
+    "tinyexif": {
+        "cmake_file_name": "TinyEXIF",
+        "cmake_target_name": "TinyEXIF::TinyEXIF"
+    },
+    "xkbcommon": {
+        "components": {
+            "libxkbcommon": {}
+        }
+    },
+    "szip": {
+        "cmake_file_name": "szip"
+    },
+    "cpu_features": {
+        "cmake_file_name": "CpuFeatures",
+        "cmake_target_name": "CpuFeatures::cpu_features",
+        "components": {
+            "libcpu_features": {
+                "cmake_target_name": "CpuFeatures::cpu_features"
+            }
+        }
+    },
+    "spscqueue": {
+        "cmake_file_name": "SPSCQueue",
+        "cmake_target_name": "SPSCQueue::SPSCQueue"
+    },
+    "aws-c-s3": {
+        "cmake_file_name": "aws-c-s3",
+        "cmake_target_name": "AWS::aws-c-s3",
+        "components": {
+            "aws-c-s3-lib": {
+                "cmake_target_name": "AWS::aws-c-s3"
+            }
+        }
+    },
+    "asyncly": {
+        "cmake_file_name": "asyncly",
+        "cmake_target_name": "asyncly::asyncly"
+    },
+    "mppp": {
+        "cmake_file_name": "mp++",
+        "cmake_target_name": "mp++::mp++"
+    },
+    "squirrel": {
+        "cmake_file_name": "squirrel",
+        "cmake_target_name": "squirrel::squirel-all-do-not-use"
+    },
+    "breakpad": {
+        "components": {
+            "libbreakpad": {},
+            "client": {}
+        }
+    },
+    "jfalcou-eve": {
+        "cmake_file_name": "eve",
+        "cmake_target_name": "eve::eve"
+    },
+    "pagmo2": {
+        "cmake_file_name": "pagmo",
+        "cmake_target_name": "Pagmo::pagmo"
+    },
+    "zziplib": {
+        "components": {
+            "zzip": {}
+        }
+    },
+    "functions-framework-cpp": {
+        "cmake_file_name": "functions_framework_cpp",
+        "cmake_target_name": "functions-framework-cpp::framework",
+        "components": {
+            "framework": {
+                "cmake_target_name": "functions-framework-cpp::framework"
+            }
+        }
+    },
+    "lief": {
+        "cmake_file_name": "LIEF",
+        "cmake_target_name": "LIEF::LIEF"
+    },
+    "ftxui": {
+        "cmake_file_name": "ftxui",
+        "components": {
+            "ftxui-dom": {
+                "cmake_target_name": "ftxui::dom"
+            },
+            "ftxui-screen": {
+                "cmake_target_name": "ftxui::screen"
+            },
+            "ftxui-component": {
+                "cmake_target_name": "ftxui::component"
+            }
+        }
+    },
+    "folly": {
+        "cmake_file_name": "folly",
+        "cmake_target_name": "Folly::folly",
+        "components": {
+            "libfolly": {
+                "cmake_target_name": "Folly::folly"
+            }
+        }
+    },
+    "libsndfile": {
+        "cmake_file_name": "SndFile",
+        "cmake_target_name": "SndFile::sndfile",
+        "components": {
+            "sndfile": {
+                "cmake_target_name": "SndFile::sndfile"
+            }
+        }
+    },
+    "docopt.cpp": {
+        "cmake_file_name": "docopt"
+    },
+    "jasper": {
+        "cmake_file_name": "Jasper",
+        "cmake_target_name": "Jasper::Jasper"
+    },
+    "args-parser": {
+        "cmake_file_name": "args-parser",
+        "cmake_target_name": "args-parser::args-parser"
+    },
+    "fast-cdr": {
+        "cmake_file_name": "fastcdr",
+        "cmake_target_name": "fastcdr"
+    },
+    "boolean-lite": {
+        "cmake_file_name": "boolean-lite",
+        "cmake_target_name": "nonstd::boolean-lite",
+        "components": {
+            "booleanlite": {
+                "cmake_target_name": "nonstd::boolean-lite"
+            }
+        }
+    },
+    "xz_utils": {
+        "cmake_file_name": "LibLZMA",
+        "cmake_target_name": "LibLZMA::LibLZMA"
+    },
+    "protobuf": {
+        "cmake_file_name": "protobuf",
+        "components": {
+            "libprotobuf": {
+                "cmake_target_name": "protobuf::libprotobuf"
+            }
+        }
+    },
+    "cd3-boost-unit-definitions": {
+        "cmake_file_name": "BoostUnitDefinitions",
+        "cmake_target_name": "BoostUnitDefinitions::BoostUnitDefinitions"
+    },
+    "magnum": {
+        "cmake_file_name": "Magnum",
+        "components": {
+            "magnum_main": {
+                "cmake_target_name": "Magnum::Magnum"
+            }
+        }
+    },
+    "ruby": {
+        "cmake_file_name": "Ruby",
+        "cmake_target_name": "Ruby::Ruby"
+    },
+    "argtable3": {
+        "cmake_file_name": "Argtable3",
+        "cmake_target_name": "argtable3::argtable3"
+    },
+    "openxlsx": {
+        "cmake_file_name": "OpenXLSX",
+        "cmake_target_name": "OpenXLSX::OpenXLSX"
+    },
+    "libsigcpp": {
+        "cmake_file_name": "sigc++-3",
+        "cmake_target_name": "sigc-3.0",
+        "components": {
+            "sigc++": {}
+        }
+    },
+    "spix": {
+        "cmake_file_name": "Spix",
+        "cmake_target_name": "Spix::Spix"
+    },
+    "lyra": {
+        "cmake_file_name": "lyra",
+        "cmake_target_name": "bfg::lyra"
+    },
+    "recastnavigation": {
+        "cmake_file_name": "recastnavigation",
+        "components": {
+            "Recast": {
+                "cmake_target_name": "RecastNavigation::Recast"
+            },
+            "Detour": {
+                "cmake_target_name": "RecastNavigation::Detour"
+            },
+            "DetourCrowd": {
+                "cmake_target_name": "RecastNavigation::DetourCrowd"
+            },
+            "DetourTileCache": {
+                "cmake_target_name": "RecastNavigation::DetourTileCache"
+            },
+            "DebugUtils": {
+                "cmake_target_name": "RecastNavigation::DebugUtils"
+            }
+        }
+    },
+    "abseil": {
+        "cmake_file_name": "absl"
+    },
+    "taywee-args": {
+        "cmake_file_name": "args",
+        "cmake_target_name": "taywee::args",
+        "components": {
+            "libargs": {
+                "cmake_target_name": "taywee::args"
+            }
+        }
+    },
+    "icu": {
+        "cmake_file_name": "ICU",
+        "components": {
+            "icu-data": {
+                "cmake_target_name": "ICU::data"
+            },
+            "icu-data-alias": {
+                "cmake_target_name": "ICU::dt"
+            },
+            "icu-uc": {
+                "cmake_target_name": "ICU::uc"
+            },
+            "icu-i18n": {
+                "cmake_target_name": "ICU::i18n"
+            },
+            "icu-i18n-alias": {
+                "cmake_target_name": "ICU::in"
+            }
+        }
+    },
+    "tmx": {
+        "cmake_file_name": "tmx",
+        "cmake_target_name": "tmx"
+    },
+    "bzip2": {
+        "cmake_file_name": "BZip2",
+        "cmake_target_name": "BZip2::BZip2"
+    },
+    "wt": {
+        "cmake_file_name": "wt",
+        "components": {
+            "wtmain": {
+                "cmake_target_name": "Wt::Wt"
+            }
+        }
+    },
+    "poco": {
+        "cmake_file_name": "Poco",
+        "cmake_target_name": "Poco::Poco"
+    },
+    "matchit": {
+        "cmake_file_name": "matchit",
+        "cmake_target_name": "matchit::matchit"
+    },
+    "hyperscan": {
+        "components": {
+            "hs": {}
+        }
+    },
+    "libatomic_ops": {
+        "cmake_file_name": "Atomic_ops",
+        "cmake_target_name": "Atomic_ops::atomic_ops_gpl",
+        "components": {
+            "atomic_ops": {
+                "cmake_target_name": "Atomic_ops::atomic_ops"
+            },
+            "atomic_ops_gpl": {
+                "cmake_target_name": "Atomic_ops::atomic_ops_gpl"
+            }
+        }
+    },
+    "gnutls": {
+        "cmake_file_name": "GnuTLS",
+        "cmake_target_name": "GnuTLS::GnuTLS"
+    },
+    "kitten": {
+        "cmake_file_name": "kitten",
+        "cmake_target_name": "rvarago::kitten",
+        "components": {
+            "libkitten": {
+                "cmake_target_name": "rvarago::kitten"
+            }
+        }
+    },
+    "pistache": {
+        "cmake_file_name": "Pistache",
+        "cmake_target_name": "Pistache::Pistache"
+    },
+    "mpark-variant": {
+        "cmake_file_name": "mpark_variant",
+        "cmake_target_name": "mpark_variant"
+    },
+    "scnlib": {
+        "cmake_file_name": "scn"
+    },
+    "orcania": {
+        "cmake_file_name": "Orcania"
+    },
+    "sdl_net": {
+        "cmake_file_name": "SDL2_net",
+        "cmake_target_name": "SDL2_net::SDL2_net"
+    },
+    "coin-lemon": {
+        "cmake_file_name": "LEMON",
+        "cmake_target_name": "LEMON::LEMON"
+    },
+    "libgettext": {
+        "cmake_file_name": "Intl",
+        "cmake_target_name": "Intl::Intl"
+    },
+    "mpmcqueue": {
+        "cmake_file_name": "MPMCQueue",
+        "cmake_target_name": "MPMCQueue::MPMCQueue"
+    },
+    "opengl": {
+        "cmake_file_name": "opengl_system"
+    },
+    "frugally-deep": {
+        "cmake_file_name": "frugally-deep",
+        "cmake_target_name": "frugally-deep::fdeep"
+    },
+    "mio": {
+        "cmake_file_name": "mio",
+        "cmake_target_name": "mio::mio",
+        "components": {
+            "mio-headers": {
+                "cmake_target_name": "mio::mio-headers"
+            }
+        }
+    },
+    "sdl_mixer": {
+        "cmake_file_name": "SDL2_mixer",
+        "cmake_target_name": "SDL2_mixer::SDL2_mixer"
+    },
+    "cppzmq": {
+        "cmake_file_name": "cppzmq",
+        "cmake_target_name": "cppzmq"
+    },
+    "qhull": {
+        "cmake_file_name": "Qhull"
+    }
+}

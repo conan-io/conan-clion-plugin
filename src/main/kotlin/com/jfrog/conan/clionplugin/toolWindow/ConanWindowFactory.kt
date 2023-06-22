@@ -23,6 +23,7 @@ import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.content.ContentFactory
+import com.intellij.ui.jcef.JCEFHtmlPanel
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
@@ -37,6 +38,7 @@ import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.awt.BorderLayout
+import java.awt.Component
 import java.awt.FlowLayout
 import java.awt.Font
 import javax.swing.*
@@ -63,10 +65,11 @@ class ConanWindowFactory : ToolWindowFactory {
 
         fun getContent() = OnePixelSplitter(false).apply {
 
-            val secondComponentPanel = JBPanelWithEmptyText().apply {
-                layout = BorderLayout()
-                border = JBUI.Borders.empty(10)
-            }
+            val secondComponentPanel = JBPanelWithEmptyText()
+            val htmlPanel = JCEFHtmlPanel(null)
+            htmlPanel.loadHTML("")
+
+            secondComponentPanel.layout = BoxLayout(secondComponentPanel, BoxLayout.Y_AXIS)
 
             firstComponent = DialogPanel(BorderLayout()).apply {
                 border = JBUI.Borders.empty(5)
@@ -197,11 +200,15 @@ class ConanWindowFactory : ToolWindowFactory {
                         }
 
                         secondComponentPanel.removeAll()
-                        secondComponentPanel.add(JBLabel(name).apply {
-                            font = font.deriveFont(Font.BOLD, 18f) // set font size to 18 and bold
-                        }, BorderLayout.NORTH)
 
-                        secondComponentPanel.add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
+                        secondComponentPanel.add(JBLabel(name).apply {
+                            font = font.deriveFont(Font.BOLD, 18f)
+                            alignmentX = Component.LEFT_ALIGNMENT
+                        })
+
+                        val buttonsPanel = JPanel(FlowLayout(FlowLayout.LEFT)).apply {
+                            alignmentX = Component.LEFT_ALIGNMENT
+
                             val comboBox = ComboBox(versionModel)
 
                             add(comboBox)
@@ -240,7 +247,31 @@ class ConanWindowFactory : ToolWindowFactory {
                             val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                             addButton.isVisible = !isRequired
                             removeButton.isVisible = isRequired
-                        })
+                        }
+                        secondComponentPanel.add(buttonsPanel)
+
+                        val htmlContent = """
+                                <html>
+                                <body>
+                                <h1>$name</h1>
+                                <pre>    
+                                "tsl-sparse-map": {
+                                    "cmake_file_name": "tsl-sparse-map",
+                                    "cmake_target_name": "tsl::sparse_map",
+                                    "components": {
+                                        "sparse_map": {
+                                            "cmake_target_name": "tsl::sparse_map"
+                                        }
+                                    }
+                                }
+                                </pre>
+                                </body>
+                                </html>
+                            """.trimIndent()
+
+                        htmlPanel.loadHTML(htmlContent)
+
+                        secondComponentPanel.add(htmlPanel.component)
 
                         secondComponentPanel.revalidate()
                         secondComponentPanel.repaint()
