@@ -32,6 +32,7 @@ import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
 import com.jfrog.conan.clionplugin.dialogs.ConanInspectPackagesDialogWrapper
+import com.jfrog.conan.clionplugin.models.LibrariesTableModel
 import com.jfrog.conan.clionplugin.services.ConanService
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import kotlinx.serialization.decodeFromString
@@ -59,7 +60,7 @@ class ConanWindowFactory : ToolWindowFactory {
     override fun shouldBeAvailable(project: Project) = true
 
     class ConanWindow(toolWindow: ToolWindow, val project: Project) {
-        private val stateService = this.project.service<RemotesDataStateService>()
+        private val stateService = project.service<RemotesDataStateService>()
         private val conanService = project.service<ConanService>()
 
         fun getContent() = OnePixelSplitter(false).apply {
@@ -73,77 +74,11 @@ class ConanWindowFactory : ToolWindowFactory {
             firstComponent = DialogPanel(BorderLayout()).apply {
                 border = JBUI.Borders.empty(5)
                 val searchTextField = SearchTextField()
-
-                val actionGroup = DefaultActionGroup().apply {
-                    add(object : AnAction(
-                        UIBundle.message("toolbar.action.show.dialog.configure"),
-                        null,
-                        AllIcons.General.Settings
-                    ) {
-                        override fun actionPerformed(e: AnActionEvent) {
-                            ConanExecutableDialogWrapper(project).showAndGet()
-                        }
-                    })
-                    add(object :
-                        AnAction(UIBundle.message("toolbar.action.add.conan.support"), null, AllIcons.General.Add) {
-                        override fun actionPerformed(e: AnActionEvent) {
-                            val cmake = CMake(project)
-                            cmake.addConanSupport()
-                        }
-                    })
-                    add(object :
-                        AnAction(UIBundle.message("toolbar.action.update"), null, AllIcons.Actions.Refresh) {
-                        override fun actionPerformed(e: AnActionEvent) {
-
-                            conanService.downloadCMakeProvider(true)
-
-                            Conan(project).list("*") { runOutput ->
-                                if (runOutput.exitCode == 0) {
-                                    val newJson = Json.decodeFromString<RemotesDataStateService.State>(runOutput.stdout)
-                                    stateService.loadState(newJson)
-                                    NotificationGroupManager.getInstance()
-                                        .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
-                                        .createNotification(
-                                            UIBundle.message("update.successful.title"),
-                                            UIBundle.message("update.successful.body"),
-                                            NotificationType.INFORMATION
-                                        )
-                                        .notify(project)
-                                } else {
-                                    NotificationGroupManager.getInstance()
-                                        .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
-                                        .createNotification(
-                                            UIBundle.message("update.error.title"),
-                                            UIBundle.message("update.error.body"),
-                                            NotificationType.ERROR
-                                        )
-                                        .notify(project)
-                                }
-                            }
-                        }
-                    })
-                    add(object : AnAction(
-                        UIBundle.message("toolbar.action.show.used.packages"),
-                        null,
-                        AllIcons.General.InspectionsEye
-                    ) {
-                        override fun actionPerformed(e: AnActionEvent) {
-                            ConanInspectPackagesDialogWrapper(project).showAndGet()
-                        }
-                    })
-                }
-                val actionToolbar = ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true)
-                actionToolbar.targetComponent = this
+                val mainActionToolbar = MainActionToolbar(project).getContent()
+                mainActionToolbar.targetComponent = this
 
                 var recipes: List<Recipe> = listOf()
-                val columnNames = arrayOf(UIBundle.message("libraries.list.table.name"))
-                val dataModel = object : DefaultTableModel(columnNames, 0) {
-                    // By default cells are editable and that's no good. Override the function that tells the UI it is
-                    // TODO: Find the proper configuration for this, this can't be the proper way to make it static
-                    override fun isCellEditable(row: Int, column: Int): Boolean {
-                        return false
-                    }
-                }
+                val dataModel = LibrariesTableModel(0)
                 val versionModel = DefaultComboBoxModel<String>()
 
                 stateService.addStateChangeListener(object : RemotesDataStateService.RemoteDataStateListener {
@@ -264,7 +199,7 @@ class ConanWindowFactory : ToolWindowFactory {
                 add(JBSplitter().apply {
                     firstComponent = searchTextField
                     secondComponent = JPanel(BorderLayout()).apply {
-                        add(actionToolbar.component, BorderLayout.EAST)
+                        add(mainActionToolbar.component, BorderLayout.EAST)
                     }
                 }, BorderLayout.PAGE_START)
                 add(JBScrollPane(packagesTable), BorderLayout.CENTER)
