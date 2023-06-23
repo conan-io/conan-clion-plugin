@@ -66,10 +66,13 @@ class ConanWindowFactory : ToolWindowFactory {
         fun getContent() = OnePixelSplitter(false).apply {
 
             val secondComponentPanel = JBPanelWithEmptyText()
-            val htmlPanel = JCEFHtmlPanel(null)
-            htmlPanel.loadHTML("")
 
             secondComponentPanel.layout = BoxLayout(secondComponentPanel, BoxLayout.Y_AXIS)
+
+            val htmlPanel = JCEFHtmlPanel(null).apply {
+                alignmentX = Component.LEFT_ALIGNMENT
+                loadHTML("")
+            }
 
             firstComponent = DialogPanel(BorderLayout()).apply {
                 border = JBUI.Borders.empty(5)
@@ -250,22 +253,31 @@ class ConanWindowFactory : ToolWindowFactory {
                         }
                         secondComponentPanel.add(buttonsPanel)
 
-                        val recipeUrl = "https://github.com/conan-io/conan-center-index/blob/master/recipes/$name"
-                        val recipeUrlMessage = UIBundle.message(
-                            "library.description.extra.error",
-                            recipeUrl
-                        )
                         val resourceFile = ConanWindowFactory::class.java.classLoader.getResource("conan/targets-data.json")
                         val targetsData = resourceFile?.readText() ?: "{}"
 
                         val script = """
                             function fillExtraData() {
                                 const data = $targetsData
-                                const pre = document.getElementById("pre");
+                                const cpp_info = document.getElementById("cpp_info");
+                                cpp_info.innerText = ""
                                 if ("$name" in data) {
-                                    pre.innerText = JSON.stringify(data["$name"]);
-                                } else {
-                                    pre.innerHtml = '$recipeUrlMessage';
+                                    if ("cmake_file_name" in data["$name"]) {
+                                        cpp_info.innerText += "cmake_file_name: " + data["$name"]["cmake_file_name"] + "\n";
+                                    }
+                                    if ("cmake_target_name" in data["$name"]) {
+                                        cpp_info.innerText += "cmake_target_name: " + data["$name"]["cmake_target_name"] + "\n";
+                                    }
+                                    if ("components" in data["$name"]) {
+                                        cpp_info.innerText += "components: ";
+                                        for (let component in data["$name"]["components"]) {
+                                            cpp_info.innerText += data["$name"]["components"][component]["cmake_target_name"] + "\n";
+                                        }
+                                    }
+                                }
+                                else {
+                                    cpp_info.innerText += "cmake_file_name: $name\n";
+                                    cpp_info.innerText += "cmake_target_name: $name::$name\n";
                                 }
                             }
                         """.trimIndent()
@@ -273,20 +285,28 @@ class ConanWindowFactory : ToolWindowFactory {
                         val htmlContent = """
                             <html>
                             <head>
+                                <style>
+                                    body {
+                                        color: rgb(187, 187, 187);
+                                        font-family: sans-serif;
+                                    }
+                                </style>
                                 <script>
                                     $script
                                 </script>
                             </head>
                             <body onload="fillExtraData()">
-                                <pre id="pre">
-                                </pre>
+                                <div id="cpp_info"></div>
                             </body>
                             </html>
                         """.trimIndent()
 
                         htmlPanel.loadHTML(htmlContent)
 
-                        secondComponentPanel.add(htmlPanel.component)
+                        secondComponentPanel.add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
+                            alignmentX = Component.LEFT_ALIGNMENT
+                            add(htmlPanel.component)
+                        })
 
                         secondComponentPanel.revalidate()
                         secondComponentPanel.repaint()
