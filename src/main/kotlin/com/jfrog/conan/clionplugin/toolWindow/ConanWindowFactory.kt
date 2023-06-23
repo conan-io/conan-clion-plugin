@@ -1,13 +1,6 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.collaboration.ui.selectFirst
-import com.intellij.icons.AllIcons
-import com.intellij.notification.NotificationGroupManager
-import com.intellij.notification.NotificationType
-import com.intellij.openapi.actionSystem.ActionManager
-import com.intellij.openapi.actionSystem.AnAction
-import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
@@ -27,20 +20,13 @@ import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
 import com.jfrog.conan.clionplugin.bundles.UIBundle
-import com.jfrog.conan.clionplugin.cmake.CMake
-import com.jfrog.conan.clionplugin.conan.Conan
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
-import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
-import com.jfrog.conan.clionplugin.dialogs.ConanInspectPackagesDialogWrapper
 import com.jfrog.conan.clionplugin.models.LibrariesTableModel
 import com.jfrog.conan.clionplugin.services.ConanService
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
 import java.awt.BorderLayout
 import java.awt.Component
 import java.awt.FlowLayout
-import java.awt.Font
 import javax.swing.*
 import javax.swing.event.DocumentEvent
 import javax.swing.table.DefaultTableModel
@@ -135,8 +121,8 @@ class ConanWindowFactory : ToolWindowFactory {
 
                         secondComponentPanel.removeAll()
 
-                        secondComponentPanel.add(JBLabel(name).apply {
-                            font = font.deriveFont(Font.BOLD, 18f)
+                        secondComponentPanel.add(JBLabel(packageInfo.getTitleHtml(name)).apply {
+                            //font = font.deriveFont(Font.BOLD, 18f)
                             alignmentX = Component.LEFT_ALIGNMENT
                         })
 

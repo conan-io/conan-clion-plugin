@@ -2,8 +2,32 @@ package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.ide.ui.LafManager
 import com.intellij.ui.jcef.JCEFHtmlPanel
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import java.awt.Color
 import javax.swing.JComponent
+
+
+@Serializable
+data class Library(
+        val description: String,
+        val license: List<String>,
+        val v2: Boolean,
+        val cmake_file_name: String? = null,
+        val cmake_target_name: String? = null,
+        val components: HashMap<String, Component>? = null
+)
+
+@Serializable
+data class Component(
+        val cmake_target_name: String? = null
+)
+
+@Serializable
+data class LibraryData(
+        val libraries: HashMap<String, Library>
+)
 
 class PackageInfoPanel {
     private val htmlPanel = JCEFHtmlPanel(null).apply {
@@ -12,6 +36,12 @@ class PackageInfoPanel {
 
     private val resourceFile = PackageInfoPanel::class.java.classLoader.getResource("conan/targets-data.json")
     private val targetsData = resourceFile?.readText() ?: "{}"
+    private val libraryData = Json.decodeFromString<LibraryData>(targetsData)
+
+    fun getTitleHtml(name: String): String {
+        val description = libraryData.libraries[name]?.description
+        return "<html>&nbsp;<strong><font size='11'>$name</font></strong><br>&nbsp;<font size='4'>$description</font><br><br>"
+    }
 
     fun getScript(name: String): String {
         return """
