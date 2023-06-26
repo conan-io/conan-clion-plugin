@@ -34,6 +34,7 @@ class PackageInfoPanel {
         loadHTML("")
     }
 
+    // The json comes from the output of https://gist.github.com/czoido/5d4ff14a700ed03e674662fd44681289
     private val resourceFile = PackageInfoPanel::class.java.classLoader.getResource("conan/targets-data.json")
     private val targetsData = resourceFile?.readText() ?: "{}"
     private val libraryData = Json.decodeFromString<LibraryData>(targetsData)
@@ -43,7 +44,7 @@ class PackageInfoPanel {
         return "<html>&nbsp;<strong><font size='11'>$name</font></strong><br>&nbsp;<font size='4'>$description</font><br><br>"
     }
 
-    fun getScript(name: String): String {
+    private fun getScript(name: String): String {
         return """
             function fillExtraData() {
                 const data = $targetsData;
