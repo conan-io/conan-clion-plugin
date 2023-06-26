@@ -48,25 +48,22 @@ class PackageInfoPanel {
         return """
             function fillExtraData() {
                 const data = $targetsData;
+                const libraries = data["libraries"]
                 const cpp_info = document.getElementById("cpp_info");
                 cpp_info.innerText = "";
-                if ("$name" in data) {
-                    if ("cmake_file_name" in data["$name"]) {
-                        cpp_info.innerText += "cmake_file_name: " + data["$name"]["cmake_file_name"] + "\n";
+                let cmake_file_name = libraries["$name"]["cmake_file_name"] || "$name";
+                cpp_info.innerText += "cmake_file_name: " + cmake_file_name + "\n";
+
+                let cmake_target_name = libraries["$name"]["cmake_target_name"] || "$name::$name";
+                cpp_info.innerText += "cmake_target_name: " + cmake_target_name + "\n";
+
+                if ("components" in libraries["$name"]) {
+                    cpp_info.innerText += "components: ";
+                    for (let component in libraries["$name"]["components"]) {
+                        let cmake_target_name = libraries["$name"]["cmake_target_name"] || ("$name::" + component);
+                        cpp_info.innerText += "component: " + component + "\n";
+                        cpp_info.innerText += "cmake_target_name: " + cmake_target_name + "\n";
                     }
-                    if ("cmake_target_name" in data["$name"]) {
-                        cpp_info.innerText += "cmake_target_name: " + data["$name"]["cmake_target_name"] + "\n";
-                    }
-                    if ("components" in data["$name"]) {
-                        cpp_info.innerText += "components: ";
-                        for (let component in data["$name"]["components"]) {
-                            cpp_info.innerText += data["$name"]["components"][component]["cmake_target_name"] + "\n";
-                        }
-                    }
-                }
-                else {
-                    cpp_info.innerText += "cmake_file_name: $name\n";
-                    cpp_info.innerText += "cmake_target_name: $name::$name\n";
                 }
             }
         """.trimIndent()
