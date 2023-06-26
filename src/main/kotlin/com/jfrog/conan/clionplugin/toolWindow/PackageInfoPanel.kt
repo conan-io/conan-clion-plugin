@@ -32,6 +32,7 @@ data class LibraryData(
 class PackageInfoPanel {
     private val htmlPanel = JCEFHtmlPanel(null).apply {
         loadHTML("")
+        setOpenLinksInExternalBrowser(true)
     }
 
     // The json comes from the output of https://gist.github.com/czoido/5d4ff14a700ed03e674662fd44681289
@@ -49,21 +50,37 @@ class PackageInfoPanel {
             function fillExtraData() {
                 const data = $targetsData;
                 const libraries = data["libraries"]
-                const cpp_info = document.getElementById("cpp_info");
-                cpp_info.innerText = "";
-                let cmake_file_name = libraries["$name"]["cmake_file_name"] || "$name";
-                cpp_info.innerText += "cmake_file_name: " + cmake_file_name + "\n";
+                const infoDiv = document.getElementById("info");
+                const selected_lib = "$name";
+                infoDiv.innerHTML = "";
 
-                let cmake_target_name = libraries["$name"]["cmake_target_name"] || "$name::$name";
-                cpp_info.innerText += "cmake_target_name: " + cmake_target_name + "\n";
+                let cmake_file_name = libraries[selected_lib]["cmake_file_name"] || selected_lib;
+                let cmake_target_name = libraries[selected_lib]["cmake_target_name"] || selected_lib + "::" + selected_lib;
 
-                if ("components" in libraries["$name"]) {
-                    cpp_info.innerText += "components: ";
-                    for (let component in libraries["$name"]["components"]) {
-                        let cmake_target_name = libraries["$name"]["cmake_target_name"] || ("$name::" + component);
-                        cpp_info.innerText += "component: " + component + "\n";
-                        cpp_info.innerText += "cmake_target_name: " + cmake_target_name + "\n";
+                // Check if the library is not compatible with Conan v2
+                if (libraries[selected_lib]["v2"] == false) {
+                    let warning = "<p><strong>Warning: This library is not compatible with Conan v2. If you need to use this library, please <a href='https://github.com/conan-io/conan-center-index/issues/new?title=Library " + selected_lib + " is not compatible with Conan v2&body=This issue comes from the Clion plugin'>open an issue in Conan Center Index</a>.</strong></p>";
+                    infoDiv.innerHTML += warning;
+                }
+
+                // Using $name with CMake
+                infoDiv.innerHTML += "<h2>Using " + selected_lib + " with CMake</h2>";
+                infoDiv.innerHTML += "<p>To use <strong>" + selected_lib + "</strong> in your own project, you can use the global target for the package in the CMakeLists.txt:";
+
+                infoDiv.innerHTML += "<pre class='code'>cmake_minimum_required(VERSION 3.15)\nproject(myproject CXX)\nfind_package(" + cmake_file_name + ")\nadd_executable(\$\{PROJECT_NAME\} main.cpp)\n# Use the global target\ntarget_link_libraries(\$\{PROJECT_NAME\} " + cmake_target_name + ")</pre>";
+
+                infoDiv.innerHTML += "Please, be aware that this information is generated automatically and it may contain some mistakes. If you have any problem, you can check the <a href='https://github.com/conan-io/conan-center-index/tree/master/recipes/" + selected_lib + "'>upstream recipe</a> to confirm the information. Also, for more detailed information on how to consume Conan packages, please <a href='https://docs.conan.io/2/tutorial/consuming_packages.html'>check the Conan documentation</a>.</p>";
+
+                // Components
+                if ("components" in libraries[selected_lib]) {
+                    infoDiv.innerHTML += "<h2>Declared components for " + selected_lib + "</h2>";
+                    infoDiv.innerHTML += "<p>This library declares components, so you can use the components targets in your project instead of the global target. There are the declared CMake target names for the library's components:<br>";
+                    infoDiv.innerHTML += "<ul>";
+                    for (let component in libraries[selected_lib]["components"]) {
+                        let cmake_target_name = libraries[selected_lib]["components"][component]["cmake_target_name"] || (selected_lib + "::" + component);
+                        infoDiv.innerHTML += "<li>" + component + ": <code>" + cmake_target_name + "</code></li>";
                     }
+                    infoDiv.innerHTML += "</ul></p>";
                 }
             }
         """.trimIndent()
@@ -77,6 +94,9 @@ class PackageInfoPanel {
         <html>
         <head>
             <style>
+                body {
+                    overflow: auto;
+                }
                 $themeStyles
             </style>
             <script>
@@ -84,7 +104,7 @@ class PackageInfoPanel {
             </script>
         </head>
         <body onload="fillExtraData()">
-            <div id="cpp_info"></div>
+            <div id="info"></div>
         </body>
         </html>
     """.trimIndent()
@@ -98,14 +118,31 @@ class PackageInfoPanel {
         val isDarkTheme = lafClassName.contains("Darcula", ignoreCase = true)
         val foregroundColor = if (isDarkTheme) Color(187, 187, 187) else Color(0, 0, 0)
         val backgroundColor = if (isDarkTheme) Color(60, 63, 65) else Color(242, 242, 242)
+        val linkColor = if (isDarkTheme) Color(187, 134, 252) else Color(0, 0, 238) // Puedes cambiar estos valores de color a lo que quieras.
 
         return """
-        body {
-            color: ${toCssColor(foregroundColor)};
-            background-color: ${toCssColor(backgroundColor)};
-            font-family: sans-serif;
-        }
-    """.trimIndent()
+            body {
+                color: ${toCssColor(foregroundColor)};
+                background-color: ${toCssColor(backgroundColor)};
+                font-family: sans-serif;
+            }
+            a {
+                color: ${toCssColor(linkColor)};
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            .code {
+                background-color: ${if (isDarkTheme) "rgb(80, 80, 80)" else "rgb(242, 242, 242)"};
+                padding: 10px;
+                border-radius: 5px;
+                overflow: auto;
+                white-space: pre;
+                line-height: 1.2;
+                font-size: 13px;
+            }
+            """.trimIndent()
     }
 
     private fun toCssColor(color: Color): String {
