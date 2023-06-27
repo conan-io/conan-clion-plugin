@@ -166,7 +166,7 @@ class PackageInfoPanel {
         return "rgb(${color.red}, ${color.green}, ${color.blue})"
     }
 
-    fun getComponent(name: String): JComponent {
+    fun getHTMLPackageInfo(name: String): JComponent {
         htmlPanel.loadHTML(getHtml(name))
         return htmlPanel.component
     }

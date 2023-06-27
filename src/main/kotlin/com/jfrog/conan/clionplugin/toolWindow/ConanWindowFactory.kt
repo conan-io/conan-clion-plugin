@@ -170,11 +170,14 @@ class ConanWindowFactory : ToolWindowFactory {
                         }
                         secondComponentPanel.add(buttonsPanel)
 
-
+                        val scrollPane = JBScrollPane(JPanel().apply {
+                            alignmentX = Component.LEFT_ALIGNMENT
+                            add(packageInfo.getHTMLPackageInfo(name))
+                        }, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
 
                         secondComponentPanel.add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
                             alignmentX = Component.LEFT_ALIGNMENT
-                            add(packageInfo.getComponent(name))
+                            add(scrollPane)
                         })
 
                         secondComponentPanel.revalidate()
