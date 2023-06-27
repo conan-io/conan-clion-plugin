@@ -57,9 +57,8 @@ class PackageInfoPanel {
                 let cmake_file_name = libraries[selected_lib]["cmake_file_name"] || selected_lib;
                 let cmake_target_name = libraries[selected_lib]["cmake_target_name"] || selected_lib + "::" + selected_lib;
 
-                // Check if the library is not compatible with Conan v2
                 if (libraries[selected_lib]["v2"] == false) {
-                    let warning = "<p><strong>Warning: This library is not compatible with Conan v2. If you need to use this library, please <a href='https://github.com/conan-io/conan-center-index/issues/new?title=Library " + selected_lib + " is not compatible with Conan v2&body=This issue comes from the Clion plugin'>open an issue in Conan Center Index</a>.</strong></p>";
+                    let warning = "<div class='warning'><span>&#x26A0;</span> Warning: This library is not compatible with Conan v2. If you need to use this library, please <a href='https://github.com/conan-io/conan-center-index/issues/new?title=Library " + selected_lib + " is not compatible with Conan v2&body=This issue comes from the Clion plugin'>open an issue in Conan Center Index</a>.</div>";
                     infoDiv.innerHTML += warning;
                 }
 
@@ -118,7 +117,8 @@ class PackageInfoPanel {
         val isDarkTheme = lafClassName.contains("Darcula", ignoreCase = true)
         val foregroundColor = if (isDarkTheme) Color(187, 187, 187) else Color(0, 0, 0)
         val backgroundColor = if (isDarkTheme) Color(60, 63, 65) else Color(242, 242, 242)
-        val linkColor = if (isDarkTheme) Color(187, 134, 252) else Color(0, 0, 238) // Puedes cambiar estos valores de color a lo que quieras.
+        val linkColor = if (isDarkTheme) Color(187, 134, 252) else Color(0, 0, 238)
+        val blockColor = if (isDarkTheme) Color(80, 80, 80) else Color(242, 242, 242)
 
         return """
             body {
@@ -134,13 +134,21 @@ class PackageInfoPanel {
                 text-decoration: underline;
             }
             .code {
-                background-color: ${if (isDarkTheme) "rgb(80, 80, 80)" else "rgb(242, 242, 242)"};
+                background-color: ${toCssColor(blockColor)};
                 padding: 10px;
                 border-radius: 5px;
                 overflow: auto;
                 white-space: pre;
                 line-height: 1.2;
                 font-size: 13px;
+            }
+            .warning {
+                background-color: ${toCssColor(blockColor)};
+                padding: 10px;
+                border-radius: 5px;
+                overflow: auto;
+                line-height: 1.2;
+                font-size: 14px;
             }
             """.trimIndent()
     }
