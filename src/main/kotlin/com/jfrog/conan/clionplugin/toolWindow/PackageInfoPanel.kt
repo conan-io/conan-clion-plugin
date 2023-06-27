@@ -42,8 +42,17 @@ class PackageInfoPanel {
 
     fun getTitleHtml(name: String): String {
         val description = libraryData.libraries[name]?.description
-        return "<html>&nbsp;<strong><font size='11'>$name</font></strong><br>&nbsp;<font size='4'>$description</font><br><br>"
+        val licenses = libraryData.libraries[name]?.license
+        var html =  "<html>" +
+                "&nbsp;<strong><font size='11'>$name</font></strong><br>" +
+                "&nbsp;<font size='5'>$description</font>"
+        if (licenses!=null) {
+            html += "<br>&nbsp;<font size='6'>&#x2696;</font>&nbsp;<strong><font size='4'>${licenses.joinToString(", ")}</font></strong>"
+        }
+        html += "<br>"
+        return html
     }
+
 
     private fun getScript(name: String): String {
         return """
