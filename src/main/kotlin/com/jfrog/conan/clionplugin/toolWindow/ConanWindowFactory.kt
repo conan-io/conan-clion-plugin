@@ -1,18 +1,14 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
-import com.intellij.collaboration.ui.selectFirst
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogPanel
-import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.DocumentAdapter
 import com.intellij.ui.JBSplitter
 import com.intellij.ui.OnePixelSplitter
 import com.intellij.ui.SearchTextField
-import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.content.ContentFactory
@@ -25,8 +21,6 @@ import com.jfrog.conan.clionplugin.models.LibrariesTableModel
 import com.jfrog.conan.clionplugin.services.ConanService
 import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import java.awt.BorderLayout
-import java.awt.Component
-import java.awt.FlowLayout
 import javax.swing.*
 import javax.swing.event.DocumentEvent
 import javax.swing.table.DefaultTableModel
@@ -48,6 +42,7 @@ class ConanWindowFactory : ToolWindowFactory {
     class ConanWindow(toolWindow: ToolWindow, val project: Project) {
         private val stateService = project.service<RemotesDataStateService>()
         private val conanService = project.service<ConanService>()
+        private val libraryPanel = LibraryPanel(conanService, PackageInfoPanel())
 
         fun getContent() = OnePixelSplitter(false).apply {
 
@@ -65,7 +60,6 @@ class ConanWindowFactory : ToolWindowFactory {
 
                 var recipes: List<Recipe> = listOf()
                 val dataModel = LibrariesTableModel(0)
-                val versionModel = DefaultComboBoxModel<String>()
 
                 stateService.addStateChangeListener(object : RemotesDataStateService.RemoteDataStateListener {
                     override fun stateChanged(newState: RemotesDataStateService.State?) {
@@ -113,75 +107,8 @@ class ConanWindowFactory : ToolWindowFactory {
 
                         val recipe = recipes.find { it.name == name } ?: throw Exception()
                         val versions = recipe.versions.sortedByDescending(SemVer::parseFromText)
-                        versionModel.apply {
-                            removeAllElements()
-                            addAll(versions)
-                            selectFirst()
-                        }
 
-                        secondComponentPanel.removeAll()
-
-                        secondComponentPanel.add(JBLabel(packageInfo.getTitleHtml(name)).apply {
-                            //font = font.deriveFont(Font.BOLD, 18f)
-                            alignmentX = Component.LEFT_ALIGNMENT
-                        })
-
-                        val buttonsPanel = JPanel(FlowLayout(FlowLayout.LEFT)).apply {
-                            alignmentX = Component.LEFT_ALIGNMENT
-
-                            val comboBox = ComboBox(versionModel)
-
-                            add(comboBox)
-
-
-                            val addButton = JButton(UIBundle.message("library.description.button.install"))
-                            val removeButton = JButton(UIBundle.message("library.description.button.remove"))
-
-                            add(addButton)
-                            add(removeButton)
-
-                            addButton.addActionListener {
-                                conanService.runUseFlow(name, comboBox.selectedItem as String)
-                                val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
-                                addButton.isVisible = !isRequired
-                                removeButton.isVisible = isRequired
-                                Messages.showMessageDialog(
-                                    UIBundle.message("library.added.body", comboBox.selectedItem as String),
-                                    UIBundle.message("library.added.title"),
-                                    Messages.getInformationIcon()
-                                )
-                            }
-
-                            removeButton.addActionListener {
-                                conanService.runRemoveRequirementFlow(name, comboBox.selectedItem as String)
-                                val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
-                                addButton.isVisible = !isRequired
-                                removeButton.isVisible = isRequired
-                                Messages.showMessageDialog(
-                                    UIBundle.message("library.removed.body", comboBox.selectedItem as String),
-                                    UIBundle.message("library.removed.title"),
-                                    Messages.getInformationIcon()
-                                )
-                            }
-
-                            val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
-                            addButton.isVisible = !isRequired
-                            removeButton.isVisible = isRequired
-                        }
-                        secondComponentPanel.add(buttonsPanel)
-
-                        val scrollPane = JBScrollPane(JPanel().apply {
-                            alignmentX = Component.LEFT_ALIGNMENT
-                            add(packageInfo.getHTMLPackageInfo(name))
-                        }, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
-
-                        secondComponentPanel.add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
-                            alignmentX = Component.LEFT_ALIGNMENT
-                            add(scrollPane)
-                        })
-
-                        secondComponentPanel.revalidate()
-                        secondComponentPanel.repaint()
+                        libraryPanel.updatePanel(name, versions)
                     }
                 }
 
@@ -193,10 +120,8 @@ class ConanWindowFactory : ToolWindowFactory {
                 }, BorderLayout.PAGE_START)
                 add(JBScrollPane(packagesTable), BorderLayout.CENTER)
             }
-            secondComponent =
-                secondComponentPanel.apply { withEmptyText(UIBundle.message("library.description.empty")) }
+            secondComponent = libraryPanel.apply { withEmptyText(UIBundle.message("library.description.empty")) }
             proportion = 0.2f
         }
-
     }
 }
