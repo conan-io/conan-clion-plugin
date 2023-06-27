@@ -64,6 +64,11 @@ class MainActionToolbar(val project: Project) {
                     }
                 }
             }
+
+            override fun update(e: AnActionEvent) {
+                e.presentation.isEnabled = conanService.isPluginConfigured()
+                super.update(e)
+            }
         }
     }
 
@@ -76,35 +81,22 @@ class MainActionToolbar(val project: Project) {
             override fun actionPerformed(e: AnActionEvent) {
                 ConanInspectPackagesDialogWrapper(project).showAndGet()
             }
+
+            override fun update(e: AnActionEvent) {
+                e.presentation.isEnabled = conanService.isPluginConfigured()
+                super.update(e)
+            }
         }
     }
 
-
-    private val configureAction = getConfigureAction()
-    private val updateAction = getUpdateAction()
-    private val showUsedPackagesAction = getShowUsedPackagesAction()
-
-
     fun getContent(): ActionToolbar {
         val actionGroup = DefaultActionGroup().apply {
+            val configureAction = getConfigureAction()
+            val updateAction = getUpdateAction()
+            val showUsedPackagesAction = getShowUsedPackagesAction()
             add(configureAction)
-            val conanService = project.service<ConanService>()
-            var shown = false
-            conanService.addOnConfiguredListener("ACTION_TOOLBAR") {
-                if (it) {
-                    if (!shown) {
-                        shown = true
-                        add(updateAction)
-                        add(showUsedPackagesAction)
-                    }
-                } else {
-                    if (shown) {
-                        shown = false
-                        remove(updateAction)
-                        remove(showUsedPackagesAction)
-                    }
-                }
-            }
+            add(updateAction)
+            add(showUsedPackagesAction)
         }
         return ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true).apply {
             component.repaint()
