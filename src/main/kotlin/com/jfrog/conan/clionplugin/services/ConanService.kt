@@ -1,6 +1,8 @@
 package com.jfrog.conan.clionplugin.services
 
+import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.Service
+import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.LocalFileSystem
@@ -8,10 +10,24 @@ import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.extensions.downloadFromUrl
+import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import java.io.File
 
 @Service(Service.Level.PROJECT)
 class ConanService(val project: Project) {
+
+    private val onConfiguredListeners: HashMap<String, (isConfigured: Boolean) -> Unit> = hashMapOf()
+    init {
+
+    }
+
+    fun addOnConfiguredListener(name: String, callback: (isConfigured: Boolean)->Unit) {
+        onConfiguredListeners[name] = callback
+    }
+
+    fun fireOnConfiguredListeners(isConfigured: Boolean) {
+        onConfiguredListeners.forEach { it.value(isConfigured) }
+    }
 
     fun runUseFlow(name: String, version: String) {
         val cmake = CMake(project)
@@ -138,5 +154,11 @@ class ConanService(val project: Project) {
             ConanPluginUtils.writeToFileWithOverwriteComment(targetFile, originalText)
             LocalFileSystem.getInstance().refreshAndFindFileByIoFile(targetFile)
         }
+    }
+
+    fun isPluginConfigured(): Boolean {
+        val properties = project.service<PropertiesComponent>()
+        return properties.isValueSet(PersistentStorageKeys.CONAN_EXECUTABLE) && properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE)
+            ?.isNotEmpty() ?: false
     }
 }

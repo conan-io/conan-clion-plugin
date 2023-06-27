@@ -33,16 +33,6 @@ class MainActionToolbar(val project: Project) {
         }
     }
 
-    private fun getAddConanSupportAction(): AnAction {
-        return object :
-            AnAction(UIBundle.message("toolbar.action.add.conan.support"), null, AllIcons.General.Add) {
-            override fun actionPerformed(e: AnActionEvent) {
-                val cmake = CMake(project)
-                cmake.addConanSupport()
-            }
-        }
-    }
-
     private fun getUpdateAction(): AnAction {
         return object :
             AnAction(UIBundle.message("toolbar.action.update"), null, AllIcons.Actions.Refresh) {
@@ -89,13 +79,35 @@ class MainActionToolbar(val project: Project) {
         }
     }
 
+
+    private val configureAction = getConfigureAction()
+    private val updateAction = getUpdateAction()
+    private val showUsedPackagesAction = getShowUsedPackagesAction()
+
+
     fun getContent(): ActionToolbar {
         val actionGroup = DefaultActionGroup().apply {
-            add(getConfigureAction())
-            add(getAddConanSupportAction())
-            add(getUpdateAction())
-            add(getShowUsedPackagesAction())
+            add(configureAction)
+            val conanService = project.service<ConanService>()
+            var shown = false
+            conanService.addOnConfiguredListener("ACTION_TOOLBAR") {
+                if (it) {
+                    if (!shown) {
+                        shown = true
+                        add(updateAction)
+                        add(showUsedPackagesAction)
+                    }
+                } else {
+                    if (shown) {
+                        shown = false
+                        remove(updateAction)
+                        remove(showUsedPackagesAction)
+                    }
+                }
+            }
         }
-        return ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true)
+        return ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true).apply {
+            component.repaint()
+        }
     }
 }

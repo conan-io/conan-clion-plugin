@@ -13,6 +13,7 @@ import com.intellij.util.ui.JBUI
 import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
+import com.jfrog.conan.clionplugin.services.ConanService
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import javax.swing.BoxLayout
@@ -37,6 +38,7 @@ val VirtualFile.isConanExecutable: Boolean
 
 class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     private val properties = project.service<PropertiesComponent>()
+    private val conanService = project.service<ConanService>()
     private val cmake = CMake(project)
     private val profileCheckboxes: MutableList<JBCheckBox> = mutableListOf()
 
@@ -105,6 +107,20 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             add(fileChooserField1, gbcField)
             add(useConanFromSystemCheckBox, newCheckConstraint)
 
+
+
+            fileChooserField1.addActionListener {
+                val isSystemConanSelected = useConanFromSystemCheckBox.isSelected
+                val isFileChooserNotEmpty = fileChooserField1.text.isNotEmpty()
+                okAction.isEnabled = isSystemConanSelected || isFileChooserNotEmpty
+            }
+
+            useConanFromSystemCheckBox.addActionListener {
+                val isSystemConanSelected = useConanFromSystemCheckBox.isSelected
+                val isFileChooserNotEmpty = fileChooserField1.text.isNotEmpty()
+                okAction.isEnabled = isSystemConanSelected || isFileChooserNotEmpty
+            }
+
             val checkboxPanel = JPanel().apply {
                 layout = BoxLayout(this, BoxLayout.Y_AXIS)
             }
@@ -125,15 +141,14 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             add(checkboxPanel, gbcCheckboxPanel)
             add(automaticallyAddCheckbox, newCheckConstraint)
 
-
-            val automanageCMakeAdvancedSettings = project.service<PropertiesComponent>()
+            val automanageCMakeAdvancedSettings = properties
                 .getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
             val checkboxAdvancedSetting = JBCheckBox(
                 UIBundle.message("config.automanage.cmake.parallel"),
                 automanageCMakeAdvancedSettings
             ).apply {
                 addActionListener {
-                    project.service<PropertiesComponent>()
+                    properties
                         .setValue(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS, isSelected)
                 }
             }
@@ -160,7 +175,8 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 cmake.removeDependencyProviderFromProfile(profileName)
             }
         }
-
+        conanService.fireOnConfiguredListeners(conanService.isPluginConfigured())
         super.doOKAction()
     }
+
 }
