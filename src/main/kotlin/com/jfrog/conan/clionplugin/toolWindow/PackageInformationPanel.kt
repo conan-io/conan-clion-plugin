@@ -10,14 +10,23 @@ import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.services.ConanService
 import java.awt.Component
 import java.awt.FlowLayout
+import java.awt.GridBagConstraints
+import java.awt.GridBagLayout
 import javax.swing.*
 
 
-class LibraryPanel(private val conanService: ConanService, private val packageInfo: PackageInfoPanel) : JBPanelWithEmptyText() {
+class PackageInformationPanel(private val conanService: ConanService, private val readmePanel: ReadmePanel) : JBPanelWithEmptyText() {
     private val versionModel = DefaultComboBoxModel<String>()
 
     init {
-        layout = BoxLayout(this, BoxLayout.Y_AXIS)
+        layout = GridBagLayout()
+        alignmentX = Component.LEFT_ALIGNMENT
+    }
+
+    fun getTitle(name: String): JBLabel {
+        return JBLabel(readmePanel.getTitleHtml(name)).apply {
+            alignmentX = Component.LEFT_ALIGNMENT
+        }
     }
 
     fun updatePanel(name: String, versions: List<String>) {
@@ -29,9 +38,13 @@ class LibraryPanel(private val conanService: ConanService, private val packageIn
         }
         removeAll()
 
-        add(JBLabel(packageInfo.getTitleHtml(name)).apply {
-            alignmentX = Component.LEFT_ALIGNMENT
-        })
+        val c = GridBagConstraints()
+        c.anchor = GridBagConstraints.NORTHWEST
+
+        c.fill = GridBagConstraints.HORIZONTAL
+        c.gridx = 0
+        c.gridy = 0
+        add(getTitle(name), c)
 
         val buttonsPanel = JPanel(FlowLayout(FlowLayout.LEFT)).apply {
             alignmentX = Component.LEFT_ALIGNMENT
@@ -73,17 +86,27 @@ class LibraryPanel(private val conanService: ConanService, private val packageIn
             addButton.isVisible = !isRequired
             removeButton.isVisible = isRequired
         }
-        add(buttonsPanel)
 
-        val scrollPane = JBScrollPane(JPanel().apply {
-            alignmentX = Component.LEFT_ALIGNMENT
-            add(packageInfo.getHTMLPackageInfo(name))
-        }, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
+        c.gridx = 0
+        c.gridy = 1
+        add(buttonsPanel, c)
 
-        add(JPanel(FlowLayout(FlowLayout.LEFT)).apply {
-            alignmentX = Component.LEFT_ALIGNMENT
-            add(scrollPane)
-        })
+        c.fill = GridBagConstraints.BOTH
+        c.weighty = 1.0
+        c.weightx = 1.0
+        c.gridx = 0
+        c.gridy = 2
+
+        val myHtmlPanel = JPanel().apply {
+            add(readmePanel.getHTMLPackageInfo(name))
+        }
+
+        val contentPanel = JPanel(FlowLayout(FlowLayout.LEFT))
+        contentPanel.add(readmePanel.getHTMLPackageInfo(name))
+
+        val scrollPane = JBScrollPane(contentPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
+
+        add(scrollPane, c)
 
         revalidate()
         repaint()

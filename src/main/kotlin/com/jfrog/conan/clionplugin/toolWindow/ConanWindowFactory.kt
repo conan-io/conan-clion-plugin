@@ -42,15 +42,13 @@ class ConanWindowFactory : ToolWindowFactory {
     class ConanWindow(toolWindow: ToolWindow, val project: Project) {
         private val stateService = project.service<RemotesDataStateService>()
         private val conanService = project.service<ConanService>()
-        private val libraryPanel = LibraryPanel(conanService, PackageInfoPanel())
+        private val libraryPanel = PackageInformationPanel(conanService, ReadmePanel())
 
         fun getContent() = OnePixelSplitter(false).apply {
 
             val secondComponentPanel = JBPanelWithEmptyText()
 
             secondComponentPanel.layout = BoxLayout(secondComponentPanel, BoxLayout.Y_AXIS)
-
-            val packageInfo = PackageInfoPanel()
 
             firstComponent = DialogPanel(BorderLayout()).apply {
                 border = JBUI.Borders.empty(5)

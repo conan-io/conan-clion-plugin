@@ -29,14 +29,14 @@ data class LibraryData(
         val libraries: HashMap<String, Library>
 )
 
-class PackageInfoPanel {
+class ReadmePanel {
     private val htmlPanel = JCEFHtmlPanel(null).apply {
         loadHTML("")
         setOpenLinksInExternalBrowser(true)
     }
 
     // The json comes from the output of https://gist.github.com/czoido/5d4ff14a700ed03e674662fd44681289
-    private val resourceFile = PackageInfoPanel::class.java.classLoader.getResource("conan/targets-data.json")
+    private val resourceFile = ReadmePanel::class.java.classLoader.getResource("conan/targets-data.json")
     private val targetsData = resourceFile?.readText() ?: "{}"
     private val libraryData = Json.decodeFromString<LibraryData>(targetsData)
 
