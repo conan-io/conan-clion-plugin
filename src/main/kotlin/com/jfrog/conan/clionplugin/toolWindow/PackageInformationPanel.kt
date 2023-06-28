@@ -97,10 +97,6 @@ class PackageInformationPanel(private val conanService: ConanService, private va
         c.gridx = 0
         c.gridy = 2
 
-        val myHtmlPanel = JPanel().apply {
-            add(readmePanel.getHTMLPackageInfo(name))
-        }
-
         val contentPanel = JPanel(FlowLayout(FlowLayout.LEFT))
         contentPanel.add(readmePanel.getHTMLPackageInfo(name))
 
