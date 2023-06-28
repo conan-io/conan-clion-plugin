@@ -27,7 +27,8 @@ class UsedPackagesPanel {
         names.forEach { name ->
             val nameWithoutVersion = name.substringBefore('/')
             libraryData.libraries[nameWithoutVersion]?.let {
-                filteredLibraryData.libraries[nameWithoutVersion] = it
+                // Almacenar la biblioteca utilizando el nombre completo (incluyendo la versión)
+                filteredLibraryData.libraries[name] = it
             }
         }
 
@@ -47,11 +48,11 @@ class UsedPackagesPanel {
             html += "<ul>";
             
             Object.keys(libraries).forEach(lib_name => {
-                let cmake_file_name = libraries[lib_name]["cmake_file_name"] || lib_name;
-                let cmake_target_name = libraries[lib_name]["cmake_target_name"] || lib_name + "::" + lib_name;
+                let cmake_file_name = libraries[lib_name]["cmake_file_name"] || lib_name.split('/')[0];
+                let cmake_target_name = libraries[lib_name]["cmake_target_name"] || lib_name.split('/')[0] + "::" + lib_name.split('/')[0];
             
                 cmakeFindPackageCommands.push("find_package(" + cmake_file_name + ")");
-                cmakeTargetLinkLibrariesCommand += " " + cmake_target_name;
+                cmakeTargetLinkLibrariesCommand += "\n                      " + cmake_target_name;
             
             
                 html += "<li>" + lib_name;
@@ -59,8 +60,8 @@ class UsedPackagesPanel {
                 let components = ""
                 if ("components" in libraries[lib_name]) {
                     for (let component in libraries[lib_name]["components"]) {
-                        let cmake_target_name = libraries[lib_name]["components"][component]["cmake_target_name"] || (lib_name + "::" + component);
-                        components += ", " + cmake_target_name;
+                        let cmake_target_name = libraries[lib_name]["components"][component]["cmake_target_name"] || (lib_name.split('/')[0] + "::" + component);
+                        components += cmake_target_name + " ";
                     }
                 }
                 
