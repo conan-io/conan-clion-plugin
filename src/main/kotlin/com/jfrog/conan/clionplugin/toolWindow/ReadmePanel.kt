@@ -75,7 +75,7 @@ class ReadmePanel {
                 infoDiv.innerHTML += "<h2>Using " + selected_lib + " with CMake</h2>";
                 infoDiv.innerHTML += "<p>To use <strong>" + selected_lib + "</strong> in your own project, you can use the global target for the package in the CMakeLists.txt:";
 
-                infoDiv.innerHTML += "<pre class='code'>cmake_minimum_required(VERSION 3.15)\nproject(myproject CXX)\nfind_package(" + cmake_file_name + ")\nadd_executable(\$\{PROJECT_NAME\} main.cpp)\n# Use the global target\ntarget_link_libraries(\$\{PROJECT_NAME\} " + cmake_target_name + ")</pre>";
+                infoDiv.innerHTML += "<pre class='code'># First, tell CMake to find the package.\n# Conan will install the packages so that CMake can find it:\n\nfind_package(" + cmake_file_name + ")\n\n# Then, link your executable or library with the corresponding package targets:\n\ntarget_link_libraries(your_exe_or_lib_name " + cmake_target_name + ")</pre>";
 
                 infoDiv.innerHTML += "Please, be aware that this information is generated automatically and it may contain some mistakes. If you have any problem, you can check the <a href='https://github.com/conan-io/conan-center-index/tree/master/recipes/" + selected_lib + "'>upstream recipe</a> to confirm the information. Also, for more detailed information on how to consume Conan packages, please <a href='https://docs.conan.io/2/tutorial/consuming_packages.html'>check the Conan documentation</a>.</p>";
 
