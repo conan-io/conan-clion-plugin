@@ -3,6 +3,7 @@ package com.jfrog.conan.clionplugin.dialogs
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.fileChooser.FileChooserDescriptor
+import com.intellij.openapi.observable.util.whenTextChanged
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
@@ -13,6 +14,7 @@ import com.intellij.util.ui.JBUI
 import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
+import com.jfrog.conan.clionplugin.services.ConanService
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import javax.swing.BoxLayout
@@ -37,10 +39,11 @@ val VirtualFile.isConanExecutable: Boolean
 
 class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     private val properties = project.service<PropertiesComponent>()
+    private val conanService = project.service<ConanService>()
     private val cmake = CMake(project)
     private val profileCheckboxes: MutableList<JBCheckBox> = mutableListOf()
 
-    private val fileChooserField1 = TextFieldWithBrowseButton().apply {
+    private val conanExecutablePathField = TextFieldWithBrowseButton().apply {
         addBrowseFolderListener(
             UIBundle.message("config.file.selector.title"),
             UIBundle.message("config.file.selector.description"),
@@ -51,23 +54,38 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     private val automaticallyAddCheckbox =
         JBCheckBox(UIBundle.message("config.automanage.cmake.integrations")).apply {
-            isSelected = properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true"
+            isSelected = isFirstSetup() || properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true"
         }
 
     private val useConanFromSystemCheckBox = JBCheckBox(UIBundle.message("config.use.system.conan")).apply {
         val conanExe = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
         isSelected = conanExe == "conan"
-        fileChooserField1.text = if (isSelected) "" else properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
-        fileChooserField1.isEnabled = !isSelected
+        conanExecutablePathField.text = if (isSelected) "" else properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
+        conanExecutablePathField.isEnabled = !isSelected
         addActionListener {
-            fileChooserField1.isEnabled = !isSelected
-            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, if (!isSelected) "" else "conan")
+            conanExecutablePathField.isEnabled = !isSelected
         }
     }
+
+    private val checkboxAdvancedSetting = JBCheckBox(
+        UIBundle.message("config.automanage.cmake.parallel"),
+        isFirstSetup() || properties
+            .getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
+    )
 
     init {
         init()
         title = UIBundle.message("config.title")
+    }
+
+    private fun updateOkButtonState() {
+        val isSystemConanSelected = useConanFromSystemCheckBox.isSelected
+        val isFileChooserNotEmpty = conanExecutablePathField.text.isNotEmpty()
+        okAction.isEnabled = isSystemConanSelected || isFileChooserNotEmpty
+    }
+
+    private fun isFirstSetup(): Boolean {
+        return !properties.isValueSet(PersistentStorageKeys.HAS_BEEN_SETUP) || !properties.getBoolean(PersistentStorageKeys.HAS_BEEN_SETUP)
     }
 
     override fun createCenterPanel(): JComponent {
@@ -102,8 +120,21 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             }
 
             add(JBLabel(UIBundle.message("config.executable")), gbcLabel)
-            add(fileChooserField1, gbcField)
+            add(conanExecutablePathField, gbcField)
             add(useConanFromSystemCheckBox, newCheckConstraint)
+
+
+            conanExecutablePathField.addActionListener {
+                updateOkButtonState()
+                updateOkButtonState()
+            }
+            conanExecutablePathField.textField.whenTextChanged {
+                updateOkButtonState()
+            }
+
+            useConanFromSystemCheckBox.addActionListener {
+                updateOkButtonState()
+            }
 
             val checkboxPanel = JPanel().apply {
                 layout = BoxLayout(this, BoxLayout.Y_AXIS)
@@ -114,37 +145,26 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
             }
 
             checkboxPanel.add(configurationsLabel)
+            val firstSetup = isFirstSetup()
 
             cmake.getActiveProfiles().forEach { profile ->
                 val selected = cmake.checkConanUsedInProfile(profile.name)
-                val checkbox = JBCheckBox(profile.name, selected)
+                val checkbox = JBCheckBox(profile.name, firstSetup || selected)
                 profileCheckboxes.add(checkbox)
                 checkboxPanel.add(checkbox)
             }
 
             add(checkboxPanel, gbcCheckboxPanel)
             add(automaticallyAddCheckbox, newCheckConstraint)
-
-
-            val automanageCMakeAdvancedSettings = project.service<PropertiesComponent>()
-                .getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
-            val checkboxAdvancedSetting = JBCheckBox(
-                UIBundle.message("config.automanage.cmake.parallel"),
-                automanageCMakeAdvancedSettings
-            ).apply {
-                addActionListener {
-                    project.service<PropertiesComponent>()
-                        .setValue(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS, isSelected)
-                }
-            }
-
             add(checkboxAdvancedSetting, newCheckConstraint)
+            updateOkButtonState()
         }
     }
 
     override fun doOKAction() {
+        properties.setValue(PersistentStorageKeys.HAS_BEEN_SETUP, true)
         if (!useConanFromSystemCheckBox.isSelected) {
-            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, fileChooserField1.text)
+            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, conanExecutablePathField.text)
         }
         else {
             properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
@@ -160,7 +180,11 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 cmake.removeDependencyProviderFromProfile(profileName)
             }
         }
+        properties
+            .setValue(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS, checkboxAdvancedSetting.isSelected)
+        conanService.fireOnConfiguredListeners(conanService.isPluginConfigured())
 
         super.doOKAction()
     }
+
 }

@@ -18,9 +18,10 @@ internal class ConanCMakeSettingsListener(private val project: Project) : CMakeS
         val properties = project.service<PropertiesComponent>()
         val autoAdd = (properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true")
         if (autoAdd) {
-            current.forEach() { profile ->
-                CMake(project).injectDependencyProviderToProfile(profile.name)
-            }
+            // get only the new profiles
+            current
+                .filter { new -> old.any { new.name == it.name }}
+                .forEach { CMake(project).injectDependencyProviderToProfile(it.name) }
         }
     }
 }

@@ -33,16 +33,6 @@ class MainActionToolbar(val project: Project) {
         }
     }
 
-    private fun getAddConanSupportAction(): AnAction {
-        return object :
-            AnAction(UIBundle.message("toolbar.action.add.conan.support"), null, AllIcons.General.Add) {
-            override fun actionPerformed(e: AnActionEvent) {
-                val cmake = CMake(project)
-                cmake.addConanSupport()
-            }
-        }
-    }
-
     private fun getUpdateAction(): AnAction {
         return object :
             AnAction(UIBundle.message("toolbar.action.update"), null, AllIcons.Actions.Refresh) {
@@ -74,6 +64,11 @@ class MainActionToolbar(val project: Project) {
                     }
                 }
             }
+
+            override fun update(e: AnActionEvent) {
+                e.presentation.isEnabled = conanService.isPluginConfigured()
+                super.update(e)
+            }
         }
     }
 
@@ -86,16 +81,25 @@ class MainActionToolbar(val project: Project) {
             override fun actionPerformed(e: AnActionEvent) {
                 ConanInspectPackagesDialogWrapper(project).showAndGet()
             }
+
+            override fun update(e: AnActionEvent) {
+                e.presentation.isEnabled = conanService.isPluginConfigured()
+                super.update(e)
+            }
         }
     }
 
     fun getContent(): ActionToolbar {
         val actionGroup = DefaultActionGroup().apply {
-            add(getConfigureAction())
-            add(getAddConanSupportAction())
-            add(getUpdateAction())
-            add(getShowUsedPackagesAction())
+            val configureAction = getConfigureAction()
+            val updateAction = getUpdateAction()
+            val showUsedPackagesAction = getShowUsedPackagesAction()
+            add(configureAction)
+            add(updateAction)
+            add(showUsedPackagesAction)
         }
-        return ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true)
+        return ActionManager.getInstance().createActionToolbar("ConanToolbar", actionGroup, true).apply {
+            component.repaint()
+        }
     }
 }

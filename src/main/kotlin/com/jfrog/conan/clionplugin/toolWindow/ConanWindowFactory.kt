@@ -1,6 +1,7 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.collaboration.ui.selectFirst
+import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
@@ -89,15 +90,18 @@ class ConanWindowFactory : ToolWindowFactory {
                     }
                 })
 
+                val isPluginConfigured = conanService.isPluginConfigured()
+
                 val packagesTable = JBTable(dataModel).apply {
                     tableHeader
                     autoCreateRowSorter = true
                     (rowSorter as TableRowSorter<DefaultTableModel>).sortKeys =
                         mutableListOf(RowSorter.SortKey(0, SortOrder.ASCENDING))
+                    isEnabled = isPluginConfigured
                 }
 
-
                 searchTextField.apply {
+                    isEnabled = isPluginConfigured
                     addDocumentListener(object : DocumentAdapter() {
                         override fun textChanged(e: DocumentEvent) {
                             (packagesTable.rowSorter as TableRowSorter<DefaultTableModel>).rowFilter =
@@ -189,10 +193,18 @@ class ConanWindowFactory : ToolWindowFactory {
                     }
                 }, BorderLayout.PAGE_START)
                 add(JBScrollPane(packagesTable), BorderLayout.CENTER)
+
+                conanService.addOnConfiguredListener("TOOL_WINDOW") {
+                    packagesTable.isEnabled = it
+                    searchTextField.textEditor.isEnabled = it
+                    searchTextField.isEnabled = it
+                }
             }
             secondComponent =
                 secondComponentPanel.apply { withEmptyText(UIBundle.message("library.description.empty")) }
             proportion = 0.2f
+
+            conanService.fireOnConfiguredListeners(conanService.isPluginConfigured())
         }
 
     }
