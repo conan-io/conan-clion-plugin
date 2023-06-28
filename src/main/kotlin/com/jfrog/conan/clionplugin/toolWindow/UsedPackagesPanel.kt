@@ -161,7 +161,6 @@ class UsedPackagesPanel {
     }
 
     fun getHTMLUsedPackages(names: List<String>): JComponent {
-        println(getHtml(names))
         htmlPanel.loadHTML(getHtml(names))
         return htmlPanel.component
     }
