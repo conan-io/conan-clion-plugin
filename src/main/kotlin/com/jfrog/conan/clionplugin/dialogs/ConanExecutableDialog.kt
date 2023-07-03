@@ -162,7 +162,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     override fun doOKAction() {
-        val firstSetup = !properties.getBoolean(PersistentStorageKeys.HAS_BEEN_SETUP)
+        val firstSetup = !properties.getBoolean(PersistentStorageKeys.HAS_BEEN_SETUP, false)
 
         properties.setValue(PersistentStorageKeys.HAS_BEEN_SETUP, true)
         if (!useConanFromSystemCheckBox.isSelected) {
