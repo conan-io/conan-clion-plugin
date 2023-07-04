@@ -1,12 +1,15 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.ide.ui.LafManager
+import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.jcef.JCEFHtmlPanel
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.awt.Color
+import java.awt.event.MouseWheelEvent
 import javax.swing.JComponent
+import javax.swing.SwingUtilities
 
 
 @Serializable
@@ -33,6 +36,12 @@ class ReadmePanel {
     private val htmlPanel = JCEFHtmlPanel(null).apply {
         loadHTML("")
         setOpenLinksInExternalBrowser(true)
+    }.also { htmlPanel ->
+        val cefBrowser = htmlPanel.cefBrowser
+        cefBrowser.uiComponent.addMouseWheelListener { e ->
+            val scrollPane = SwingUtilities.getAncestorOfClass(JBScrollPane::class.java, e.component) as? JBScrollPane
+            scrollPane?.dispatchEvent(SwingUtilities.convertMouseEvent(e.component, e, scrollPane))
+        }
     }
 
     // The json comes from the output of https://gist.github.com/czoido/5d4ff14a700ed03e674662fd44681289
