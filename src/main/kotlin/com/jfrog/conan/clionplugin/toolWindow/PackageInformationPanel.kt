@@ -63,6 +63,9 @@ class PackageInformationPanel(private val conanService: ConanService, private va
                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                 addButton.isVisible = !isRequired
                 removeButton.isVisible = isRequired
+                comboBox.isEnabled = false
+                comboBox.setToolTipText(UIBundle.message("library.description.combo.disabled"))
+
                 Messages.showMessageDialog(
                         UIBundle.message("library.added.body", comboBox.selectedItem as String),
                         UIBundle.message("library.added.title"),
@@ -75,6 +78,8 @@ class PackageInformationPanel(private val conanService: ConanService, private va
                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                 addButton.isVisible = !isRequired
                 removeButton.isVisible = isRequired
+                comboBox.isEnabled = true
+                comboBox.setToolTipText(null)
                 Messages.showMessageDialog(
                         UIBundle.message("library.removed.body", comboBox.selectedItem as String),
                         UIBundle.message("library.removed.title"),
@@ -85,6 +90,13 @@ class PackageInformationPanel(private val conanService: ConanService, private va
             val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
             addButton.isVisible = !isRequired
             removeButton.isVisible = isRequired
+            comboBox.isEnabled = !isRequired
+
+            if (isRequired) {
+                comboBox.setToolTipText(UIBundle.message("library.description.combo.disabled"))
+            } else {
+                comboBox.setToolTipText(null)
+            }
         }
 
         c.gridx = 0
