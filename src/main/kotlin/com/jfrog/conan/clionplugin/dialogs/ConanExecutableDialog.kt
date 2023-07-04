@@ -162,6 +162,8 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     override fun doOKAction() {
+        val firstSetup = !properties.getBoolean(PersistentStorageKeys.HAS_BEEN_SETUP, false)
+
         properties.setValue(PersistentStorageKeys.HAS_BEEN_SETUP, true)
         if (!useConanFromSystemCheckBox.isSelected) {
             properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, conanExecutablePathField.text)
@@ -171,6 +173,10 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         }
         val selected = if (automaticallyAddCheckbox.isSelected) "true" else "false"
         properties.setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, selected)
+
+        if (firstSetup) {
+            conanService.downloadCMakeProvider()
+        }
 
         profileCheckboxes.forEach { checkbox ->
             val profileName = checkbox.text

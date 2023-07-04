@@ -11,6 +11,7 @@ import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.extensions.downloadFromUrl
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
+import kotlinx.coroutines.runBlocking
 import java.io.File
 
 @Service(Service.Level.PROJECT)
@@ -55,7 +56,6 @@ class ConanService(val project: Project) {
             file.createNewFile()
             ConanPluginUtils.writeToFileWithOverwriteComment(
                 file, """
-                import os
                 from conan import ConanFile
                 from conan.tools.cmake import cmake_layout, CMakeToolchain
                 
@@ -146,7 +146,10 @@ class ConanService(val project: Project) {
         if (!targetFile.exists() || update && ConanPluginUtils.fileHasOverwriteComment(targetFile)) {
             val tempTargetFile = File(ConanPluginUtils.getPluginHome(), getCMakeProviderFilename())
             tempTargetFile.parentFile.mkdirs()
-            tempTargetFile.downloadFromUrl(cmakeProviderURL)
+            runBlocking {
+                tempTargetFile.downloadFromUrl(cmakeProviderURL)
+            }
+
 
             val originalText = tempTargetFile.readText()
             targetFile.parentFile.mkdirs()

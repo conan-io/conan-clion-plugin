@@ -7,6 +7,6 @@ import com.intellij.openapi.startup.ProjectActivity
 
 class ConanPluginInit : ProjectActivity {
     override suspend fun execute(project: Project) {
-        project.service<ConanService>().downloadCMakeProvider()
+        // Do nothing
     }
 }
