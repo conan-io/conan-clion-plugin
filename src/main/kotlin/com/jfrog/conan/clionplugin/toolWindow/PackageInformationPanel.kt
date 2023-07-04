@@ -93,6 +93,9 @@ class PackageInformationPanel(private val conanService: ConanService, private va
             comboBox.isEnabled = !isRequired
 
             if (isRequired) {
+                val requirement = conanService.getRequirements().find { it.startsWith("$name/") }
+                val version = requirement?.split("/")?.get(1)
+                comboBox.selectedItem = version
                 comboBox.setToolTipText(UIBundle.message("library.description.combo.disabled"))
             } else {
                 comboBox.setToolTipText(null)
