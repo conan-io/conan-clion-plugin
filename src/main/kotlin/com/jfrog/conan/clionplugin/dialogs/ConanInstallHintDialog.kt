@@ -9,6 +9,7 @@ import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import com.jfrog.conan.clionplugin.toolWindow.ReadmePanel
 import java.awt.FlowLayout
+import javax.swing.Action
 import javax.swing.JComponent
 import javax.swing.JPanel
 import javax.swing.JScrollPane
@@ -20,6 +21,16 @@ class ConanInstallHintDialog(val project: Project, val name: String) : DialogWra
     init {
         init()
         title = UIBundle.message("inspect.title")
+    }
+
+    // Remove cancel action
+    override fun createActions(): Array<Action> {
+        val helpAction = helpAction
+        return if (helpAction === myHelpAction && helpId == null) arrayOf(
+            okAction,
+        ) else arrayOf(
+            okAction, helpAction
+        )
     }
 
     override fun createSouthPanel(): JComponent {
