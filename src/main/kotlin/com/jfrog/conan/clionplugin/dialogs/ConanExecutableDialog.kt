@@ -54,13 +54,15 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     private val automaticallyAddCheckbox =
         JBCheckBox(UIBundle.message("config.automanage.cmake.integrations")).apply {
-            isSelected = isFirstSetup() || properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true"
+            isSelected =
+                isFirstSetup() || properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true"
         }
 
     private val useConanFromSystemCheckBox = JBCheckBox(UIBundle.message("config.use.system.conan")).apply {
         val conanExe = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
         isSelected = conanExe == "conan"
-        conanExecutablePathField.text = if (isSelected) "" else properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
+        conanExecutablePathField.text =
+            if (isSelected) "" else properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "")
         conanExecutablePathField.isEnabled = !isSelected
         addActionListener {
             conanExecutablePathField.isEnabled = !isSelected
@@ -85,7 +87,9 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     }
 
     private fun isFirstSetup(): Boolean {
-        return !properties.isValueSet(PersistentStorageKeys.HAS_BEEN_SETUP) || !properties.getBoolean(PersistentStorageKeys.HAS_BEEN_SETUP)
+        return !properties.isValueSet(PersistentStorageKeys.HAS_BEEN_SETUP) || !properties.getBoolean(
+            PersistentStorageKeys.HAS_BEEN_SETUP
+        )
     }
 
     override fun createCenterPanel(): JComponent {
@@ -167,8 +171,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         properties.setValue(PersistentStorageKeys.HAS_BEEN_SETUP, true)
         if (!useConanFromSystemCheckBox.isSelected) {
             properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, conanExecutablePathField.text)
-        }
-        else {
+        } else {
             properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
         }
         val selected = if (automaticallyAddCheckbox.isSelected) "true" else "false"

@@ -18,11 +18,12 @@ import java.io.File
 class ConanService(val project: Project) {
 
     private val onConfiguredListeners: HashMap<String, (isConfigured: Boolean) -> Unit> = hashMapOf()
+
     init {
 
     }
 
-    fun addOnConfiguredListener(name: String, callback: (isConfigured: Boolean)->Unit) {
+    fun addOnConfiguredListener(name: String, callback: (isConfigured: Boolean) -> Unit) {
         onConfiguredListeners[name] = callback
     }
 
@@ -161,7 +162,9 @@ class ConanService(val project: Project) {
 
     fun isPluginConfigured(): Boolean {
         val properties = project.service<PropertiesComponent>()
-        return properties.isValueSet(PersistentStorageKeys.CONAN_EXECUTABLE) && properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE)
+        return properties.isValueSet(PersistentStorageKeys.CONAN_EXECUTABLE) && properties.getValue(
+            PersistentStorageKeys.CONAN_EXECUTABLE
+        )
             ?.isNotEmpty() ?: false
     }
 }

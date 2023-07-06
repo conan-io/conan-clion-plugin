@@ -1,36 +1,16 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.ide.ui.LafManager
+import com.intellij.ui.Gray
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.jcef.JCEFHtmlPanel
-import kotlinx.serialization.Serializable
+import com.jfrog.conan.clionplugin.models.LibraryData
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.awt.Color
-import java.awt.event.MouseWheelEvent
 import javax.swing.JComponent
 import javax.swing.SwingUtilities
 
-
-@Serializable
-data class Library(
-        val description: String,
-        val license: List<String>,
-        val v2: Boolean,
-        val cmake_file_name: String? = null,
-        val cmake_target_name: String? = null,
-        val components: HashMap<String, Component>? = null
-)
-
-@Serializable
-data class Component(
-        val cmake_target_name: String? = null
-)
-
-@Serializable
-data class LibraryData(
-        val libraries: HashMap<String, Library>
-)
 
 class ReadmePanel {
     private val htmlPanel = JCEFHtmlPanel(null).apply {
@@ -52,10 +32,10 @@ class ReadmePanel {
     fun getTitleHtml(name: String): String {
         val description = libraryData.libraries[name]?.description
         val licenses = libraryData.libraries[name]?.license
-        var html =  "<html>" +
+        var html = "<html>" +
                 "&nbsp;<strong><font size='11'>$name</font></strong><br>" +
                 "&nbsp;<font size='5'>$description</font>"
-        if (licenses!=null) {
+        if (licenses != null) {
             html += "<br>&nbsp;<font size='6'>&#x2696;</font>&nbsp;<strong><font size='4'>${licenses.joinToString(", ")}</font></strong>"
         }
         html += "<br>"
@@ -133,10 +113,10 @@ class ReadmePanel {
         val lafClassName = themeScheme.className ?: "com.intellij.ide.ui.laf.intellij.IntelliJLookAndFeel"
         // TODO: make more advanced theme detection?
         val isDarkTheme = lafClassName.contains("Darcula", ignoreCase = true)
-        val foregroundColor = if (isDarkTheme) Color(187, 187, 187) else Color(0, 0, 0)
-        val backgroundColor = if (isDarkTheme) Color(60, 63, 65) else Color(242, 242, 242)
+        val foregroundColor = if (isDarkTheme) Gray._187 else Gray._0
+        val backgroundColor = if (isDarkTheme) Color(60, 63, 65) else Gray._242
         val linkColor = if (isDarkTheme) Color(187, 134, 252) else Color(0, 0, 238)
-        val blockColor = if (isDarkTheme) Color(80, 80, 80) else Color(242, 242, 242)
+        val blockColor = if (isDarkTheme) Gray._80 else Gray._242
 
         return """
             body {

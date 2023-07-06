@@ -20,7 +20,7 @@ internal class ConanCMakeSettingsListener(private val project: Project) : CMakeS
         if (autoAdd) {
             // get only the new profiles
             current
-                .filter { new -> old.any { new.name == it.name }}
+                .filter { new -> old.any { new.name == it.name } }
                 .forEach { CMake(project).injectDependencyProviderToProfile(it.name) }
         }
     }

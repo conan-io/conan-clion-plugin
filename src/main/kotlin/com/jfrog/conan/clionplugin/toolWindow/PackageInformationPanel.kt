@@ -1,21 +1,34 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.collaboration.ui.selectFirst
+import com.intellij.ide.util.PropertiesComponent
+import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.NotificationType
+import com.intellij.openapi.components.service
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
-import com.intellij.openapi.ui.Messages
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
 import com.jfrog.conan.clionplugin.bundles.UIBundle
+import com.jfrog.conan.clionplugin.dialogs.ConanInstallHintDialog
+import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import com.jfrog.conan.clionplugin.services.ConanService
 import java.awt.Component
 import java.awt.FlowLayout
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
-import javax.swing.*
+import javax.swing.DefaultComboBoxModel
+import javax.swing.JButton
+import javax.swing.JPanel
+import javax.swing.JScrollPane
 
 
-class PackageInformationPanel(private val conanService: ConanService, private val readmePanel: ReadmePanel) : JBPanelWithEmptyText() {
+class PackageInformationPanel(
+    private val project: Project,
+    private val conanService: ConanService,
+    private val readmePanel: ReadmePanel
+) : JBPanelWithEmptyText() {
     private val versionModel = DefaultComboBoxModel<String>()
 
     init {
@@ -23,7 +36,7 @@ class PackageInformationPanel(private val conanService: ConanService, private va
         alignmentX = Component.LEFT_ALIGNMENT
     }
 
-    fun getTitle(name: String): JBLabel {
+    private fun getTitle(name: String): JBLabel {
         return JBLabel(readmePanel.getTitleHtml(name)).apply {
             alignmentX = Component.LEFT_ALIGNMENT
         }
@@ -59,32 +72,46 @@ class PackageInformationPanel(private val conanService: ConanService, private va
             add(removeButton)
 
             addButton.addActionListener {
-                conanService.runUseFlow(name, comboBox.selectedItem as String)
+                val selectedVersion = comboBox.selectedItem as String
+                conanService.runUseFlow(name, selectedVersion)
                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                 addButton.isVisible = !isRequired
                 removeButton.isVisible = isRequired
                 comboBox.isEnabled = !isRequired
-                comboBox.setToolTipText(UIBundle.message("library.description.combo.disabled"))
+                comboBox.toolTipText = UIBundle.message("library.description.combo.disabled")
 
-                Messages.showMessageDialog(
-                        UIBundle.message("library.added.body", comboBox.selectedItem as String),
-                        UIBundle.message("library.added.title"),
-                        Messages.getInformationIcon()
-                )
+                val properties = project.service<PropertiesComponent>()
+
+                if (properties.getBoolean(PersistentStorageKeys.DONT_SHOW_FIND_PACKAGE_HINT, false)) {
+                    NotificationGroupManager.getInstance()
+                        .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                        .createNotification(
+                            UIBundle.message("library.added.title"),
+                            UIBundle.message("library.added.body", "$name/$selectedVersion"),
+                            NotificationType.INFORMATION
+                        )
+                        .notify(project)
+                } else {
+                    ConanInstallHintDialog(project, name).show()
+                }
             }
 
             removeButton.addActionListener {
-                conanService.runRemoveRequirementFlow(name, comboBox.selectedItem as String)
+                val selectedVersion = comboBox.selectedItem as String
+                conanService.runRemoveRequirementFlow(name, selectedVersion)
                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                 addButton.isVisible = !isRequired
                 removeButton.isVisible = isRequired
                 comboBox.isEnabled = !isRequired
-                comboBox.setToolTipText(null)
-                Messages.showMessageDialog(
-                        UIBundle.message("library.removed.body", comboBox.selectedItem as String),
+                comboBox.toolTipText = null
+                NotificationGroupManager.getInstance()
+                    .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                    .createNotification(
                         UIBundle.message("library.removed.title"),
-                        Messages.getInformationIcon()
-                )
+                        UIBundle.message("library.removed.body", "$name/$selectedVersion"),
+                        NotificationType.INFORMATION
+                    )
+                    .notify(project)
             }
 
             val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
@@ -115,7 +142,8 @@ class PackageInformationPanel(private val conanService: ConanService, private va
         val contentPanel = JPanel(FlowLayout(FlowLayout.LEFT))
         contentPanel.add(readmePanel.getHTMLPackageInfo(name))
 
-        val scrollPane = JBScrollPane(contentPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
+        val scrollPane =
+            JBScrollPane(contentPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
 
         add(scrollPane, c)
 

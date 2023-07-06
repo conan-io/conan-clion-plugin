@@ -15,6 +15,7 @@ import javax.swing.JScrollPane
 class ConanInspectPackagesDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     private val usedPackagesPanel = UsedPackagesPanel()
+
     init {
         init()
         title = UIBundle.message("inspect.title")
@@ -24,7 +25,11 @@ class ConanInspectPackagesDialogWrapper(val project: Project) : DialogWrapper(tr
         val requirements = project.service<ConanService>().getRequirements()
         val contentPanel = JPanel(FlowLayout(FlowLayout.LEFT))
         contentPanel.add(usedPackagesPanel.getHTMLUsedPackages(requirements))
-        return JBScrollPane(contentPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
+        return JBScrollPane(
+            contentPanel,
+            JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+            JScrollPane.HORIZONTAL_SCROLLBAR_NEVER
+        )
     }
 
 
