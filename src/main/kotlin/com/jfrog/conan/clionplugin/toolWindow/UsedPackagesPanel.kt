@@ -2,6 +2,7 @@ package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.ide.ui.LafManager
 import com.intellij.ui.jcef.JCEFHtmlPanel
+import com.jfrog.conan.clionplugin.models.LibraryData
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
