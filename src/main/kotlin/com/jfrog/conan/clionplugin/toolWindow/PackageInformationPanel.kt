@@ -1,6 +1,10 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.collaboration.ui.selectFirst
+import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.NotificationType
+import com.intellij.openapi.components.service
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.Messages
 import com.intellij.ui.components.JBLabel
@@ -15,15 +19,18 @@ import java.awt.GridBagLayout
 import javax.swing.*
 
 
-class PackageInformationPanel(private val conanService: ConanService, private val readmePanel: ReadmePanel) : JBPanelWithEmptyText() {
+class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyText() {
+    private val readmePanel: ReadmePanel
     private val versionModel = DefaultComboBoxModel<String>()
+    private val conanService: ConanService = project.service<ConanService>()
 
     init {
         layout = GridBagLayout()
         alignmentX = Component.LEFT_ALIGNMENT
+        readmePanel = ReadmePanel()
     }
 
-    fun getTitle(name: String): JBLabel {
+    private fun getTitle(name: String): JBLabel {
         return JBLabel(readmePanel.getTitleHtml(name)).apply {
             alignmentX = Component.LEFT_ALIGNMENT
         }
@@ -59,32 +66,42 @@ class PackageInformationPanel(private val conanService: ConanService, private va
             add(removeButton)
 
             addButton.addActionListener {
-                conanService.runUseFlow(name, comboBox.selectedItem as String)
+                val selectedVersion = comboBox.selectedItem as String
+                conanService.runUseFlow(name, selectedVersion)
                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                 addButton.isVisible = !isRequired
                 removeButton.isVisible = isRequired
                 comboBox.isEnabled = !isRequired
                 comboBox.setToolTipText(UIBundle.message("library.description.combo.disabled"))
 
-                Messages.showMessageDialog(
-                        UIBundle.message("library.added.body", comboBox.selectedItem as String),
-                        UIBundle.message("library.added.title"),
-                        Messages.getInformationIcon()
-                )
+
+                NotificationGroupManager.getInstance()
+                    .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                    .createNotification(
+                        UIBundle.message("library.added.title", "$name/$selectedVersion"),
+                        UIBundle.message("library.added.body"),
+                        NotificationType.INFORMATION
+                    )
+                    .notify(project)
             }
 
             removeButton.addActionListener {
-                conanService.runRemoveRequirementFlow(name, comboBox.selectedItem as String)
+                val selectedVersion = comboBox.selectedItem as String
+                conanService.runRemoveRequirementFlow(name, selectedVersion)
                 val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }
                 addButton.isVisible = !isRequired
                 removeButton.isVisible = isRequired
                 comboBox.isEnabled = !isRequired
                 comboBox.setToolTipText(null)
-                Messages.showMessageDialog(
-                        UIBundle.message("library.removed.body", comboBox.selectedItem as String),
+
+                NotificationGroupManager.getInstance()
+                    .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                    .createNotification(
                         UIBundle.message("library.removed.title"),
-                        Messages.getInformationIcon()
-                )
+                        UIBundle.message("library.removed.body", "$name/$selectedVersion"),
+                        NotificationType.INFORMATION
+                    )
+                    .notify(project)
             }
 
             val isRequired = conanService.getRequirements().any { it.startsWith("$name/") }

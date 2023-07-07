@@ -44,7 +44,7 @@ class ConanWindowFactory : ToolWindowFactory {
     class ConanWindow(toolWindow: ToolWindow, val project: Project) {
         private val stateService = project.service<RemotesDataStateService>()
         private val conanService = project.service<ConanService>()
-        private val libraryPanel = PackageInformationPanel(conanService, ReadmePanel())
+        private val libraryPanel = PackageInformationPanel(project)
 
         fun getContent() = OnePixelSplitter(false).apply {
 

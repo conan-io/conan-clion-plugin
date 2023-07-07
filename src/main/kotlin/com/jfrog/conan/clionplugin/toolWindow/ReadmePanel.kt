@@ -3,34 +3,13 @@ package com.jfrog.conan.clionplugin.toolWindow
 import com.intellij.ide.ui.LafManager
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.jcef.JCEFHtmlPanel
-import kotlinx.serialization.Serializable
+import com.jfrog.conan.clionplugin.models.LibraryData
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.awt.Color
-import java.awt.event.MouseWheelEvent
 import javax.swing.JComponent
 import javax.swing.SwingUtilities
 
-
-@Serializable
-data class Library(
-        val description: String,
-        val license: List<String>,
-        val v2: Boolean,
-        val cmake_file_name: String? = null,
-        val cmake_target_name: String? = null,
-        val components: HashMap<String, Component>? = null
-)
-
-@Serializable
-data class Component(
-        val cmake_target_name: String? = null
-)
-
-@Serializable
-data class LibraryData(
-        val libraries: HashMap<String, Library>
-)
 
 class ReadmePanel {
     private val htmlPanel = JCEFHtmlPanel(null).apply {
