@@ -22,19 +22,23 @@ class ConanCMakeRunnerStep : CMakeRunnerStep {
         val cmakeSettings = CMakeSettings.getInstance(project)
         val profile = cmakeSettings.profiles.find { it.name == profileName }
 
+        val isCMakeParallel = !AdvancedSettings.getBoolean("cmake.reload.profiles.sequentially")
+
         if (project.service<PropertiesComponent>()
                 .getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
         ) {
-            AdvancedSettings.setBoolean("cmake.reload.profiles.sequentially", true)
-            NotificationGroupManager.getInstance()
-                .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
-                .createNotification(
-                    UIBundle.message("cmake.parallel.autoactivated.title"),
-                    UIBundle.message("cmake.parallel.autoactivated.body"),
-                    NotificationType.INFORMATION
-                )
-                .notify(project)
-        } else if (!AdvancedSettings.getBoolean("cmake.reload.profiles.sequentially") && listOf(1).size > 1) {
+            if (isCMakeParallel) {
+                AdvancedSettings.setBoolean("cmake.reload.profiles.sequentially", true)
+                NotificationGroupManager.getInstance()
+                    .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                    .createNotification(
+                        UIBundle.message("cmake.parallel.autoactivated.title"),
+                        UIBundle.message("cmake.parallel.autoactivated.body"),
+                        NotificationType.INFORMATION
+                    )
+                    .notify(project)
+            }
+        } else if (isCMakeParallel && listOf(1).size > 1) {
             NotificationGroupManager.getInstance()
                 .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
                 .createNotification(
