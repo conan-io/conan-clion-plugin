@@ -1,13 +1,17 @@
 package com.jfrog.conan.clionplugin.cmake
 
 import com.intellij.ide.util.PropertiesComponent
+import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
+import com.intellij.openapi.options.advanced.AdvancedSettings
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.model.CMakeConfiguration
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
+import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
 import com.jfrog.conan.clionplugin.services.ConanService
 
@@ -152,5 +156,34 @@ class CMake(val project: Project) {
 
     fun getSelectedBuildConfiguration(): CMakeConfiguration? {
         return CMakeAppRunConfiguration.getSelectedBuildAndRunConfigurations(project)?.buildConfiguration
+    }
+
+    fun handleAdvancedSettings() {
+        val isCMakeParallel = !AdvancedSettings.getBoolean("cmake.reload.profiles.sequentially")
+
+        if (project.service<PropertiesComponent>()
+                .getBoolean(PersistentStorageKeys.AUTOMANAGE_CMAKE_ADVANCED_SETTINGS)
+        ) {
+            if (isCMakeParallel) {
+                AdvancedSettings.setBoolean("cmake.reload.profiles.sequentially", true)
+                NotificationGroupManager.getInstance()
+                    .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                    .createNotification(
+                        UIBundle.message("cmake.parallel.autoactivated.title"),
+                        UIBundle.message("cmake.parallel.autoactivated.body"),
+                        NotificationType.INFORMATION
+                    )
+                    .notify(project)
+            }
+        } else if (isCMakeParallel && listOf(1).size > 1) {
+            NotificationGroupManager.getInstance()
+                .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                .createNotification(
+                    UIBundle.message("cmake.parallel.notactivated.title"),
+                    UIBundle.message("cmake.parallel.notactivated.body"),
+                    NotificationType.WARNING
+                )
+                .notify(project)
+        }
     }
 }

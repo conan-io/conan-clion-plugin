@@ -29,6 +29,7 @@ class MainActionToolbar(val project: Project) {
         ) {
             override fun actionPerformed(e: AnActionEvent) {
                 ConanExecutableDialogWrapper(project).showAndGet()
+                CMake(project).handleAdvancedSettings()
             }
         }
     }
