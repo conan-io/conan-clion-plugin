@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - develop2
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: /home/conan
+
+jobs:
+  gen_packages_info:
+    runs-on: ubuntu-latest
+    container:
+      image: conanio/gcc11-ubuntu18.04
+    env:
+      CONAN_HOME: /home/conan/tmp
+    steps:
+
+      - name: Check out repository code
+        uses: rodrigorodriguescosta/checkout@1d64c0a4a695ff5edb95596c11b430050668c83f  # FIXME: Not using actions/checkout just because of 'https://github.com/actions/checkout/pull/388'
+        with:
+          path: /home/conan/clion-plugin
+
+      - name: Configure Conan
+        run: |
+          pip install conan --upgrade
+          conan --version
+          pip install -r clion-plugin/.ci/requirements.txt
+          conan profile detect
+      - name: Run the script
+        run: |
+          git clone https://github.com/conan-io/conan-center-index tmp/conan-center-index
+          cd clion-plugin/.ci
+          python crawl.py > ../src/main/resources/conan/targets-data.json
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --local user.name "$GITHUB_ACTOR"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+          git add ../src/main/resources/conan/targets-data.json
+          git commit -m "update targets-data.json"
+          git push origin develop2
