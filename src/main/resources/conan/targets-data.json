@@ -9050,7 +9050,7 @@
             "cmake_module_target_name": "Yder::Yder-static",
             "pkg_config_name": "libyder",
             "cmake_build_modules": [
-                "/home/conan/tmp/p/b/yderbd34930fdc2de/p/lib/cmake/conan-official-yder-variables.cmake"
+                "/home/conan/tmp/p/b/yder7b2c066af7e3a/p/lib/cmake/conan-official-yder-variables.cmake"
             ]
         },
         "charls": {
@@ -20503,7 +20503,7 @@
             "cmake_target_name": "Ulfius::Ulfius-static",
             "pkg_config_name": "libulfius",
             "cmake_build_modules": [
-                "/home/conan/tmp/p/b/ulfiu3e4b2fe1b8bfa/p/lib/cmake/conan-official-ulfius-variables.cmake"
+                "/home/conan/tmp/p/b/ulfiu3f7de1295d87e/p/lib/cmake/conan-official-ulfius-variables.cmake"
             ]
         },
         "libucl": {
