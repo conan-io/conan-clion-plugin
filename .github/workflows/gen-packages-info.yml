@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - generate-packages-info
+      - main
   workflow_dispatch:
 
 defaults:
@@ -38,4 +38,4 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
           git add ../src/main/resources/conan/targets-data.json
           git commit -m "update targets-data.json"
-          git push origin generate-packages-info
+          git push origin main
