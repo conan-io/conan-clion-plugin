@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - develop2
   workflow_dispatch:
 
 defaults:
@@ -38,4 +38,4 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
           git add ../src/main/resources/conan/targets-data.json
           git commit -m "update targets-data.json"
-          git push origin main
+          git push origin develop2
