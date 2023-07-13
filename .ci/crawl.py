@@ -12,7 +12,7 @@ from repo_crawler import get_all_recipes
 def main():
     conan_api = ConanAPI()
 
-    root_dir = '../tmp/conan-center-index/recipes'
+    root_dir = '../../tmp/conan-center-index/recipes'
 
     # define which packages will get the information via a Conan install
     # these should be packages that have complex package_info() methods
