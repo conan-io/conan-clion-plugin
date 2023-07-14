@@ -31,9 +31,6 @@ def main(recipes_dir, input_json_path, output_json_path):
 
     # get basic recipe information, like name, description, topics...
     for recipe_name, recipe_path, all_versions in recipes:
-        packages_info[recipe_name] = {}
-        packages_info[recipe_name]["versions"] = all_versions
-
         # we check the timestamp of the cloned recipe
         # if the timestamp is newer than the stored timestamp in the json
         # we try to get the data, otherwise, we just leave the data of the current json
@@ -47,9 +44,11 @@ def main(recipes_dir, input_json_path, output_json_path):
         # if the cloned recipe is older or we stay with our data
         if current_timestamp and current_timestamp >= timestamp:
             packages_info[recipe_name] = current_recipe_info
+            # we always update the versions, maybe the config.yml was updated but not the recipe
+            packages_info[recipe_name]["versions"] = all_versions
             continue
             
-        packages_info[recipe_name] = {"timestamp": timestamp}
+        packages_info[recipe_name] = {"timestamp": timestamp, "versions": all_versions}
 
         # we only fill info for latest version
         latest_version = all_versions[0]
