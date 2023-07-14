@@ -1,10 +1,19 @@
 import os
+import subprocess
 
 import yaml
 
 
+def get_recipe_last_modify(recipe_path):
+    command = f'git --no-pager log -1 --pretty=format:%cd --date=unix -- {recipe_path}'
+    result = subprocess.run(command, shell=True, capture_output=True, text=True)
+    out = result.stdout
+    return int(out.strip())
+
+
 def get_all_recipes(root_dir):
     ret = []
+    recipes = []
     for dirpath, dirnames, filenames in os.walk(root_dir):
         if 'config.yml' in filenames:
             recipe_name = os.path.basename(dirpath)
@@ -20,5 +29,17 @@ def get_all_recipes(root_dir):
 
             recipe_path = os.path.join(dirpath, recipe_folder, "conanfile.py")
 
-            ret.append((recipe_name, recipe_path, all_versions))
+            recipes.append((recipe_name, recipe_path, all_versions))
+
+    old_path = os.getcwd()
+    os.chdir(root_dir)
+    print("getting timestamps from repository")
+    total = len(recipes)
+    for i, (recipe_name, recipe_path, all_versions) in enumerate(recipes):
+        relative_path = os.path.relpath(recipe_path, root_dir)
+        timestamp = get_recipe_last_modify(relative_path)
+        ret.append((recipe_name, recipe_path, all_versions, timestamp))
+        print(f"Processed {recipe_path} ({i + 1}/{total})")
+    os.chdir(old_path)
+
     return ret

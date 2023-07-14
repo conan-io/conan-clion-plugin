@@ -1,19 +1,7 @@
 import ast
-import os
-import subprocess
 
 import astunparse
 
-
-def get_recipe_last_modify(recipe_path):
-    old_path = os.getcwd()
-    os.chdir(os.path.dirname(recipe_path))
-    command = f'git --no-pager log -1 --pretty=format:%cd --date=unix -- conanfile.py'
-    result = subprocess.run(command, shell=True, capture_output=True, text=True)
-    out = result.stdout
-    os.chdir(old_path)
-    return int(out.strip())
-            
 
 def parse_recipe_info(conanfile):
     tree = ast.parse(conanfile)

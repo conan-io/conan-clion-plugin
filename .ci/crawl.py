@@ -6,7 +6,7 @@ from conan.api.conan_api import ConanAPI
 from conans.errors import ConanException
 
 from conan_helper import get_package_info_with_install, get_basic_info_with_inspect
-from recipe_parser import get_package_info_from_recipe, get_basic_info_from_recipe, get_recipe_last_modify
+from recipe_parser import get_package_info_from_recipe, get_basic_info_from_recipe
 from repo_crawler import get_all_recipes
 
 
@@ -32,7 +32,7 @@ def main(recipes_dir, input_json_path, output_json_path):
     skipped = 0
 
     # get basic recipe information, like name, description, topics...
-    for recipe_name, recipe_path, all_versions in recipes:
+    for recipe_name, recipe_path, all_versions, timestamp in recipes:
         # we check the timestamp of the cloned recipe
         # if the timestamp is newer than the stored timestamp in the json
         # we try to get the data, otherwise, we just leave the data of the current json
@@ -40,8 +40,6 @@ def main(recipes_dir, input_json_path, output_json_path):
         current_recipe_info = packages_info_current.get(recipe_name)
         if current_recipe_info:
             current_timestamp = current_recipe_info.get("timestamp")
-
-        timestamp = get_recipe_last_modify(recipe_path)
 
         # if the cloned recipe is older or we stay with our data
         if current_timestamp and current_timestamp >= timestamp:
