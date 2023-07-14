@@ -37,5 +37,9 @@ jobs:
           git config --local user.name "$GITHUB_ACTOR"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
           git add ../src/main/resources/conan/targets-data.json
-          git commit -m "update targets-data.json"
-          git push origin develop2
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit"
+          else
+            git commit -m "update targets-data.json"
+            git push origin develop2
+          fi
