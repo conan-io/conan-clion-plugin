@@ -29,6 +29,8 @@ def main(recipes_dir, input_json_path, output_json_path):
 
     packages_info = {}
 
+    skipped = 0
+
     # get basic recipe information, like name, description, topics...
     for recipe_name, recipe_path, all_versions in recipes:
         # we check the timestamp of the cloned recipe
@@ -46,8 +48,11 @@ def main(recipes_dir, input_json_path, output_json_path):
             packages_info[recipe_name] = current_recipe_info
             # we always update the versions, maybe the config.yml was updated but not the recipe
             packages_info[recipe_name]["versions"] = all_versions
+            skipped = skipped + 1
+            print(f"skip ({skipped}): {recipe_name}", file=sys.stderr)
             continue
-            
+
+        print(f"processing: {recipe_name}", file=sys.stderr)
         packages_info[recipe_name] = {"timestamp": timestamp, "versions": all_versions}
 
         # we only fill info for latest version
