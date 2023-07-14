@@ -42,19 +42,26 @@ def get_package_info_with_install(conan_api, recipe_name, recipe_version):
         conan_api.install.install_consumer(deps_graph=deps_graph,
                                            source_folder=os.path.join(os.getcwd(), "tmp"))
 
+        # we just want info about cmake_target_name or cmake_file_name
+        def _filter_info(info):
+            for key in list(info.keys()):
+                if key not in ['cmake_file_name', 'cmake_target_name']:
+                    del info[key]
+            return info
+
         nodes = deps_graph.serialize()["nodes"]
-        for id, node_info in nodes.items():
+        for _, node_info in nodes.items():
             if requires in node_info.get("ref"):
                 cpp_info = node_info.get("cpp_info")
                 for component_name, component_info in cpp_info.items():
                     properties = component_info.get("properties")
                     if properties:
                         if component_name == "root":
-                            properties_info.update(properties)
+                            properties_info.update(_filter_info(properties))
                         elif not component_name.startswith("_"):
                             if not properties_info.get("components"):
                                 properties_info["components"] = {}
-                            properties_info["components"][component_name] = properties
+                            properties_info["components"][component_name] = _filter_info(properties)
                 break
 
         err = False

@@ -3,3 +3,5 @@
 .qodana
 build
 .DS_Store
+*.pyc
+.ci/tmp/*

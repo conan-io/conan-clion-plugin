@@ -1,18 +1,22 @@
 import json
 import sys
+import argparse
 
 from conan.api.conan_api import ConanAPI
 from conans.errors import ConanException
 
 from conan_helper import get_package_info_with_install, get_basic_info_with_inspect
-from recipe_parser import get_package_info_from_recipe, get_basic_info_from_recipe
+from recipe_parser import get_package_info_from_recipe, get_basic_info_from_recipe, get_recipe_last_modify
 from repo_crawler import get_all_recipes
 
 
-def main():
-    conan_api = ConanAPI()
+def main(recipes_dir, json_path):
 
-    root_dir = '../../tmp/conan-center-index/recipes'
+    with open(json_path, 'r') as f:
+        current_data = json.load(f)
+    packages_info_current = current_data["libraries"]
+
+    conan_api = ConanAPI()
 
     # define which packages will get the information via a Conan install
     # these should be packages that have complex package_info() methods
@@ -21,7 +25,7 @@ def main():
 
     failed_references = []
 
-    recipes = get_all_recipes(root_dir)
+    recipes = get_all_recipes(recipes_dir)
 
     packages_info = {}
 
@@ -29,6 +33,23 @@ def main():
     for recipe_name, recipe_path, all_versions in recipes:
         packages_info[recipe_name] = {}
         packages_info[recipe_name]["versions"] = all_versions
+
+        # we check the timestamp of the cloned recipe
+        # if the timestamp is newer than the stored timestamp in the json
+        # we try to get the data, otherwise, we just leave the data of the current json
+        current_timestamp = None
+        current_recipe_info = packages_info_current.get(recipe_name)
+        if current_recipe_info:
+            current_timestamp = current_recipe_info.get("timestamp")
+
+        timestamp = get_recipe_last_modify(recipe_path)
+
+        # if the cloned recipe is older or we stay with our data
+        if current_timestamp and current_timestamp >= timestamp:
+            packages_info[recipe_name] = current_recipe_info
+            continue
+            
+        packages_info[recipe_name] = {"timestamp": timestamp}
 
         # we only fill info for latest version
         latest_version = all_versions[0]
@@ -73,4 +94,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description='Get Conan Center packages information.')
+    parser.add_argument('recipes_dir', help='Directory where conan center index recipes folder is located.')
+    parser.add_argument('json_path', help='Path to the json with packages information.')
+    args = parser.parse_args()
+    main(args.recipes_dir, args.json_path)
