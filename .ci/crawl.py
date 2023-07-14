@@ -49,10 +49,10 @@ def main(recipes_dir, input_json_path, output_json_path):
             # we always update the versions, maybe the config.yml was updated but not the recipe
             packages_info[recipe_name]["versions"] = all_versions
             skipped = skipped + 1
-            print(f"skip ({skipped}): {recipe_name}", file=sys.stderr)
+            print(f"skip ({skipped}): {recipe_name}")
             continue
 
-        print(f"processing: {recipe_name}", file=sys.stderr)
+        print(f"processing: {recipe_name}")
         packages_info[recipe_name] = {"timestamp": timestamp, "versions": all_versions}
 
         # we only fill info for latest version
@@ -76,7 +76,7 @@ def main(recipes_dir, input_json_path, output_json_path):
                       file=sys.stderr)
                 use_conan_install = True
         else:
-            print(f"forcing: {recipe_name}", file=sys.stderr)
+            print(f"forcing: {recipe_name}")
             use_conan_install = True
 
         if use_conan_install:
@@ -91,9 +91,9 @@ def main(recipes_dir, input_json_path, output_json_path):
     with open(output_json_path, 'w') as f:
         json.dump(json_data, f, indent=4)
 
-    print("####################", file=sys.stderr)
-    print("Total failures:", len(failed_references), failed_references, file=sys.stderr)
-    print("####################", file=sys.stderr)
+    print("####################")
+    print("Total failures:", len(failed_references), failed_references)
+    print("####################")
 
     return
 
