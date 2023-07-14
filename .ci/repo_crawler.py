@@ -5,7 +5,8 @@ import yaml
 
 
 def get_recipe_last_modify(recipe_path):
-    command = f'git --no-pager log -1 --pretty=format:%cd --date=unix -- {recipe_path}'
+    command = f'git --no-pager rev-list -1 HEAD -- {recipe_path} | xargs -I {{}} git --no-pager show -s --pretty=format:%cd --date=unix {{}}'
+    #command = f'git --no-pager log -1 --pretty=format:%cd --date=unix -- {recipe_path}'
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     out = result.stdout
     return int(out.strip())
