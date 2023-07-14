@@ -14,7 +14,7 @@ import javax.swing.JScrollPane
 
 class ConanInspectPackagesDialogWrapper(val project: Project) : DialogWrapper(true) {
 
-    private val usedPackagesPanel = UsedPackagesPanel()
+    private val usedPackagesPanel = UsedPackagesPanel(project)
     init {
         init()
         title = UIBundle.message("inspect.title")

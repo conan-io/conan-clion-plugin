@@ -25,10 +25,6 @@
     </extensions>
 
     <projectListeners>
-        <listener
-                class="com.jfrog.conan.clionplugin.listeners.ConanToolWindowManagerListener"
-                topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
-
         <listener class="com.jfrog.conan.clionplugin.listeners.ConanCMakeSettingsListener"
                   topic="com.jetbrains.cidr.cpp.cmake.CMakeSettingsListener"/>
     </projectListeners>

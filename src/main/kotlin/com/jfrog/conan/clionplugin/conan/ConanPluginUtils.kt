@@ -1,5 +1,7 @@
 package com.jfrog.conan.clionplugin.conan
 
+import com.intellij.openapi.project.Project
+import com.jfrog.conan.clionplugin.models.LibraryData
 import java.io.File
 import java.nio.file.Paths
 
@@ -22,4 +24,6 @@ object ConanPluginUtils {
     fun writeToFileWithOverwriteComment(file: File, content: String) {
         file.writeText("$OVERWRITE_HEADER\n$content")
     }
+
+
 }

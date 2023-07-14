@@ -1,83 +1,166 @@
 {
     "libraries": {
-        "edlib": {
-            "description": "Lightweight, super fast C/C++ (& Python) library for sequence alignment using edit (Levenshtein) distance.",
-            "license": [
-                "MIT"
+        "boolean-lite": {
+            "versions": [
+                "0.1.0"
             ],
-            "v2": true,
-            "cmake_file_name": "edlib",
-            "cmake_target_name": "edlib::edlib"
-        },
-        "gcem": {
-            "description": "A C++ compile-time math library using generalized constant expressions.",
-            "license": [
-                "Apache-2.0"
-            ],
-            "v2": true,
-            "cmake_file_name": "gcem",
-            "cmake_target_name": "gcem"
-        },
-        "tinycthread": {
-            "description": "Small, portable implementation of the C11 threads API",
-            "license": [
-                "Zlib"
-            ],
-            "v2": true
-        },
-        "libiberty": {
-            "description": "A collection of subroutines used by various GNU programs",
-            "license": [
-                "LGPL-2.1"
-            ],
-            "v2": true
-        },
-        "at-spi2-atk": {
-            "description": "library that bridges ATK to At-Spi2 D-Bus service.",
-            "license": [
-                "LGPL-2.1-or-later"
-            ],
-            "v2": false
-        },
-        "gtsam": {
-            "description": "GTSAM is a library of C++ classes that implementsmoothing and mapping (SAM) in robotics and vision",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "v2": true,
-            "cmake_file_name": "GTSAM",
-            "components": {
-                "libgtsam": {
-                    "cmake_target_name": "gtsam"
-                }
-            }
-        },
-        "boost-ext-ut": {
-            "description": "C++20 single header/single module, macro-free micro Unit Testing Framework",
+            "description": "boolean lite - A strong boolean type for C++98 and later in a single-file header-only library",
             "license": [
                 "BSL-1.0"
             ],
             "v2": true,
-            "cmake_file_name": "ut"
+            "cmake_file_name": "boolean-lite",
+            "cmake_target_name": "nonstd::boolean-lite",
+            "components": {
+                "booleanlite": {
+                    "cmake_target_name": "nonstd::boolean-lite"
+                }
+            }
         },
-        "wiringpi": {
-            "description": "GPIO Interface library for the Raspberry Pi",
+        "readline": {
+            "versions": [
+                "8.0",
+                "8.1.2"
+            ],
+            "description": "A set of functions for use by applications that allow users to edit command lines as they are typed in",
             "license": [
-                "LGPL-3.0"
+                "GPL-3.0-only"
             ],
             "v2": true
         },
-        "mosquitto": {
-            "description": "Eclipse Mosquitto MQTT library, broker and more",
+        "quickfast": {
+            "versions": [
+                "1.5",
+                "cci.20170314"
+            ],
+            "description": "QuickFAST is an Open Source native C++ implementation of the FAST Protocol",
             "license": [
-                "EPL-2.0"
+                "BSD-3-Clause"
+            ],
+            "v2": false
+        },
+        "open62541": {
+            "versions": [
+                "1.3.4",
+                "1.3.1",
+                "1.2.6",
+                "1.2.4",
+                "1.2.2",
+                "1.1.6",
+                "1.1.5",
+                "1.1.3",
+                "1.0.6",
+                "1.0.3"
+            ],
+            "description": "open62541 is an open source and free implementation of OPC UA (OPC Unified Architecture) written in the common subset of the C99 and C++98 languages. The library is usable with all major compilers and provides the necessary tools to implement dedicated OPC UA clients and servers, or to integrate OPC UA-based communication into existing applications. open62541 library is platform independent. All platform-specific functionality is implemented via exchangeable plugins. Plugin implementations are provided for the major operating systems.",
+            "license": [
+                "MPLv2"
+            ],
+            "v2": true
+        },
+        "libui": {
+            "versions": [
+                "0.4.1"
+            ],
+            "description": "Simple and portable GUI library in C that uses the native GUI technologies of each platform it supports.",
+            "license": [
+                "MIT"
+            ],
+            "v2": false
+        },
+        "backward-cpp": {
+            "versions": [
+                "1.6",
+                "1.5",
+                "1.4"
+            ],
+            "description": "A beautiful stack trace pretty printer for C++",
+            "license": [
+                "MIT"
             ],
             "v2": true,
+            "cmake_file_name": "Backward",
+            "cmake_target_name": "Backward::Backward"
+        },
+        "gst-plugins-good": {
+            "versions": [
+                "1.19.1"
+            ],
+            "description": "GStreamer is a development framework for creating applications like media players, video editors, streaming media broadcasters and so on",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "v2": false
+        },
+        "arrow": {
+            "versions": [
+                "12.0.0",
+                "11.0.0",
+                "10.0.1",
+                "10.0.0",
+                "8.0.1",
+                "8.0.0",
+                "7.0.0",
+                "2.0.0",
+                "1.0.0"
+            ],
+            "description": "Apache Arrow is a cross-language development platform for in-memory data",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "cmake_file_name": "Arrow",
             "components": {
-                "libmosquitto": {}
+                "libarrow": {}
             }
         },
+        "pango": {
+            "versions": [
+                "1.48.9",
+                "1.49.3",
+                "1.50.7",
+                "1.50.8",
+                "1.50.10"
+            ],
+            "description": "Internationalized text layout and rendering library",
+            "license": [
+                "LGPL-2.0-and-later"
+            ],
+            "v2": false
+        },
+        "kangaru": {
+            "versions": [
+                "4.3.0",
+                "4.2.4"
+            ],
+            "description": "A dependency injection container for C++11, C++14 and later",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "cmake_file_name": "kangaru",
+            "cmake_target_name": "kangaru"
+        },
+        "llvm-openmp": {
+            "versions": [
+                "12.0.1",
+                "11.1.0",
+                "10.0.0",
+                "9.0.1",
+                "8.0.1"
+            ],
+            "description": "The OpenMP (Open Multi-Processing) specification is a standard for a set of compiler directives, library routines, and environment variables that can be used to specify shared memory parallelism in Fortran and C/C++ programs. This is the LLVM implementation.",
+            "license": [
+                "Apache-2.0 WITH LLVM-exception"
+            ],
+            "v2": false,
+            "cmake_file_name": "OpenMP",
+            "cmake_target_name": "OpenMP::OpenMP"
+        },
         "litehtml": {
+            "versions": [
+                "cci.20211028"
+            ],
             "description": "litehtml is the lightweight HTML rendering engine with CSS2/CSS3 support.",
             "license": [
                 "BSD-3-Clause"

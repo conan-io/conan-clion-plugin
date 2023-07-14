@@ -1,9 +1,12 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
 import com.intellij.ide.ui.LafManager
+import com.intellij.openapi.components.service
+import com.intellij.openapi.project.Project
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.jcef.JCEFHtmlPanel
 import com.jfrog.conan.clionplugin.models.LibraryData
+import com.jfrog.conan.clionplugin.services.ConanService
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.awt.Color
@@ -11,7 +14,7 @@ import javax.swing.JComponent
 import javax.swing.SwingUtilities
 
 
-class ReadmePanel {
+class ReadmePanel(val project: Project) {
     private val htmlPanel = JCEFHtmlPanel(null).apply {
         loadHTML("")
         setOpenLinksInExternalBrowser(true)
@@ -23,10 +26,8 @@ class ReadmePanel {
         }
     }
 
-    // The json comes from the output of https://gist.github.com/czoido/5d4ff14a700ed03e674662fd44681289
-    private val resourceFile = ReadmePanel::class.java.classLoader.getResource("conan/targets-data.json")
-    private val targetsData = resourceFile?.readText() ?: "{}"
-    private val libraryData = Json.decodeFromString<LibraryData>(targetsData)
+    private val targetsData = project.service<ConanService>().getTargetData()
+    private val libraryData = project.service<ConanService>().getLibraryData()
 
     fun getTitleHtml(name: String): String {
         val description = libraryData.libraries[name]?.description
