@@ -61,8 +61,6 @@ class ConanWindowFactory : ToolWindowFactory {
                     dataModel.rowCount = 0
                     recipes = listOf()
 
-                    // conancenter has one entry per recipe version, this collates all versions into 1 recipe object,
-                    // with a versions list of each of the existing ones
                     recipes = newState.libraries
                         .flatMap {
                             dataModel.addRow(arrayOf(it.key))
