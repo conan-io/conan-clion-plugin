@@ -13883,6 +13883,17 @@
                 "cci.20210404"
             ]
         },
+        "scip": {
+            "timestamp": 1689323160,
+            "versions": [
+                "8.0.3"
+            ],
+            "description": "SCIP mixed integer (nonlinear) programming solver",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true
+        },
         "cpp-peglib": {
             "timestamp": 1676184430,
             "description": "A single file C++11 header-only PEG (Parsing Expression Grammars) library.",
