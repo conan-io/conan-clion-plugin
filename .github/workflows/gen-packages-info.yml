@@ -32,7 +32,7 @@ jobs:
         run: |
           git clone https://github.com/conan-io/conan-center-index tmp/conan-center-index
           cd clion-plugin/.ci
-          python crawl.py ../../tmp/conan-center-index/recipes ../src/main/resources/conan/targets-data.json > ../src/main/resources/conan/targets-data.json
+          python crawl.py ../../tmp/conan-center-index/recipes ../src/main/resources/conan/targets-data.json ../src/main/resources/conan/targets-data.json
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config --local user.name "$GITHUB_ACTOR"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git

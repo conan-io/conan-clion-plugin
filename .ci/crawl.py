@@ -10,9 +10,9 @@ from recipe_parser import get_package_info_from_recipe, get_basic_info_from_reci
 from repo_crawler import get_all_recipes
 
 
-def main(recipes_dir, json_path):
+def main(recipes_dir, input_json_path, output_json_path):
 
-    with open(json_path, 'r') as f:
+    with open(input_json_path, 'r') as f:
         current_data = json.load(f)
     packages_info_current = current_data["libraries"]
 
@@ -82,9 +82,10 @@ def main(recipes_dir, json_path):
             else:
                 failed_references.append(recipe_name)
 
-    json_data = json.dumps({"libraries": packages_info}, indent=4)
+    json_data = {"libraries": packages_info}
 
-    print(json_data, file=sys.stdout)
+    with open(output_json_path, 'w') as f:
+        json.dump(json_data, f, indent=4)
 
     print("####################", file=sys.stderr)
     print("Total failures:", len(failed_references), failed_references, file=sys.stderr)
@@ -96,6 +97,7 @@ def main(recipes_dir, json_path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Get Conan Center packages information.')
     parser.add_argument('recipes_dir', help='Directory where conan center index recipes folder is located.')
-    parser.add_argument('json_path', help='Path to the json with packages information.')
+    parser.add_argument('input_json_path', help='Path to the json input with packages information.')
+    parser.add_argument('output_json_path', help='Path to the json output to store packages information.')
     args = parser.parse_args()
-    main(args.recipes_dir, args.json_path)
+    main(args.recipes_dir, args.input_json_path, args.output_json_path)
