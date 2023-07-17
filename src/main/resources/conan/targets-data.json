@@ -5778,15 +5778,15 @@
             ]
         },
         "hdf4": {
-            "timestamp": 1649457976,
+            "timestamp": 1689579765,
+            "versions": [
+                "4.2.15"
+            ],
             "description": "HDF4 is a data model, library, and file format for storing and managing data.",
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
-            "versions": [
-                "4.2.15"
-            ]
+            "v2": false
         },
         "libfreenect": {
             "timestamp": 1680530354,
@@ -6196,15 +6196,15 @@
             ]
         },
         "libidn": {
-            "timestamp": 1650636296,
+            "timestamp": 1689578537,
+            "versions": [
+                "1.36"
+            ],
             "description": "GNU Libidn is a fully documented implementation of the Stringprep, Punycode and IDNA 2003 specifications.",
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "v2": false,
-            "versions": [
-                "1.36"
-            ]
+            "v2": false
         },
         "sdl_net": {
             "timestamp": 1669988697,
@@ -17508,6 +17508,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.0",
                 "1.1.1",
                 "1.1.0",
                 "1.0.1",
@@ -18982,15 +18983,15 @@
             ]
         },
         "librasterlite2": {
-            "timestamp": 1650852367,
+            "timestamp": 1689580906,
+            "versions": [
+                "1.1.0-beta1"
+            ],
             "description": "librasterlite2 is an open source library that stores and retrieves huge raster coverages using a SpatiaLite DBMS.",
             "license": [
                 ""
             ],
-            "v2": false,
-            "versions": [
-                "1.1.0-beta1"
-            ]
+            "v2": false
         },
         "quirc": {
             "timestamp": 1680254365,
