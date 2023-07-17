@@ -5,10 +5,7 @@ import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.jcef.JCEFHtmlPanel
-import com.jfrog.conan.clionplugin.models.LibraryData
 import com.jfrog.conan.clionplugin.services.ConanService
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
 import java.awt.Color
 import javax.swing.JComponent
 import javax.swing.SwingUtilities
@@ -26,8 +23,8 @@ class ReadmePanel(val project: Project) {
         }
     }
 
-    private val targetsData = project.service<ConanService>().getTargetData()
-    private val libraryData = project.service<ConanService>().getLibraryData()
+    private val targetsData = project.service<ConanService>().getRemoteDataText()
+    private val libraryData = project.service<ConanService>().getRemoteData()
 
     fun getTitleHtml(name: String): String {
         val description = libraryData.libraries[name]?.description
