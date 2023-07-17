@@ -43,6 +43,10 @@ def main(recipes_dir, input_json_path, output_json_path):
 
         # if the cloned recipe is not outdated we stay with our data, but we update always the versions
         if not outdated:
+            try:
+                del current_recipe_info["timestamp"]
+            except Exception:
+                pass
             packages_info[recipe_name] = current_recipe_info
             # we always update the versions, maybe the config.yml was updated but not the recipe
             packages_info[recipe_name]["versions"] = all_versions
@@ -87,7 +91,7 @@ def main(recipes_dir, input_json_path, output_json_path):
     json_data = {"libraries": packages_info, "date": current_date}
 
     with open(output_json_path, 'w') as f:
-        json.dump(json_data, f, indent=4)
+        json.dump(json_data, f, indent=4, sort_keys=True)
 
     print("####################")
     print("Total failures:", len(failed_references), failed_references)
