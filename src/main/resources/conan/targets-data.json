@@ -1,5 +1,4 @@
 {
-    "date": 1689573927,
     "libraries": {
         "boolean-lite": {
             "timestamp": 1661479562,
@@ -5779,7 +5778,6 @@
             ]
         },
         "hdf4": {
-            "timestamp": 1689579765,
             "versions": [
                 "4.2.15"
             ],
@@ -6197,7 +6195,6 @@
             ]
         },
         "libidn": {
-            "timestamp": 1689578537,
             "versions": [
                 "1.36"
             ],
@@ -7306,19 +7303,19 @@
             ]
         },
         "concurrencpp": {
-            "timestamp": 1679683483,
+            "versions": [
+                "0.1.7",
+                "0.1.6",
+                "0.1.5",
+                "0.1.4"
+            ],
             "description": "Modern concurrency for C++. Tasks, executors, timers and C++20 coroutines to rule them all.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "cmake_file_name": "concurrencpp",
-            "cmake_target_name": "concurrencpp::concurrencpp",
-            "versions": [
-                "0.1.6",
-                "0.1.5",
-                "0.1.4"
-            ]
+            "cmake_target_name": "concurrencpp::concurrencpp"
         },
         "cc65": {
             "timestamp": 1606246354,
@@ -13896,13 +13893,8 @@
             "v2": true
         },
         "cpp-peglib": {
-            "timestamp": 1676184430,
-            "description": "A single file C++11 header-only PEG (Parsing Expression Grammars) library.",
-            "license": [
-                "MIT"
-            ],
-            "v2": true,
             "versions": [
+                "1.8.4",
                 "1.8.3",
                 "1.8.2",
                 "1.8.1",
@@ -13910,13 +13902,13 @@
                 "1.6.1",
                 "1.6.0",
                 "1.5.0",
-                "1.4.2",
-                "1.4.1",
-                "1.3.10",
-                "1.3.9",
-                "1.3.8",
                 "0.1.13"
-            ]
+            ],
+            "description": "A single file C++11 header-only PEG (Parsing Expression Grammars) library.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true
         },
         "hyperscan": {
             "timestamp": 1674154028,
@@ -15678,7 +15670,6 @@
             ]
         },
         "pdfium": {
-            "timestamp": 1689583312,
             "versions": [
                 "cci.20210730"
             ],
@@ -15835,15 +15826,17 @@
             ]
         },
         "libgpiod": {
-            "timestamp": 1633467763,
+            "versions": [
+                "1.6.3"
+            ],
             "description": "C library and tools for interacting with the linux GPIO character device",
             "license": [
                 "LGPL-2.1-or-later"
             ],
-            "v2": false,
-            "versions": [
-                "1.6.3"
-            ]
+            "v2": true,
+            "components": {
+                "gpiod": {}
+            }
         },
         "cpuinfo": {
             "timestamp": 1676465632,
@@ -18404,7 +18397,6 @@
             ]
         },
         "dlib": {
-            "timestamp": 1689582143,
             "versions": [
                 "19.24",
                 "19.23",
@@ -18984,7 +18976,6 @@
             ]
         },
         "librasterlite2": {
-            "timestamp": 1689580906,
             "versions": [
                 "1.1.0-beta1"
             ],
@@ -19779,17 +19770,16 @@
             ]
         },
         "podofo": {
-            "timestamp": 1668078452,
+            "versions": [
+                "0.9.7",
+                "0.9.6"
+            ],
             "description": "PoDoFo is a library to work with the PDF file format.",
             "license": [
                 "GPL-3.0",
                 "LGPL-3.0"
             ],
-            "v2": true,
-            "versions": [
-                "0.9.7",
-                "0.9.6"
-            ]
+            "v2": true
         },
         "glfw": {
             "timestamp": 1683626599,
@@ -20757,15 +20747,14 @@
             ]
         },
         "dbg-macro": {
-            "timestamp": 1609995707,
+            "versions": [
+                "0.4.0"
+            ],
             "description": "A dbg(...) macro for C++",
             "license": [
                 "MIT"
             ],
-            "v2": false,
-            "versions": [
-                "0.4.0"
-            ]
+            "v2": true
         },
         "glad": {
             "timestamp": 1679007961,
@@ -20943,14 +20932,6 @@
             ]
         },
         "cli11": {
-            "timestamp": 1667239723,
-            "description": "A command line parser for C++11 and beyond.",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "v2": true,
-            "cmake_file_name": "CLI11",
-            "cmake_target_name": "CLI11::CLI11",
             "versions": [
                 "2.3.2",
                 "2.3.1",
@@ -20960,7 +20941,14 @@
                 "2.1.1",
                 "2.0.0",
                 "1.9.1"
-            ]
+            ],
+            "description": "A command line parser for C++11 and beyond.",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "cmake_file_name": "CLI11",
+            "cmake_target_name": "CLI11::CLI11"
         },
         "uni-algo": {
             "timestamp": 1683804118,
@@ -23119,5 +23107,6 @@
                 "0.6.1"
             ]
         }
-    }
+    },
+    "date": 1689614003
 }
