@@ -12,7 +12,6 @@ import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.extensions.downloadFromUrl
 import com.jfrog.conan.clionplugin.models.LibraryData
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
-import com.jfrog.conan.clionplugin.toolWindow.ReadmePanel
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -30,7 +29,7 @@ class ConanService(val project: Project) {
 
     fun onWindowReady() {
         fireOnConfiguredListeners(isPluginConfigured())
-        fireOnLibraryDataChanged(getLibraryData())
+        fireOnLibraryDataChanged(getRemoteData())
     }
 
     fun fireOnConfiguredListeners(isConfigured: Boolean) {
@@ -173,34 +172,34 @@ class ConanService(val project: Project) {
         return "remote-data.json"
     }
 
-    private fun getTargetDataFile(): File {
+    private fun getRemoteDataFile(): File {
         return File(ConanPluginUtils.getPluginHome(), getRemoteDataFilename())
     }
 
     fun downloadLibraryData(update: Boolean = false) {
-        val cmakeProviderURL = "https://raw.githubusercontent.com/conan-io/conan-clion-plugin/develop2/src/main/resources/conan/targets-data.json"
-        val targetFile = getTargetDataFile()
+        val remoteDataURL = "https://raw.githubusercontent.com/conan-io/conan-clion-plugin/develop2/src/main/resources/conan/targets-data.json"
+        val targetFile = getRemoteDataFile()
 
         if (!targetFile.exists() || update) {
             targetFile.parentFile.mkdirs()
             runBlocking {
-                targetFile.downloadFromUrl(cmakeProviderURL)
+                targetFile.downloadFromUrl(remoteDataURL)
             }
         }
         if (targetFile.exists()) {
-            val libraryData= targetFile.readText()
+            val libraryData = targetFile.readText()
 
             fireOnLibraryDataChanged(Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(libraryData))
         }
     }
 
-    fun getLibraryData(): LibraryData {
-        val targetData = getTargetData()
+    fun getRemoteData(): LibraryData {
+        val targetData = getRemoteDataText()
         return Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(targetData)
     }
 
-    fun getTargetData(): String {
-        val userHomeFile = getTargetDataFile()
+    fun getRemoteDataText(): String {
+        val userHomeFile = getRemoteDataFile()
         if (!userHomeFile.exists()) {
             val defaultFile = ConanService::class.java.classLoader.getResource("conan/targets-data.json")
             return defaultFile.readText()

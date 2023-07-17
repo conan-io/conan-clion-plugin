@@ -6,7 +6,6 @@ import com.intellij.openapi.project.Project
 import com.intellij.ui.jcef.JCEFHtmlPanel
 import com.jfrog.conan.clionplugin.models.LibraryData
 import com.jfrog.conan.clionplugin.services.ConanService
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.awt.Color
@@ -20,7 +19,7 @@ class UsedPackagesPanel(val project: Project) {
         setOpenLinksInExternalBrowser(true)
     }
 
-    private val libraryData = project.service<ConanService>().getLibraryData()
+    private val libraryData = project.service<ConanService>().getRemoteData()
 
     private fun getScript(names: List<String>): String {
         val filteredLibraryData = LibraryData(libraries = HashMap())
