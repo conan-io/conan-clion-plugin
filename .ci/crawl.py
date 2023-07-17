@@ -1,13 +1,15 @@
 import json
 import sys
 import argparse
+import datetime
+import time
 
 from conan.api.conan_api import ConanAPI
 from conans.errors import ConanException
 
 from conan_helper import get_package_info_with_install, get_basic_info_with_inspect
 from recipe_parser import get_package_info_from_recipe, get_basic_info_from_recipe
-from repo_crawler import get_all_recipes
+from repo_crawler import get_recipes, get_modified_recipes
 
 
 def main(recipes_dir, input_json_path, output_json_path):
@@ -15,6 +17,9 @@ def main(recipes_dir, input_json_path, output_json_path):
     with open(input_json_path, 'r') as f:
         current_data = json.load(f)
     packages_info_current = current_data["libraries"]
+    last_update = current_data["date"]
+    now = datetime.datetime.now()
+    current_date = int(time.mktime(now.timetuple()))
 
     conan_api = ConanAPI()
 
@@ -25,24 +30,19 @@ def main(recipes_dir, input_json_path, output_json_path):
 
     failed_references = []
 
-    recipes = get_all_recipes(recipes_dir)
+    recipes = get_recipes(recipes_dir, last_update)
 
     packages_info = {}
 
     skipped = 0
 
     # get basic recipe information, like name, description, topics...
-    for recipe_name, recipe_path, all_versions, timestamp in recipes:
-        # we check the timestamp of the cloned recipe
-        # if the timestamp is newer than the stored timestamp in the json
-        # we try to get the data, otherwise, we just leave the data of the current json
-        current_timestamp = None
-        current_recipe_info = packages_info_current.get(recipe_name)
-        if current_recipe_info:
-            current_timestamp = current_recipe_info.get("timestamp")
+    for recipe_name, recipe_path, all_versions, outdated in recipes:
 
-        # if the cloned recipe is older or we stay with our data
-        if current_timestamp and current_timestamp >= timestamp:
+        current_recipe_info = packages_info_current.get(recipe_name)
+
+        # if the cloned recipe is not outdated we stay with our data, but we update always the versions
+        if not outdated:
             packages_info[recipe_name] = current_recipe_info
             # we always update the versions, maybe the config.yml was updated but not the recipe
             packages_info[recipe_name]["versions"] = all_versions
@@ -51,7 +51,7 @@ def main(recipes_dir, input_json_path, output_json_path):
             continue
 
         print(f"processing: {recipe_name}")
-        packages_info[recipe_name] = {"timestamp": timestamp, "versions": all_versions}
+        packages_info[recipe_name] = {"versions": all_versions}
 
         # we only fill info for latest version
         latest_version = all_versions[0]
@@ -84,7 +84,7 @@ def main(recipes_dir, input_json_path, output_json_path):
             else:
                 failed_references.append(recipe_name)
 
-    json_data = {"libraries": packages_info}
+    json_data = {"libraries": packages_info, "date": current_date}
 
     with open(output_json_path, 'w') as f:
         json.dump(json_data, f, indent=4)

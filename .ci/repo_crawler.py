@@ -1,23 +1,34 @@
 import os
 import subprocess
+import datetime
 
 import yaml
 
 
-def get_recipe_last_modify(recipe_path):
-    command = f'git --no-pager rev-list -1 HEAD -- {recipe_path} | xargs -I {{}} git --no-pager show -s --pretty=format:%cd --date=unix {{}}'
-    #command = f'git --no-pager log -1 --pretty=format:%cd --date=unix -- {recipe_path}'
-    result = subprocess.run(command, shell=True, capture_output=True, text=True)
-    out = result.stdout
-    return int(out.strip())
+def get_modified_recipes(root_dir, last_update):
+    old_path = os.getcwd()
+    os.chdir(root_dir)
+    date = datetime.datetime.fromtimestamp(last_update)
+    formatted_date = date.strftime('%Y-%m-%d %H:%M:%S')
+    c3i_default_branch = "master"
+    command = f'git --no-pager log {c3i_default_branch} --before="{formatted_date}" -n 1 --pretty="%h"'
+    base = subprocess.run(command, shell=True, capture_output=True, text=True).stdout.strip()
+    command = f'git rev-parse --short {c3i_default_branch}'
+    head = subprocess.run(command, shell=True, capture_output=True, text=True).stdout.strip()
+    command = f'git diff {base}..{head} --name-only'
+    modified = subprocess.run(command, shell=True, capture_output=True, text=True).stdout.splitlines()
+    os.chdir(old_path)
+    modified_recipes = {path.split('/')[1] for path in modified if path.startswith("recipes/")}
+    return modified_recipes
 
 
-def get_all_recipes(root_dir):
+def get_recipes(root_dir, last_update):
+    modified_since_last_update = get_modified_recipes(root_dir, last_update)
     ret = []
-    recipes = []
     for dirpath, dirnames, filenames in os.walk(root_dir):
         if 'config.yml' in filenames:
             recipe_name = os.path.basename(dirpath)
+            outdated = recipe_name in modified_since_last_update
 
             with open(os.path.join(dirpath, 'config.yml'), 'r') as f:
                 data = yaml.safe_load(f)
@@ -30,17 +41,6 @@ def get_all_recipes(root_dir):
 
             recipe_path = os.path.join(dirpath, recipe_folder, "conanfile.py")
 
-            recipes.append((recipe_name, recipe_path, all_versions))
-
-    old_path = os.getcwd()
-    os.chdir(root_dir)
-    print("getting timestamps from repository")
-    total = len(recipes)
-    for i, (recipe_name, recipe_path, all_versions) in enumerate(recipes):
-        relative_path = os.path.relpath(recipe_path, root_dir)
-        timestamp = get_recipe_last_modify(relative_path)
-        ret.append((recipe_name, recipe_path, all_versions, timestamp))
-        print(f"Processed {recipe_path} ({i + 1}/{total})")
-    os.chdir(old_path)
+            ret.append((recipe_name, recipe_path, all_versions, outdated))
 
     return ret
