@@ -176,6 +176,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
         if (firstSetup) {
             conanService.downloadCMakeProvider()
+            conanService.downloadLibraryData()
         }
 
         profileCheckboxes.forEach { checkbox ->

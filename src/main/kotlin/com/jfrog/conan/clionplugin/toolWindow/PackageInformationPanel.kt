@@ -27,7 +27,7 @@ class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyTe
     init {
         layout = GridBagLayout()
         alignmentX = Component.LEFT_ALIGNMENT
-        readmePanel = ReadmePanel()
+        readmePanel = ReadmePanel(project)
     }
 
     private fun getTitle(name: String): JBLabel {

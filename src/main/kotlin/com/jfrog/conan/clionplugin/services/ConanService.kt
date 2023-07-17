@@ -10,24 +10,39 @@ import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
 import com.jfrog.conan.clionplugin.cmake.CMake
 import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
 import com.jfrog.conan.clionplugin.conan.extensions.downloadFromUrl
+import com.jfrog.conan.clionplugin.models.LibraryData
 import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
+import com.jfrog.conan.clionplugin.toolWindow.ReadmePanel
 import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import java.io.File
 
 @Service(Service.Level.PROJECT)
 class ConanService(val project: Project) {
 
     private val onConfiguredListeners: HashMap<String, (isConfigured: Boolean) -> Unit> = hashMapOf()
-    init {
-
-    }
+    private val onLibraryDataChangeListeners: HashMap<String, (newLibraryData: LibraryData) -> Unit> = hashMapOf()
 
     fun addOnConfiguredListener(name: String, callback: (isConfigured: Boolean)->Unit) {
         onConfiguredListeners[name] = callback
     }
 
+    fun onWindowReady() {
+        fireOnConfiguredListeners(isPluginConfigured())
+        fireOnLibraryDataChanged(getLibraryData())
+    }
+
     fun fireOnConfiguredListeners(isConfigured: Boolean) {
         onConfiguredListeners.forEach { it.value(isConfigured) }
+    }
+
+    fun addOnLibraryDataChangedListener(name: String, listener: (newTargetData: LibraryData) -> Unit) {
+        onLibraryDataChangeListeners[name] = listener
+    }
+
+    private fun fireOnLibraryDataChanged(newTargetData: LibraryData) {
+        onLibraryDataChangeListeners.forEach{it.value(newTargetData)}
     }
 
     fun runUseFlow(name: String, version: String) {
@@ -144,19 +159,53 @@ class ConanService(val project: Project) {
         val targetFile = getCMakeProviderFile()
 
         if (!targetFile.exists() || update && ConanPluginUtils.fileHasOverwriteComment(targetFile)) {
-            val tempTargetFile = File(ConanPluginUtils.getPluginHome(), getCMakeProviderFilename())
-            tempTargetFile.parentFile.mkdirs()
-            runBlocking {
-                tempTargetFile.downloadFromUrl(cmakeProviderURL)
-            }
-
-
-            val originalText = tempTargetFile.readText()
             targetFile.parentFile.mkdirs()
-
-            ConanPluginUtils.writeToFileWithOverwriteComment(targetFile, originalText)
+            runBlocking {
+                targetFile.downloadFromUrl(cmakeProviderURL)
+            }
+            // Re-write it, but adding the overwrite header
+            ConanPluginUtils.writeToFileWithOverwriteComment(targetFile, targetFile.readText())
             LocalFileSystem.getInstance().refreshAndFindFileByIoFile(targetFile)
         }
+    }
+
+    private fun getRemoteDataFilename(): String {
+        return "remote-data.json"
+    }
+
+    private fun getTargetDataFile(): File {
+        return File(ConanPluginUtils.getPluginHome(), getRemoteDataFilename())
+    }
+
+    fun downloadLibraryData(update: Boolean = false) {
+        val cmakeProviderURL = "https://raw.githubusercontent.com/conan-io/conan-clion-plugin/develop2/src/main/resources/conan/targets-data.json"
+        val targetFile = getTargetDataFile()
+
+        if (!targetFile.exists() || update) {
+            targetFile.parentFile.mkdirs()
+            runBlocking {
+                targetFile.downloadFromUrl(cmakeProviderURL)
+            }
+        }
+        if (targetFile.exists()) {
+            val libraryData= targetFile.readText()
+
+            fireOnLibraryDataChanged(Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(libraryData))
+        }
+    }
+
+    fun getLibraryData(): LibraryData {
+        val targetData = getTargetData()
+        return Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(targetData)
+    }
+
+    fun getTargetData(): String {
+        val userHomeFile = getTargetDataFile()
+        if (!userHomeFile.exists()) {
+            val defaultFile = ConanService::class.java.classLoader.getResource("conan/targets-data.json")
+            return defaultFile.readText()
+        }
+        return userHomeFile.readText()
     }
 
     fun isPluginConfigured(): Boolean {

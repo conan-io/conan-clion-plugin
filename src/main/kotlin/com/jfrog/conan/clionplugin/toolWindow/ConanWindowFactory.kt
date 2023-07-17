@@ -1,7 +1,5 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
-import com.intellij.collaboration.ui.selectFirst
-import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogPanel
@@ -21,7 +19,6 @@ import com.jfrog.conan.clionplugin.bundles.UIBundle
 import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
 import com.jfrog.conan.clionplugin.models.LibrariesTableModel
 import com.jfrog.conan.clionplugin.services.ConanService
-import com.jfrog.conan.clionplugin.services.RemotesDataStateService
 import java.awt.BorderLayout
 import javax.swing.*
 import javax.swing.event.DocumentEvent
@@ -42,7 +39,6 @@ class ConanWindowFactory : ToolWindowFactory {
     override fun shouldBeAvailable(project: Project) = true
 
     class ConanWindow(toolWindow: ToolWindow, val project: Project) {
-        private val stateService = project.service<RemotesDataStateService>()
         private val conanService = project.service<ConanService>()
         private val libraryPanel = PackageInformationPanel(project)
 
@@ -61,27 +57,16 @@ class ConanWindowFactory : ToolWindowFactory {
                 var recipes: List<Recipe> = listOf()
                 val dataModel = LibrariesTableModel(0)
 
-                stateService.addStateChangeListener(object : RemotesDataStateService.RemoteDataStateListener {
-                    override fun stateChanged(newState: RemotesDataStateService.State?) {
-                        dataModel.rowCount = 0
-                        recipes = listOf()
+                conanService.addOnLibraryDataChangedListener("WINDOW_FACTORY"){ newState ->
+                    dataModel.rowCount = 0
+                    recipes = listOf()
 
-                        if (newState == null) return
-
-                        // conancenter has one entry per recipe version, this collates all versions into 1 recipe object,
-                        // with a versions list of each of the existing ones
-                        recipes = newState.conancenter.keys
-                            .map {
-                                val split = it.split("/")
-                                Pair(split[0], split[1])
-                            }
-                            .groupBy { it.first }
-                            .map {
-                                dataModel.addRow(arrayOf(it.key))
-                                Recipe(it.key, it.value.map { it.second })
-                            }
-                    }
-                })
+                    recipes = newState.libraries
+                        .map {
+                            dataModel.addRow(arrayOf(it.key))
+                            Recipe(it.key, it.value.versions ?: listOf())
+                        }
+                }
 
                 val isPluginConfigured = conanService.isPluginConfigured()
 
@@ -132,7 +117,7 @@ class ConanWindowFactory : ToolWindowFactory {
             secondComponent = libraryPanel.apply { withEmptyText(UIBundle.message("library.description.empty")) }
             proportion = 0.2f
 
-            conanService.fireOnConfiguredListeners(conanService.isPluginConfigured())
+            conanService.onWindowReady()
         }
     }
 }
