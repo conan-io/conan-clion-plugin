@@ -15677,15 +15677,15 @@
             ]
         },
         "pdfium": {
-            "timestamp": 1658170940,
+            "timestamp": 1689583312,
+            "versions": [
+                "cci.20210730"
+            ],
             "description": "PDF generation and rendering library.",
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
-            "versions": [
-                "cci.20210730"
-            ]
+            "v2": false
         },
         "drwav": {
             "timestamp": 1679371757,
@@ -18403,20 +18403,20 @@
             ]
         },
         "dlib": {
-            "timestamp": 1652515461,
+            "timestamp": 1689582143,
+            "versions": [
+                "19.24",
+                "19.23",
+                "19.21",
+                "19.19"
+            ],
             "description": "A toolkit for making real world machine learning and data analysis applications",
             "license": [
                 "BSL-1.0"
             ],
             "v2": false,
             "cmake_file_name": "dlib",
-            "cmake_target_name": "dlib::dlib",
-            "versions": [
-                "19.24",
-                "19.23",
-                "19.21",
-                "19.19"
-            ]
+            "cmake_target_name": "dlib::dlib"
         },
         "libid3tag": {
             "timestamp": 1627700532,
