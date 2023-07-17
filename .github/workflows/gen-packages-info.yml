@@ -1,9 +1,8 @@
 on:
+  workflow_dispatch:
   push:
     branches:
       - develop2
-  workflow_dispatch:
-
 defaults:
   run:
     working-directory: /home/conan
