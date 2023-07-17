@@ -63,8 +63,8 @@ class ConanWindowFactory : ToolWindowFactory {
 
                     recipes = newState.libraries
                         .flatMap {
-                            dataModel.addRow(arrayOf(it.key))
                             if (it.value.v2) {
+                                dataModel.addRow(arrayOf(it.key))
                                 listOf(Recipe(it.key, it.value.versions ?: listOf()))
                             }
                             else {
