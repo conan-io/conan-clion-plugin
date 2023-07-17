@@ -159,17 +159,12 @@ class ConanService(val project: Project) {
         val targetFile = getCMakeProviderFile()
 
         if (!targetFile.exists() || update && ConanPluginUtils.fileHasOverwriteComment(targetFile)) {
-            val tempTargetFile = File(ConanPluginUtils.getPluginHome(), getCMakeProviderFilename())
-            tempTargetFile.parentFile.mkdirs()
-            runBlocking {
-                tempTargetFile.downloadFromUrl(cmakeProviderURL)
-            }
-
-
-            val originalText = tempTargetFile.readText()
             targetFile.parentFile.mkdirs()
-
-            ConanPluginUtils.writeToFileWithOverwriteComment(targetFile, originalText)
+            runBlocking {
+                targetFile.downloadFromUrl(cmakeProviderURL)
+            }
+            // Re-write it, but adding the overwrite header
+            ConanPluginUtils.writeToFileWithOverwriteComment(targetFile, targetFile.readText())
             LocalFileSystem.getInstance().refreshAndFindFileByIoFile(targetFile)
         }
     }
