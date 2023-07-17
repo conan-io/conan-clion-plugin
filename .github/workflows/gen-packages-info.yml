@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - develop2
+  schedule:
+    - cron:  '0 0 * * *'
 defaults:
   run:
     working-directory: /home/conan
