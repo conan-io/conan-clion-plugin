@@ -26,7 +26,7 @@ def main(recipes_dir, input_json_path, output_json_path):
     # define which packages will get the information via a Conan install
     # these should be packages that have complex package_info() methods
     # that are hard to read with a parser
-    force_install_packages = ["boost"]
+    force_install_packages = ["boost", "opencv"]
 
     failed_references = []
 
