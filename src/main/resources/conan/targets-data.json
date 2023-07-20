@@ -1,5 +1,5 @@
 {
-    "date": 1689726647,
+    "date": 1689812263,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -15259,14 +15259,15 @@
             ]
         },
         "platform.delegates": {
-            "description": "platform.delegates is one of the libraries of the LinksPlatform modular framework, which uses innovations from the C++17 standard, for easier use delegates/events in csharp style.",
+            "description": "platform.delegates is one of the libraries of the LinksPlatform modular framework, which usesinnovations from the C++17 standard, for easier use delegates/events in csharp style.",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "0.1.3",
-                "0.2.7"
+                "0.3.7",
+                "0.2.7",
+                "0.1.3"
             ]
         },
         "platform.equality": {
