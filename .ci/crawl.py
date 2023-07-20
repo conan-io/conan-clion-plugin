@@ -39,6 +39,8 @@ def main(recipes_dir, input_json_path, output_json_path):
     # get basic recipe information, like name, description, topics...
     for recipe_name, recipe_path, all_versions, outdated in recipes:
 
+        outdated = True
+
         current_recipe_info = packages_info_current.get(recipe_name)
 
         # if the cloned recipe is not outdated we stay with our data, but we update always the versions
