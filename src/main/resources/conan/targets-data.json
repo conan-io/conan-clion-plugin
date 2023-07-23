@@ -1,5 +1,5 @@
 {
-    "date": 1689985081,
+    "date": 1690071503,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1144,9 +1144,10 @@
         "aws-libfabric": {
             "description": "AWS Libfabric",
             "license": [
-                ""
+                "BSD-2-Clause",
+                "GPL-2.0-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.9.1amzncdi1.0"
             ]
@@ -6524,7 +6525,7 @@
             "license": [
                 "LGPL-3.0-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.0.0"
             ]
@@ -7711,7 +7712,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.83"
             ]
@@ -9631,13 +9632,11 @@
             ]
         },
         "libipt": {
-            "cmake_file_name": "libipt",
-            "cmake_target_name": "libipt::libipt",
             "description": "Intel(R) Processor Trace Decoder Library",
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.0.5"
             ]
@@ -14905,7 +14904,7 @@
             "license": [
                 "CC0-1.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.0.2"
             ]
@@ -14948,7 +14947,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.45.2",
                 "0.45.0"
@@ -16748,7 +16747,7 @@
             "license": [
                 "Zlib"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20130516"
             ]
@@ -17454,7 +17453,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.4.0"
             ]
@@ -18245,7 +18244,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.2.2",
                 "1.2.1"
@@ -20619,9 +20618,10 @@
         "whereami": {
             "description": "Locate the current executable and the current module/library on the file system",
             "license": [
-                ""
+                "MIT",
+                "WTFPL"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20220112"
             ]
@@ -21055,9 +21055,10 @@
         "xsd": {
             "description": "XSD is a W3C XML Schema to C++ translator. It generates vocabulary-specific, statically-typed C++ mappings (also called bindings) from XML Schema definitions. XSD supports two C++ mappings: in-memory C++/Tree and event-driven C++/Parser.",
             "license": [
-                ""
+                "GPL-2.0",
+                "FLOSSE"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "4.0.0"
             ]
