@@ -1,5 +1,5 @@
 {
-    "date": 1690071503,
+    "date": 1690244293,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -747,7 +747,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.3.4"
             ]
@@ -3129,9 +3129,9 @@
         "cpp-ipc": {
             "description": "C++ IPC Library: A high-performance inter-process communication using shared memory on Linux/Windows.",
             "license": [
-                ""
+                "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.2.0",
                 "1.1.1"
@@ -7887,7 +7887,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20181227"
             ]
@@ -9488,11 +9488,13 @@
             ]
         },
         "libgta": {
+            "cmake_file_name": "GTA",
+            "cmake_target_name": "GTA::GTA",
             "description": "Library that reads and writes GTA (Generic Tagged Arrays) files.",
             "license": [
                 "LGPL-2.1-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.2.1"
             ]
@@ -9762,7 +9764,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "20200424",
                 "20200515"
@@ -10493,7 +10495,7 @@
             "license": [
                 "X11"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.2.1",
                 "1.2.0"
@@ -12053,6 +12055,8 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.0",
+                "1.1.0",
                 "1.0.0",
                 "0.9.0",
                 "0.5.0",
@@ -21130,6 +21134,7 @@
             ],
             "v2": false,
             "versions": [
+                "2.1.0",
                 "2.0.1",
                 "2.0.0",
                 "1.0.1",
@@ -21160,6 +21165,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.2",
                 "0.8.1",
                 "0.8.0"
             ]
