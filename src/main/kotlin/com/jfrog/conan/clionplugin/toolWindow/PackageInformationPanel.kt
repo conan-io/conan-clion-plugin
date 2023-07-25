@@ -1,12 +1,10 @@
 package com.jfrog.conan.clionplugin.toolWindow
 
-import com.intellij.collaboration.ui.selectFirst
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
-import com.intellij.openapi.ui.Messages
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
@@ -41,7 +39,9 @@ class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyTe
         versionModel.apply {
             removeAllElements()
             addAll(versions)
-            selectFirst()
+            if (versions.isNotEmpty()) {
+                selectedItem = versions[0]
+            }
         }
         removeAll()
 
