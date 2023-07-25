@@ -1,9 +1,6 @@
 name: Generate Conan Packages Info
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - develop2
   schedule:
     - cron: '0 0 * * *'
 defaults:
