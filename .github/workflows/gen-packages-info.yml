@@ -1,3 +1,4 @@
+name: Generate Conan Packages Info
 on:
   workflow_dispatch:
   push:
