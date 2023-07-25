@@ -1,5 +1,5 @@
 {
-    "date": 1690290958,
+    "date": 1690312849,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9964,7 +9964,7 @@
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.0.1",
                 "1.0.2"
@@ -18464,6 +18464,16 @@
             "versions": [
                 "1.0.3",
                 "1.0.2"
+            ]
+        },
+        "svgpp": {
+            "description": "SVG++ library contains parsers for various SVG syntaxes, adapters that simplify handling of parsed data and a lot of other utilities and helpers for the most common tasks.",
+            "license": [
+                "BSL-1.0"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20221030"
             ]
         },
         "svgwrite": {
