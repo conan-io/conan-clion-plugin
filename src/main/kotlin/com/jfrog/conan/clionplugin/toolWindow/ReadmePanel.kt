@@ -88,7 +88,14 @@ class ReadmePanel(val project: Project) {
         <html>
         <head>
             <style>
+                ::-webkit-scrollbar {
+                    display: none;
+                }
                 body {
+                    overflow: -moz-scrollbars-none;
+                    -ms-overflow-style: none;  /* IE and Edge */
+                }
+                html, body {
                     overflow: auto;
                 }
                 $themeStyles
