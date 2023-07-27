@@ -1,5 +1,5 @@
 {
-    "date": 1690330642,
+    "date": 1690416967,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7857,6 +7857,16 @@
             "v2": true,
             "versions": [
                 "cci.20210225"
+            ]
+        },
+        "intx": {
+            "description": "Extended precision integer C++ library",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.10.1"
             ]
         },
         "inversify-cpp": {
