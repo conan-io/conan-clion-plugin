@@ -1,5 +1,5 @@
 {
-    "date": 1691453828,
+    "date": 1691540231,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -684,6 +684,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.0",
                 "2.5.1",
                 "2.4.0",
                 "2.3.0",
@@ -2826,15 +2827,16 @@
             ],
             "v2": true,
             "versions": [
-                "3.19.8",
-                "3.20.6",
-                "3.21.7",
-                "3.22.6",
-                "3.23.5",
-                "3.24.4",
-                "3.25.3",
+                "3.27.1",
+                "3.27.0",
                 "3.26.4",
-                "3.27.0"
+                "3.25.3",
+                "3.24.4",
+                "3.23.5",
+                "3.22.6",
+                "3.21.7",
+                "3.20.6",
+                "3.19.8"
             ]
         },
         "cminpack": {
@@ -4185,7 +4187,7 @@
             "license": [
                 "BSL-1.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.1.0",
                 "1.2.0",
@@ -5806,6 +5808,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.0.6",
                 "1.0.5"
             ]
@@ -12153,15 +12156,12 @@
             "license": [
                 "Unlicense"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.0",
-                "1.1",
-                "1.2",
+                "1.4.3",
+                "1.4.2",
                 "1.3",
-                "1.4",
-                "1.4.1",
-                "1.4.2"
+                "1.2"
             ]
         },
         "mdnsresponder": {
@@ -12539,16 +12539,14 @@
             ],
             "v2": true,
             "versions": [
+                "4.0.1",
                 "4.0.0",
                 "3.0.9",
                 "3.0.8",
                 "3.0.7",
                 "3.0.6",
                 "3.0.5",
-                "3.0.4",
-                "3.0.3",
-                "3.0.2",
-                "3.0.1"
+                "3.0.4"
             ]
         },
         "mio": {
@@ -12639,6 +12637,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.24.3",
                 "1.24.1",
                 "1.23.5",
                 "1.23.4",
@@ -16275,6 +16274,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.3.1",
                 "3.2.0",
                 "3.1.0",
                 "3.0.2",
@@ -17623,22 +17623,19 @@
             ]
         },
         "si": {
+            "cmake_file_name": "SI",
             "cmake_target_name": "SI::SI",
-            "description": "A header only c++ library that provides type safety and user defined literalsfor handling pyhsical values defined in the International System of Units.",
+            "description": "A header only c++ library that provides type safety and user defined literals for handling physical values defined in the International System of Units.",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.7.6",
-                "2.0.4",
-                "2.1.3",
-                "2.2.0",
-                "2.3.0",
-                "2.4.0",
-                "2.4.1",
+                "2.5.1",
                 "2.5.0",
-                "2.5.1"
+                "2.4.1",
+                "2.3.0",
+                "1.7.6"
             ]
         },
         "sigslot": {
@@ -18578,7 +18575,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.3.3",
                 "2.3.4"
@@ -20067,8 +20064,8 @@
             ]
         },
         "util-linux-libuuid": {
-            "cmake_file_name": "LibUUID",
-            "cmake_target_name": "LibUUID::LibUUID",
+            "cmake_file_name": "libuuid",
+            "cmake_target_name": "libuuid::libuuid",
             "description": "Universally unique id library",
             "license": [
                 "BSD-3-Clause"
