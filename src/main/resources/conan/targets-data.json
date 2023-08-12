@@ -1,5 +1,5 @@
 {
-    "date": 1691712867,
+    "date": 1691799246,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -232,6 +232,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.5",
                 "1.8.3",
                 "1.8.2"
             ]
@@ -3504,12 +3505,19 @@
             ]
         },
         "cpuinfo": {
+            "components": {
+                "cpuinfo": {
+                    "cmake_target_name": "cpuinfo::cpuinfo"
+                }
+            },
             "description": "cpuinfo is a library to detect essential for performance optimization information about host CPU.",
             "license": [
                 "BSD-2-Clause"
             ],
             "v2": true,
             "versions": [
+                "cci.20230118",
+                "cci.20220618",
                 "cci.20220228",
                 "cci.20201217"
             ]
@@ -4093,9 +4101,7 @@
             "versions": [
                 "1.15.6",
                 "1.15.2",
-                "1.15.0",
-                "1.14.0",
-                "1.12.20"
+                "1.15.0"
             ]
         },
         "dcmtk": {
@@ -6076,6 +6082,7 @@
             ],
             "v2": false,
             "versions": [
+                "3.7.0",
                 "3.5.2",
                 "3.5.1",
                 "3.4.3",
@@ -9122,6 +9129,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.12",
                 "1.0.11",
                 "1.0.9",
                 "1.0.8"
@@ -17522,9 +17530,9 @@
             ],
             "v2": true,
             "versions": [
+                "0.6.5",
                 "0.6.4",
                 "0.6.3",
-                "0.6.2",
                 "0.5.4",
                 "0.4.18"
             ]
@@ -20734,6 +20742,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.230629.1",
                 "1.0.230411.1",
                 "1.0.230202.1"
             ]
@@ -21551,6 +21560,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.9.0",
                 "3.8.1"
             ]
         },
