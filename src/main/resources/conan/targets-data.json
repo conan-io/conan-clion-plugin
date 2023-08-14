@@ -1,5 +1,5 @@
 {
-    "date": 1691885717,
+    "date": 1691972108,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1090,6 +1090,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.1.12",
                 "0.1.3",
                 "0.1.2",
                 "0.1.1"
@@ -1115,6 +1116,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.1.17",
                 "0.1.13",
                 "0.1.12",
                 "0.1.11",
@@ -1566,6 +1568,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10",
                 "0.9",
                 "0.8",
                 "0.0.18",
@@ -2024,17 +2027,14 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.2",
                 "1.3.1",
                 "1.3.0",
                 "1.2.3",
                 "1.2.2",
                 "1.2.1",
                 "1.2.0",
-                "1.1.8",
-                "1.1.7",
-                "1.1.6",
-                "1.1.5",
-                "1.1.4"
+                "1.1.8"
             ]
         },
         "c-ares": {
@@ -2239,6 +2239,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.0",
                 "0.10.4",
                 "0.10.3",
                 "0.10.1",
@@ -3751,6 +3752,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.8",
                 "3.7.2",
                 "3.7.1",
                 "3.7",
@@ -3807,6 +3809,18 @@
             "v2": true,
             "versions": [
                 "0.2"
+            ]
+        },
+        "cuda-samples": {
+            "description": "Common headers from NVIDIA CUDA Samples - samples for CUDA developers which demonstrate features in CUDA Toolkit",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "12.2",
+                "11.8",
+                "10.2"
             ]
         },
         "cunit": {
@@ -4010,6 +4024,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.95.0",
                 "2.93.1",
                 "2.92.0",
                 "2.88.0",
@@ -4017,12 +4032,7 @@
                 "2.79.0",
                 "2.76.3",
                 "2.76.2",
-                "2.74.2",
-                "2.73.1",
-                "2.72.0",
-                "2.71.0",
-                "2.68.3",
-                "1.29.7"
+                "2.74.2"
             ]
         },
         "daw_json_link": {
@@ -4570,7 +4580,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.20",
                 "1.19",
@@ -5035,9 +5045,9 @@
         "etc2comp": {
             "description": "Open source c++ skeletal animation library and toolset.",
             "license": [
-                ""
+                "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20170424"
             ]
@@ -5224,6 +5234,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.27",
                 "1.0.26",
                 "1.0.24",
@@ -5978,12 +5989,12 @@
         },
         "fusepp": {
             "cmake_file_name": "fusepp",
-            "cmake_target_name": "fusepp",
+            "cmake_target_name": "fusepp::fusepp",
             "description": "A simple C++ wrapper for the FUSE filesystem.",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20210820"
             ]
@@ -6382,14 +6393,12 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.5",
                 "1.3.2",
                 "1.3.1",
                 "1.3.0",
                 "1.2.6",
                 "1.2.5",
-                "1.2.3",
-                "1.2.2",
-                "1.2.0",
                 "1.1.2",
                 "0.3.6",
                 "0.2.2"
@@ -7315,6 +7324,18 @@
                 "1.1.1"
             ]
         },
+        "hictk": {
+            "cmake_file_name": "hictk",
+            "cmake_target_name": "hictk::libhictk",
+            "description": "Blazing fast toolkit to work with .hic and .cool files",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.1"
+            ]
+        },
         "hidapi": {
             "description": "HIDAPI is a multi-platform library which allows an application to interface with USB and Bluetooth HID-Class devices on Windows, Linux, FreeBSD, and macOS.",
             "license": [
@@ -7481,10 +7502,13 @@
         "hunspell": {
             "description": "Hunspell is a free spell checker and morphological analyzer library",
             "license": [
-                ""
+                "MPL-1.1",
+                "GPL-2.0-or-later",
+                "LGPL-2.1-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "1.7.2",
                 "1.7.0"
             ]
         },
@@ -9954,6 +9978,16 @@
                 "3.100"
             ]
         },
+        "libmpdclient": {
+            "description": "libmpdclient is a C library which implements the Music Player Daemon protocol.",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "2.20"
+            ]
+        },
         "libmysqlclient": {
             "description": "A MySQL client library for C development.",
             "license": [
@@ -10425,7 +10459,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "3.6.0"
             ]
@@ -11610,6 +11644,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.589",
                 "0.582",
                 "0.577",
                 "0.572",
@@ -11618,10 +11653,7 @@
                 "0.558",
                 "0.556",
                 "0.552",
-                "0.548",
-                "0.544",
-                "0.541",
-                "0.540"
+                "0.548"
             ]
         },
         "lunasvg": {
@@ -12690,6 +12722,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.8.0",
                 "3.7.2",
                 "3.7.0",
                 "3.6.7",
@@ -13388,7 +13421,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.1.1"
             ]
@@ -17020,6 +17053,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.0.0",
                 "5.0.0",
                 "4.0.0"
             ]
@@ -17074,7 +17108,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.0.2"
             ]
@@ -17916,6 +17950,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.3.1",
                 "3.3.0",
                 "3.2.3",
                 "3.0.3",
@@ -20041,7 +20076,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.9.5.0"
             ]
@@ -20476,6 +20511,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.243.0",
                 "1.3.239.0",
                 "1.3.236.0",
                 "1.3.231.1",
