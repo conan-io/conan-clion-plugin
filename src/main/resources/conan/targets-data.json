@@ -1,5 +1,5 @@
 {
-    "date": 1692144870,
+    "date": 1692231256,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1412,6 +1412,18 @@
                 "0.0.15",
                 "0.0.14",
                 "0.0.12"
+            ]
+        },
+        "bgfx": {
+            "cmake_file_name": "bgfx",
+            "cmake_target_name": "bgfx::bgfx",
+            "description": "Cross-platform, graphics API agnostic, \"Bring Your Own Engine/Framework\" style rendering library.",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20230216"
             ]
         },
         "bigint": {
@@ -7800,6 +7812,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.15",
                 "0.14",
                 "0.13",
                 "0.12",
@@ -10244,6 +10257,7 @@
             ],
             "v2": true,
             "versions": [
+                "15.4",
                 "15.3",
                 "14.8",
                 "14.7",
@@ -12014,6 +12028,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.9.4",
                 "3.9.2"
             ]
         },
@@ -13462,9 +13477,9 @@
         "nodesoup": {
             "description": "Force-directed graph layout with Fruchterman-Reingold",
             "license": [
-                ""
+                "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20200905"
             ]
@@ -15462,7 +15477,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.2.0",
                 "0.3.0"
@@ -16490,7 +16505,7 @@
             "license": [
                 "BSL-1.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20210426"
             ]
@@ -16882,9 +16897,10 @@
         "rgbcx": {
             "description": "High-performance scalar BC1-5 encoders.",
             "license": [
-                ""
+                "MIT",
+                "Unlicense"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20200415"
             ]
@@ -20121,6 +20137,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.2.4",
                 "3.2.3",
                 "3.2.2",
                 "3.2.1",
@@ -20959,6 +20976,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.73",
                 "6.62",
                 "6.61.2",
                 "6.60.2",
