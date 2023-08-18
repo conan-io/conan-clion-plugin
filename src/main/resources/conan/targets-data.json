@@ -1,5 +1,5 @@
 {
-    "date": 1692231256,
+    "date": 1692317660,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -322,6 +322,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.36.1",
                 "2.36.0",
                 "2.35.1",
                 "2.35.0"
@@ -3125,7 +3126,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.2.1"
             ]
@@ -5778,13 +5779,12 @@
             ]
         },
         "fpgen": {
-            "description": " Functional programming in C++ using C++20 coroutines.",
+            "description": "Functional programming in C++ using C++20 coroutines.",
             "license": [
-                ""
+                "MPL2"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.1.0",
                 "1.1.0-clang"
             ]
         },
@@ -6797,6 +6797,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.11.0",
                 "2.10.0"
             ]
         },
@@ -7794,15 +7795,14 @@
             ]
         },
         "immer": {
-            "description": "Postmodern immutable and persistent data structures for C++---value semantics at scale",
+            "description": "Postmodern immutable and persistent data structures for C++ - value semantics at scale",
             "license": [
                 "BSL-1.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.8.0",
-                "0.7.0",
-                "0.6.2"
+                "0.7.0"
             ]
         },
         "implot": {
@@ -8249,6 +8249,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.17",
                 "0.16",
                 "0.15",
                 "0.14"
@@ -8460,6 +8461,18 @@
             "versions": [
                 "1.5",
                 "1.7"
+            ]
+        },
+        "kdbindings": {
+            "cmake_file_name": "KDBindings",
+            "cmake_target_name": "KDAB::KDBindings",
+            "description": "Reactive programming & data binding in C++",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.3"
             ]
         },
         "kealib": {
@@ -11810,7 +11823,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.1.2"
             ]
@@ -12327,7 +12340,10 @@
             "versions": [
                 "0.21",
                 "0.20",
-                "0.23.1"
+                "0.23.1",
+                "0.24",
+                "0.25",
+                "0.26"
             ]
         },
         "metis": {
@@ -13270,11 +13286,13 @@
             ]
         },
         "neargye-semver": {
+            "cmake_file_name": "semver",
+            "cmake_target_name": "semver::semver",
             "description": "Semantic Versioning for modern C++",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.3.0"
             ]
@@ -14609,16 +14627,15 @@
             ],
             "v2": true,
             "versions": [
+                "3.1.2",
                 "3.1.1",
                 "3.1.0",
+                "3.0.10",
                 "3.0.9",
                 "3.0.8",
-                "3.0.7",
-                "3.0.5",
+                "1.1.1v",
                 "1.1.1u",
                 "1.1.1t",
-                "1.1.1s",
-                "1.1.1q",
                 "1.1.0l",
                 "1.0.2u"
             ]
@@ -14649,6 +14666,8 @@
             ],
             "v2": false,
             "versions": [
+                "1.5.0",
+                "1.4.0",
                 "1.3.10",
                 "1.3.9",
                 "1.3.8",
@@ -14698,11 +14717,13 @@
             ]
         },
         "opentracing-cpp": {
+            "cmake_file_name": "OpenTracing",
+            "cmake_target_name": "OpenTracing::OpenTracing",
             "description": "C++ implementation of the OpenTracing API http://opentracing.io",
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.6.0"
             ]
@@ -15009,13 +15030,13 @@
             ]
         },
         "panzi-portable-endian": {
-            "description": "This provides the endian conversion functions form endian.h on Windows, Linux, *BSD, and Mac OS X",
+            "description": "This provides the endian conversion functions from endian.h on Windows, Linux, *BSD, and Mac OS X",
             "license": [
-                "Unlicense"
+                "LicenseRef-panzi-portable-endian-public-domain"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "cci.20150416"
+                "cci.20220509"
             ]
         },
         "parallel-hashmap": {
@@ -15609,8 +15630,9 @@
             "license": [
                 "BSL-1.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "1.0.0",
                 "0.10.0"
             ]
         },
@@ -16495,7 +16517,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20201117"
             ]
@@ -17164,6 +17186,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.49",
                 "1.3.31",
                 "1.3.15",
                 "1.3.9",
@@ -19675,6 +19698,7 @@
             ],
             "v2": true,
             "versions": [
+                "45",
                 "43",
                 "42",
                 "41",
@@ -21408,7 +21432,7 @@
             "license": [
                 "BSL-1.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "7.0.4",
                 "7.0.5",
