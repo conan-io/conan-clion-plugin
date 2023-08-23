@@ -1,11 +1,11 @@
-package com.jfrog.conan.clionplugin.toolWindow
+package com.jfrog.conan.clion.toolWindow
 
 import com.intellij.ide.ui.LafManager
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.jcef.JCEFHtmlPanel
-import com.jfrog.conan.clionplugin.services.ConanService
+import com.jfrog.conan.clion.services.ConanService
 import java.awt.Color
 import javax.swing.JComponent
 import javax.swing.SwingUtilities

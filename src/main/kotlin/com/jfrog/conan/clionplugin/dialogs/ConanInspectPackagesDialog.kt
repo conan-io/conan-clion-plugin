@@ -1,12 +1,12 @@
-package com.jfrog.conan.clionplugin.dialogs
+package com.jfrog.conan.clion.dialogs
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.components.JBScrollPane
-import com.jfrog.conan.clionplugin.bundles.UIBundle
-import com.jfrog.conan.clionplugin.services.ConanService
-import com.jfrog.conan.clionplugin.toolWindow.UsedPackagesPanel
+import com.jfrog.conan.clion.bundles.UIBundle
+import com.jfrog.conan.clion.services.ConanService
+import com.jfrog.conan.clion.toolWindow.UsedPackagesPanel
 import java.awt.FlowLayout
 import javax.swing.JComponent
 import javax.swing.JPanel

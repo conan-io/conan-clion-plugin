@@ -1,4 +1,4 @@
-package com.jfrog.conan.clionplugin.toolWindow
+package com.jfrog.conan.clion.toolWindow
 
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
@@ -8,8 +8,8 @@ import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
-import com.jfrog.conan.clionplugin.bundles.UIBundle
-import com.jfrog.conan.clionplugin.services.ConanService
+import com.jfrog.conan.clion.bundles.UIBundle
+import com.jfrog.conan.clion.services.ConanService
 import java.awt.Component
 import java.awt.FlowLayout
 import java.awt.GridBagConstraints
@@ -76,7 +76,7 @@ class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyTe
 
 
                 NotificationGroupManager.getInstance()
-                    .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                    .getNotificationGroup("com.jfrog.conan.clion.notifications.general")
                     .createNotification(
                         UIBundle.message("library.added.title", "$name/$selectedVersion"),
                         UIBundle.message("library.added.body"),
@@ -95,7 +95,7 @@ class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyTe
                 comboBox.setToolTipText(null)
 
                 NotificationGroupManager.getInstance()
-                    .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                    .getNotificationGroup("com.jfrog.conan.clion.notifications.general")
                     .createNotification(
                         UIBundle.message("library.removed.title"),
                         UIBundle.message("library.removed.body", "$name/$selectedVersion"),

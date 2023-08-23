@@ -1,14 +1,14 @@
-package com.jfrog.conan.clionplugin.toolWindow
+package com.jfrog.conan.clion.toolWindow
 
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
-import com.jfrog.conan.clionplugin.cmake.CMake
-import com.jfrog.conan.clionplugin.bundles.UIBundle
-import com.jfrog.conan.clionplugin.dialogs.ConanExecutableDialogWrapper
-import com.jfrog.conan.clionplugin.dialogs.ConanInspectPackagesDialogWrapper
-import com.jfrog.conan.clionplugin.services.ConanService
+import com.jfrog.conan.clion.cmake.CMake
+import com.jfrog.conan.clion.bundles.UIBundle
+import com.jfrog.conan.clion.dialogs.ConanExecutableDialogWrapper
+import com.jfrog.conan.clion.dialogs.ConanInspectPackagesDialogWrapper
+import com.jfrog.conan.clion.services.ConanService
 
 class MainActionToolbar(val project: Project) {
     private val conanService = project.service<ConanService>()

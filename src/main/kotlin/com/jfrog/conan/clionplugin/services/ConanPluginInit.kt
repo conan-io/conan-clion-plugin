@@ -1,4 +1,4 @@
-package com.jfrog.conan.clionplugin.services
+package com.jfrog.conan.clion.services
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project

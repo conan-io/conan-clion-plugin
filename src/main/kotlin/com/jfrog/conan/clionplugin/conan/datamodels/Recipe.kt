@@ -1,4 +1,4 @@
-package com.jfrog.conan.clionplugin.conan.datamodels
+package com.jfrog.conan.clion.conan.datamodels
 
 import kotlinx.serialization.Serializable
 

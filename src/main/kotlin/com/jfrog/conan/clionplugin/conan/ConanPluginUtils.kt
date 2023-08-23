@@ -1,7 +1,7 @@
-package com.jfrog.conan.clionplugin.conan
+package com.jfrog.conan.clion.conan
 
 import com.intellij.openapi.project.Project
-import com.jfrog.conan.clionplugin.models.LibraryData
+import com.jfrog.conan.clion.models.LibraryData
 import java.io.File
 import java.nio.file.Paths
 

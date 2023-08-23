@@ -1,6 +1,6 @@
-package com.jfrog.conan.clionplugin.models
+package com.jfrog.conan.clion.models
 
-import com.jfrog.conan.clionplugin.bundles.UIBundle
+import com.jfrog.conan.clion.bundles.UIBundle
 import javax.swing.table.DefaultTableModel
 
 class LibrariesTableModel(rowCount: Int) : DefaultTableModel(arrayOf(UIBundle.message("libraries.list.table.name")), rowCount) {

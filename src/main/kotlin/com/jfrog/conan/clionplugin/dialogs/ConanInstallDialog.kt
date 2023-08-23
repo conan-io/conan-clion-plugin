@@ -1,12 +1,12 @@
-package com.jfrog.conan.clionplugin.dialogs
+package com.jfrog.conan.clion.dialogs
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.components.JBCheckBox
-import com.jfrog.conan.clionplugin.bundles.UIBundle
-import com.jfrog.conan.clionplugin.cmake.CMake
+import com.jfrog.conan.clion.bundles.UIBundle
+import com.jfrog.conan.clion.cmake.CMake
 import java.awt.Font
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout

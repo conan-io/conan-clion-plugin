@@ -1,4 +1,4 @@
-package com.jfrog.conan.clionplugin.toolWindow
+package com.jfrog.conan.clion.toolWindow
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
@@ -15,10 +15,10 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.table.JBTable
 import com.intellij.util.text.SemVer
 import com.intellij.util.ui.JBUI
-import com.jfrog.conan.clionplugin.bundles.UIBundle
-import com.jfrog.conan.clionplugin.conan.datamodels.Recipe
-import com.jfrog.conan.clionplugin.models.LibrariesTableModel
-import com.jfrog.conan.clionplugin.services.ConanService
+import com.jfrog.conan.clion.bundles.UIBundle
+import com.jfrog.conan.clion.conan.datamodels.Recipe
+import com.jfrog.conan.clion.models.LibrariesTableModel
+import com.jfrog.conan.clion.services.ConanService
 import java.awt.BorderLayout
 import javax.swing.*
 import javax.swing.event.DocumentEvent

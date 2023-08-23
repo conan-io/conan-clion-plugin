@@ -1,6 +1,6 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.jfrog.conan.clionplugin</id>
+    <id>com.jfrog.conan.clion</id>
     <name>Conan, C and C++ Package Manager</name>
     <vendor>JFrog</vendor>
 
@@ -11,19 +11,19 @@
 
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.jfrog.conan.clionplugin.toolWindow.ConanWindowFactory"
+        <toolWindow factoryClass="com.jfrog.conan.clion.toolWindow.ConanWindowFactory"
                     id="Conan"
                     anchor="bottom"
-                    icon="com.jfrog.conan.clionplugin.icons.ConanIcons.Logo"/>
+                    icon="com.jfrog.conan.clion.icons.ConanIcons.Logo"/>
 
-        <notificationGroup id="com.jfrog.conan.clionplugin.notifications.general"
+        <notificationGroup id="com.jfrog.conan.clion.notifications.general"
                            displayType="BALLOON"
                            key="generalNotificationKey"/>
-        <postStartupActivity implementation="com.jfrog.conan.clionplugin.services.ConanPluginInit"/>
+        <postStartupActivity implementation="com.jfrog.conan.clion.services.ConanPluginInit"/>
     </extensions>
 
     <projectListeners>
-        <listener class="com.jfrog.conan.clionplugin.listeners.ConanCMakeSettingsListener"
+        <listener class="com.jfrog.conan.clion.listeners.ConanCMakeSettingsListener"
                   topic="com.jetbrains.cidr.cpp.cmake.CMakeSettingsListener"/>
     </projectListeners>
 </idea-plugin>

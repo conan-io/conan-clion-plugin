@@ -1,11 +1,11 @@
-package com.jfrog.conan.clionplugin.toolWindow
+package com.jfrog.conan.clion.toolWindow
 
 import com.intellij.ide.ui.LafManager
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.ui.jcef.JCEFHtmlPanel
-import com.jfrog.conan.clionplugin.models.LibraryData
-import com.jfrog.conan.clionplugin.services.ConanService
+import com.jfrog.conan.clion.models.LibraryData
+import com.jfrog.conan.clion.services.ConanService
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.awt.Color

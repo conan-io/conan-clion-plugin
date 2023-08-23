@@ -1,4 +1,4 @@
-package com.jfrog.conan.clionplugin.cmake
+package com.jfrog.conan.clion.cmake
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.notification.NotificationGroupManager
@@ -11,9 +11,9 @@ import com.intellij.openapi.ui.Messages
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.model.CMakeConfiguration
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration
-import com.jfrog.conan.clionplugin.bundles.UIBundle
-import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
-import com.jfrog.conan.clionplugin.services.ConanService
+import com.jfrog.conan.clion.bundles.UIBundle
+import com.jfrog.conan.clion.models.PersistentStorageKeys
+import com.jfrog.conan.clion.services.ConanService
 
 class CMake(val project: Project) {
 
@@ -167,7 +167,7 @@ class CMake(val project: Project) {
             if (isCMakeParallel) {
                 AdvancedSettings.setBoolean("cmake.reload.profiles.sequentially", true)
                 NotificationGroupManager.getInstance()
-                    .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                    .getNotificationGroup("com.jfrog.conan.clion.notifications.general")
                     .createNotification(
                         UIBundle.message("cmake.parallel.autoactivated.title"),
                         UIBundle.message("cmake.parallel.autoactivated.body"),
@@ -177,7 +177,7 @@ class CMake(val project: Project) {
             }
         } else if (isCMakeParallel && listOf(1).size > 1) {
             NotificationGroupManager.getInstance()
-                .getNotificationGroup("com.jfrog.conan.clionplugin.notifications.general")
+                .getNotificationGroup("com.jfrog.conan.clion.notifications.general")
                 .createNotification(
                     UIBundle.message("cmake.parallel.notactivated.title"),
                     UIBundle.message("cmake.parallel.notactivated.body"),

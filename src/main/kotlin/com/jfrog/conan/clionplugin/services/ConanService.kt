@@ -1,4 +1,4 @@
-package com.jfrog.conan.clionplugin.services
+package com.jfrog.conan.clion.services
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.Service
@@ -7,11 +7,11 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace
-import com.jfrog.conan.clionplugin.cmake.CMake
-import com.jfrog.conan.clionplugin.conan.ConanPluginUtils
-import com.jfrog.conan.clionplugin.conan.extensions.downloadFromUrl
-import com.jfrog.conan.clionplugin.models.LibraryData
-import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
+import com.jfrog.conan.clion.cmake.CMake
+import com.jfrog.conan.clion.conan.ConanPluginUtils
+import com.jfrog.conan.clion.conan.extensions.downloadFromUrl
+import com.jfrog.conan.clion.models.LibraryData
+import com.jfrog.conan.clion.models.PersistentStorageKeys
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json

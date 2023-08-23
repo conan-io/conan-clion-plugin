@@ -1,12 +1,12 @@
-package com.jfrog.conan.clionplugin.listeners
+package com.jfrog.conan.clion.listeners
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.jetbrains.cidr.cpp.cmake.CMakeSettings
 import com.jetbrains.cidr.cpp.cmake.CMakeSettingsListener
-import com.jfrog.conan.clionplugin.cmake.CMake
-import com.jfrog.conan.clionplugin.models.PersistentStorageKeys
+import com.jfrog.conan.clion.cmake.CMake
+import com.jfrog.conan.clion.models.PersistentStorageKeys
 
 
 internal class ConanCMakeSettingsListener(private val project: Project) : CMakeSettingsListener {

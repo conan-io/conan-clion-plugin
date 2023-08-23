@@ -1,4 +1,4 @@
-package com.jfrog.conan.clionplugin.icons
+package com.jfrog.conan.clion.icons
 
 import com.intellij.openapi.util.IconLoader
 

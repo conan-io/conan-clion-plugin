@@ -1,4 +1,4 @@
-package com.jfrog.conan.clionplugin.models
+package com.jfrog.conan.clion.models
 
 class PersistentStorageKeys {
     companion object {

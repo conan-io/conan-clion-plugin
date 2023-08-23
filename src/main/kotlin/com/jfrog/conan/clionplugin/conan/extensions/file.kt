@@ -1,4 +1,4 @@
-package com.jfrog.conan.clionplugin.conan.extensions
+package com.jfrog.conan.clion.conan.extensions
 
 import com.intellij.openapi.diagnostic.thisLogger
 import kotlinx.coroutines.Dispatchers
