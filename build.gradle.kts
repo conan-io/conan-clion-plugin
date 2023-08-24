@@ -109,11 +109,11 @@ tasks {
         systemProperty("jb.consents.confirmation.enabled", "false")
     }
 
-    signPlugin {
-        certificateChain = environment("CERTIFICATE_CHAIN")
-        privateKey = environment("PRIVATE_KEY")
-        password = environment("PRIVATE_KEY_PASSWORD")
-    }
+    //signPlugin {
+    //    certificateChain = environment("CERTIFICATE_CHAIN")
+    //    privateKey = environment("PRIVATE_KEY")
+    //    password = environment("PRIVATE_KEY_PASSWORD")
+    //}
 
     publishPlugin {
         dependsOn("patchChangelog")
