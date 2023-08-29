@@ -1,15 +1,25 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.jfrog.conan.clion</id>
-    <name>Conan, C and C++ Package Manager</name>
+    <name>Conan</name>
     <vendor>JFrog</vendor>
+    <description><![CDATA[
+        <a href="https://conan.io/">Conan</a> package manager integration with CLion.
+        <br>
+        <br>
+        Features:
+        <ul>
+            <li>Browse all available Conan packages in Conan Center</li>
+            <li>Add selected dependencies and use conan.cmake dependency provider to automatically install them according to the CLion configuration</li>
+        </ul>
+        Links: <a href="https://blog.conan.io/introducing-new-conan-clion-plugin/">Getting started</a>
+        | <a href="https://github.com/conan-io/conan-clion-plugin/issues">Issue tracker</a>
+        <br>
+    ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.clion</depends>
-
     <resource-bundle>messages.ui</resource-bundle>
-
-
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.jfrog.conan.clion.toolWindow.ConanWindowFactory"
                     id="Conan"
