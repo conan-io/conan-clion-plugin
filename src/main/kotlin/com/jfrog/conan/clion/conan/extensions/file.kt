@@ -1,13 +1,10 @@
 package com.jfrog.conan.clion.conan.extensions
 
 import com.intellij.openapi.diagnostic.thisLogger
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.io.File
 import java.net.URL
 
-suspend fun File.downloadFromUrl(url: String) {
+fun File.downloadFromUrl(url: String) {
     val targetFile = this
 
     try {

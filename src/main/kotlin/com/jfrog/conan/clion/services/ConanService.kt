@@ -3,6 +3,7 @@ package com.jfrog.conan.clion.services
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
+import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.LocalFileSystem
@@ -12,7 +13,7 @@ import com.jfrog.conan.clion.conan.ConanPluginUtils
 import com.jfrog.conan.clion.conan.extensions.downloadFromUrl
 import com.jfrog.conan.clion.models.LibraryData
 import com.jfrog.conan.clion.models.PersistentStorageKeys
-import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.io.File
@@ -52,7 +53,7 @@ class ConanService(val project: Project) {
         if (!cmake.checkConanUsedInAnyActiveProfile()) {
             Messages.showMessageDialog(
                 "Looks like Conan support may have not been added to the project. \n" +
-                        "Please click on the add button to add Conan support", "Add Conan support to the project",
+                        "Please click on the add button to add Conan support", "Add Conan Support To The Project",
                 Messages.getWarningIcon()
             )
         }
@@ -145,12 +146,13 @@ class ConanService(val project: Project) {
         }
     }
 
-    private fun getCMakeProviderFilename(): String {
-        return "conan_provider.cmake"
-    }
+    private val cMakeProviderFilename: String
+        get() {
+            return "conan_provider.cmake"
+        }
 
     fun getCMakeProviderFile(): File {
-        return File(CMakeWorkspace.getInstance(project).projectPath.toString(), getCMakeProviderFilename())
+        return File(CMakeWorkspace.getInstance(project).projectPath.toString(), cMakeProviderFilename)
     }
 
     fun downloadCMakeProvider(update: Boolean = false) {
@@ -159,21 +161,21 @@ class ConanService(val project: Project) {
 
         if (!targetFile.exists() || update && ConanPluginUtils.fileHasOverwriteComment(targetFile)) {
             targetFile.parentFile.mkdirs()
-            runBlocking {
-                targetFile.downloadFromUrl(cmakeProviderURL)
-            }
+            // TODO: This should be async
+            targetFile.downloadFromUrl(cmakeProviderURL)
             // Re-write it, but adding the overwrite header
             ConanPluginUtils.writeToFileWithOverwriteComment(targetFile, targetFile.readText())
             LocalFileSystem.getInstance().refreshAndFindFileByIoFile(targetFile)
         }
     }
 
-    private fun getRemoteDataFilename(): String {
-        return "remote-data.json"
-    }
+    private val remoteDataFilename: String
+        get() {
+            return "remote-data.json"
+        }
 
     private fun getRemoteDataFile(): File {
-        return File(ConanPluginUtils.getPluginHome(), getRemoteDataFilename())
+        return File(ConanPluginUtils.getPluginHome(), remoteDataFilename)
     }
 
     fun downloadLibraryData(update: Boolean = false) {
@@ -182,20 +184,30 @@ class ConanService(val project: Project) {
 
         if (!targetFile.exists() || update) {
             targetFile.parentFile.mkdirs()
-            runBlocking {
-                targetFile.downloadFromUrl(remoteDataURL)
-            }
+            // TODO: This should be async, but we have had problems with it in the past
+            targetFile.downloadFromUrl(remoteDataURL)
         }
         if (targetFile.exists()) {
             val libraryData = targetFile.readText()
+            try {
+                val parsedJson = Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(libraryData)
+                fireOnLibraryDataChanged(parsedJson)
+            } catch (e: SerializationException) {
+                thisLogger().error(e)
+                fireOnLibraryDataChanged(LibraryData(hashMapOf()))
+            }
 
-            fireOnLibraryDataChanged(Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(libraryData))
         }
     }
 
     fun getRemoteData(): LibraryData {
-        val targetData = getRemoteDataText()
-        return Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(targetData)
+        return try {
+            val targetData = getRemoteDataText()
+            Json { ignoreUnknownKeys = true }.decodeFromString<LibraryData>(targetData)
+        } catch (e: SerializationException) {
+            thisLogger().error(e)
+            LibraryData(hashMapOf())
+        }
     }
 
     fun getRemoteDataText(): String {

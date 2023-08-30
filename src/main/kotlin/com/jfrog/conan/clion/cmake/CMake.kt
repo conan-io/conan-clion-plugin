@@ -117,7 +117,7 @@ class CMake(val project: Project) {
         cmakeSettings.setProfiles(modifiedProfiles)
     }
 
-    fun checkConanExecutable(): Boolean {
+    private fun checkConanExecutable(): Boolean {
         val exeConfigured =
             (project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "") != "")
         if (!exeConfigured) {

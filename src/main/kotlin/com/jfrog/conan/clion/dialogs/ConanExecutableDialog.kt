@@ -24,7 +24,7 @@ import javax.swing.JPanel
 object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, true, false, false, false, false) {
     init {
         withFileFilter { it.isConanExecutable }
-        withTitle("Select Conan executable")
+        withTitle(UIBundle.message("config.file.selector.widget.title"))
     }
 
     override fun isFileSelectable(file: VirtualFile?): Boolean {

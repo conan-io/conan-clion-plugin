@@ -88,7 +88,7 @@ class UsedPackagesPanel(val project: Project) {
     """.trimIndent()
     }
 
-    fun getHtml(names: List<String>): String {
+    private fun getHtml(names: List<String>): String {
         val themeStyles = generateThemeStyles()
         val script = getScript(names)
 

@@ -80,7 +80,7 @@ class ReadmePanel(val project: Project) {
         """.trimIndent()
     }
 
-    fun getHtml(name: String): String {
+    private fun getHtml(name: String): String {
         val themeStyles = generateThemeStyles()
         val script = getScript(name)
 
