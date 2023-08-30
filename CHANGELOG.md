@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Added
+- Add description to plugin.xml
+- Bump minimun required CLion version to 223 (2022.3) to ensure the correct CMake version
+
 ## [2.0.0-beta.1] - 2023-08-24
 
 ### Added
