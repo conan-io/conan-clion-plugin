@@ -26,6 +26,10 @@ List available libraries, install and use them without leaving CLion
 
 <!-- Plugin description end -->
 
+## Getting started
+
+Please check https://blog.conan.io/introducing-new-conan-clion-plugin/
+
 ## Installation
 
 - Using IDE built-in plugin system:
