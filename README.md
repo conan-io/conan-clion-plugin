@@ -26,7 +26,7 @@ List available libraries, install and use them without leaving CLion
 
 <!-- Plugin description end -->
 
-## Getting started
+# Using the Plugin
 
 Please check https://blog.conan.io/introducing-new-conan-clion-plugin/
 
@@ -34,7 +34,7 @@ Please check https://blog.conan.io/introducing-new-conan-clion-plugin/
 
 - Using IDE built-in plugin system:
   
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "conan-clion-plugin"</kbd> >
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Conan"</kbd> >
   <kbd>Install Plugin</kbd>
   
 - Manually:
