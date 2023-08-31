@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [2.0.1] - 2023-08-31
+
 ### Bugfix
 - Fixed crash due to library data race condition when first using the plugin
 
@@ -19,6 +21,7 @@
 ### Added
 - New Conan CLion plugin compatible with Conan 2.X
 
-[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.0-beta.1...v2.0.0
 [2.0.0-beta.1]: https://github.com/conan-io/conan-clion-plugin//commits/v2.0.0-beta.1
