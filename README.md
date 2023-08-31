@@ -14,6 +14,14 @@ List available libraries, install and use them without leaving CLion
 
 ## Using the Plugin
 
+![Initial configuration][file:clion-configuration-1]
+
+![Set conan executable][file:clion-configuration-2]
+
+![Search libraries][file:clion-inspect]
+
+![Inspect libraries][file:clion-use-libcurl]
+
 Please check https://blog.conan.io/introducing-new-conan-clion-plugin/
 
 ## Installation
