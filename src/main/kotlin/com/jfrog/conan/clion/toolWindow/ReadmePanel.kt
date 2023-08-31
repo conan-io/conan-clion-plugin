@@ -23,8 +23,8 @@ class ReadmePanel(val project: Project) {
         }
     }
 
-    private val targetsData = project.service<ConanService>().getRemoteDataText()
-    private val libraryData = project.service<ConanService>().getRemoteData()
+    private val targetsDataAsText = project.service<ConanService>().getTargetDataText()
+    private val libraryData = project.service<ConanService>().getTargetData()
 
     fun getTitleHtml(name: String): String {
         val description = libraryData.libraries[name]?.description
@@ -43,7 +43,7 @@ class ReadmePanel(val project: Project) {
     private fun getScript(name: String): String {
         return """
             function fillExtraData() {
-                const data = $targetsData;
+                const data = $targetsDataAsText;
                 const libraries = data["libraries"]
                 const infoDiv = document.getElementById("info");
                 const selected_lib = "$name";

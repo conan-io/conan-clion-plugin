@@ -30,7 +30,7 @@ class ConanService(val project: Project) {
 
     fun onWindowReady() {
         fireOnConfiguredListeners(isPluginConfigured())
-        fireOnLibraryDataChanged(getRemoteData())
+        fireOnLibraryDataChanged(getTargetData())
     }
 
     fun fireOnConfiguredListeners(isConfigured: Boolean) {
@@ -161,6 +161,9 @@ class ConanService(val project: Project) {
         if (!targetFile.exists() || update && ConanPluginUtils.fileHasOverwriteComment(targetFile)) {
             targetFile.parentFile.mkdirs()
             targetFile.downloadFromUrl(cmakeProviderURL)
+            // TODO: Check if cmakeProviderURL was downloaded correctly,
+            //  else save the copy from the plugin into the project
+
             // Re-write it, but adding the overwrite header
             ConanPluginUtils.writeToFileWithOverwriteComment(targetFile, targetFile.readText())
             LocalFileSystem.getInstance().refreshAndFindFileByIoFile(targetFile)
@@ -196,9 +199,9 @@ class ConanService(val project: Project) {
         }
     }
 
-    fun getRemoteData(): LibraryData {
+    fun getTargetData(): LibraryData {
         return try {
-            val targetData = getRemoteDataText()
+            val targetData = getTargetDataText()
             Json { ignoreUnknownKeys = true }.decodeFromString<LibraryData>(targetData)
         } catch (e: SerializationException) {
             thisLogger().error(e)
@@ -206,7 +209,7 @@ class ConanService(val project: Project) {
         }
     }
 
-    fun getRemoteDataText(): String {
+    fun getTargetDataText(): String {
         val userHomeFile = getRemoteDataFile()
         if (!userHomeFile.exists()) {
             val defaultFile = ConanService::class.java.classLoader.getResource("conan/targets-data.json")
