@@ -7,7 +7,7 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.net.URL
 
-suspend fun File.downloadFromUrl(url: String) {
+fun File.downloadFromUrl(url: String) {
     val targetFile = this
 
     try {

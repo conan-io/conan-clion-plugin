@@ -12,7 +12,6 @@ import com.jfrog.conan.clion.conan.ConanPluginUtils
 import com.jfrog.conan.clion.conan.extensions.downloadFromUrl
 import com.jfrog.conan.clion.models.LibraryData
 import com.jfrog.conan.clion.models.PersistentStorageKeys
-import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.io.File
@@ -159,9 +158,7 @@ class ConanService(val project: Project) {
 
         if (!targetFile.exists() || update && ConanPluginUtils.fileHasOverwriteComment(targetFile)) {
             targetFile.parentFile.mkdirs()
-            runBlocking {
-                targetFile.downloadFromUrl(cmakeProviderURL)
-            }
+            targetFile.downloadFromUrl(cmakeProviderURL)
             // Re-write it, but adding the overwrite header
             ConanPluginUtils.writeToFileWithOverwriteComment(targetFile, targetFile.readText())
             LocalFileSystem.getInstance().refreshAndFindFileByIoFile(targetFile)
@@ -182,20 +179,29 @@ class ConanService(val project: Project) {
 
         if (!targetFile.exists() || update) {
             targetFile.parentFile.mkdirs()
-            runBlocking {
-                targetFile.downloadFromUrl(remoteDataURL)
-            }
+            targetFile.downloadFromUrl(remoteDataURL)
         }
         if (targetFile.exists()) {
             val libraryData = targetFile.readText()
 
-            fireOnLibraryDataChanged(Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(libraryData))
+            try {
+                val parsedJson = Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(libraryData)
+                fireOnLibraryDataChanged(parsedJson)
+            } catch (e: SerializationException) {
+                thisLogger().error(e)
+                fireOnLibraryDataChanged(LibraryData(hashMapOf()))
+            }
         }
     }
 
     fun getRemoteData(): LibraryData {
-        val targetData = getRemoteDataText()
-        return Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(targetData)
+        return try {
+            val targetData = getRemoteDataText()
+            Json { ignoreUnknownKeys = true }.decodeFromString<LibraryData>(targetData)
+        } catch (e: SerializationException) {
+            thisLogger().error(e)
+            LibraryData(hashMapOf())
+        }
     }
 
     fun getRemoteDataText(): String {
