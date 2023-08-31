@@ -4,6 +4,9 @@
 
 ## [Unreleased]
 
+### Bugfix
+- Fixed crash due to library data race condition when first using the plugin
+
 ## [2.0.0] - 2023-08-30
 
 ### Added
