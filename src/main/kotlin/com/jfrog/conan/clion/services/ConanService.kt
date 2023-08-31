@@ -3,6 +3,7 @@ package com.jfrog.conan.clion.services
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
+import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.LocalFileSystem
@@ -12,6 +13,7 @@ import com.jfrog.conan.clion.conan.ConanPluginUtils
 import com.jfrog.conan.clion.conan.extensions.downloadFromUrl
 import com.jfrog.conan.clion.models.LibraryData
 import com.jfrog.conan.clion.models.PersistentStorageKeys
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.io.File
