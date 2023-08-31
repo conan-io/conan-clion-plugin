@@ -19,7 +19,7 @@ class UsedPackagesPanel(val project: Project) {
         setOpenLinksInExternalBrowser(true)
     }
 
-    private val libraryData = project.service<ConanService>().getRemoteData()
+    private val libraryData = project.service<ConanService>().getTargetData()
 
     private fun getScript(names: List<String>): String {
         val filteredLibraryData = LibraryData(libraries = HashMap())

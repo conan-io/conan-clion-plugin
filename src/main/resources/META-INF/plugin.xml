@@ -29,7 +29,6 @@
         <notificationGroup id="com.jfrog.conan.clion.notifications.general"
                            displayType="BALLOON"
                            key="generalNotificationKey"/>
-        <postStartupActivity implementation="com.jfrog.conan.clion.services.ConanPluginInit"/>
     </extensions>
 
     <projectListeners>
