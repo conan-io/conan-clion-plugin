@@ -45,6 +45,12 @@ class CMake(val project: Project) {
         if (conanExecutable != "" && conanExecutable != "conan") {
             generationOptions.add("-DCONAN_COMMAND=\"${conanExecutable}\"")
         }
+        else {
+            removeGenerationOptions(
+                profileName,
+                listOf("CONAN_COMMAND")
+            )
+        }
         addGenerationOptions(profileName, generationOptions)
     }
 
