@@ -163,16 +163,19 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     override fun doOKAction() {
         val firstSetup = !properties.getBoolean(PersistentStorageKeys.HAS_BEEN_SETUP, false)
-
         properties.setValue(PersistentStorageKeys.HAS_BEEN_SETUP, true)
-        if (!useConanFromSystemCheckBox.isSelected) {
-            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, conanExecutablePathField.text)
+
+        val currentValue = properties.getValue(PersistentStorageKeys.CONAN_EXECUTABLE)
+        val newValue = if (!useConanFromSystemCheckBox.isSelected) {
+            conanExecutablePathField.text
+        } else {
+            "conan"
         }
-        else {
-            properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
-        }
-        val selected = if (automaticallyAddCheckbox.isSelected) "true" else "false"
-        properties.setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, selected)
+        properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, newValue)
+        val exeChanged = (currentValue != newValue)
+
+        val autoAddConan = if (automaticallyAddCheckbox.isSelected) "true" else "false"
+        properties.setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, autoAddConan)
 
         if (firstSetup) {
             conanService.downloadCMakeProvider()
@@ -181,10 +184,10 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
 
         profileCheckboxes.forEach { checkbox ->
             val profileName = checkbox.text
-            if (checkbox.isSelected) {
-                cmake.injectDependencyProviderToProfile(profileName)
-            } else {
-                cmake.removeDependencyProviderFromProfile(profileName)
+            if (checkbox.isSelected && (!cmake.checkConanUsedInProfile(profileName) || exeChanged)) {
+                cmake.injectConanSupportToProfile(profileName)
+            } else if (!checkbox.isSelected) {
+                cmake.removeConanSupportFromProfile(profileName)
             }
         }
         properties

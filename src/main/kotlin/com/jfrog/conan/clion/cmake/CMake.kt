@@ -24,22 +24,17 @@ class CMake(val project: Project) {
     fun checkConanUsedInProfile(profileName: String?): Boolean {
         val cmakeSettings = CMakeSettings.getInstance(project)
         val profiles = cmakeSettings.profiles
-        val modifiedProfiles: MutableList<CMakeSettings.Profile> = mutableListOf()
 
         for (profile in profiles) {
             if (profile.name == profileName) {
                 val existingGenerationOptions = profile.generationOptions ?: ""
                 return listOf("CONAN_COMMAND", "conan_provider.cmake").any { existingGenerationOptions.contains(it) }
-            } else {
-                modifiedProfiles.add(profile)
             }
         }
-
-        cmakeSettings.setProfiles(modifiedProfiles)
-        return true
+        return false
     }
 
-    fun injectDependencyProviderToProfile(profileName: String) {
+    fun injectConanSupportToProfile(profileName: String) {
         val conanExecutable: String = project.service<PropertiesComponent>().getValue(
             PersistentStorageKeys.CONAN_EXECUTABLE,
             ""
@@ -50,10 +45,16 @@ class CMake(val project: Project) {
         if (conanExecutable != "" && conanExecutable != "conan") {
             generationOptions.add("-DCONAN_COMMAND=\"${conanExecutable}\"")
         }
+        else {
+            removeGenerationOptions(
+                profileName,
+                listOf("CONAN_COMMAND")
+            )
+        }
         addGenerationOptions(profileName, generationOptions)
     }
 
-    fun removeDependencyProviderFromProfile(profileName: String) {
+    fun removeConanSupportFromProfile(profileName: String) {
         removeGenerationOptions(
             profileName,
             listOf(
@@ -117,39 +118,6 @@ class CMake(val project: Project) {
         }
 
         cmakeSettings.setProfiles(modifiedProfiles)
-    }
-
-    fun checkConanExecutable(): Boolean {
-        val exeConfigured =
-            (project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "") != "")
-        if (!exeConfigured) {
-            // TODO: still missing implementing the 'Use conan in system path' checkbox
-            Messages.showMessageDialog(
-                "Looks like you have not configured the path to the Conan executable," +
-                        " if you want to use the system one please check the 'Use conan in system path' " +
-                        "option in the configuration window.",
-                "Conan executable path not configured",
-                Messages.getWarningIcon()
-            )
-        }
-        return exeConfigured
-    }
-
-    fun addConanSupport() {
-        val profiles: MutableList<String> = mutableListOf()
-        if (checkConanExecutable()) {
-            getActiveProfiles().forEach { profile ->
-                thisLogger().info("Adding Conan configuration to ${profile.name}")
-                injectDependencyProviderToProfile(profile.name)
-                profiles.add(profile.name)
-            }
-            project.service<PropertiesComponent>().setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, true)
-            Messages.showMessageDialog(
-                "Conan support added for: ${profiles.joinToString(separator = ", ")}",
-                "Conan support added",
-                Messages.getInformationIcon()
-            )
-        }
     }
 
     fun getActiveProfiles(): List<CMakeSettings.Profile> {
