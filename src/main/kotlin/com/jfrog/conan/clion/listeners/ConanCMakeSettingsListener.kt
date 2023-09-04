@@ -10,10 +10,6 @@ import com.jfrog.conan.clion.models.PersistentStorageKeys
 
 
 internal class ConanCMakeSettingsListener(private val project: Project) : CMakeSettingsListener {
-    override fun autoReloadChanged() {
-        println("autoReloadChanged")
-    }
-
     override fun profilesChanged(old: List<CMakeSettings.Profile>, current: List<CMakeSettings.Profile>) {
         val properties = project.service<PropertiesComponent>()
         val autoAdd = (properties.getValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, "false") == "true")
