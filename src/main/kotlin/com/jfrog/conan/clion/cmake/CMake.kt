@@ -39,7 +39,7 @@ class CMake(val project: Project) {
         return true
     }
 
-    fun injectDependencyProviderToProfile(profileName: String) {
+    fun injectConanSupportToProfile(profileName: String) {
         val conanExecutable: String = project.service<PropertiesComponent>().getValue(
             PersistentStorageKeys.CONAN_EXECUTABLE,
             ""
@@ -53,7 +53,7 @@ class CMake(val project: Project) {
         addGenerationOptions(profileName, generationOptions)
     }
 
-    fun removeDependencyProviderFromProfile(profileName: String) {
+    fun removeConanSupportFromProfile(profileName: String) {
         removeGenerationOptions(
             profileName,
             listOf(
@@ -140,7 +140,7 @@ class CMake(val project: Project) {
         if (checkConanExecutable()) {
             getActiveProfiles().forEach { profile ->
                 thisLogger().info("Adding Conan configuration to ${profile.name}")
-                injectDependencyProviderToProfile(profile.name)
+                injectConanSupportToProfile(profile.name)
                 profiles.add(profile.name)
             }
             project.service<PropertiesComponent>().setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, true)

@@ -182,9 +182,9 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         profileCheckboxes.forEach { checkbox ->
             val profileName = checkbox.text
             if (checkbox.isSelected) {
-                cmake.injectDependencyProviderToProfile(profileName)
+                cmake.injectConanSupportToProfile(profileName)
             } else {
-                cmake.removeDependencyProviderFromProfile(profileName)
+                cmake.removeConanSupportFromProfile(profileName)
             }
         }
         properties
