@@ -73,7 +73,9 @@ class CMake(val project: Project) {
                 val existingGenerationOptions = profile.generationOptions ?: ""
                 val newGenerationOptions = mutableListOf<String>()
 
-                newGenerationOptions.add(existingGenerationOptions)
+                if (existingGenerationOptions.isNotEmpty()) {
+                    newGenerationOptions.add(existingGenerationOptions)
+                }
 
                 generationOptions.forEach { option ->
                     if (!existingGenerationOptions.contains(option)) {
