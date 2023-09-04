@@ -119,39 +119,6 @@ class CMake(val project: Project) {
         cmakeSettings.setProfiles(modifiedProfiles)
     }
 
-    fun checkConanExecutable(): Boolean {
-        val exeConfigured =
-            (project.service<PropertiesComponent>().getValue(PersistentStorageKeys.CONAN_EXECUTABLE, "") != "")
-        if (!exeConfigured) {
-            // TODO: still missing implementing the 'Use conan in system path' checkbox
-            Messages.showMessageDialog(
-                "Looks like you have not configured the path to the Conan executable," +
-                        " if you want to use the system one please check the 'Use conan in system path' " +
-                        "option in the configuration window.",
-                "Conan executable path not configured",
-                Messages.getWarningIcon()
-            )
-        }
-        return exeConfigured
-    }
-
-    fun addConanSupport() {
-        val profiles: MutableList<String> = mutableListOf()
-        if (checkConanExecutable()) {
-            getActiveProfiles().forEach { profile ->
-                thisLogger().info("Adding Conan configuration to ${profile.name}")
-                injectConanSupportToProfile(profile.name)
-                profiles.add(profile.name)
-            }
-            project.service<PropertiesComponent>().setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, true)
-            Messages.showMessageDialog(
-                "Conan support added for: ${profiles.joinToString(separator = ", ")}",
-                "Conan support added",
-                Messages.getInformationIcon()
-            )
-        }
-    }
-
     fun getActiveProfiles(): List<CMakeSettings.Profile> {
         return CMakeSettings.getInstance(project).activeProfiles
     }
