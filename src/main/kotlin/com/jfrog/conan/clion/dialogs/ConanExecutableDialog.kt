@@ -171,8 +171,8 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
         else {
             properties.setValue(PersistentStorageKeys.CONAN_EXECUTABLE, "conan")
         }
-        val selected = if (automaticallyAddCheckbox.isSelected) "true" else "false"
-        properties.setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, selected)
+        val autoAddConan = if (automaticallyAddCheckbox.isSelected) "true" else "false"
+        properties.setValue(PersistentStorageKeys.AUTOMATIC_ADD_CONAN, autoAddConan)
 
         if (firstSetup) {
             conanService.downloadCMakeProvider()
