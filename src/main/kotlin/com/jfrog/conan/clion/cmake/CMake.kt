@@ -72,14 +72,17 @@ class CMake(val project: Project) {
         for (profile in profiles) {
             if (profile.name == profileName) {
                 val existingGenerationOptions = profile.generationOptions ?: ""
-                val newGenerationOptions = mutableListOf<String>()
-
-                if (existingGenerationOptions.isNotEmpty()) {
-                    newGenerationOptions.add(existingGenerationOptions)
+                val newGenerationOptions = if (existingGenerationOptions.isNotEmpty()) {
+                    existingGenerationOptions.split(" ").toMutableList()
+                } else {
+                    mutableListOf<String>()
                 }
-
                 generationOptions.forEach { option ->
-                    if (!existingGenerationOptions.contains(option)) {
+                    val optionKey = option.split("=")[0]
+                    val existingOptionIndex = newGenerationOptions.indexOfFirst { it.startsWith(optionKey) }
+                    if (existingOptionIndex != -1) {
+                        newGenerationOptions[existingOptionIndex] = option
+                    } else {
                         newGenerationOptions.add(option)
                     }
                 }
