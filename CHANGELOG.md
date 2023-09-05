@@ -6,6 +6,7 @@
 
 ### Bugfix
 - Fixed when only the Conan executable path was changed, it was not updated
+- Fixed adding multiple CONAN_COMMAND
 
 ## [2.0.1] - 2023-08-31
 
