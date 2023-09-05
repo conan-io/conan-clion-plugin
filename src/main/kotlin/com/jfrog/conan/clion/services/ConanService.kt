@@ -146,7 +146,7 @@ class ConanService(val project: Project) {
         }
     }
 
-    private fun getCMakeProviderFilename(): String {
+    fun getCMakeProviderFilename(): String {
         return "conan_provider.cmake"
     }
 

@@ -40,7 +40,7 @@ class CMake(val project: Project) {
             ""
         )
         val generationOptions: MutableList<String> = mutableListOf()
-        val conanProviderPath = project.service<ConanService>().getCMakeProviderFile().toString()
+        val conanProviderPath = project.service<ConanService>().getCMakeProviderFilename()
         generationOptions.add("-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=\"${conanProviderPath}\"")
         if (conanExecutable != "" && conanExecutable != "conan") {
             generationOptions.add("-DCONAN_COMMAND=\"${conanExecutable}\"")
