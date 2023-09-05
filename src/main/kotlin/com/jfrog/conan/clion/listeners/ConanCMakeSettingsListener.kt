@@ -18,7 +18,7 @@ internal class ConanCMakeSettingsListener(private val project: Project) : CMakeS
             // Conan support is because it was manually disabled
             current
                 .filter { new -> old.none { new.name == it.name }}
-                .forEach { CMake(project).injectDependencyProviderToProfile(it.name) }
+                .forEach { CMake(project).injectConanSupportToProfile(it.name) }
         }
     }
 }

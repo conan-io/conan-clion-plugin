@@ -4,6 +4,9 @@
 
 ## [Unreleased]
 
+### Bugfix
+- Fixed when only the Conan executable path was changed, it was not updated
+
 ## [2.0.1] - 2023-08-31
 
 ### Changed
