@@ -1,5 +1,5 @@
 {
-    "date": 1693786535,
+    "date": 1693872898,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4900,6 +4900,16 @@
             "versions": [
                 "0.186",
                 "0.180"
+            ]
+        },
+        "embag": {
+            "description": "Schema and dependency free ROS bag reader",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.42"
             ]
         },
         "embree3": {
@@ -11722,16 +11732,14 @@
             ],
             "v2": true,
             "versions": [
+                "0.593",
                 "0.589",
                 "0.582",
                 "0.577",
                 "0.572",
                 "0.568",
                 "0.563",
-                "0.558",
-                "0.556",
-                "0.552",
-                "0.548"
+                "0.558"
             ]
         },
         "lunasvg": {
@@ -21778,6 +21786,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3",
                 "1.2.13",
                 "1.2.12",
                 "1.2.11"
