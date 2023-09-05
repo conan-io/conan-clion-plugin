@@ -6,6 +6,9 @@
 
 ## [2.0.1] - 2023-08-31
 
+### Changed
+- Use relative (instead of absolute) path to pass the conan_provider.cmake to CMake
+
 ### Bugfix
 - Fixed crash due to library data race condition when first using the plugin
 
