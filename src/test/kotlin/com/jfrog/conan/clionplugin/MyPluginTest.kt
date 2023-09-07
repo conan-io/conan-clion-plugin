@@ -1,4 +1,4 @@
-package com.jfrog.conan.clion
+package com.jfrog.conan.plugin
 
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.psi.xml.XmlFile

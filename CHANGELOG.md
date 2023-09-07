@@ -4,6 +4,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Change plugin id to avoid configuration defect error
+
 ## [2.0.2] - 2023-09-07
 
 ### Bugfix
