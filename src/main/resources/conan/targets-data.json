@@ -1,5 +1,5 @@
 {
-    "date": 1693959307,
+    "date": 1694045698,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1182,7 +1182,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.9.234",
                 "1.9.100",
@@ -3979,6 +3979,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.6",
                 "1.5"
             ]
         },
@@ -4066,6 +4067,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.96.1",
                 "2.95.0",
                 "2.93.1",
                 "2.92.0",
@@ -6453,6 +6455,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.1",
                 "1.4.0",
                 "1.3.6",
                 "1.3.5",
@@ -7770,9 +7773,9 @@
         "imagl": {
             "description": "A lightweight library to load image for OpenGL application.",
             "license": [
-                "GPL-3.0-or-later"
+                "LGPL-3.0-only"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.1.0",
                 "0.1.1",
@@ -8930,11 +8933,13 @@
             ]
         },
         "libb2": {
-            "description": "libb2 is a library that implemets the BLAKE2 cryptographic hash function, which is faster than MD5, SHA-1, SHA-2, and SHA-3, yet is at least as secure as the latest standard SHA-3",
+            "description": "libb2 is a library that implements the BLAKE2 cryptographic hash function, which is faster than MD5, SHA-1, SHA-2, and SHA-3, yet is at least as secure as the latest standard SHA-3",
             "license": [
-                ""
+                "CC0-1.0",
+                "OpenSSL",
+                "APSL-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "20190723"
             ]
@@ -10166,6 +10171,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.56.0",
                 "1.55.1",
                 "1.55.0",
                 "1.54.0",
@@ -10173,9 +10179,7 @@
                 "1.51.0",
                 "1.50.0",
                 "1.49.0",
-                "1.48.0",
-                "1.47.0",
-                "1.46.0"
+                "1.48.0"
             ]
         },
         "libnice": {
@@ -10661,7 +10665,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.10.3"
             ]
@@ -10907,6 +10911,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.5",
                 "4.4",
                 "4.3",
                 "4.2"
@@ -11499,6 +11504,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.15.128",
                 "5.14.9",
                 "5.13.9"
             ]
@@ -16736,6 +16742,7 @@
             ],
             "v2": true,
             "versions": [
+                "20230901",
                 "20230801",
                 "20230701",
                 "20230602",
@@ -19824,8 +19831,9 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "0.20.3",
                 "0.20.2",
                 "0.20.1"
             ]
@@ -21289,6 +21297,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.33",
                 "1.2.32",
                 "1.2.31",
                 "1.2.30"
