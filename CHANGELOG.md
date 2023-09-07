@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [2.0.2] - 2023-09-07
+
 ### Bugfix
 - Fixed when only the Conan executable path was changed, it was not updated
 - Fixed adding multiple CONAN_COMMAND
@@ -28,7 +30,8 @@
 ### Added
 - New Conan CLion plugin compatible with Conan 2.X
 
-[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.0-beta.1...v2.0.0
 [2.0.0-beta.1]: https://github.com/conan-io/conan-clion-plugin//commits/v2.0.0-beta.1
