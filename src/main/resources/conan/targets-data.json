@@ -1,5 +1,5 @@
 {
-    "date": 1694045698,
+    "date": 1694132095,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -13937,7 +13937,7 @@
         "octo-keygen-cpp": {
             "cmake_file_name": "octo-keygen-cpp",
             "cmake_target_name": "octo::octo-keygen-cpp",
-            "description": "Octo keygen library",
+            "description": "Key generation / certificate generation using openssl for CPP",
             "license": [
                 "MIT"
             ],
@@ -19337,12 +19337,13 @@
             ]
         },
         "tinkerforge-bindings": {
+            "cmake_file_name": "tinkerforge-bindings",
             "cmake_target_name": "tinkerforge::bindings",
             "description": "API bindings to control Tinkerforge's Bricks and Bricklets",
             "license": [
                 "CC0 1.0 Universal"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.1.32"
             ]
@@ -20833,6 +20834,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.2.0",
                 "4.1.1",
                 "4.0.0",
                 "3.2.1",
@@ -20850,6 +20852,7 @@
             ],
             "v2": true,
             "versions": [
+                "12.0.1",
                 "9.0.1",
                 "7.0.0",
                 "6.0.1",
