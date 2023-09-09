@@ -1,5 +1,5 @@
 {
-    "date": 1694132095,
+    "date": 1694218485,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4621,6 +4621,16 @@
             "versions": [
                 "0.13.7",
                 "0.13.6"
+            ]
+        },
+        "dsp-filters": {
+            "description": "Set of DSP filters",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20170309"
             ]
         },
         "dtl": {
@@ -11478,11 +11488,13 @@
             ]
         },
         "lightpcapng": {
+            "cmake_file_name": "light_pcapng",
+            "cmake_target_name": "light_pcapng::light_pcapng",
             "description": "Library for general-purpose tracing based on PCAPNG file format",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20211005"
             ]
@@ -12931,6 +12943,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.1",
                 "1.2.0",
                 "1.1.0"
             ]
@@ -18190,6 +18203,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.0.4",
                 "6.0.3"
             ]
         },
@@ -19305,9 +19319,9 @@
         "tidy-html5": {
             "description": "The granddaddy of HTML tools, with support for modern standards",
             "license": [
-                "W3C"
+                "HTMLTIDY"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "5.8.0"
             ]
