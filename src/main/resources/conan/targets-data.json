@@ -1,5 +1,5 @@
 {
-    "date": 1694391334,
+    "date": 1694477704,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -165,6 +165,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.1.2c",
                 "0.1.2a",
                 "0.1.1f"
             ]
@@ -3128,11 +3129,12 @@
         },
         "corrade": {
             "cmake_file_name": "Corrade",
+            "cmake_target_name": "Corrade::Corrade",
             "description": "Corrade is a multiplatform utility library written in C++11/C++14.",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2020.06",
                 "2019.10"
@@ -3309,11 +3311,10 @@
             ],
             "v2": true,
             "versions": [
+                "2.12",
                 "2.11.1",
                 "2.10.3",
-                "2.10",
                 "2.9.3",
-                "2.9.2",
                 "2.8.2"
             ]
         },
@@ -4089,6 +4090,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.20.1",
                 "3.19.0",
                 "3.17.2",
                 "3.17.1",
@@ -5173,6 +5175,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.28.0",
                 "0.27.5",
                 "0.27.4"
             ]
@@ -6062,8 +6065,9 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "1.2.0",
                 "1.0.0"
             ]
         },
@@ -6295,6 +6299,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.12.0",
                 "3.11.2",
                 "3.11.1",
                 "3.11.0",
@@ -6576,6 +6581,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.78.0",
                 "2.77.3",
                 "2.77.2",
                 "2.77.1",
