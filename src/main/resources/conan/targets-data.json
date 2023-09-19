@@ -1,5 +1,5 @@
 {
-    "date": 1694996119,
+    "date": 1695082525,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2873,6 +2873,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.27.5",
                 "3.27.4",
                 "3.27.1",
                 "3.27.0",
@@ -3123,6 +3124,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.2.2",
                 "4.2.1",
                 "4.2.0",
                 "4.1.0"
@@ -3699,6 +3701,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.8.0",
                 "8.7.0",
                 "8.6.0",
                 "8.5.0",
@@ -3778,11 +3781,9 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.3.7",
-                "1.3.6",
-                "1.3.5"
+                "1.3.7"
             ]
         },
         "ctre": {
@@ -5962,7 +5963,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.15.19-p0",
                 "0.15.18-p0",
@@ -6050,6 +6051,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.2.20-p0",
                 "0.2.18-p0",
                 "0.2.17-p0",
                 "0.2.16",
@@ -8700,6 +8702,16 @@
             "v2": true,
             "versions": [
                 "3.4.3"
+            ]
+        },
+        "lazycsv": {
+            "description": "A fast, lightweight and single-header C++ csv parser library",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20221117"
             ]
         },
         "lcms": {
@@ -15605,7 +15617,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.1.0"
             ]
@@ -17818,7 +17830,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "3.1.0"
             ]
@@ -18600,6 +18612,16 @@
                 "1.3.7"
             ]
         },
+        "ssp": {
+            "description": "C++ CSV parser",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.6.1"
+            ]
+        },
         "st_tree": {
             "description": "A fast and flexible c++ template class for tree data structures",
             "license": [
@@ -18754,6 +18776,16 @@
             "v2": true,
             "versions": [
                 "0.0.4"
+            ]
+        },
+        "stringzilla": {
+            "description": "Fastest string sort, search, split, and shuffle for long strings and multi-gigabyte files in Python and C, leveraging SIMD with Arm Neon and x86 AVX2 & AVX-512 intrinsics.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.3"
             ]
         },
         "strong_type": {
@@ -21082,6 +21114,11 @@
         "wildmidi": {
             "cmake_file_name": "WildMidi",
             "cmake_target_name": "WildMidi::libwildmidi",
+            "components": {
+                "libwildmidi": {
+                    "cmake_target_name": "WildMidi::libwildmidi"
+                }
+            },
             "description": "WildMIDI is a simple software midi player which has a core softsynth library that can be used in other applications.",
             "license": [
                 "LGPL-3.0-only"
@@ -21525,6 +21562,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.24.6",
                 "0.24.3",
                 "0.24.2",
                 "0.24.0",
