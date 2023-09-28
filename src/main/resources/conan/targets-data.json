@@ -1,5 +1,5 @@
 {
-    "date": 1695773723,
+    "date": 1695860137,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -14470,54 +14470,6 @@
             ]
         },
         "opencv": {
-            "cmake_file_name": "OpenCV",
-            "components": {
-                "opencv_calib3d": {
-                    "cmake_target_name": "opencv_calib3d"
-                },
-                "opencv_core": {
-                    "cmake_target_name": "opencv_core"
-                },
-                "opencv_dnn": {
-                    "cmake_target_name": "opencv_dnn"
-                },
-                "opencv_features2d": {
-                    "cmake_target_name": "opencv_features2d"
-                },
-                "opencv_flann": {
-                    "cmake_target_name": "opencv_flann"
-                },
-                "opencv_gapi": {
-                    "cmake_target_name": "opencv_gapi"
-                },
-                "opencv_highgui": {
-                    "cmake_target_name": "opencv_highgui"
-                },
-                "opencv_imgcodecs": {
-                    "cmake_target_name": "opencv_imgcodecs"
-                },
-                "opencv_imgproc": {
-                    "cmake_target_name": "opencv_imgproc"
-                },
-                "opencv_ml": {
-                    "cmake_target_name": "opencv_ml"
-                },
-                "opencv_objdetect": {
-                    "cmake_target_name": "opencv_objdetect"
-                },
-                "opencv_photo": {
-                    "cmake_target_name": "opencv_photo"
-                },
-                "opencv_stitching": {
-                    "cmake_target_name": "opencv_stitching"
-                },
-                "opencv_video": {
-                    "cmake_target_name": "opencv_video"
-                },
-                "opencv_videoio": {
-                    "cmake_target_name": "opencv_videoio"
-                }
-            },
             "description": "OpenCV (Open Source Computer Vision Library)",
             "license": [
                 "Apache-2.0"
@@ -14799,9 +14751,11 @@
             ],
             "v2": true,
             "versions": [
+                "3.1.3",
                 "3.1.2",
                 "3.1.1",
                 "3.1.0",
+                "3.0.11",
                 "3.0.10",
                 "3.0.9",
                 "3.0.8",
