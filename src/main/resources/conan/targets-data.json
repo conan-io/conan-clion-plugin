@@ -1,5 +1,5 @@
 {
-    "date": 1696205747,
+    "date": 1696292140,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2821,6 +2821,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.1",
                 "2.5.0",
                 "2.4.0"
             ]
@@ -6023,6 +6024,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.15.24-p0",
                 "0.15.19-p0",
                 "0.15.18-p0",
                 "0.15.16-p0",
@@ -9027,6 +9029,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.1",
                 "0.11.1",
                 "0.9.3"
             ]
@@ -10348,6 +10351,16 @@
             "v2": true,
             "versions": [
                 "0.16.0"
+            ]
+        },
+        "libnpy": {
+            "description": "C++ library for reading and writing of numpy's .npy files",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.1"
             ]
         },
         "libnuma": {
@@ -13878,6 +13891,7 @@
             ],
             "v2": true,
             "versions": [
+                "12.0.16.0",
                 "11.1.5.1",
                 "9.1.23.2"
             ]
