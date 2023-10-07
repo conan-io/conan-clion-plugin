@@ -1,5 +1,5 @@
 {
-    "date": 1696551317,
+    "date": 1696637715,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -828,7 +828,8 @@
                 "2.47.1",
                 "2.48.0",
                 "2.48.3",
-                "2.49.1"
+                "2.49.1",
+                "2.50.0"
             ]
         },
         "atk": {
@@ -2565,7 +2566,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.13",
                 "1.12",
@@ -3369,6 +3370,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.4.0",
                 "1.0.3.0",
                 "1.0.2.0",
                 "1.0.1.0",
@@ -4794,9 +4796,9 @@
         "easylzma": {
             "description": "An easy to use, tiny, public domain, C wrapper library around Igor Pavlov's work that can be used to compress and extract lzma files",
             "license": [
-                "Unlicense"
+                "DocumentRef-README:LicenseRef-PublicDomain-WITH-Attribution"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.0.7"
             ]
@@ -14344,12 +14346,15 @@
             ]
         },
         "onnxruntime": {
+            "cmake_file_name": "onnxruntime",
+            "cmake_target_name": "onnxruntime::onnxruntime",
             "description": "ONNX Runtime: cross-platform, high performance ML inferencing and training accelerator",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "1.16.0",
                 "1.15.1",
                 "1.14.1"
             ]
@@ -14589,6 +14594,54 @@
             ]
         },
         "opencv": {
+            "cmake_file_name": "OpenCV",
+            "components": {
+                "opencv_calib3d": {
+                    "cmake_target_name": "opencv_calib3d"
+                },
+                "opencv_core": {
+                    "cmake_target_name": "opencv_core"
+                },
+                "opencv_dnn": {
+                    "cmake_target_name": "opencv_dnn"
+                },
+                "opencv_features2d": {
+                    "cmake_target_name": "opencv_features2d"
+                },
+                "opencv_flann": {
+                    "cmake_target_name": "opencv_flann"
+                },
+                "opencv_gapi": {
+                    "cmake_target_name": "opencv_gapi"
+                },
+                "opencv_highgui": {
+                    "cmake_target_name": "opencv_highgui"
+                },
+                "opencv_imgcodecs": {
+                    "cmake_target_name": "opencv_imgcodecs"
+                },
+                "opencv_imgproc": {
+                    "cmake_target_name": "opencv_imgproc"
+                },
+                "opencv_ml": {
+                    "cmake_target_name": "opencv_ml"
+                },
+                "opencv_objdetect": {
+                    "cmake_target_name": "opencv_objdetect"
+                },
+                "opencv_photo": {
+                    "cmake_target_name": "opencv_photo"
+                },
+                "opencv_stitching": {
+                    "cmake_target_name": "opencv_stitching"
+                },
+                "opencv_video": {
+                    "cmake_target_name": "opencv_video"
+                },
+                "opencv_videoio": {
+                    "cmake_target_name": "opencv_videoio"
+                }
+            },
             "description": "OpenCV (Open Source Computer Vision Library)",
             "license": [
                 "Apache-2.0"
@@ -16544,6 +16597,7 @@
                 "6.5.0",
                 "6.4.2",
                 "6.3.2",
+                "5.15.11",
                 "5.15.10",
                 "5.15.9",
                 "5.15.8",
@@ -19303,7 +19357,7 @@
             "license": [
                 "BSD"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "7.6"
             ]
@@ -20235,11 +20289,11 @@
             ]
         },
         "twitch-native-ipc": {
-            "description": "Twitch natve ipc library",
+            "description": "Twitch native IPC library",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "3.1.1"
             ]
