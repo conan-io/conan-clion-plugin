@@ -1,5 +1,5 @@
 {
-    "date": 1696896920,
+    "date": 1696983334,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2882,6 +2882,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.27.7",
                 "3.27.6",
                 "3.27.5",
                 "3.27.4",
@@ -5510,8 +5511,11 @@
             "v2": true,
             "versions": [
                 "6.0",
+                "5.1.3",
                 "5.1",
+                "5.0.3",
                 "5.0",
+                "4.4.4",
                 "4.4.3",
                 "4.4",
                 "4.3.2",
@@ -7932,6 +7936,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.1",
                 "0.8.0",
                 "0.7.0"
             ]
@@ -9745,7 +9750,7 @@
             },
             "description": "The GL Vendor-Neutral Dispatch library",
             "license": [
-                "LicenseRef-LICENSE"
+                "MIT"
             ],
             "v2": true,
             "versions": [
@@ -12644,7 +12649,7 @@
         "microprofile": {
             "description": "Microprofile is a embeddable profiler in a few files, written in C++",
             "license": [
-                "Unlicense"
+                "DocumentRef-README.md:LicenseRef-Unlicense"
             ],
             "v2": true,
             "versions": [
@@ -14951,6 +14956,8 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.4",
+                "1.5.3",
                 "1.5.0",
                 "1.4.0",
                 "1.3.10"
@@ -16575,6 +16582,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.5.3",
                 "6.5.2",
                 "6.5.1",
                 "6.5.0",
@@ -17663,6 +17671,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.0.4",
                 "8.0.3"
             ]
         },
@@ -21483,6 +21492,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.6.0",
                 "1.5.0",
                 "1.4.1",
                 "1.3.1",
