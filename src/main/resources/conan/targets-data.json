@@ -1,5 +1,5 @@
 {
-    "date": 1696983334,
+    "date": 1697069643,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1804,14 +1804,13 @@
             ]
         },
         "boost-ext-ut": {
-            "cmake_file_name": "ut",
-            "cmake_target_name": "boost::ut",
             "description": "C++20 single header/single module, macro-free micro Unit Testing Framework",
             "license": [
                 "BSL-1.0"
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.1.8",
                 "1.1.9"
             ]
@@ -1951,7 +1950,7 @@
             "license": [
                 "Unlicense"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "3.0"
             ]
@@ -2070,6 +2069,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.20.1",
                 "1.19.1",
                 "1.19.0",
                 "1.18.1",
@@ -3066,6 +3066,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.2.6",
                 "0.2.5",
                 "0.2.4-bug1",
                 "0.2.4",
@@ -5441,6 +5442,18 @@
             "versions": [
                 "0.5.0",
                 "0.4.0"
+            ]
+        },
+        "fastnoise2": {
+            "cmake_file_name": "FastNoise2",
+            "cmake_target_name": "FastNoise2::FastNoise",
+            "description": "Modular node graph based noise generation library using SIMD, C++17 and templates",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.10.0-alpha"
             ]
         },
         "fastpfor": {
@@ -10791,6 +10804,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0",
                 "20191207"
             ]
         },
@@ -15514,6 +15528,18 @@
                 "3.9"
             ]
         },
+        "pdf-writer": {
+            "cmake_file_name": "PDFHummus",
+            "cmake_target_name": "PDFHummus::PDFWriter",
+            "description": "High performance library for creating, modiyfing and parsing PDF files in C++",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "4.5.12"
+            ]
+        },
         "pdfgen": {
             "description": "Simple C PDF Writer/Generation library",
             "license": [
@@ -17506,7 +17532,6 @@
             ]
         },
         "s2geometry": {
-            "cmake_target_name": "s2",
             "description": "Computational geometry and spatial indexing on the sphere",
             "license": [
                 "Apache-2.0"
