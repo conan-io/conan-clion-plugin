@@ -1,5 +1,5 @@
 {
-    "date": 1697329007,
+    "date": 1697415382,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4621,6 +4621,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.7",
                 "1.8.6",
                 "1.8.5",
                 "1.8.4",
@@ -12326,6 +12327,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.5.0",
                 "3.4.1",
                 "3.2.1",
                 "3.1.0",
@@ -13101,13 +13103,14 @@
             ]
         },
         "mp-units": {
-            "description": "Physical Quantities and Units library for C++",
+            "description": "A Physical Quantities and Units library for C++",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "0.8.0"
+                "0.8.0",
+                "2.0.0"
             ]
         },
         "mpark-variant": {
@@ -14354,6 +14357,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.9.9",
                 "6.9.8",
                 "6.9.7.1"
             ]
@@ -16443,7 +16447,8 @@
             "versions": [
                 "1.12.1",
                 "1.14.2",
-                "1.14.12"
+                "1.14.12",
+                "1.14.18"
             ]
         },
         "pybind11": {
@@ -18776,6 +18781,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.64",
                 "0.63",
                 "0.62",
                 "0.61",
@@ -18826,6 +18832,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.2",
                 "1.4.0",
                 "1.3.7"
             ]
@@ -19542,6 +19549,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20230118",
                 "cci.20200719"
             ]
         },
