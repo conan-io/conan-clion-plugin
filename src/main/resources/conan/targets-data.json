@@ -1,5 +1,5 @@
 {
-    "date": 1697588137,
+    "date": 1697674522,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2167,6 +2167,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.19.4",
                 "0.19.3",
                 "0.19.2",
                 "0.18.6",
@@ -2828,6 +2829,16 @@
                 "2.5.1",
                 "2.5.0",
                 "2.4.0"
+            ]
+        },
+        "clipboard_lite": {
+            "description": "cross platform clipboard library",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "3.4"
             ]
         },
         "clipp": {
@@ -4032,18 +4043,14 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "2.1.0",
                 "2.0.0",
                 "1.22.0",
                 "1.21.0",
                 "1.20.0",
                 "1.19.0",
-                "1.18.0",
-                "1.17.0",
-                "1.16.0",
-                "1.15.0",
-                "1.14.0",
-                "1.12.0"
+                "1.18.0"
             ]
         },
         "date": {
@@ -10778,6 +10785,16 @@
                 "0.10.1"
             ]
         },
+        "libseat": {
+            "description": "A minimal seat management daemon, and a universal seat management library",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.8.0"
+            ]
+        },
         "libsecret": {
             "description": "A library for storing and retrieving passwords and other secrets",
             "license": [
@@ -12847,6 +12864,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20230905",
                 "cci.20210321"
             ]
         },
@@ -14535,7 +14553,7 @@
             "license": [
                 "LGPL-2.1-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "7.6.2",
                 "7.6.0",
@@ -15466,7 +15484,8 @@
                 "21.05",
                 "21.11",
                 "22.05",
-                "22.11"
+                "22.11",
+                "23.09"
             ]
         },
         "pcg-cpp": {
@@ -18381,7 +18400,8 @@
                 "5.7.4.2",
                 "5.7.4.3",
                 "5.7.5",
-                "5.8.0"
+                "5.8.0",
+                "5.8.1"
             ]
         },
         "soci": {
