@@ -1,5 +1,5 @@
 {
-    "date": 1697674522,
+    "date": 1697760924,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -35,6 +35,7 @@
             ],
             "v2": true,
             "versions": [
+                "23.01",
                 "22.01",
                 "19.00"
             ]
@@ -3336,6 +3337,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.4.0",
                 "1.0.3.0",
                 "1.0.0.0",
                 "cci.20201029"
@@ -5186,6 +5188,7 @@
             ],
             "v2": true,
             "versions": [
+                "20.38.4",
                 "20.38.3",
                 "20.38.0",
                 "20.37.3",
@@ -6583,6 +6586,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.3",
                 "1.5.2",
                 "1.5.1",
                 "1.5.0",
@@ -7106,6 +7110,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.8.129",
                 "2.8.117",
                 "2.8.116",
                 "2.8.115",
@@ -7378,6 +7383,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.2.2",
                 "8.2.1",
                 "8.1.1",
                 "8.0.1",
@@ -8141,6 +8147,16 @@
                 "4.0.0",
                 "4.1.1",
                 "4.2.0"
+            ]
+        },
+        "iowow": {
+            "description": "A C utility library and persistent key/value storage engine.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.4.16"
             ]
         },
         "iqa": {
@@ -11893,6 +11909,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.3",
                 "2.5.1"
             ]
         },
@@ -12949,6 +12966,16 @@
                 "cci.20230303"
             ]
         },
+        "mm_file": {
+            "description": "A self-contained, header-only, implementation of memory-mapped files in C++ for fast integration into larger projects.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.0"
+            ]
+        },
         "modern-cpp-kafka": {
             "cmake_file_name": "ModernCppKafka",
             "cmake_target_name": "ModernCppKafka::ModernCppKafka",
@@ -13679,12 +13706,13 @@
             ]
         },
         "nghttp3": {
-            "description": "HTTP/2 C Library and tools",
+            "description": "HTTP/3 library written in C",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "1.0.0",
                 "0.15.0"
             ]
         },
@@ -13959,6 +13987,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.12.1",
                 "2.12.0",
                 "2.11.0",
                 "2.10.1",
@@ -14873,6 +14902,7 @@
             ],
             "v2": true,
             "versions": [
+                "21.0.1",
                 "19.0.2",
                 "16.0.1"
             ]
@@ -15588,6 +15618,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.6.1",
                 "4.5.12"
             ]
         },
@@ -16973,6 +17004,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.1",
                 "2.0.0",
                 "1.10.4",
                 "cci.20210513"
@@ -17687,6 +17719,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.0",
                 "0.6.0",
                 "0.3.0",
                 "0.2.0"
@@ -20115,6 +20148,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10",
                 "0.9.1",
                 "0.9",
                 "0.8.2.1",
@@ -20151,6 +20185,16 @@
                 "1.5.7",
                 "1.5.6",
                 "1.5.5"
+            ]
+        },
+        "tre": {
+            "description": "TRE is a lightweight, robust, and efficient POSIX-compliant regexp matching library with some exciting features such as approximate (fuzzy) matching.",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20230717"
             ]
         },
         "tree-sitter": {
@@ -21494,6 +21538,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.10.1",
                 "4.10.0",
                 "4.9.1",
                 "4.8.0",
