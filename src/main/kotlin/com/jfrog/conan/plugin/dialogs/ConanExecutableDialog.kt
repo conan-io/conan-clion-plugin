@@ -34,7 +34,7 @@ object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, true, fals
 
 val VirtualFile.isConanExecutable: Boolean
     get() {
-        return (extension == null || extension == "exe") && name == "conan"
+        return (extension == null || arrayOf("exe", "bat").contains(extension)) && name == "conan"
     }
 
 class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
