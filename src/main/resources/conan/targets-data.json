@@ -1,5 +1,5 @@
 {
-    "date": 1698020147,
+    "date": 1698106529,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5097,6 +5097,16 @@
                 "1.8"
             ]
         },
+        "ensmallen": {
+            "description": "ensmallen is a high quality C++ library for non-linear numerical optimization.",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "2.19.1"
+            ]
+        },
         "entityx": {
             "description": "EntityX is an EC system that uses C++11 features to provide type-safe component management, event delivery, etc.",
             "license": [
@@ -5174,6 +5184,21 @@
             "description": "A C++14 compile-time/constexpr map and hash map with minimal binary footprint",
             "license": [
                 "ISC"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.1"
+            ]
+        },
+        "ethash": {
+            "components": {
+                "keccak": {
+                    "cmake_target_name": "ethash::keccak"
+                }
+            },
+            "description": "C/C++ implementation of Ethash and ProgPoW \u2013 the Ethereum Proof of Work algorithms",
+            "license": [
+                "Apache-2.0"
             ],
             "v2": true,
             "versions": [
@@ -7044,6 +7069,8 @@
             "v2": true,
             "versions": [
                 "1.54.3",
+                "1.50.1",
+                "1.50.0",
                 "1.48.4"
             ]
         },
@@ -9384,7 +9411,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "5.3.28"
             ]
@@ -9509,6 +9536,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.0",
                 "0.7.0",
                 "0.5.0",
                 "20191104"
@@ -11559,7 +11587,7 @@
             "license": [
                 "LGPL-2.1"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "5.0.1",
                 "2.42.1"
@@ -14160,6 +14188,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.19.0",
                 "0.18.1",
                 "0.18.0",
                 "0.17.0"
@@ -18643,23 +18672,16 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.261.1",
+                "1.3.250.1",
+                "1.3.246.1",
                 "1.3.243.0",
                 "1.3.239.0",
                 "1.3.236.0",
                 "1.3.231.1",
+                "1.3.224.1",
                 "1.3.224.0",
-                "1.3.216.0",
-                "1.3.211.0",
-                "1.3.204.0",
-                "cci.20211113",
-                "cci.20210930",
-                "cci.20210823",
-                "cci.20210621",
-                "20210115",
-                "20200917",
-                "20200629",
-                "20200519",
-                "20200403"
+                "20210115"
             ]
         },
         "spirv-headers": {
@@ -20702,10 +20724,11 @@
         "utf8proc": {
             "description": "A clean C library for processing UTF-8 Unicode data",
             "license": [
-                "MIT expat"
+                "MIT"
             ],
             "v2": true,
             "versions": [
+                "2.9.0",
                 "2.8.0",
                 "2.7.0",
                 "2.6.1",
@@ -20722,6 +20745,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.0.0",
                 "3.2.5",
                 "3.2.4",
                 "3.2.3",
