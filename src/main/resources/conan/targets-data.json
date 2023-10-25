@@ -1,5 +1,5 @@
 {
-    "date": 1698106529,
+    "date": 1698192925,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -102,11 +102,13 @@
             ]
         },
         "acado": {
+            "cmake_file_name": "ACADO",
+            "cmake_target_name": "ACADO::ACADO",
             "description": "ACADO Toolkit is a software environment and algorithm collection for automatic control and dynamic optimization.",
             "license": [
                 "LGPL-3.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.2.2-beta"
             ]
@@ -4392,6 +4394,18 @@
             "v2": false,
             "versions": [
                 "260557"
+            ]
+        },
+        "directx-headers": {
+            "cmake_file_name": "DirectX-Headers",
+            "cmake_target_name": "Microsoft::DirectX-Headers",
+            "description": "Headers for using D3D12",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.610.2"
             ]
         },
         "dirent": {
@@ -14378,6 +14392,33 @@
                 "1.10.2"
             ]
         },
+        "ohnet": {
+            "components": {
+                "TestFramework": {
+                    "cmake_target_name": "TestFramework"
+                },
+                "ohNet": {
+                    "cmake_target_name": "ohNet"
+                },
+                "ohNetCore": {
+                    "cmake_target_name": "ohNetCore"
+                },
+                "ohNetDevices": {
+                    "cmake_target_name": "ohNetDevices"
+                },
+                "ohNetProxies": {
+                    "cmake_target_name": "ohNetProxies"
+                }
+            },
+            "description": "OpenHome Networking (ohNet) is a modern, cross platform, multi-language UPnP stack",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.36.5182"
+            ]
+        },
         "ois": {
             "description": "Object oriented Input System.",
             "license": [
@@ -16750,6 +16791,16 @@
                 "3.8.2"
             ]
         },
+        "qtawesome": {
+            "description": "Font Awesome for Qt Applications",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "6.4.0"
+            ]
+        },
         "qtxlsxwriter": {
             "description": ".xlsx file reader and writer for Qt5",
             "license": [
@@ -18177,7 +18228,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.3.9"
             ]
@@ -18254,6 +18305,16 @@
                 "2.4.1",
                 "2.3.0",
                 "1.7.6"
+            ]
+        },
+        "signals-light": {
+            "description": "Lightweight Signals & Slots Library",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20210616"
             ]
         },
         "sigslot": {
@@ -19096,6 +19157,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.1",
                 "1.2.2",
                 "1.1.3"
             ]
