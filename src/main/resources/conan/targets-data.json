@@ -1,5 +1,5 @@
 {
-    "date": 1698884135,
+    "date": 1698970528,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -697,6 +697,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.7.0",
                 "2.6.0",
                 "2.5.1",
                 "2.4.0",
@@ -1920,6 +1921,17 @@
                 "1.0.7"
             ]
         },
+        "brunsli": {
+            "description": "Practical JPEG Repacker",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20231024",
+                "0.1"
+            ]
+        },
         "brynet": {
             "description": "Header Only Cross platform high performance TCP network library using C++ 11.",
             "license": [
@@ -2195,6 +2207,7 @@
             "v2": true,
             "versions": [
                 "1.18.0",
+                "1.17.8",
                 "1.17.6",
                 "1.17.4",
                 "1.17.2",
@@ -6493,9 +6506,10 @@
             ],
             "v2": true,
             "versions": [
+                "2.3",
                 "1.52",
                 "1.51",
-                "1.50.1"
+                "1.50.2"
             ]
         },
         "geos": {
@@ -6695,20 +6709,14 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.6",
                 "1.5.3",
                 "1.5.2",
                 "1.5.1",
                 "1.5.0",
                 "1.4.1",
                 "1.4.0",
-                "1.3.6",
-                "1.3.5",
-                "1.3.2",
-                "1.3.1",
-                "1.3.0",
-                "1.2.6",
-                "1.2.5",
-                "1.1.2"
+                "1.3.6"
             ]
         },
         "glbinding": {
@@ -7449,7 +7457,8 @@
                 "1.8.6",
                 "1.9.0",
                 "1.10.0",
-                "1.11.0"
+                "1.11.0",
+                "1.11.0.1"
             ]
         },
         "half": {
@@ -7548,6 +7557,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.14.2",
                 "1.14.1",
                 "1.14.0",
                 "1.13.1",
@@ -7926,6 +7936,7 @@
             ],
             "v2": true,
             "versions": [
+                "74.1",
                 "73.2",
                 "73.1",
                 "72.1",
@@ -8550,6 +8561,16 @@
                 "cci.20200507"
             ]
         },
+        "jsbsim": {
+            "description": "JSBSim is a multi-platform, general purpose object-oriented Flight Dynamics Model (FDM) written in C++",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.13"
+            ]
+        },
         "jsmn": {
             "description": "jsmn (pronounced like 'jasmine') is a minimalistic JSON parser in C. It can be easily integrated into resource-limited or embedded projects.",
             "license": [
@@ -8745,6 +8766,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10.1",
                 "0.10",
                 "cci.20210701"
             ]
@@ -11693,6 +11715,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.0.3",
                 "5.0.1",
                 "2.42.1"
             ]
@@ -13078,6 +13101,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.0.2",
                 "4.0.1",
                 "4.0.0",
                 "3.0.9",
@@ -14736,6 +14760,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.3.24",
                 "0.3.20",
                 "0.3.17",
                 "0.3.15",
@@ -15079,7 +15104,7 @@
             "cmake_target_name": "openjp2",
             "description": "OpenJPEG is an open-source JPEG 2000 codec written in C language.",
             "license": [
-                "BSD 2-Clause"
+                "BSD-2-Clause"
             ],
             "v2": true,
             "versions": [
@@ -15211,6 +15236,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.6",
                 "1.5.4",
                 "1.5.3",
                 "1.5.0",
@@ -16018,6 +16044,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.42.2",
                 "0.40.0",
                 "0.38.4"
             ]
@@ -17247,6 +17274,7 @@
             ],
             "v2": true,
             "versions": [
+                "20231101",
                 "20230901",
                 "20230801",
                 "20230701",
@@ -17973,6 +18001,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.2"
             ]
         },
@@ -18365,7 +18394,8 @@
             "cmake_target_name": "shapelib::shp",
             "description": "C library for reading and writing ESRI Shapefiles",
             "license": [
-                "LGPL-2.0-or-later"
+                "LGPL-2.0-or-later",
+                "MIT"
             ],
             "v2": true,
             "versions": [
@@ -18827,16 +18857,13 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.268.0",
                 "1.3.261.1",
                 "1.3.250.1",
                 "1.3.246.1",
                 "1.3.243.0",
                 "1.3.239.0",
-                "1.3.236.0",
-                "1.3.231.1",
-                "1.3.224.1",
-                "1.3.224.0",
-                "20210115"
+                "cci.20211113"
             ]
         },
         "spirv-headers": {
@@ -18848,22 +18875,11 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.268.0",
+                "1.3.261.1",
                 "1.3.243.0",
                 "1.3.239.0",
-                "1.3.236.0",
-                "1.3.231.1",
-                "1.3.224.0",
-                "1.3.216.0",
-                "1.3.211.0",
-                "1.3.204.0",
-                "1.2.198.0",
-                "cci.20211010",
-                "cci.20210811",
-                "cci.20210616",
-                "cci.20210414",
-                "1.5.4",
-                "1.5.3",
-                "1.5.1"
+                "1.2.198.0"
             ]
         },
         "spirv-tools": {
@@ -19315,11 +19331,16 @@
             ]
         },
         "subunit": {
+            "components": {
+                "libcppunit_subunit": {},
+                "libsubunit": {}
+            },
             "description": "A streaming protocol for test results",
             "license": [
-                ""
+                "Apache-2.0",
+                "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.4.0"
             ]
@@ -21273,35 +21294,12 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.268.0",
+                "1.3.261.1",
                 "1.3.250.0",
                 "1.3.243.0",
                 "1.3.239.0",
-                "1.3.236.0",
-                "1.3.231.1",
-                "1.3.231.0",
-                "1.3.231",
-                "1.3.224.1",
-                "1.3.224.0",
-                "1.3.221",
-                "1.3.216.0",
-                "1.3.211.0",
-                "1.3.204.1",
-                "1.3.204.0",
-                "1.3.204",
-                "1.2.198.0",
-                "1.2.198",
-                "1.2.195",
-                "1.2.190",
-                "1.2.189",
-                "1.2.182",
-                "1.2.176.0",
-                "1.2.172",
-                "1.2.170.0",
-                "1.2.170",
-                "1.2.162.0",
-                "1.2.162",
-                "1.2.154.0",
-                "1.2.140"
+                "1.2.198.0"
             ]
         },
         "vulkan-loader": {
