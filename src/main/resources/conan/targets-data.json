@@ -1,5 +1,5 @@
 {
-    "date": 1698970528,
+    "date": 1699056940,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -118,7 +118,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.0-beta4"
             ]
@@ -440,6 +440,8 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.29",
+                "0.8.25",
                 "0.8.20"
             ]
         },
@@ -1154,6 +1156,18 @@
             "versions": [
                 "1.0.1",
                 "cci.20210812"
+            ]
+        },
+        "aws-lambda-cpp": {
+            "cmake_file_name": "aws-lambda-runtime",
+            "cmake_target_name": "AWS::aws-lambda-runtime",
+            "description": "C++ implementation of the AWS Lambda runtime",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.2.8"
             ]
         },
         "aws-libfabric": {
@@ -4051,6 +4065,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.28",
                 "2.1.27"
             ]
         },
@@ -6709,6 +6724,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.7",
                 "1.5.6",
                 "1.5.3",
                 "1.5.2",
@@ -14042,7 +14058,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "3.0.1",
                 "2.2"
@@ -14613,6 +14629,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.15.0",
                 "1.14.1",
                 "1.14.0",
                 "1.13.1",
@@ -19325,9 +19342,9 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.0.1"
+                "1.0.4"
             ]
         },
         "subunit": {
@@ -22246,6 +22263,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.1",
                 "2.0.0"
             ]
         },
