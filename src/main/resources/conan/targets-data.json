@@ -1,5 +1,5 @@
 {
-    "date": 1699402539,
+    "date": 1699488933,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -609,6 +609,7 @@
             ],
             "v2": true,
             "versions": [
+                "14.0.0",
                 "13.0.0",
                 "12.0.1",
                 "12.0.0",
@@ -983,6 +984,7 @@
                 "0.9.3",
                 "0.9.0",
                 "0.8.23",
+                "0.8.2",
                 "0.7.5",
                 "0.6.20",
                 "0.4.25"
@@ -5101,6 +5103,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.6.1",
                 "0.6.0",
                 "0.5.0",
                 "0.4.0",
@@ -5142,7 +5145,7 @@
             "license": [
                 "LGPL-2.1-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.3.2"
             ]
@@ -5181,12 +5184,13 @@
             ]
         },
         "enjincppsdk": {
+            "cmake_file_name": "enjinsdk",
             "cmake_target_name": "enjinsdk::enjinsdk",
             "description": "A C++ SDK for development on the Enjin blockchain platform.",
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.0.0-beta.1",
                 "1.0.0-alpha.7",
@@ -5433,11 +5437,12 @@
             ],
             "v2": true,
             "versions": [
-                "5.75.0",
-                "5.80.0",
-                "5.84.0",
+                "5.111.0",
+                "5.108.0",
                 "5.93.0",
-                "5.108.0"
+                "5.84.0",
+                "5.80.0",
+                "5.75.0"
             ]
         },
         "ezc3d": {
@@ -7924,13 +7929,11 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "2.0.3",
                 "2.0.2",
-                "2.0.1",
-                "2.0.0",
-                "1.0.1",
-                "1.0.0"
+                "1.0.3"
             ]
         },
         "iconfontcppheaders": {
@@ -10856,8 +10859,7 @@
             "versions": [
                 "0.21.1",
                 "0.20.2",
-                "0.20.0",
-                "0.19.5"
+                "0.20.0"
             ]
         },
         "librdkafka": {
@@ -10896,6 +10898,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.53.1",
                 "2.49.0"
             ]
         },
@@ -11144,14 +11147,13 @@
             ]
         },
         "libsolace": {
-            "description": "High performance components for mission critical applications",
+            "description": "High-performance components for mission-critical applications",
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "0.3.6",
-                "0.3.7",
+                "0.4.1",
                 "0.3.9"
             ]
         },
@@ -13551,7 +13553,6 @@
         },
         "msgpack-cxx": {
             "cmake_file_name": "msgpack",
-            "cmake_target_name": "msgpackc-cxx",
             "description": "The official C++ library for MessagePack",
             "license": [
                 "BSL-1.0"
@@ -14994,14 +14995,16 @@
             ]
         },
         "opene57": {
-            "description": "A C++ library for reading and writing E57 files, fork of the original libE57 (http://libe57.org)",
+            "description": "A C++ library for reading and writing E57 files, a fork of the original libE57 (http://libe57.org)",
             "license": [
-                ""
+                "MIT",
+                "BSL-1.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.6.2",
-                "1.6.3"
+                "1.6.4",
+                "1.6.3",
+                "1.6.2"
             ]
         },
         "openexr": {
@@ -16325,15 +16328,13 @@
             ],
             "v2": true,
             "versions": [
+                "1.12.5p1",
                 "1.12.4",
                 "1.12.3",
                 "1.12.2",
                 "1.12.1",
                 "1.12.0",
-                "1.11.3",
-                "1.11.2",
-                "1.11.1",
-                "1.11.0"
+                "1.11.3"
             ]
         },
         "podofo": {
@@ -17344,12 +17345,13 @@
             ]
         },
         "re2c": {
-            "description": "re2c is a free and open-source lexer generator for C, C++ and Go.",
+            "description": "re2c is a free and open-source lexer generator for C/C++, Go and Rust.",
             "license": [
-                "Unlicense"
+                "LicenseRef-re2c"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "3.1",
                 "3.0",
                 "2.2",
                 "2.1.1",
@@ -18167,6 +18169,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.28.5",
                 "2.28.3",
                 "2.28.2",
                 "2.26.5",
@@ -19007,7 +19010,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "4.5.1",
                 "4.5.0",
@@ -19106,7 +19109,7 @@
             "license": [
                 "BSD-2-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.29",
                 "0.30"
@@ -21443,6 +21446,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.13.5",
                 "0.11.2",
                 "0.11.1",
                 "0.10.0",
@@ -22256,12 +22260,15 @@
             ]
         },
         "yandex-ozo": {
+            "cmake_file_name": "ozo",
+            "cmake_target_name": "yandex::ozo",
             "description": "C++ header-only library for asynchronous access to PostgreSQL databases using ASIO",
             "license": [
                 "PostgreSQL"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "0.1.0",
                 "cci.20210509"
             ]
         },
