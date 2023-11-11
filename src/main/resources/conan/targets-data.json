@@ -1,5 +1,5 @@
 {
-    "date": 1699575336,
+    "date": 1699661722,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -149,6 +149,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.7.3",
                 "2.7.2",
                 "2.7.0",
                 "2.6.10",
@@ -2590,14 +2591,13 @@
             ]
         },
         "cglm": {
-            "cmake_file_name": "cglm",
-            "cmake_target_name": "cglm::cglm",
             "description": "Highly Optimized Graphics Math (glm) for C ",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "0.9.1",
                 "0.8.9",
                 "0.8.5"
             ]
@@ -6953,15 +6953,18 @@
             ]
         },
         "gm2calc": {
+            "cmake_file_name": "GM2Calc",
+            "cmake_target_name": "GM2Calc::GM2Calc",
             "description": "C++ library to calculate the anomalous magnetic moment of the muon in the MSSM and 2HDM",
             "license": [
                 "GPL-3.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.7.5",
                 "2.0.0",
-                "2.1.0"
+                "2.1.0",
+                "2.2.0"
             ]
         },
         "gmp": {
@@ -9515,11 +9518,11 @@
         "libcpuid": {
             "cmake_file_name": "cpuid",
             "cmake_target_name": "cpuid::cpuid",
-            "description": "libcpuidis a small C library for x86 CPU detection and feature extraction",
+            "description": "libcpuid is a small C library for x86 CPU detection and feature extraction",
             "license": [
                 "https://github.com/anrieff/libcpuid"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.5.1",
                 "0.5.0"
@@ -12730,6 +12733,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "2.1.1",
                 "2.1.0",
                 "2.0.18",
@@ -21201,6 +21205,16 @@
                 "4.200",
                 "4.224",
                 "5.004"
+            ]
+        },
+        "very-simple-smtps": {
+            "description": "Library that allows applications to send emails with binary attachments",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.0"
             ]
         },
         "vincentlaucsb-csv-parser": {
