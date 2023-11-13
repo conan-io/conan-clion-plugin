@@ -92,7 +92,7 @@ class CMake(val project: Project) {
                 modifiedProfiles.add(profile)
             }
         }
-        cmakeSettings.setProfiles(modifiedProfiles)
+        cmakeSettings.profiles = modifiedProfiles
     }
 
     private fun removeGenerationOptions(profileName: String?, generationOptions: List<String>) {
@@ -120,7 +120,7 @@ class CMake(val project: Project) {
             }
         }
 
-        cmakeSettings.setProfiles(modifiedProfiles)
+        cmakeSettings.profiles = modifiedProfiles
     }
 
     fun getActiveProfiles(): List<CMakeSettings.Profile> {
