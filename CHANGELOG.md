@@ -5,7 +5,6 @@
 ## [Unreleased]
 
 ### Changed
-- Change plugin id to avoid configuration defect error
 - Fix selection of Conan executable when named "conan.exe"
 - Fix plugin compatibility with 2023.3
 
