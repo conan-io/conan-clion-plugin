@@ -1,5 +1,5 @@
 {
-    "date": 1699834585,
+    "date": 1699920948,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3725,6 +3725,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.1",
                 "1.1.0",
                 "1.0.10"
             ]
@@ -5517,6 +5518,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.1.0",
                 "1.0.27",
                 "1.0.26",
@@ -5611,12 +5613,13 @@
             ]
         },
         "fastgltf": {
-            "description": "A blazing fast C++17 glTF 2.0 library powered by SIMD.",
+            "description": "A modern C++17 glTF 2.0 library focused on speed, correctness, and usability",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "0.6.1",
                 "0.5.0",
                 "0.4.0"
             ]
@@ -7541,6 +7544,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.3.0",
                 "8.2.2",
                 "8.2.1",
                 "8.1.1",
@@ -7658,6 +7662,7 @@
         },
         "hexl": {
             "cmake_file_name": "Hexl",
+            "cmake_target_name": "Hexl::Hexl",
             "components": {
                 "Hexl": {
                     "cmake_target_name": "Hexl::hexl"
@@ -7667,8 +7672,9 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "1.2.5",
                 "1.2.4"
             ]
         },
@@ -9249,6 +9255,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.1",
                 "1.1",
                 "1.0"
             ]
@@ -9449,11 +9456,18 @@
             ]
         },
         "libcheck": {
+            "cmake_file_name": "check",
+            "cmake_target_name": "Check::check",
+            "components": {
+                "liblibcheck": {
+                    "cmake_target_name": "Check::check"
+                }
+            },
             "description": "A unit testing framework for C",
             "license": [
                 "LGPL-2.1-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.15.2"
             ]
@@ -9564,6 +9578,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.4.0",
                 "8.2.1",
                 "8.2.0",
                 "8.1.2",
@@ -10328,6 +10343,16 @@
             "v2": true,
             "versions": [
                 "0.15.1b"
+            ]
+        },
+        "libmagic": {
+            "description": "Magic number recognition library - detect files with data in particular fixed formats.",
+            "license": [
+                "DocumentRef-COPYING:LicenseRef-BSD-2-Clause-File"
+            ],
+            "v2": true,
+            "versions": [
+                "5.45"
             ]
         },
         "libmaxminddb": {
@@ -11508,9 +11533,10 @@
         "libusb-compat": {
             "description": "A compatibility layer allowing applications written for libusb-0.1 to work with libusb-1.0",
             "license": [
-                ""
+                "LGPL-2.1",
+                "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.1.7"
             ]
@@ -11534,6 +11560,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.47.0",
                 "1.46.0",
                 "1.45.0",
                 "1.44.2",
@@ -12028,6 +12055,11 @@
             ],
             "v2": true,
             "versions": [
+                "17.0.4",
+                "16.0.6",
+                "15.0.7",
+                "14.0.6",
+                "13.0.1",
                 "12.0.1",
                 "11.1.0",
                 "10.0.0",
@@ -14723,11 +14755,13 @@
             ]
         },
         "open-simulation-interface": {
+            "cmake_file_name": "open_simulation_interface",
+            "cmake_target_name": "open_simulation_interface::open_simulation_interface",
             "description": "Generic interface environmental perception of automated driving functions in virtual scenarios",
             "license": [
                 "MPL-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "3.4.0",
                 "3.3.1",
@@ -14920,6 +14954,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.0",
                 "2.2.1",
                 "2.1.0",
                 "1.1.1"
@@ -15039,6 +15074,7 @@
                 "3.1.9",
                 "3.1.7",
                 "3.1.5",
+                "2.5.9",
                 "2.5.7",
                 "2.5.5",
                 "2.5.4",
@@ -18092,6 +18128,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.3",
                 "1.1.2",
                 "1.0",
                 "0.4"
@@ -18504,6 +18541,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.3",
                 "2.5.1",
                 "2.5.0",
                 "2.4.1",
@@ -18972,13 +19010,12 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.268.0",
+                "1.3.261.1",
                 "1.3.243.0",
                 "1.3.239.0",
                 "1.3.236.0",
-                "1.3.231.1",
-                "1.3.224.0",
-                "1.3.216.0",
-                "1.3.211.0"
+                "1.2.198.0"
             ]
         },
         "spix": {
