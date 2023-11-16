@@ -1,5 +1,5 @@
 {
-    "date": 1700007349,
+    "date": 1700093770,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3603,6 +3603,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.10.5",
                 "1.10.4",
                 "1.9.3",
                 "1.8.1",
@@ -5704,6 +5705,8 @@
             ],
             "v2": true,
             "versions": [
+                "6.1",
+                "6.0.1",
                 "6.0",
                 "5.1.3",
                 "5.1",
@@ -12395,19 +12398,14 @@
             ],
             "v2": true,
             "versions": [
+                "0.9.4",
                 "0.9.3",
                 "0.9.2",
                 "0.9.1",
                 "0.9.0",
                 "0.8.2",
                 "0.8.1",
-                "0.8.0",
-                "0.7.3",
-                "0.7.2",
-                "0.7.1",
-                "0.7.0",
-                "0.6.6",
-                "0.6.5"
+                "0.8.0"
             ]
         },
         "magnum": {
@@ -13353,6 +13351,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.8.1",
                 "3.8.0",
                 "3.7.2",
                 "3.7.0",
@@ -15954,9 +15953,9 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "cci.20210730"
+                "95.0.4629"
             ]
         },
         "pdqsort": {
@@ -17667,12 +17666,13 @@
         "restinio": {
             "cmake_file_name": "restinio",
             "cmake_target_name": "restinio::restinio",
-            "description": "RESTinio is a header-only C++14 library that gives you an embedded HTTP/Websocket server.",
+            "description": "RESTinio is a header-only C++17 library that gives you an embedded HTTP/Websocket server.",
             "license": [
                 "BSD-3-Clause"
             ],
             "v2": true,
             "versions": [
+                "0.7.0",
                 "0.6.19",
                 "0.6.18",
                 "0.6.17"
@@ -17784,18 +17784,23 @@
             ]
         },
         "rocksdb": {
+            "cmake_file_name": "RocksDB",
+            "cmake_target_name": "RocksDB::rocksdb",
+            "components": {
+                "librocksdb": {
+                    "cmake_target_name": "RocksDB::rocksdb"
+                }
+            },
             "description": "A library that provides an embeddable, persistent key-value store for fast storage",
             "license": [
-                ""
+                "GPL-2.0-only",
+                "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "6.29.5",
                 "6.27.3",
-                "6.20.3",
-                "6.10.2",
-                "6.8.1",
-                "6.0.2"
+                "6.20.3"
             ]
         },
         "rotor": {
