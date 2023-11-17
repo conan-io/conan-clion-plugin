@@ -1,5 +1,5 @@
 {
-    "date": 1700093770,
+    "date": 1700180158,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -213,11 +213,12 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "5.4.1",
-                "6.0",
-                "6.0.1"
+                "6.0.1",
+                "6.1.0",
+                "6.2.0"
             ]
         },
         "alac": {
@@ -2105,6 +2106,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.22.0",
                 "1.21.0",
                 "1.20.1",
                 "1.19.1",
@@ -2702,13 +2704,8 @@
             "versions": [
                 "3.3.0",
                 "3.2.6",
-                "3.2.5",
-                "3.2.0",
                 "3.0.2",
-                "3.0.0",
                 "2.9.9",
-                "2.9.4",
-                "2.9.2",
                 "2.8.3"
             ]
         },
@@ -4100,6 +4097,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.7",
                 "1.6",
                 "1.5"
             ]
@@ -5730,13 +5728,6 @@
             ]
         },
         "fftw": {
-            "cmake_file_name": "FFTW3",
-            "cmake_target_name": "FFTW3::fftw3",
-            "components": {
-                "fftwlib": {
-                    "cmake_target_name": "FFTW3::fftw3"
-                }
-            },
             "description": "C subroutine library for computing the Discrete Fourier Transform (DFT) in one or more dimensions",
             "license": [
                 "GPL-2.0"
@@ -9704,6 +9695,16 @@
                 "5.3.2"
             ]
         },
+        "libdisplay-info": {
+            "description": "EDID and DisplayID library.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.1"
+            ]
+        },
         "libdivide": {
             "description": "Header-only C/C++ library for optimizing integer division.",
             "license": [
@@ -11744,6 +11745,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.4.36",
                 "4.4.35",
                 "4.4.34",
                 "4.4.28",
@@ -13270,7 +13272,7 @@
             ]
         },
         "mold": {
-            "description": "mold is a faster drop-in replacement for existing Unix linkers. It is several times faster than the LLVM lld linker",
+            "description": "mold is a faster drop-in replacement for existing Unix linkers. It is several times faster than the LLVM lld linker.",
             "license": [
                 "AGPL-3.0",
                 "MIT"
@@ -13278,7 +13280,6 @@
             "v2": true,
             "versions": [
                 "2.0.0",
-                "1.3.1",
                 "1.4.2",
                 "1.5.1",
                 "1.7.1",
@@ -17740,6 +17741,7 @@
             ],
             "v2": true,
             "versions": [
+                "23.10.00",
                 "23.06.00"
             ]
         },
