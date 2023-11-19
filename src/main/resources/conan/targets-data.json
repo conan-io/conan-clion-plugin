@@ -1,5 +1,5 @@
 {
-    "date": 1700266547,
+    "date": 1700353049,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2555,7 +2555,7 @@
             "cmake_target_name": "cfitsio::cfitsio",
             "description": "C library for reading and writing data files in FITS (Flexible Image Transport System) data format",
             "license": [
-                "ISC"
+                "CFITSIO"
             ],
             "v2": true,
             "versions": [
@@ -12764,6 +12764,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.0",
                 "1.2.1",
                 "1.2.0",
                 "1.1.0",
@@ -16012,6 +16013,7 @@
             ],
             "v2": true,
             "versions": [
+                "39.0",
                 "38.0",
                 "37.0",
                 "35.0",
@@ -18087,6 +18089,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.9.0",
                 "0.8.0",
                 "0.7.0",
                 "0.6.0",
@@ -18577,6 +18580,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.5",
                 "0.4",
                 "0.3",
                 "0.2",
@@ -18663,6 +18667,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.0.4",
                 "4.0.3",
                 "3.2.17",
                 "3.2.15",
@@ -20894,6 +20899,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.78.0",
                 "0.77.1",
                 "0.75.1",
                 "0.74.0"
