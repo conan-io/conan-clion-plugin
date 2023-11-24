@@ -1,5 +1,5 @@
 {
-    "date": 1700698566,
+    "date": 1700784943,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1019,6 +1019,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.3.2",
                 "0.3.1",
                 "0.2.15",
                 "0.2.12",
@@ -1036,6 +1037,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.14",
                 "0.6.22",
                 "0.6.13",
                 "0.6.10",
@@ -1173,6 +1175,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.2.10",
                 "0.2.9",
                 "0.2.8"
             ]
@@ -6378,7 +6381,6 @@
                 "2.1",
                 "1.3.4",
                 "1.3.3",
-                "1.3.2-86",
                 "1.3.2"
             ]
         },
@@ -6749,6 +6751,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.6.1",
                 "1.6.0",
                 "1.5.7",
                 "1.5.6",
@@ -9309,6 +9312,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.2",
                 "1.0.1",
                 "0.11.1",
                 "0.9.3"
@@ -11667,6 +11671,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.13.1",
                 "1.11.0",
                 "1.10.0",
                 "1.9.0"
@@ -12958,7 +12963,8 @@
                 "0.23.1",
                 "0.24",
                 "0.25",
-                "0.26"
+                "0.26",
+                "0.27"
             ]
         },
         "metis": {
@@ -15797,9 +15803,7 @@
                 "1.35",
                 "1.34",
                 "1.33",
-                "1.32",
-                "1.31",
-                "1.30"
+                "1.32"
             ]
         },
         "parg": {
@@ -16083,6 +16087,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "2.1.0",
                 "2.0.3",
                 "2.0.2",
@@ -17392,6 +17397,7 @@
             "v2": true,
             "versions": [
                 "1.1.0",
+                "cci.20230929",
                 "cci.20220822",
                 "cci.20211112",
                 "cci.20200410"
@@ -17662,6 +17668,8 @@
             ]
         },
         "replxx": {
+            "cmake_file_name": "replxx",
+            "cmake_target_name": "replxx::replxx",
             "description": "A readline and libedit replacement that supports UTF-8,syntax highlighting, hints and Windows and is BSD licensed.",
             "license": [
                 "BSD-3-Clause"
@@ -17669,8 +17677,7 @@
             "v2": true,
             "versions": [
                 "0.0.4",
-                "0.0.3",
-                "0.0.2"
+                "0.0.3"
             ]
         },
         "resiprocate": {
@@ -19176,6 +19183,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.44.1",
                 "3.44.0",
                 "3.43.2",
                 "3.43.1",
@@ -19886,7 +19894,7 @@
         "tcp-wrappers": {
             "description": "A security tool which acts as a wrapper for TCP daemons",
             "license": [
-                "BSD"
+                "TCP-wrappers"
             ],
             "v2": true,
             "versions": [
@@ -22369,6 +22377,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.4.5",
                 "5.4.4",
                 "5.4.2",
                 "5.4.0",
