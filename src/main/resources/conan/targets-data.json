@@ -1,5 +1,5 @@
 {
-    "date": 1700784943,
+    "date": 1700871323,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4368,6 +4368,17 @@
             "v2": true,
             "versions": [
                 "cci.20220630"
+            ]
+        },
+        "dfp": {
+            "description": "Decimal Floating Point Arithmetic Library",
+            "license": [
+                "Apache-2.0",
+                "Intel"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.2"
             ]
         },
         "di": {
