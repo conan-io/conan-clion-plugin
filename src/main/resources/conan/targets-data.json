@@ -1,5 +1,5 @@
 {
-    "date": 1701303392,
+    "date": 1701389888,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -6775,6 +6775,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.2",
                 "1.8.1",
                 "1.7.0",
                 "1.6.1",
@@ -6856,7 +6857,7 @@
         },
         "gli": {
             "cmake_file_name": "gli",
-            "cmake_target_name": "gli::gli",
+            "cmake_target_name": "gli",
             "description": "OpenGL Image (GLI)",
             "license": [
                 "LicenseRef-copying.txt"
@@ -8268,6 +8269,8 @@
             ]
         },
         "indicators": {
+            "cmake_file_name": "indicators",
+            "cmake_target_name": "indicators::indicators",
             "description": "Activity Indicators for Modern C++",
             "license": [
                 "MIT"
@@ -8477,6 +8480,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.10.3",
                 "1.10.0",
                 "1.9.2",
                 "1.9.1",
@@ -13472,6 +13476,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.18",
                 "2.0.15",
                 "2.0.14",
                 "2.0.12",
@@ -17096,11 +17101,9 @@
             ],
             "v2": true,
             "versions": [
+                "6.6.1",
                 "6.6.0",
                 "6.5.3",
-                "6.5.2",
-                "6.5.1",
-                "6.5.0",
                 "6.4.2",
                 "6.3.2",
                 "5.15.11",
