@@ -1,5 +1,5 @@
 {
-    "date": 1701476141,
+    "date": 1701562655,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -6775,6 +6775,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.3",
                 "1.8.2",
                 "1.8.1",
                 "1.7.0",
@@ -11866,6 +11867,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.12.1",
                 "2.11.5",
                 "2.11.4",
                 "2.11.3",
@@ -13002,13 +13004,13 @@
             ],
             "v2": true,
             "versions": [
-                "0.21",
-                "0.20",
-                "0.23.1",
-                "0.24",
-                "0.25",
+                "0.27",
                 "0.26",
-                "0.27"
+                "0.25",
+                "0.24",
+                "0.23.1",
+                "0.21",
+                "0.20"
             ]
         },
         "metis": {
@@ -13326,8 +13328,8 @@
             ],
             "v2": true,
             "versions": [
-                "cci.20201220",
-                "cci.20230303"
+                "cci.20230303",
+                "cci.20201220"
             ]
         },
         "mm_file": {
@@ -13341,8 +13343,6 @@
             ]
         },
         "modern-cpp-kafka": {
-            "cmake_file_name": "ModernCppKafka",
-            "cmake_target_name": "ModernCppKafka::ModernCppKafka",
             "description": "A C++ API for Kafka clients (i.e. KafkaProducer, KafkaConsumer, AdminClient)",
             "license": [
                 "Apache-2.0"
@@ -13973,11 +13973,13 @@
             ]
         },
         "ncurses": {
+            "cmake_file_name": "Curses",
+            "cmake_target_name": "Curses::Curses",
             "description": "The ncurses (new curses) library is a free software emulation of curses in System V Release 4.0 (SVr4), and more",
             "license": [
                 "X11"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "6.4",
                 "6.3",
@@ -18712,6 +18714,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.6.1",
                 "3.6.0",
                 "3.5.0",
                 "3.3.0",
@@ -22320,6 +22323,7 @@
             ],
             "v2": true,
             "versions": [
+                "12.0.0",
                 "11.2.0",
                 "11.1.0",
                 "11.0.0",
