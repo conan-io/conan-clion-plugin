@@ -1,5 +1,5 @@
 {
-    "date": 1701821794,
+    "date": 1701908183,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -10040,11 +10040,14 @@
             ]
         },
         "libfreenect2": {
+            "cmake_file_name": "freenect2",
+            "cmake_target_name": "freenect2::freenect2",
             "description": "Open source drivers for the Kinect for Windows v2 device.",
             "license": [
-                ""
+                "Apache-2.0",
+                "GPL-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.2.1"
             ]
@@ -11901,6 +11904,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.12.2",
                 "2.12.1",
                 "2.11.5",
                 "2.11.4",
