@@ -1,5 +1,5 @@
 {
-    "date": 1701908183,
+    "date": 1701994599,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -13915,6 +13915,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.2",
                 "1.5.0",
                 "1.4.3",
                 "1.4.2",
