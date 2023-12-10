@@ -1,5 +1,5 @@
 {
-    "date": 1702080980,
+    "date": 1702167472,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4097,6 +4097,26 @@
                 "0.10.4",
                 "0.10.3",
                 "0.10.2"
+            ]
+        },
+        "cyclonedds-cxx": {
+            "cmake_file_name": "CycloneDDS-CXX",
+            "cmake_target_name": "CycloneDDS-CXX::CycloneDDS-CXX",
+            "components": {
+                "ddscxx": {
+                    "cmake_target_name": "CycloneDDS-CXX::ddscxx"
+                },
+                "idlcxx": {
+                    "cmake_target_name": "CycloneDDS-CXX::idlcxx"
+                }
+            },
+            "description": "Eclipse Cyclone DDS C++ Binding- An implementation of the OMG Data Distribution Service (DDS) specification",
+            "license": [
+                "EPL-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.10.4"
             ]
         },
         "cyrus-sasl": {
