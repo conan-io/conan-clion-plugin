@@ -1,5 +1,5 @@
 {
-    "date": 1702340189,
+    "date": 1702426578,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -736,7 +736,7 @@
             "license": [
                 "BSD-2-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.9.28"
             ]
@@ -2379,6 +2379,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.5.0",
                 "3.4.0",
                 "3.3.2",
                 "3.3.1",
@@ -3223,6 +3224,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.2",
                 "3.0.1"
             ]
         },
@@ -4387,6 +4389,16 @@
                 "1.0.0"
             ]
         },
+        "dependencies": {
+            "description": "Dependencies can help Windows developers troubleshooting their DLL-loading dependency issues. It is a rewrite of the legacy Dependency Walker software, which was shipped along Windows SDKs, but whose development stopped around 2006.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.11.1"
+            ]
+        },
         "depot_tools": {
             "description": "Tools for working with Chromium development.",
             "license": [
@@ -4544,7 +4556,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "260557"
             ]
@@ -6443,6 +6455,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4",
                 "2.3",
                 "2.2",
                 "2.1",
@@ -6931,6 +6944,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.78.3",
                 "2.78.1",
                 "2.78.0",
                 "2.77.3",
@@ -14907,6 +14921,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.16.3",
                 "1.16.2",
                 "1.16.1",
                 "1.16.0",
@@ -17292,6 +17307,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.5.1",
                 "3.5.0",
                 "3.4.1",
                 "3.4.0",
@@ -17368,6 +17384,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.5",
                 "6.4",
                 "6.3",
                 "6.2",
@@ -18032,6 +18049,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "2.1.5",
                 "2.1.4",
                 "2.1.3",
@@ -19753,7 +19771,8 @@
                 "0.8.1",
                 "0.9.0",
                 "0.10.1",
-                "0.11.1"
+                "0.11.1",
+                "0.11.2"
             ]
         },
         "systemc": {
@@ -19915,7 +19934,7 @@
             "license": [
                 "GPL-3-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.32.90"
             ]
@@ -20736,15 +20755,14 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.15",
                 "1.5.14",
                 "1.5.13",
                 "1.5.12",
                 "1.5.11",
                 "1.5.10",
                 "1.5.8",
-                "1.5.7",
-                "1.5.6",
-                "1.5.5"
+                "1.5.7"
             ]
         },
         "tre": {
@@ -21682,6 +21700,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20231120",
                 "3.0.1",
                 "3.0.0",
                 "2.3.0"
@@ -22053,6 +22072,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.6.4",
                 "5.6.3",
                 "5.5.1",
                 "5.4.0",
@@ -22398,6 +22418,7 @@
             ],
             "v2": true,
             "versions": [
+                "12.1.0",
                 "12.0.0",
                 "11.2.0",
                 "11.1.0",
@@ -22933,6 +22954,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.1",
                 "2.1.0",
                 "2.0.0",
                 "1.4.0",
