@@ -1,5 +1,5 @@
 {
-    "date": 1702858626,
+    "date": 1702944986,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -670,6 +670,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.29.0",
                 "1.28.2",
                 "1.28.1",
                 "1.28.0",
@@ -2092,6 +2093,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.0",
                 "1.3.2",
                 "1.3.1",
                 "1.3.0",
@@ -8804,6 +8806,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.173.0",
                 "0.172.1",
                 "0.172.0",
                 "0.171.1",
@@ -9028,6 +9031,7 @@
             ],
             "v2": true,
             "versions": [
+                "v2.0-rc1",
                 "v2-alpha4",
                 "v2-alpha3"
             ]
@@ -9923,11 +9927,15 @@
             ]
         },
         "libelfin": {
+            "components": {
+                "libdwarf++": {},
+                "libelf++": {}
+            },
             "description": "C++11 library for reading ELF binaries and DWARFv4 debug information",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.3"
             ]
@@ -17304,6 +17312,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.6.0",
                 "3.5.1",
                 "3.5.0",
                 "3.4.1",
@@ -17934,6 +17943,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.0",
                 "2.0.4",
                 "2.0.2",
                 "1.3.0",
@@ -21954,7 +21964,8 @@
             "v2": true,
             "versions": [
                 "1.2.1",
-                "1.4.2"
+                "1.4.2",
+                "1.4.3"
             ]
         },
         "wide-integer": {
