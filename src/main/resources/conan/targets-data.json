@@ -1,5 +1,5 @@
 {
-    "date": 1704413782,
+    "date": 1704500182,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4258,6 +4258,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.97.0",
                 "2.96.1",
                 "2.95.0",
                 "2.93.1",
@@ -6065,6 +6066,7 @@
             ],
             "v2": true,
             "versions": [
+                "10.2.1",
                 "10.2.0",
                 "10.1.1",
                 "10.1.0",
@@ -6863,6 +6865,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.2",
                 "2.0.1",
                 "2.0.0",
                 "1.9.9",
@@ -8639,6 +8642,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.1.1",
                 "4.1.0",
                 "4.0.0",
                 "3.0.6",
@@ -8804,12 +8808,13 @@
         "json-schema-validator": {
             "cmake_file_name": "nlohmann_json_schema_validator",
             "cmake_target_name": "nlohmann_json_schema_validator",
-            "description": "JSON schema validator for JSON for Modern C++ ",
+            "description": "JSON schema validator for JSON for Modern C++",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "2.3.0",
                 "2.2.0",
                 "2.1.0",
                 "2.0.0"
@@ -21478,6 +21483,7 @@
             ],
             "v2": true,
             "versions": [
+                "20.55.0",
                 "20.53.0",
                 "20.51.0",
                 "20.49.0",
