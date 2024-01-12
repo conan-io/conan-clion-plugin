@@ -1,5 +1,5 @@
 {
-    "date": 1704932202,
+    "date": 1705018604,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -289,13 +289,15 @@
             ]
         },
         "andreasbuhr-cppcoro": {
+            "cmake_file_name": "cppcoro",
+            "cmake_target_name": "cppcoro::cppcoro",
             "description": "A library of C++ coroutine abstractions for the coroutines TS",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "cci.20210113"
+                "cci.20230629"
             ]
         },
         "android-ndk": {
@@ -1324,6 +1326,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.5.2",
                 "0.5.1",
                 "0.5.0",
                 "0.4.0"
@@ -6875,6 +6878,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.5",
                 "2.0.3",
                 "2.0.2",
                 "2.0.1",
@@ -13062,6 +13066,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4.3",
                 "2.4.2",
                 "2.4.1",
                 "2.4.0",
@@ -16297,6 +16302,7 @@
             ],
             "v2": true,
             "versions": [
+                "41.0",
                 "40.0",
                 "39.0",
                 "38.0",
@@ -16487,6 +16493,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.43.0",
                 "0.42.2",
                 "0.40.0",
                 "0.38.4"
@@ -18442,6 +18449,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.0",
                 "1.1.0",
                 "1.0.1"
             ]
@@ -22390,6 +22398,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.2.5",
                 "3.2.4",
                 "3.2.3",
                 "3.2.2"
