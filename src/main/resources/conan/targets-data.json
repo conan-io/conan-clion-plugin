@@ -1,5 +1,5 @@
 {
-    "date": 1705191502,
+    "date": 1705277854,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2346,6 +2346,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.3",
                 "1.0.1",
                 "1.0.0"
@@ -4267,6 +4268,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.98.5",
                 "2.97.0",
                 "2.96.1",
                 "2.95.0",
@@ -7219,6 +7221,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.5.3",
                 "3.5.2",
                 "3.5.1",
                 "3.4.4",
@@ -16271,6 +16274,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.6.3",
                 "4.6.2",
                 "4.6.1",
                 "4.5.12"
@@ -18820,7 +18824,11 @@
         },
         "sentry-native": {
             "cmake_file_name": "sentry",
-            "cmake_target_name": "sentry::sentry",
+            "components": {
+                "sentry": {
+                    "cmake_target_name": "sentry::sentry"
+                }
+            },
             "description": "The Sentry Native SDK is an error and crash reporting client for native applications, optimized for C and C++. Sentry allows to add tags, breadcrumbs and arbitrary custom context to enrich error reports.",
             "license": [
                 "MIT"
@@ -21471,6 +21479,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.7",
                 "0.8.6",
                 "0.8.5",
                 "0.8.3",
