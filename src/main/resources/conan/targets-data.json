@@ -1,5 +1,5 @@
 {
-    "date": 1705450606,
+    "date": 1705537009,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2381,6 +2381,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.5.2",
                 "3.5.1",
                 "3.5.0",
                 "3.4.0",
@@ -6527,13 +6528,15 @@
             ]
         },
         "gamenetworkingsockets": {
+            "cmake_file_name": "GameNetworkingSockets",
+            "cmake_target_name": "GameNetworkingSockets::GameNetworkingSockets",
             "description": "GameNetworkingSockets is a basic transport layer for games.",
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.3.0"
+                "1.4.1"
             ]
         },
         "gamma": {
@@ -6764,7 +6767,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "cci.20170410",
                 "1.03"
@@ -6921,6 +6924,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.3.0",
                 "3.1.0"
             ]
         },
@@ -7251,9 +7255,9 @@
                 "1.30.1",
                 "1.31.1",
                 "1.40.1",
-                "2.5.0",
                 "2.12.0",
-                "2.15.1"
+                "2.15.1",
+                "2.19.0"
             ]
         },
         "googleapis": {
@@ -12425,12 +12429,11 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.1",
                 "2.1.0",
                 "2.0.8",
                 "2.0.7",
-                "2.0.6",
-                "2.0.5",
-                "2.0.4"
+                "1.2.2"
             ]
         },
         "log4cxx": {
@@ -13100,6 +13103,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.2",
                 "2.5.1",
                 "2.5.0",
                 "2.4.4",
@@ -13428,11 +13432,13 @@
             ]
         },
         "mingw-w64": {
-            "description": "MinGW is a contraction of Minimalist GNU for Windows",
+            "description": "This package provides a MinGW-w64 environment with a GCC toolchain for cross-compilation of native Windows binaries from Linux.",
             "license": [
-                ""
+                "ZPL-2.1",
+                "MIT",
+                "GPL-2.0-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "8.0.2"
             ]
@@ -14606,6 +14612,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.12.0",
                 "4.10.6",
                 "4.10.1",
                 "4.06.1",
