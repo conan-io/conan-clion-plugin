@@ -1,5 +1,5 @@
 {
-    "date": 1705623412,
+    "date": 1705709766,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -643,6 +643,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.1",
                 "2.1.0",
                 "2.0.1",
                 "1.2.2"
@@ -2412,6 +2413,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.9",
                 "4.8.3",
                 "4.8.2",
                 "4.8.1",
@@ -11901,6 +11903,18 @@
                 "1.5"
             ]
         },
+        "libversion": {
+            "cmake_file_name": "libversion",
+            "cmake_target_name": "libversion::libversion",
+            "description": "Advanced version string comparison library",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "3.0.3"
+            ]
+        },
         "libverto": {
             "components": {
                 "verto": {}
@@ -21032,6 +21046,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.16",
                 "1.5.15",
                 "1.5.14",
                 "1.5.13",
