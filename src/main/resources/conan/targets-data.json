@@ -1,5 +1,5 @@
 {
-    "date": 1706141824,
+    "date": 1706228165,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2153,6 +2153,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.13.0",
                 "2.12.0",
                 "2.11.3",
                 "2.11.2",
@@ -9983,6 +9984,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4.120",
                 "2.4.119",
                 "2.4.114",
                 "2.4.109"
@@ -13140,6 +13142,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.0",
                 "2.5.2",
                 "2.5.1",
                 "2.5.0",
@@ -21293,6 +21296,18 @@
                 "1.3.2"
             ]
         },
+        "tweenerspp": {
+            "cmake_file_name": "tweeners",
+            "cmake_target_name": "tweeners::tweeners",
+            "description": "Yet another C++ tweeners library",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1"
+            ]
+        },
         "tweetnacl": {
             "description": "TweetNaCl is the world's first auditable high-security cryptographic library",
             "license": [
@@ -22214,6 +22229,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.33",
                 "1.32",
                 "1.31",
                 "1.27",
@@ -23120,6 +23136,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.1",
                 "1.3",
                 "1.2.13",
                 "1.2.12",
