@@ -1,5 +1,5 @@
 {
-    "date": 1706228165,
+    "date": 1706314506,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5856,6 +5856,18 @@
             ]
         },
         "fftw": {
+            "cmake_file_name": "FFTW3",
+            "components": {
+                "fftwlib_double": {
+                    "cmake_target_name": "FFTW3::fftw3"
+                },
+                "fftwlib_longdouble": {
+                    "cmake_target_name": "FFTW3::fftw3l"
+                },
+                "fftwlib_single": {
+                    "cmake_target_name": "FFTW3::fftw3f"
+                }
+            },
             "description": "C subroutine library for computing the Discrete Fourier Transform (DFT) in one or more dimensions",
             "license": [
                 "GPL-2.0"
@@ -6906,15 +6918,8 @@
                 "2.0.1",
                 "2.0.0",
                 "1.9.9",
-                "1.9.8.1",
                 "1.9.5",
-                "1.8.5",
-                "1.8.4",
-                "1.8.3",
-                "1.8.2",
-                "1.8.1",
-                "1.7.0",
-                "1.6.1"
+                "1.8.5"
             ]
         },
         "glbinding": {
@@ -15490,9 +15495,9 @@
             ],
             "v2": true,
             "versions": [
+                "1.6.5",
                 "1.6.4",
-                "1.6.3",
-                "1.6.2"
+                "1.6.3"
             ]
         },
         "openexr": {
