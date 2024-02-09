@@ -1,5 +1,5 @@
 {
-    "date": 1707351316,
+    "date": 1707437726,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -888,6 +888,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.72",
                 "2.71"
             ]
         },
@@ -5432,6 +5433,16 @@
                 "cci.20170424"
             ]
         },
+        "etcd-cpp-apiv3": {
+            "description": "C++ library for etcd's v3 client APIs, i.e., ETCDCTL_API=3.",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "0.15.4"
+            ]
+        },
         "eternal": {
             "description": "A C++14 compile-time/constexpr map and hash map with minimal binary footprint",
             "license": [
@@ -5532,6 +5543,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.0",
                 "2.5.0",
                 "2.4.9",
                 "2.4.8",
@@ -8231,8 +8243,9 @@
             ],
             "v2": true,
             "versions": [
-                "2.5.0",
-                "2.10.0"
+                "2.17.1",
+                "2.10.0",
+                "2.5.0"
             ]
         },
         "ignition-math": {
@@ -12904,6 +12917,16 @@
                 "1.2.0"
             ]
         },
+        "mapbox-wagyu": {
+            "description": "A general library for geometry operations of union, intersections, difference, and xor",
+            "license": [
+                "LicenseRef-mapbox-wagyu"
+            ],
+            "v2": true,
+            "versions": [
+                "0.5.0"
+            ]
+        },
         "mariadb-connector-c": {
             "description": "MariaDB Connector/C is used to connect applications developed in C/C++ to MariaDB and MySQL databases.",
             "license": [
@@ -13378,6 +13401,16 @@
             "versions": [
                 "1.2.2",
                 "1.2.1"
+            ]
+        },
+        "mgclient": {
+            "description": "C/C++ Memgraph Client",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.4.2"
             ]
         },
         "mgs": {
@@ -15529,6 +15562,18 @@
                 "0.5.1",
                 "0.5.0",
                 "cci.20211217"
+            ]
+        },
+        "opendis6": {
+            "cmake_file_name": "OpenDIS",
+            "cmake_target_name": "OpenDIS::OpenDIS6",
+            "description": "Modern C++ implementation of IEEE 1278.1a-1998",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.0"
             ]
         },
         "opene57": {
