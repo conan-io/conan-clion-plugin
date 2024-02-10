@@ -1,5 +1,5 @@
 {
-    "date": 1707437726,
+    "date": 1707524114,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -23,6 +23,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.0",
                 "2.0.0",
                 "1.0.0"
             ]
@@ -1367,7 +1368,8 @@
                 "8.0.4",
                 "8.0.6",
                 "8.2.2",
-                "8.2.4"
+                "8.2.4",
+                "8.2.6"
             ]
         },
         "bear": {
@@ -2872,6 +2874,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4.1",
                 "2.4.0",
                 "2.3.2",
                 "2.3.1",
@@ -6942,6 +6945,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.7",
                 "2.0.6",
                 "2.0.5",
                 "2.0.3",
@@ -8488,6 +8492,18 @@
                 "cci.20201227"
             ]
         },
+        "influxdb-cxx": {
+            "cmake_file_name": "InfluxDB",
+            "cmake_target_name": "InfluxData::InfluxDB",
+            "description": "InfluxDB C++ client library.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.7.2"
+            ]
+        },
         "inih": {
             "components": {
                 "libinih": {}
@@ -8535,6 +8551,16 @@
             "v2": true,
             "versions": [
                 "1.9.0"
+            ]
+        },
+        "intel-ipsec-mb": {
+            "description": "Intel(R) Multi-Buffer Crypto for IPSec",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.4"
             ]
         },
         "intel-neon2sse": {
@@ -15334,6 +15360,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.3.0",
                 "7.2.0",
                 "7.0.0",
                 "6.6.0",
@@ -21683,6 +21710,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.8",
                 "0.8.7",
                 "0.8.6",
                 "0.8.5",
@@ -22513,6 +22541,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.1.0",
                 "3.0.0"
             ]
         },
