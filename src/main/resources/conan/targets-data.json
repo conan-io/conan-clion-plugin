@@ -1,5 +1,5 @@
 {
-    "date": 1707869735,
+    "date": 1707956146,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7730,7 +7730,8 @@
                 "1.10.0",
                 "1.11.0",
                 "1.11.0.1",
-                "1.11.1"
+                "1.11.1",
+                "1.11.2"
             ]
         },
         "half": {
@@ -8782,6 +8783,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.2.0",
                 "4.1.2",
                 "4.1.1",
                 "4.1.0",
@@ -14933,7 +14935,7 @@
         "oatpp-sqlite": {
             "cmake_file_name": "oatpp-sqlite",
             "cmake_target_name": "oatpp::oatpp-sqlite",
-            "description": "oat++ SQLite library",
+            "description": "SQLite adapter for oatpp ORM.",
             "license": [
                 "Apache-2.0"
             ],
@@ -17349,6 +17351,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20231129",
                 "cci.20210218"
             ]
         },
@@ -19759,6 +19762,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.5.6",
                 "4.5.1",
                 "4.5.0",
                 "4.4.3",
