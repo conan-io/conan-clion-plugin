@@ -1,5 +1,5 @@
 {
-    "date": 1708301791,
+    "date": 1708388135,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2870,6 +2870,16 @@
                 "2.4.1.3"
             ]
         },
+        "cli": {
+            "description": "A library for interactive command line interfaces in modern C++",
+            "license": [
+                "BSL-1.0"
+            ],
+            "v2": true,
+            "versions": [
+                "2.1.0"
+            ]
+        },
         "cli11": {
             "cmake_file_name": "CLI11",
             "cmake_target_name": "CLI11::CLI11",
@@ -5256,6 +5266,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.0",
                 "0.6.1",
                 "0.6.0",
                 "0.5.0",
@@ -8679,11 +8690,11 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "0.24",
-                "0.23",
-                "0.22"
+                "0.26",
+                "0.25",
+                "0.24"
             ]
         },
         "iso8601lib": {
@@ -9853,6 +9864,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.11.1",
                 "0.10",
                 "0.9",
                 "0.8",
@@ -10089,14 +10101,16 @@
             "description": "A library and a set of command-line tools for reading and writing DWARF2",
             "license": [
                 "LGPL-2.1-only",
-                "BSD-2-Clause-Views"
+                "BSD-2-Clause-Views",
+                "GPL-2.0-only"
             ],
             "v2": true,
             "versions": [
+                "0.9.1",
+                "0.9.0",
                 "0.8.0",
                 "0.7.0",
-                "0.5.0",
-                "20191104"
+                "0.5.0"
             ]
         },
         "libdxfrw": {
@@ -18631,6 +18645,16 @@
                 "1.0.11"
             ]
         },
+        "safe": {
+            "description": "Header only read and write locks for mutexes",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.1"
+            ]
+        },
         "safeint": {
             "description": "SafeInt is a class library for C++ that manages integer overflows.",
             "license": [
@@ -19153,6 +19177,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.4",
                 "1.2.3"
             ]
         },
