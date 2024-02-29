@@ -1,5 +1,5 @@
 {
-    "date": 1709079321,
+    "date": 1709165730,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1108,6 +1108,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.4.5",
                 "0.3.24",
                 "0.1.49",
                 "0.1.37",
@@ -3639,6 +3640,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.4.1",
                 "0.4.0",
                 "0.3.1",
                 "0.3.0",
@@ -5744,6 +5746,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20240102",
                 "cci.20211104",
                 "cci.20200830",
                 "20191004"
@@ -14685,6 +14688,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20240223",
                 "cci.20221203",
                 "cci.20220620",
                 "cci.20220428",
@@ -15725,6 +15729,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.2.2",
                 "3.2.1",
                 "3.1.9",
                 "3.1.7",
@@ -15858,6 +15863,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.1",
                 "2.5.0",
                 "2.4.0",
                 "2.3.1"
@@ -18288,11 +18294,13 @@
             ]
         },
         "redradist-icc": {
+            "cmake_file_name": "icc",
+            "cmake_target_name": "icc::icc",
             "description": "I.C.C. - Inter Component Communication, This is a library created to simplify communication between components inside of single application. It is thread safe and could be used for creating components that works in different threads. ",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.0.0"
             ]
@@ -19037,6 +19045,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.22.0",
                 "2.20.2",
                 "2.20.1",
                 "2.0.18",
@@ -21828,6 +21837,16 @@
                 "3.1.1"
             ]
         },
+        "urdfdom_headers": {
+            "description": "Headers for URDF parsers",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.1"
+            ]
+        },
         "uriparser": {
             "cmake_file_name": "uriparser",
             "cmake_target_name": "uriparser::uriparser",
@@ -22924,6 +22943,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20231026",
                 "cci.20230715",
                 "cci.20220801",
                 "cci.20220621",
