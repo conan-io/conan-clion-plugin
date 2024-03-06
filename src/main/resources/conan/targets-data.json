@@ -1,5 +1,5 @@
 {
-    "date": 1709597723,
+    "date": 1709684175,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1057,6 +1057,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.1",
                 "0.7.14",
                 "0.6.22",
                 "0.6.13",
@@ -2728,6 +2729,16 @@
             "v2": true,
             "versions": [
                 "cci.20230918"
+            ]
+        },
+        "chunkio": {
+            "description": "Simple library to manage chunks of data in memory and file system",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.6"
             ]
         },
         "cimg": {
@@ -8004,6 +8015,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.0.10",
                 "0.0.9",
                 "0.0.8",
                 "0.0.3",
@@ -10953,6 +10965,10 @@
             ]
         },
         "libmount": {
+            "components": {
+                "libblkid": {},
+                "libmount": {}
+            },
             "description": "The libmount library is used to parse /etc/fstab, /etc/mtab and /proc/self/mountinfo files, manage the mtab file, evaluate mount options, etc",
             "license": [
                 "LGPL-2.1-or-later"
@@ -15886,6 +15902,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.2",
                 "2.5.1",
                 "2.5.0",
                 "2.4.0",
@@ -21414,6 +21431,16 @@
                 "cci.20230717"
             ]
         },
+        "tree-gen": {
+            "description": "C++ and Python code generator for tree-like structures common in parser and compiler codebases.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.6"
+            ]
+        },
         "tree-sitter": {
             "description": "Tree-sitter is a parser generator tool and an incremental parsing library. It can build a concrete syntax tree for a source file and efficiently update the syntax tree as the source file is edited.",
             "license": [
@@ -23245,6 +23272,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.6.0",
                 "5.4.5",
                 "5.4.4",
                 "5.4.2",
