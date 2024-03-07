@@ -1,5 +1,5 @@
 {
-    "date": 1709684175,
+    "date": 1709770374,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -12325,10 +12325,12 @@
             ],
             "v2": true,
             "versions": [
+                "2.12.5",
                 "2.12.4",
                 "2.12.3",
                 "2.12.2",
                 "2.12.1",
+                "2.11.7",
                 "2.11.6",
                 "2.11.4",
                 "2.10.4",
@@ -13370,6 +13372,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.8.0",
                 "2.7.4",
                 "2.7.3",
                 "2.7.2",
@@ -16682,6 +16685,7 @@
             ],
             "v2": true,
             "versions": [
+                "43.1",
                 "42.0",
                 "41.0",
                 "40.0",
@@ -18721,12 +18725,15 @@
             ]
         },
         "s2geometry": {
+            "cmake_file_name": "s2",
+            "cmake_target_name": "s2::s2",
             "description": "Computational geometry and spatial indexing on the sphere",
             "license": [
                 "Apache-2.0"
             ],
             "v2": true,
             "versions": [
+                "0.11.1",
                 "0.10.0"
             ]
         },
