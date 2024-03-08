@@ -1,5 +1,5 @@
 {
-    "date": 1709770374,
+    "date": 1709856976,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -8339,6 +8339,19 @@
                 "2.1"
             ]
         },
+        "idna": {
+            "cmake_file_name": "ada-idna",
+            "cmake_target_name": "ada-idna",
+            "description": "C++ library implementing the to_ascii and to_unicode functions from the Unicode Technical Standard.",
+            "license": [
+                "Apache-2.0",
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20240228"
+            ]
+        },
         "ignition-cmake": {
             "cmake_file_name": "ignition-cmake2",
             "components": {
@@ -16112,6 +16125,7 @@
             ],
             "v2": true,
             "versions": [
+                "2024.0.0",
                 "2023.3.0",
                 "2023.2.0",
                 "2023.1.0"
@@ -17285,6 +17299,18 @@
                 "1.0.0"
             ]
         },
+        "primesieve": {
+            "cmake_file_name": "primesieve",
+            "cmake_target_name": "primesieve::primesieve",
+            "description": "Fast prime number generator",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "11.2"
+            ]
+        },
         "pro-mdnsd": {
             "cmake_file_name": "mdnsd",
             "cmake_target_name": "libmdnsd",
@@ -18127,6 +18153,18 @@
                 "5.0",
                 "4.0.0",
                 "3.5.0"
+            ]
+        },
+        "rdma-core": {
+            "description": "RDMA core userspace libraries and daemons. Provides userspace components for the Linux Kernel's drivers/infiniband subsystem.",
+            "license": [
+                "GPL-2.0",
+                "Linux-OpenIB",
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "49.0"
             ]
         },
         "re2": {
