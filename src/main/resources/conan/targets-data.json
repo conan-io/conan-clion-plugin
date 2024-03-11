@@ -1,5 +1,5 @@
 {
-    "date": 1710029832,
+    "date": 1710116188,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -153,6 +153,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.7.7",
                 "2.7.5",
                 "2.7.4",
                 "2.7.3",
@@ -3498,10 +3499,9 @@
             ],
             "v2": true,
             "versions": [
+                "2.13.4",
                 "2.13.3",
-                "2.13",
                 "2.12.1",
-                "2.12",
                 "2.11.1",
                 "2.10.3",
                 "2.9.3",
@@ -7047,6 +7047,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.1",
                 "2.1.9",
                 "2.1.7",
                 "2.1.6",
@@ -11867,7 +11868,7 @@
             "cmake_target_name": "TIFF::TIFF",
             "description": "Library for Tag Image File Format (TIFF)",
             "license": [
-                "MIT"
+                "libtiff"
             ],
             "v2": true,
             "versions": [
@@ -12811,6 +12812,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.615",
                 "0.610",
                 "0.607",
                 "0.603",
