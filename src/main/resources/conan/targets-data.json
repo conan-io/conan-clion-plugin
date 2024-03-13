@@ -1,5 +1,5 @@
 {
-    "date": 1710202537,
+    "date": 1710288933,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -764,11 +764,10 @@
             ],
             "v2": true,
             "versions": [
+                "5.3.1",
+                "5.2.5",
                 "5.2.2",
-                "5.1.6",
-                "5.1.0",
-                "5.0.1",
-                "5.0.0"
+                "5.1.6"
             ]
         },
         "astc-codec": {
@@ -3069,6 +3068,18 @@
             "v2": true,
             "versions": [
                 "1.0.0"
+            ]
+        },
+        "cnats": {
+            "cmake_file_name": "cnats",
+            "cmake_target_name": "cnats::nats_static",
+            "description": "A C client for NATS",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "3.8.0"
             ]
         },
         "cnpy": {
@@ -6011,6 +6022,16 @@
             "v2": true,
             "versions": [
                 "0.2"
+            ]
+        },
+        "fixed-containers": {
+            "description": "C++ Fixed Containers",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20240225"
             ]
         },
         "flac": {
@@ -14783,7 +14804,7 @@
             ]
         },
         "nodejs": {
-            "description": "nodejs binaries for use in recipes",
+            "description": "Node.js is an open-source, cross-platform JavaScript runtime environment.",
             "license": [
                 "MIT"
             ],
@@ -15264,8 +15285,9 @@
             "license": [
                 "LGPL-3.0-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "5.1.0",
                 "4.1.2"
             ]
         },
@@ -16073,8 +16095,7 @@
             "versions": [
                 "1.12.0",
                 "1.9.1",
-                "1.8.3",
-                "1.7.0"
+                "1.8.3"
             ]
         },
         "opentelemetry-proto": {
@@ -16142,7 +16163,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.12.5",
                 "1.14.15",
@@ -16569,8 +16590,9 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "3.10.0",
                 "3.7.0"
             ]
         },
@@ -21503,6 +21525,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.22.1",
                 "0.21.0",
                 "0.20.8",
                 "0.20.6",
@@ -22114,6 +22137,7 @@
             ],
             "v2": true,
             "versions": [
+                "20.62.0",
                 "20.60.0",
                 "20.58.0",
                 "20.57.0",
@@ -22818,6 +22842,16 @@
                 "1.0.210629.2"
             ]
         },
+        "winreg": {
+            "description": "Convenient high-level C++ wrapper around the Windows Registry API.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "6.2.0"
+            ]
+        },
         "wiringpi": {
             "description": "GPIO Interface library for the Raspberry Pi",
             "license": [
@@ -23265,13 +23299,11 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.1.0",
                 "2.0.1",
-                "2.0.0",
-                "1.0.1",
-                "1.0.0"
+                "1.0.1"
             ]
         },
         "xtrans": {
@@ -23328,6 +23360,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.6.1",
                 "5.6.0",
                 "5.4.5",
                 "5.4.4",
