@@ -1,5 +1,5 @@
 {
-    "date": 1710721002,
+    "date": 1710807382,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3670,6 +3670,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.5.0",
                 "0.4.1",
                 "0.4.0",
                 "0.3.1",
@@ -5651,18 +5652,11 @@
             ],
             "v2": true,
             "versions": [
-                "2.6.1",
+                "2.6.2",
                 "2.6.0",
                 "2.5.0",
                 "2.4.9",
                 "2.4.8",
-                "2.4.7",
-                "2.4.6",
-                "2.4.5",
-                "2.4.4",
-                "2.4.3",
-                "2.4.2",
-                "2.4.1",
                 "2.3.0",
                 "2.2.10"
             ]
@@ -6101,6 +6095,7 @@
             ],
             "v2": true,
             "versions": [
+                "24.3.7",
                 "23.5.26",
                 "23.3.3",
                 "23.1.21",
@@ -8442,6 +8437,16 @@
             "v2": false,
             "versions": [
                 "1.3.0"
+            ]
+        },
+        "iguana": {
+            "description": "universal serialization engine",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.3"
             ]
         },
         "iir1": {
@@ -12214,6 +12219,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.15.2",
                 "8.15.1",
                 "8.14.2"
             ]
@@ -17813,12 +17819,11 @@
                 "6.5.3",
                 "6.4.2",
                 "6.3.2",
+                "5.15.13",
                 "5.15.12",
                 "5.15.11",
                 "5.15.10",
-                "5.15.9",
-                "5.15.8",
-                "5.15.7"
+                "5.15.9"
             ]
         },
         "qt-advanced-docking-system": {
@@ -17888,6 +17893,18 @@
                 "1.3",
                 "1.2",
                 "1.1"
+            ]
+        },
+        "quickcpplib": {
+            "cmake_file_name": "quickcpplib",
+            "cmake_target_name": "quickcpplib::hl",
+            "description": "Eliminate all the tedious hassle when making state-of-the-art C++ 17 - 23 libraries!",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20231208"
             ]
         },
         "quickfast": {
@@ -19392,6 +19409,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.0",
                 "1.2.4",
                 "1.2.3"
             ]
