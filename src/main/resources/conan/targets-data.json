@@ -1,5 +1,5 @@
 {
-    "date": 1711152944,
+    "date": 1711239479,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -16196,18 +16196,15 @@
         "openvdb": {
             "cmake_file_name": "OpenVDB",
             "cmake_target_name": "OpenVDB::openvdb",
-            "components": {
-                "openvdb-core": {
-                    "cmake_target_name": "OpenVDB::openvdb"
-                }
-            },
             "description": "OpenVDB is an open source C++ library comprising a novel hierarchical datastructure and a large suite of tools for the efficient storage and manipulation of sparse volumetric data discretized on three-dimensional grids.",
             "license": [
                 "MPL-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "8.0.1"
+                "11.0.0",
+                "10.1.0",
+                "9.1.0"
             ]
         },
         "openvino": {
