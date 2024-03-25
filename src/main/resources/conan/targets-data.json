@@ -1,5 +1,5 @@
 {
-    "date": 1711239479,
+    "date": 1711325815,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -6040,6 +6040,8 @@
             ]
         },
         "fixed-containers": {
+            "cmake_file_name": "fixed_containers",
+            "cmake_target_name": "fixed_containers::fixed_containers",
             "description": "C++ Fixed Containers",
             "license": [
                 "MIT"
