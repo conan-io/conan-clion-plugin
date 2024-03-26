@@ -1,5 +1,5 @@
 {
-    "date": 1711325815,
+    "date": 1711412139,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4270,6 +4270,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8",
                 "1.7",
                 "1.6",
                 "1.5"
@@ -9725,14 +9726,13 @@
             ]
         },
         "libassert": {
-            "cmake_file_name": "assert",
-            "cmake_target_name": "assert::assert",
             "description": "The most over-engineered and overpowered C++ assertion library.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.2.2",
                 "1.2.1",
                 "1.1",
@@ -9841,6 +9841,18 @@
             "v2": true,
             "versions": [
                 "0.4.7"
+            ]
+        },
+        "libboxes": {
+            "cmake_file_name": "libboxes",
+            "cmake_target_name": "libboxes::libboxes",
+            "description": "Boxes is a set of frequently used containers built on top of STL",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.1"
             ]
         },
         "libbpf": {
