@@ -1,5 +1,5 @@
 {
-    "date": 1711412139,
+    "date": 1711498524,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3360,6 +3360,16 @@
             "v2": true,
             "versions": [
                 "cci.20210322"
+            ]
+        },
+        "cpp-channel": {
+            "description": "Thread-safe container for sharing data between threads",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.8.2"
             ]
         },
         "cpp-httplib": {
@@ -8060,6 +8070,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.0.11",
                 "0.0.10",
                 "0.0.9",
                 "0.0.8",
