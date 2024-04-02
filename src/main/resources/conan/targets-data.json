@@ -1,5 +1,5 @@
 {
-    "date": 1711930683,
+    "date": 1712016960,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -24,6 +24,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.0",
                 "2.1.0",
                 "2.0.0",
                 "1.0.0"
@@ -2148,6 +2149,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.28.1",
                 "1.27.0",
                 "1.26.0",
                 "1.25.0",
@@ -3690,6 +3692,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.5.2",
                 "0.5.1",
                 "0.5.0",
                 "0.4.1",
@@ -5662,8 +5665,8 @@
             ],
             "v2": true,
             "versions": [
+                "0.28.2",
                 "0.28.1",
-                "0.28.0",
                 "0.27.5"
             ]
         },
@@ -10119,6 +10122,18 @@
                 "7.78.0"
             ]
         },
+        "libcvd": {
+            "cmake_file_name": "CVD",
+            "cmake_target_name": "cvd",
+            "description": "libCVD - efficient and easy-to-use C++ computer vision library",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "2.5.1"
+            ]
+        },
         "libdaemon": {
             "description": "a lightweight C library that eases the writing of UNIX daemons",
             "license": [
@@ -11233,6 +11248,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.60.0",
                 "1.59.0",
                 "1.58.0",
                 "1.57.0",
@@ -15348,6 +15364,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.10.0",
                 "1.9.8",
                 "1.9.7",
                 "1.9.6",
@@ -16403,6 +16420,23 @@
                 "0.6.2"
             ]
         },
+        "ouster_sdk": {
+            "cmake_file_name": "OusterSDK",
+            "cmake_target_name": "OusterSDK::OusterSDK",
+            "components": {
+                "ouster_client": {
+                    "cmake_target_name": "OusterSDK::ouster_client"
+                }
+            },
+            "description": "Ouster SDK - tools for working with Ouster Lidars",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "0.10.0"
+            ]
+        },
         "out_ptr": {
             "description": "a C++11 implementation of std::out_ptr (p1132), as a standalone library",
             "license": [
@@ -17028,10 +17062,9 @@
             ],
             "v2": true,
             "versions": [
+                "0.43.4",
                 "0.43.0",
-                "0.42.2",
-                "0.40.0",
-                "0.38.4"
+                "0.42.2"
             ]
         },
         "pkgconf": {
@@ -17601,6 +17634,18 @@
             "v2": true,
             "versions": [
                 "1.7.1"
+            ]
+        },
+        "proxy": {
+            "cmake_file_name": "proxy",
+            "cmake_target_name": "msft_proxy",
+            "description": "Proxy: Next Generation Polymorphism in C++",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "2.2.1"
             ]
         },
         "psimd": {
@@ -18222,6 +18267,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.82",
                 "8.80",
                 "8.77",
                 "8.75",
@@ -18362,6 +18408,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.1",
                 "2.0.0",
                 "0.2.3",
                 "0.2.1",
@@ -21573,6 +21620,16 @@
                 "1.3.3"
             ]
         },
+        "toon": {
+            "description": "TooN - Tom's Object Oriented Numerics library",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "3.2"
+            ]
+        },
         "tqdm-cpp": {
             "description": "Easily display progress in C++17. Inspired by python's awesome tqdm library.",
             "license": [
@@ -23014,6 +23071,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.2",
                 "2.61-1",
                 "cci.20210727",
                 "2.50"
@@ -23663,6 +23721,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.13.0",
                 "4.12.4",
                 "4.12.2",
                 "4.12.1",
@@ -23904,14 +23963,7 @@
                 "1.5.2",
                 "1.5.1",
                 "1.5.0",
-                "1.4.9",
-                "1.4.8",
-                "1.4.7",
-                "1.4.5",
-                "1.4.4",
-                "1.4.3",
-                "1.3.8",
-                "1.3.5"
+                "1.4.9"
             ]
         },
         "zstr": {
