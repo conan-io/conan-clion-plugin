@@ -1,5 +1,5 @@
 {
-    "date": 1712189801,
+    "date": 1712276184,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9755,6 +9755,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.1",
                 "2.0.0",
                 "1.2.2",
                 "1.2.1",
@@ -11908,6 +11909,18 @@
                 "2.3.0"
             ]
         },
+        "libssh": {
+            "cmake_file_name": "libssh",
+            "cmake_target_name": "ssh::ssh",
+            "description": "multiplatform C library implementing the SSHv2 protocol on client and server side",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "v2": true,
+            "versions": [
+                "0.10.6"
+            ]
+        },
         "libssh2": {
             "cmake_file_name": "Libssh2",
             "cmake_target_name": "Libssh2::libssh2",
@@ -13295,6 +13308,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.1",
                 "1.0.0"
             ]
@@ -15951,6 +15965,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.2.4",
                 "3.2.3",
                 "3.2.2",
                 "3.2.1",
@@ -17969,6 +17984,8 @@
             ],
             "v2": true,
             "versions": [
+                "6.7.0",
+                "6.6.3",
                 "6.6.2",
                 "6.6.1",
                 "6.6.0",
@@ -19494,6 +19511,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.2",
                 "0.7.1",
                 "0.7.0",
                 "0.6.6",
@@ -19714,6 +19732,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.2.2",
                 "5.0.0",
                 "4.0.9",
                 "4.0.5",
@@ -22546,6 +22565,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "2.1.3"
             ]
         },
