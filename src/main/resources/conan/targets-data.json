@@ -1,5 +1,5 @@
 {
-    "date": 1712362529,
+    "date": 1712449103,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -13109,6 +13109,16 @@
             "versions": [
                 "1.4.19",
                 "1.4.18"
+            ]
+        },
+        "macdylibbundler": {
+            "description": "mac dylib bundler is a tool for use when bundling mac applications",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.5"
             ]
         },
         "maddy": {
