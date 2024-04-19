@@ -1,5 +1,5 @@
 {
-    "date": 1713399379,
+    "date": 1713485781,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -692,6 +692,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.30.2",
                 "1.30.1",
                 "1.29.0",
                 "1.28.2",
@@ -8841,6 +8842,16 @@
             "versions": [
                 "1.4.17",
                 "1.4.16"
+            ]
+        },
+        "ipaddress": {
+            "description": "A library for working and manipulating IPv4/IPv6 addresses and networks",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.1"
             ]
         },
         "iqa": {
@@ -17749,6 +17760,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.1",
                 "2.3.0",
                 "2.2.1"
             ]
@@ -19165,6 +19177,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.9.4",
                 "0.9.1",
                 "0.9.0"
             ]
