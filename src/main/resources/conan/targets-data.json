@@ -1,5 +1,5 @@
 {
-    "date": 1713485781,
+    "date": 1713572154,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1201,6 +1201,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.1",
                 "cci.20210812"
             ]
@@ -7126,21 +7127,15 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.3",
                 "2.4.0",
                 "2.3.2",
                 "2.3.1",
                 "2.3.0",
                 "2.2.1",
                 "2.1.9",
-                "2.1.7",
                 "2.1.6",
-                "2.1.4",
-                "2.1.0",
-                "2.0.9",
-                "2.0.7",
-                "2.0.6",
-                "1.9.9",
-                "1.8.5"
+                "2.0.9"
             ]
         },
         "glbinding": {
@@ -10832,7 +10827,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "1.36"
             ]
@@ -16175,12 +16170,17 @@
             ]
         },
         "openldap": {
-            "description": "OpenLDAP C++ library",
+            "components": {
+                "lber": {},
+                "ldap": {}
+            },
+            "description": "OpenLDAP C library",
             "license": [
                 "OLDAP-2.8"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "2.6.7",
                 "2.6.1"
             ]
         },
@@ -20614,6 +20614,16 @@
                 "5.32.1.1",
                 "5.30.0.1",
                 "5.28.1.1"
+            ]
+        },
+        "streaming-percentiles": {
+            "description": "Cross-platform, multi-language implementation of multiple streaming percentile algorithms",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "3.1.0"
             ]
         },
         "streamvbyte": {
