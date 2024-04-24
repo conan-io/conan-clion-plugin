@@ -1,5 +1,5 @@
 {
-    "date": 1713831404,
+    "date": 1713917787,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2214,13 +2214,12 @@
             ],
             "v2": true,
             "versions": [
+                "2.14.4",
                 "2.13.1",
                 "2.13.0",
                 "2.12.0",
                 "2.11.3",
-                "2.10.5",
-                "2.8.0",
-                "2.6.1"
+                "2.10.5"
             ]
         },
         "c-client": {
@@ -3582,6 +3581,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.14",
                 "2.13.4",
                 "2.13.3",
                 "2.12.1",
@@ -7139,6 +7139,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.4",
                 "2.5.3",
                 "2.4.0",
                 "2.3.2",
@@ -8967,6 +8968,7 @@
             ],
             "v2": true,
             "versions": [
+                "11.4.5",
                 "11.4.3",
                 "11.2.4",
                 "11.0.9",
@@ -9086,6 +9088,16 @@
             "versions": [
                 "1.2.1",
                 "1.1.0"
+            ]
+        },
+        "jnk0le_ringbuffer": {
+            "description": "simple C++11 ring buffer implementation, allocated and evaluated at compile time",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20240422"
             ]
         },
         "joltphysics": {
@@ -9208,6 +9220,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.174.0",
                 "0.173.4",
                 "0.173.3",
                 "0.173.2",
@@ -10422,6 +10435,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.1",
                 "1.4.0",
                 "1.3.0"
             ]
@@ -10594,7 +10608,7 @@
         "libftp": {
             "cmake_file_name": "ftp",
             "cmake_target_name": "ftp::ftp",
-            "description": "A cross-platform FTP client library based on Boost.Asio",
+            "description": "A cross-platform FTP/FTPS client library based on Boost.Asio",
             "license": [
                 "MIT"
             ],
@@ -12333,9 +12347,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.52.0",
-                "0.51.0",
-                "0.48.0"
+                "0.59.0"
             ]
         },
         "libvdpau": {
@@ -14140,6 +14152,18 @@
             "versions": [
                 "cci.20230303",
                 "cci.20201220"
+            ]
+        },
+        "mlpack": {
+            "cmake_file_name": "mlpack",
+            "cmake_target_name": "mlpack::mlpack",
+            "description": "mlpack: a fast, header-only C++ machine learning library",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "4.3.0"
             ]
         },
         "mm_file": {
@@ -18958,12 +18982,13 @@
             ],
             "v2": true,
             "versions": [
-                "0.21",
-                "0.23",
-                "0.24",
-                "0.25",
+                "0.30",
+                "0.29",
                 "0.28",
-                "0.29"
+                "0.25",
+                "0.24",
+                "0.23",
+                "0.21"
             ]
         },
         "rpclib": {
@@ -22163,6 +22188,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.2.4",
                 "0.2.3",
                 "0.2.2",
                 "0.2.1"
@@ -23485,6 +23511,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.4",
                 "1.3.3",
                 "1.3.2",
                 "1.2.38",
