@@ -1,5 +1,5 @@
 {
-    "date": 1714004262,
+    "date": 1714090588,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -12937,9 +12937,10 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.0",
                 "1.1.0",
-                "0.12.1",
-                "0.12.0"
+                "0.13.0",
+                "0.12.1"
             ]
         },
         "logfault": {
@@ -13380,6 +13381,16 @@
             "v2": true,
             "versions": [
                 "1.0.1"
+            ]
+        },
+        "materialx": {
+            "description": "MaterialX is an open standard for the exchange of rich material and look-development content across applications and renderers.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.38.10"
             ]
         },
         "mathfu": {
@@ -15626,6 +15637,16 @@
             "v2": true,
             "versions": [
                 "1.36.5182"
+            ]
+        },
+        "ohpipeline": {
+            "description": "OpenHome audio pipeline",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.139.1000"
             ]
         },
         "ois": {
@@ -21315,6 +21336,16 @@
             "v2": true,
             "versions": [
                 "1.1.1"
+            ]
+        },
+        "thorvg": {
+            "description": "ThorVG is a platform-independent portable library that allows for drawing vector-based scenes and animations.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.13.0"
             ]
         },
         "threadpool": {
