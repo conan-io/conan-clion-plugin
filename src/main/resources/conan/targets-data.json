@@ -1,5 +1,5 @@
 {
-    "date": 1714695391,
+    "date": 1714781765,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -313,6 +313,7 @@
             ],
             "v2": true,
             "versions": [
+                "r26d",
                 "r26c",
                 "r26b",
                 "r26",
@@ -1731,6 +1732,9 @@
                 "atomic": {
                     "cmake_target_name": "Boost::atomic"
                 },
+                "charconv": {
+                    "cmake_target_name": "Boost::charconv"
+                },
                 "chrono": {
                     "cmake_target_name": "Boost::chrono"
                 },
@@ -1842,6 +1846,9 @@
                 "stacktrace_basic": {
                     "cmake_target_name": "Boost::stacktrace_basic"
                 },
+                "stacktrace_from_exception": {
+                    "cmake_target_name": "Boost::stacktrace_from_exception"
+                },
                 "stacktrace_noop": {
                     "cmake_target_name": "Boost::stacktrace_noop"
                 },
@@ -1882,6 +1889,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.85.0",
                 "1.84.0",
                 "1.83.0",
                 "1.82.0",
@@ -12494,10 +12502,7 @@
                 "4.3.2",
                 "4.3.0",
                 "4.2.1",
-                "4.2.0",
-                "4.1.6",
-                "4.1.4",
-                "4.0.15"
+                "4.2.0"
             ]
         },
         "libx264": {
