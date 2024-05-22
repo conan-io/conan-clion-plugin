@@ -1,5 +1,5 @@
 {
-    "date": 1716250627,
+    "date": 1716336998,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -793,9 +793,9 @@
             ],
             "v2": true,
             "versions": [
+                "5.4.1",
                 "5.3.1",
                 "5.2.5",
-                "5.2.2",
                 "5.1.6"
             ]
         },
@@ -1456,6 +1456,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.6.1",
                 "4.6.0",
                 "4.5.2",
                 "4.0.1",
@@ -7229,6 +7230,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.5",
                 "2.6.4",
                 "2.6.3",
                 "2.6.2",
@@ -11188,6 +11190,16 @@
                 "20200515"
             ]
         },
+        "libmd": {
+            "description": "Message Digest functions from BSD systems",
+            "license": [
+                "BSD-2-Clause AND BSD-3-Clause AND ISC AND Beerware AND DocumentRef-COPYING:LicenseRef-libmd-Public-Domain"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.0"
+            ]
+        },
         "libmediainfo": {
             "cmake_file_name": "MediaInfoLib",
             "cmake_target_name": "mediainfo",
@@ -14121,6 +14133,7 @@
             ],
             "v2": true,
             "versions": [
+                "13.2.0",
                 "12.2.0",
                 "12.1.0",
                 "11.2.0",
@@ -16449,11 +16462,39 @@
             ]
         },
         "openscenegraph": {
+            "cmake_file_name": "OpenSceneGraph",
+            "cmake_target_name": null,
+            "components": {
+                "OpenThreads": {
+                    "cmake_target_name": "OpenThreads::OpenThreads"
+                },
+                "openscenegraph": {
+                    "cmake_target_name": "OpenSceneGraph::OpenSceneGraph"
+                },
+                "osg": {},
+                "osgAnimation": {},
+                "osgDB": {},
+                "osgFX": {},
+                "osgGA": {},
+                "osgManipulator": {},
+                "osgParticle": {},
+                "osgPresentation": {},
+                "osgShadow": {},
+                "osgSim": {},
+                "osgTerrain": {},
+                "osgText": {},
+                "osgUI": {},
+                "osgUtil": {},
+                "osgViewer": {},
+                "osgVolume": {},
+                "osgWidget": {}
+            },
             "description": "OpenSceneGraph is an open source high performance 3D graphics toolkit",
             "license": [
-                ""
+                "LGPL-2.1-only",
+                "WxWindows-exception-3.1"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "3.6.5"
             ]
@@ -16888,6 +16929,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.2",
                 "1.2.0"
             ]
         },
@@ -19413,6 +19455,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.9.5",
                 "0.9.4",
                 "0.9.1",
                 "0.9.0"
@@ -19436,6 +19479,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.13.0",
                 "0.9.0",
                 "0.8.0",
                 "0.7.0",
@@ -19507,6 +19551,7 @@
             ],
             "v2": true,
             "versions": [
+                "9.0.1",
                 "8.1.0",
                 "8.0.4",
                 "8.0.3"
@@ -20617,6 +20662,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.4",
                 "1.8.0"
             ]
         },
@@ -21511,6 +21557,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.13.4",
                 "0.13.2",
                 "0.13.0"
             ]
@@ -23223,6 +23270,7 @@
             ],
             "v2": true,
             "versions": [
+                "21.0.0",
                 "20.0.1",
                 "19.0.2",
                 "18.0.3",
@@ -24397,6 +24445,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.14.0",
                 "2.13.0"
             ]
         },
