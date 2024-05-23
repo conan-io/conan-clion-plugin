@@ -1,5 +1,5 @@
 {
-    "date": 1716336998,
+    "date": 1716423396,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5434,6 +5434,10 @@
             ]
         },
         "elfutils": {
+            "components": {
+                "libdw": {},
+                "libelf": {}
+            },
             "description": "A dwarf, dwfl and dwelf functions to read DWARF, find separate debuginfo, symbols and inspect process state.",
             "license": [
                 "GPL-1.0-or-later",
@@ -6281,6 +6285,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.1",
                 "1.2.0",
                 "1.1.0"
             ]
@@ -19096,6 +19101,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.0",
                 "0.6.0",
                 "0.5.0",
                 "0.4.0"
