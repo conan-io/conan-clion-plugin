@@ -1,5 +1,5 @@
 {
-    "date": 1716423396,
+    "date": 1716509833,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7235,6 +7235,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.6",
                 "2.6.5",
                 "2.6.4",
                 "2.6.3",
@@ -15109,6 +15110,29 @@
                 "0.15.0"
             ]
         },
+        "nifti_clib": {
+            "cmake_file_name": "nifti",
+            "cmake_target_name": "NIFTI::NIFTI",
+            "components": {
+                "nifticdf": {
+                    "cmake_target_name": "NIFTI::nifticdf"
+                },
+                "niftiio": {
+                    "cmake_target_name": "NIFTI::niftiio"
+                },
+                "znz": {
+                    "cmake_target_name": "NIFTI::znz"
+                }
+            },
+            "description": "C libraries for NIFTI support",
+            "license": [
+                "LicenseRef-LICENSE"
+            ],
+            "v2": true,
+            "versions": [
+                "3.0.0"
+            ]
+        },
         "ninja": {
             "description": "Ninja is a small build system with a focus on speed",
             "license": [
@@ -19001,6 +19025,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10.0",
                 "0.6.0"
             ]
         },
@@ -20222,6 +20247,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.1",
                 "1.2.0",
                 "1.1.10",
                 "1.1.9",
