@@ -1,5 +1,5 @@
 {
-    "date": 1716509833,
+    "date": 1716596174,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9743,6 +9743,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.4",
                 "2.3.3",
                 "2.3.2"
             ]
@@ -15902,6 +15903,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.16.1",
                 "1.16.0",
                 "1.15.0",
                 "1.14.1",
@@ -17454,8 +17456,7 @@
         "pixman": {
             "description": "Pixman is a low-level software library for pixel manipulation",
             "license": [
-                "LGPL-2.1-only",
-                "MPL-1.1"
+                "MIT"
             ],
             "v2": true,
             "versions": [
@@ -20662,6 +20663,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.46.0",
                 "3.45.3",
                 "3.45.2",
                 "3.45.1",
