@@ -1,5 +1,5 @@
 {
-    "date": 1716941864,
+    "date": 1717028244,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3773,6 +3773,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.6.0",
                 "0.5.4",
                 "0.5.3",
                 "0.5.2",
@@ -12796,6 +12797,17 @@
                 "0.2.2"
             ]
         },
+        "libyang": {
+            "cmake_file_name": "LibYANG",
+            "description": "YANG data modeling language library",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "2.1.148"
+            ]
+        },
         "libyuv": {
             "description": "libyuv is an open source project that includes YUV scaling and conversion functionality.",
             "license": [
@@ -13107,13 +13119,13 @@
             ]
         },
         "logr": {
-            "cmake_file_name": "logr",
             "description": "Logger frontend substitution for spdlog, glog, etc for server/desktop applications",
             "license": [
                 "BSD-3-Clause"
             ],
             "v2": true,
             "versions": [
+                "0.7.0",
                 "0.6.0",
                 "0.5.1",
                 "0.4.0",
@@ -24055,6 +24067,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.1",
                 "2.1.0",
                 "2.0.1",
                 "1.0.1"
