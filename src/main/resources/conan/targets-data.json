@@ -1,5 +1,5 @@
 {
-    "date": 1718065030,
+    "date": 1718151446,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -18,12 +18,13 @@
         "7bitdi": {
             "cmake_file_name": "7bitDI",
             "cmake_target_name": "7bitDI::7bitDI",
-            "description": "7bitDI is a simple C++ dependency injection library.",
+            "description": "a simple C++ dependency injection library.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "3.3.0",
                 "3.2.0",
                 "3.1.0",
                 "3.0.0",
@@ -2206,6 +2207,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.30.0",
                 "1.28.1",
                 "1.27.0",
                 "1.26.0",
@@ -2666,18 +2668,18 @@
             "cmake_target_name": "cfitsio::cfitsio",
             "description": "C library for reading and writing data files in FITS (Flexible Image Transport System) data format",
             "license": [
-                "CFITSIO"
+                "CFITSIO",
+                "NASA-1.3"
             ],
             "v2": true,
             "versions": [
+                "4.4.0",
                 "4.3.1",
                 "4.3.0",
                 "4.2.0",
                 "4.1.0",
                 "4.0.0",
-                "3.490",
-                "3.480",
-                "3.470"
+                "3.490"
             ]
         },
         "cgal": {
@@ -3913,6 +3915,7 @@
             ]
         },
         "cpython": {
+            "cmake_file_name": "Python3",
             "description": "Python is a programming language that lets you work quickly and integrate systems more effectively.",
             "license": [
                 "Python-2.0"
@@ -7270,6 +7273,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.8.0",
                 "2.7.0",
                 "2.6.9",
                 "2.6.6",
@@ -7277,13 +7281,6 @@
                 "2.6.4",
                 "2.6.3",
                 "2.6.2",
-                "2.6.1",
-                "2.6.0",
-                "2.5.5",
-                "2.4.0",
-                "2.3.2",
-                "2.2.1",
-                "2.1.9",
                 "2.1.6"
             ]
         },
@@ -9738,6 +9735,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.4.4",
                 "3.4.3"
             ]
         },
@@ -11710,6 +11708,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.9.1",
                 "7.9.0",
                 "7.8.1",
                 "7.8.0",
@@ -12260,17 +12259,12 @@
             ],
             "v2": true,
             "versions": [
+                "255.7",
                 "255.2",
                 "255",
                 "253.14",
                 "253.10",
-                "253.6",
-                "252.12",
-                "251.18",
-                "249.16",
-                "248.12",
-                "247.13",
-                "246.16"
+                "253.6"
             ]
         },
         "libtar": {
@@ -14040,6 +14034,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.28",
                 "0.27",
                 "0.26",
                 "0.25",
@@ -15652,21 +15647,6 @@
                 "1.2.5",
                 "1.2.0",
                 "1.0.0"
-            ]
-        },
-        "objectbox": {
-            "description": "ObjectBox C and C++: super-fast database for objects and structs",
-            "license": [
-                "Apache-2.0"
-            ],
-            "v2": true,
-            "versions": [
-                "0.21.0",
-                "0.20.0",
-                "0.19.0",
-                "0.18.1",
-                "0.18.0",
-                "0.17.0"
             ]
         },
         "objectbox-generator": {
@@ -18020,13 +18000,10 @@
             ],
             "v2": true,
             "versions": [
+                "9.4.1",
                 "9.3.1",
                 "9.3.0",
                 "9.2.1",
-                "9.1.1",
-                "9.1.0",
-                "9.0.1",
-                "9.0.0",
                 "8.2.1",
                 "7.2.1",
                 "6.3.1"
@@ -19845,6 +19822,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "2.0.1"
             ]
         },
@@ -21013,6 +20991,18 @@
                 "1.0"
             ]
         },
+        "stella-cv-fbow": {
+            "cmake_file_name": "fbow",
+            "cmake_target_name": "fbow::fbow",
+            "description": "FBoW (Fast Bag of Words) is an extremely optimized version of the DBoW2/DBoW3 libraries.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20240508"
+            ]
+        },
         "stlab": {
             "description": "The Software Technology Lab libraries.",
             "license": [
@@ -21746,6 +21736,16 @@
                 "1.17.2"
             ]
         },
+        "tidwall-neco": {
+            "description": "Concurrency library for C (coroutines)",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.3.2"
+            ]
+        },
         "tidy-html5": {
             "description": "The granddaddy of HTML tools, with support for modern standards",
             "license": [
@@ -22290,6 +22290,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.19",
                 "1.5.16",
                 "1.5.15",
                 "1.5.14",
@@ -22931,6 +22932,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.4.0",
                 "3.3.0",
                 "3.2.0",
                 "3.1.0",
