@@ -1,5 +1,5 @@
 {
-    "date": 1718583507,
+    "date": 1718669854,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2288,6 +2288,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.2.1",
                 "0.2.0",
                 "0.1.11",
                 "0.1.10",
@@ -3960,9 +3961,8 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "cci.20210507",
                 "cci.20220219"
             ]
         },
@@ -8303,6 +8303,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.0",
                 "1.1.0",
                 "1.0.7",
                 "1.0.6",
@@ -9517,12 +9518,13 @@
             ]
         },
         "kcov": {
-            "description": "Code coverage tool for compiled programs, Python and Bashwhich uses debugging information to collect and report data withoutspecial compilation options",
+            "description": "Code coverage tool for compiled programs, Python and Bash which uses debugging information to collect and report data without special compilation options",
             "license": [
                 "GPL-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "42",
                 "40",
                 "38"
             ]
@@ -11976,6 +11978,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.21.4",
                 "0.20.5",
                 "0.20.4"
             ]
@@ -12959,6 +12962,17 @@
             "v2": true,
             "versions": [
                 "cci.20211005"
+            ]
+        },
+        "limereport": {
+            "description": "Report generator for Qt Framework",
+            "license": [
+                "LGPL-3.0",
+                "GPL-3.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.7.4"
             ]
         },
         "linmath.h": {
@@ -14768,6 +14782,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.12",
                 "1.11",
                 "1.10",
                 "1.9.1",
@@ -16916,6 +16931,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.9",
                 "2.2.8",
                 "2.2.7",
                 "2.2.4",
@@ -18799,6 +18815,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.0",
                 "0.5.0",
                 "0.4.1",
                 "0.4.0",
@@ -18841,6 +18858,7 @@
             ],
             "v2": true,
             "versions": [
+                "20240301",
                 "20231101",
                 "20230901",
                 "20230801",
@@ -19072,6 +19090,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.11.1",
                 "0.11.0",
                 "0.10.0",
                 "0.6.0"
@@ -19657,6 +19676,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.1",
                 "2.0.3",
                 "2.0.2",
                 "2.0.1",
@@ -21051,6 +21071,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.0",
                 "1.7.0",
                 "1.6.0",
                 "1.5.1",
@@ -23116,6 +23137,18 @@
                 "1.0.0"
             ]
         },
+        "vigra": {
+            "cmake_file_name": "Vigra",
+            "cmake_target_name": "vigraimpex",
+            "description": "A generic C++ library for image analysis",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.11.2"
+            ]
+        },
         "vincentlaucsb-csv-parser": {
             "description": "Vince's CSV Parser with simple and intuitive syntax",
             "license": [
@@ -23123,6 +23156,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.0",
                 "2.2.3",
                 "2.2.2",
                 "2.2.0",
