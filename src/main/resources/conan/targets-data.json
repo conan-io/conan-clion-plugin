@@ -1,5 +1,5 @@
 {
-    "date": 1718756245,
+    "date": 1718842623,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1722,6 +1722,18 @@
                 "0.77"
             ]
         },
+        "bmx": {
+            "cmake_file_name": "bmx",
+            "description": "Library for handling broadcast/production oriented media file formats. Allows reading, modifying and writing media metadata and file essences.",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.2",
+                "cci.20240517"
+            ]
+        },
         "boolean-lite": {
             "cmake_file_name": "boolean-lite",
             "cmake_target_name": "nonstd::boolean-lite",
@@ -2015,6 +2027,16 @@
             "v2": true,
             "versions": [
                 "cci.20210521"
+            ]
+        },
+        "bredis": {
+            "description": "Boost::ASIO low-level redis client (connector)",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.12"
             ]
         },
         "brigand": {
@@ -3090,6 +3112,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.29.6",
                 "3.29.5",
                 "3.29.4",
                 "3.29.3",
@@ -5127,6 +5150,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.5",
                 "1.9.4",
                 "1.9.3",
                 "1.9.2",
@@ -15448,6 +15472,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.28.0",
                 "1.27.0",
                 "1.26.0",
                 "1.25.0",
@@ -20242,6 +20267,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.2.1",
                 "0.1.3",
                 "0.1.2",
                 "0.1.1"
