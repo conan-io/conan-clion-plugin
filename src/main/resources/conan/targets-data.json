@@ -1,5 +1,5 @@
 {
-    "date": 1718929018,
+    "date": 1719015420,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3098,6 +3098,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4.5",
                 "2.4.4",
                 "2.4.1",
                 "2.4.0",
@@ -4349,10 +4350,11 @@
         "cxxgraph": {
             "description": "Header-Only C++ Library for Graph Representation and Algorithms",
             "license": [
-                "AGPL-3.0-later"
+                "MPL-2.0"
             ],
             "v2": true,
             "versions": [
+                "4.1.0",
                 "3.1.0"
             ]
         },
@@ -12960,6 +12962,18 @@
                 "0.12.3",
                 "0.12.2",
                 "0.10.1"
+            ]
+        },
+        "lielab": {
+            "cmake_file_name": "Lielab",
+            "cmake_target_name": "Lielab::Lielab",
+            "description": "Lielab is a C++ library for numerical Lie-theory: Lie groups, Lie algebras, homogeneous manifolds, and various functions and algorithms on these spaces.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.4.0"
             ]
         },
         "lightgbm": {
