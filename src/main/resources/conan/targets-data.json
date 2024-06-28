@@ -1,5 +1,5 @@
 {
-    "date": 1719447448,
+    "date": 1719533841,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7835,6 +7835,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.8.134",
                 "2.8.132",
                 "2.8.129"
             ]
@@ -7961,6 +7962,18 @@
             "v2": true,
             "versions": [
                 "cci.20181216"
+            ]
+        },
+        "gtlab-logging": {
+            "cmake_file_name": "GTlabLogging",
+            "cmake_target_name": "GTlab::Logging",
+            "description": "Simple logging interface with qt support",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "4.4.1"
             ]
         },
         "gtsam": {
@@ -8533,12 +8546,13 @@
             ]
         },
         "iconfontcppheaders": {
-            "description": "Headers for icon fonts Font Awesome, Fork Awesome, Google Material Design, Pictogrammers Material Design icons, Kenney game icons, Fontaudio, Codicons and Lucide.",
+            "description": "Headers for icon fonts Font Awesome, Fork Awesome, Google Material Design Icons, Google Material Design Symbols, Pictogrammers Material Design icons, Kenney game icons, Fontaudio, Codicons and Lucide.",
             "license": [
                 "Zlib"
             ],
             "v2": true,
             "versions": [
+                "cci.20240620",
                 "cci.20240128",
                 "cci.20231102",
                 "cci.20231026"
@@ -14511,6 +14525,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.32.1",
                 "2.32.0",
                 "2.31.0",
                 "2.4.0",
@@ -18618,6 +18633,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.5.0",
                 "4.4.1",
                 "4.4.0",
                 "4.3.0",
