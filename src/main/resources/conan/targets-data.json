@@ -1,5 +1,5 @@
 {
-    "date": 1719533841,
+    "date": 1719620218,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -14575,6 +14575,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.27.3",
                 "1.27.2",
                 "1.27.1",
                 "1.26.2",
@@ -17903,6 +17904,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.1.0"
             ]
         },
@@ -18598,10 +18600,10 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.5",
-                "cci.20170314"
+                "cci.20170314",
+                "1.5"
             ]
         },
         "quickfix": {
@@ -23770,7 +23772,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.206"
             ]
