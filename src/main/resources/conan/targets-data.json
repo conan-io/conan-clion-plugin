@@ -1,5 +1,5 @@
 {
-    "date": 1719620218,
+    "date": 1719706753,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5995,6 +5995,18 @@
                 "2.0.9",
                 "2.0.8",
                 "2.0.7"
+            ]
+        },
+        "faker-cxx": {
+            "cmake_file_name": "faker-cxx",
+            "cmake_target_name": "faker-cxx::faker-cxx",
+            "description": "C++ Faker library based on faker-js/faker. ",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "2.0.0"
             ]
         },
         "farmhash": {
