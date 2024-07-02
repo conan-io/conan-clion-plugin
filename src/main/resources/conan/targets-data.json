@@ -1,5 +1,5 @@
 {
-    "date": 1719793237,
+    "date": 1719879456,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -693,6 +693,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1",
                 "1.0.1",
                 "1.0"
             ]
@@ -9893,12 +9894,8 @@
             "v2": true,
             "versions": [
                 "1.83.1",
-                "1.83.0",
                 "1.82.0",
-                "1.81.0",
-                "1.80.0",
-                "1.79.0",
-                "1.78.0"
+                "1.81.0"
             ]
         },
         "lerc": {
@@ -17374,6 +17371,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.6.6",
                 "4.6.4",
                 "4.6.3",
                 "4.6.2",
@@ -24418,6 +24416,17 @@
             "v2": true,
             "versions": [
                 "1.3.0"
+            ]
+        },
+        "ydcpp-tcpcat": {
+            "cmake_target_name": "ydcpp-tcpcat",
+            "description": "Simple C++ TCP Server and Client library.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.4"
             ]
         },
         "yder": {
