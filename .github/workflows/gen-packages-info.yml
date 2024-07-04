@@ -17,9 +17,9 @@ jobs:
     steps:
 
       - name: Check out repository code
-        uses: rodrigorodriguescosta/checkout@1d64c0a4a695ff5edb95596c11b430050668c83f  # FIXME: Not using actions/checkout just because of 'https://github.com/actions/checkout/pull/388'
+        uses: actions/checkout@v4
         with:
-          path: /home/conan/clion-plugin
+          path: clion-plugin
 
       - name: Configure Conan
         run: |
