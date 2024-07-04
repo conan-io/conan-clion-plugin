@@ -3,15 +3,10 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
-defaults:
-  run:
-    working-directory: /home/conan
 
 jobs:
   gen_packages_info:
     runs-on: ubuntu-latest
-    env:
-      CONAN_HOME: /home/conan/tmp
     steps:
       - name: Set up Python
         uses: actions/setup-python@v4
