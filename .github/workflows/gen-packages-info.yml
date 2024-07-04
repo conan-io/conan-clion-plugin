@@ -10,11 +10,19 @@ defaults:
 jobs:
   gen_packages_info:
     runs-on: ubuntu-latest
-    container:
-      image: conanio/gcc11-ubuntu18.04
     env:
       CONAN_HOME: /home/conan/tmp
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc g++ make cmake pkg-config
+          python -m pip install --upgrade pip
 
       - name: Check out repository code
         uses: actions/checkout@v4
