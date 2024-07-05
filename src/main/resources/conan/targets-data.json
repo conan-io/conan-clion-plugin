@@ -1,5 +1,5 @@
 {
-    "date": 1720068725,
+    "date": 1720138643,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2338,6 +2338,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.0",
                 "0.19.4",
                 "0.19.3",
                 "0.19.2",
@@ -3113,6 +3114,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.30.0",
                 "3.29.6",
                 "3.29.5",
                 "3.29.4",
@@ -6209,9 +6211,6 @@
             ]
         },
         "ffmpeg": {
-            "components": {
-                "avutil": {}
-            },
             "description": "A complete, cross-platform solution to record, convert and stream audio and video",
             "license": [
                 "LGPL-2.1-or-later",
@@ -6219,18 +6218,12 @@
             ],
             "v2": true,
             "versions": [
+                "6.1.1",
                 "6.1",
                 "6.0.1",
-                "6.0",
                 "5.1.3",
-                "5.1",
                 "5.0.3",
-                "5.0",
-                "4.4.4",
-                "4.4.3",
-                "4.4",
-                "4.3.2",
-                "4.2.1"
+                "4.4.4"
             ]
         },
         "fft": {
@@ -6512,6 +6505,7 @@
             ],
             "v2": true,
             "versions": [
+                "11.0.0",
                 "10.2.1",
                 "10.2.0",
                 "10.1.1",
@@ -8777,6 +8771,8 @@
             ],
             "v2": true,
             "versions": [
+                "1.90.9",
+                "1.90.9-docking",
                 "1.90.8",
                 "1.90.8-docking",
                 "1.90.7",
@@ -8785,34 +8781,12 @@
                 "1.90.6-docking",
                 "1.90.5",
                 "1.90.5-docking",
-                "1.90.4",
-                "1.90.4-docking",
-                "1.90.3",
-                "1.90.3-docking",
-                "1.90.2",
-                "1.90.2-docking",
-                "1.90.1",
-                "1.90.1-docking",
-                "1.90",
-                "1.90-docking",
                 "1.89.9",
                 "1.89.9-docking",
-                "1.89.8",
-                "1.89.8-docking",
-                "1.89.7",
-                "1.89.7-docking",
-                "1.89.5",
-                "1.89.4",
-                "1.89.3",
-                "1.89.2",
-                "1.89.1",
                 "1.88",
                 "1.87",
                 "1.86",
-                "1.85",
-                "cci.20230105+1.89.2.docking",
-                "cci.20220621+1.88.docking",
-                "cci.20220207+1.87.docking"
+                "1.85"
             ]
         },
         "imguizmo": {
@@ -13366,6 +13340,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4.0",
                 "2.3.9",
                 "2.3.8",
                 "2.3.5",
@@ -14605,6 +14580,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.10.1",
                 "3.8.1",
                 "3.8.0",
                 "3.7.2",
@@ -14687,12 +14663,13 @@
             ]
         },
         "mp-units": {
-            "description": "A Quantities and Units library for C++",
+            "description": "The quantities and units library for C++",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "2.2.1",
                 "2.1.1",
                 "2.1.0",
                 "2.0.0",
@@ -17118,6 +17095,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.0",
                 "1.3.2",
                 "1.2.0"
             ]
@@ -18487,6 +18465,14 @@
             ]
         },
         "qr-code-generator": {
+            "components": {
+                "qrcodegenc": {
+                    "cmake_target_name": "qr-code-generator::qrcodegenc"
+                },
+                "qrcodegencpp": {
+                    "cmake_target_name": "qr-code-generator::qrcodegencpp"
+                }
+            },
             "description": "High-quality QR Code generator library",
             "license": [
                 "MIT"
@@ -19319,21 +19305,14 @@
             ],
             "v2": true,
             "versions": [
+                "4.1.0",
                 "4.0.0",
                 "3.0.0",
                 "2.1.2",
-                "2.1.1",
-                "2.1.0",
                 "2.0.4",
-                "2.0.2",
                 "1.3.0",
                 "1.1.5",
-                "1.1.2",
-                "1.1.0",
-                "1.0.0",
-                "0.9.9",
-                "0.8.1",
-                "0.7.3"
+                "1.0.0"
             ]
         },
         "robin-hood-hashing": {
@@ -19719,13 +19698,13 @@
             ]
         },
         "scc": {
-            "description": "A light weight productivity library for SystemC and TLM 2.0",
+            "description": "A light-weight productivity library for SystemC and TLM 2.0",
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "2022.08"
+                "2023.06"
             ]
         },
         "scdoc": {
