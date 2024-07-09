@@ -1,5 +1,5 @@
 {
-    "date": 1720397931,
+    "date": 1720484280,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -155,22 +155,11 @@
             ],
             "v2": true,
             "versions": [
+                "2.9.0",
                 "2.8.0",
                 "2.7.8",
-                "2.7.7",
-                "2.7.5",
-                "2.7.4",
-                "2.7.3",
-                "2.7.2",
-                "2.7.0",
                 "2.6.10",
-                "2.6.7",
-                "2.6.4",
-                "2.6.2",
-                "2.6.0",
-                "2.5.1",
-                "2.5.0",
-                "2.4.2"
+                "2.5.1"
             ]
         },
         "ade": {
@@ -3325,6 +3314,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.0",
                 "0.2.9",
                 "0.2.8",
                 "0.2.7",
@@ -6505,6 +6495,7 @@
             ],
             "v2": true,
             "versions": [
+                "11.0.1",
                 "11.0.0",
                 "10.2.1",
                 "10.2.0",
@@ -11156,13 +11147,18 @@
             ]
         },
         "libjxl": {
+            "components": {
+                "jxl": {},
+                "jxl_threads": {}
+            },
             "description": "JPEG XL image format reference implementation",
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "0.5.0",
+                "0.10.2",
+                "0.8.2",
                 "0.6.1"
             ]
         },
@@ -13128,13 +13124,13 @@
         },
         "llvm-openmp": {
             "cmake_file_name": "OpenMP",
-            "cmake_target_name": "OpenMP::OpenMP",
             "description": "The OpenMP (Open Multi-Processing) specification is a standard for a set of compiler directives, library routines, and environment variables that can be used to specify shared memory parallelism in Fortran and C/C++ programs. This is the LLVM implementation.",
             "license": [
                 "Apache-2.0 WITH LLVM-exception"
             ],
             "v2": true,
             "versions": [
+                "18.1.8",
                 "17.0.6",
                 "17.0.4",
                 "16.0.6",
@@ -13142,10 +13138,7 @@
                 "14.0.6",
                 "13.0.1",
                 "12.0.1",
-                "11.1.0",
-                "10.0.0",
-                "9.0.1",
-                "8.0.1"
+                "11.1.0"
             ]
         },
         "lmdb": {
@@ -19858,6 +19851,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.30.5",
                 "2.30.4",
                 "2.30.3",
                 "2.30.2",
@@ -21209,6 +21203,7 @@
             ],
             "v2": true,
             "versions": [
+                "v15",
                 "v14",
                 "v13",
                 "v12",
@@ -21787,6 +21782,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.14.1",
                 "0.14.0",
                 "0.13.8",
                 "0.13.7",
@@ -22306,6 +22302,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.0.3",
                 "4.0.1",
                 "3.8.1",
                 "3.8.0",
@@ -23057,6 +23054,7 @@
             ],
             "v2": true,
             "versions": [
+                "20.64.0",
                 "20.63.0",
                 "20.62.0",
                 "20.60.0",
