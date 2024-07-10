@@ -1,5 +1,5 @@
 {
-    "date": 1720484280,
+    "date": 1720570685,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1692,6 +1692,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.11.3",
                 "0.11.1",
                 "0.10.6",
                 "0.10.5",
@@ -2223,19 +2224,14 @@
             ],
             "v2": true,
             "versions": [
+                "1.32.1",
                 "1.31.0",
                 "1.30.0",
                 "1.28.1",
                 "1.27.0",
                 "1.26.0",
                 "1.25.0",
-                "1.22.1",
-                "1.22.0",
-                "1.21.0",
-                "1.20.1",
-                "1.19.1",
-                "1.19.0",
-                "1.18.1"
+                "1.19.1"
             ]
         },
         "c-blosc": {
@@ -11157,6 +11153,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10.3",
                 "0.10.2",
                 "0.8.2",
                 "0.6.1"
@@ -13124,13 +13121,13 @@
         },
         "llvm-openmp": {
             "cmake_file_name": "OpenMP",
+            "cmake_target_name": "OpenMP::OpenMP",
             "description": "The OpenMP (Open Multi-Processing) specification is a standard for a set of compiler directives, library routines, and environment variables that can be used to specify shared memory parallelism in Fortran and C/C++ programs. This is the LLVM implementation.",
             "license": [
                 "Apache-2.0 WITH LLVM-exception"
             ],
             "v2": true,
             "versions": [
-                "18.1.8",
                 "17.0.6",
                 "17.0.4",
                 "16.0.6",
@@ -13138,7 +13135,10 @@
                 "14.0.6",
                 "13.0.1",
                 "12.0.1",
-                "11.1.0"
+                "11.1.0",
+                "10.0.0",
+                "9.0.1",
+                "8.0.1"
             ]
         },
         "lmdb": {
