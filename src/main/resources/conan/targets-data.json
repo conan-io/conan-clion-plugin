@@ -1,5 +1,5 @@
 {
-    "date": 1720570685,
+    "date": 1720657110,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -10296,6 +10296,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.12",
                 "0.11.1",
                 "0.10",
                 "0.9",
@@ -14028,6 +14029,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.21",
                 "0.20",
                 "0.17",
                 "0.16",
@@ -14071,6 +14073,21 @@
                 "0.57.2",
                 "0.56.2",
                 "0.55.3"
+            ]
+        },
+        "metal-cpp": {
+            "cmake_file_name": "metal-cpp",
+            "cmake_target_name": "metal-cpp::metal-cpp",
+            "description": "Library for the usage of Apple Metal GPU programming in C++ applications - Header-only library to wrap Metal in C++ classes",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "14.2",
+                "14",
+                "13.3",
+                "13"
             ]
         },
         "metall": {
@@ -19673,6 +19690,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.0",
                 "1.3.0",
                 "1.2.0",
                 "1.1.0",
@@ -24472,6 +24490,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10.0",
                 "0.9.0",
                 "0.8.0",
                 "0.7.0",
