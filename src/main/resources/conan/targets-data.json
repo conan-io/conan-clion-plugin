@@ -1,5 +1,5 @@
 {
-    "date": 1720743481,
+    "date": 1720829891,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7417,15 +7417,10 @@
             ],
             "v2": true,
             "versions": [
+                "2.81.0",
                 "2.78.3",
-                "2.78.1",
-                "2.78.0",
                 "2.77.3",
-                "2.77.2",
-                "2.77.1",
-                "2.77.0",
-                "2.76.3",
-                "2.75.3"
+                "2.76.3"
             ]
         },
         "glibmm": {
@@ -12130,6 +12125,18 @@
                 "1.0.31",
                 "1.0.30",
                 "1.0.29"
+            ]
+        },
+        "libsndio": {
+            "cmake_file_name": "sndio",
+            "cmake_target_name": "sndio::sndio",
+            "description": "A small audio and MIDI framework that provides a lightweight audio & MIDI server and a user-space API to access either the server or the hardware directly in a uniform way.",
+            "license": [
+                "ISC"
+            ],
+            "v2": true,
+            "versions": [
+                "1.9.0"
             ]
         },
         "libsodium": {
@@ -21330,12 +21337,15 @@
             ]
         },
         "swig": {
+            "cmake_file_name": "SWIG",
+            "cmake_target_name": "SWIG::SWIG",
             "description": "SWIG is a software development tool that connects programs written in C and C++ with a variety of high-level programming languages.",
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
+                "4.1.1",
                 "4.1.0",
                 "4.0.2",
                 "4.0.1"
