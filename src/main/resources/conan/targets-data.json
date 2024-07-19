@@ -1,5 +1,5 @@
 {
-    "date": 1721261858,
+    "date": 1721352462,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -13143,6 +13143,18 @@
                 "6.0.6"
             ]
         },
+        "llnl-units": {
+            "cmake_file_name": "units",
+            "cmake_target_name": "units::units",
+            "description": "A run-time C++ library for working with units of measurement and conversions between them and with string representations of units and measurements",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "0.9.1"
+            ]
+        },
         "llvm-core": {
             "cmake_file_name": "LLVM",
             "description": "A toolkit for the construction of highly optimized compilers,optimizers, and runtime environments.",
@@ -24098,6 +24110,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20240229",
                 "cci.20231026",
                 "cci.20230715",
                 "cci.20220801",
