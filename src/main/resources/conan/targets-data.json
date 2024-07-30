@@ -1,5 +1,5 @@
 {
-    "date": 1722212365,
+    "date": 1722298687,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1429,9 +1429,12 @@
             ],
             "v2": true,
             "versions": [
+                "7.2.1",
                 "7.0.0",
+                "6.5.0",
                 "6.2.0",
                 "5.4.1",
+                "4.2.4",
                 "4.0.0"
             ]
         },
@@ -2255,6 +2258,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.32.3",
                 "1.32.2",
                 "1.32.1",
                 "1.31.0",
@@ -7584,6 +7588,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20240611",
                 "cci.20210429"
             ]
         },
@@ -9942,14 +9947,23 @@
             ]
         },
         "libaec": {
+            "cmake_file_name": "libaec",
+            "components": {
+                "aec": {
+                    "cmake_target_name": "libaec::aec"
+                },
+                "sz": {
+                    "cmake_target_name": "libaec::sz"
+                }
+            },
             "description": "Adaptive Entropy Coding library",
             "license": [
                 "BSD-2-Clause"
             ],
             "v2": true,
             "versions": [
-                "1.0.6",
-                "1.0.4"
+                "1.1.2",
+                "1.0.6"
             ]
         },
         "libaesgm": {
@@ -10082,6 +10096,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.4",
                 "1.0.3",
                 "1.0.2",
@@ -10820,6 +10835,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "0.5.1",
                 "0.5.0",
                 "0.4.1"
@@ -11697,6 +11713,16 @@
                 "4.12.0"
             ]
         },
+        "libphonenumber": {
+            "description": "Google's common C++ library for parsing, formatting, and validating international phone numbers",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "8.13.42"
+            ]
+        },
         "libpng": {
             "cmake_file_name": "PNG",
             "cmake_target_name": "PNG::PNG",
@@ -12301,6 +12327,7 @@
             ],
             "v2": true,
             "versions": [
+                "333",
                 "332",
                 "330",
                 "325",
@@ -14339,6 +14366,16 @@
                 "8.0.2"
             ]
         },
+        "minhook": {
+            "description": "The Minimalistic x86/x64 API Hooking Library for Windows",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.3.3.cci.20240629"
+            ]
+        },
         "mini": {
             "description": "INI file reader and writer",
             "license": [
@@ -14844,6 +14881,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.3",
                 "1.0.2",
                 "1.0.0",
                 "0.27",
@@ -15087,12 +15125,13 @@
         "nanoflann": {
             "cmake_file_name": "nanoflann",
             "cmake_target_name": "nanoflann::nanoflann",
-            "description": "nanoflann is a C++11 header-only library for building KD-Treesof datasets with different topologies: R2, R3 (point clouds),SO(2) and SO(3) (2D and 3D rotation groups).",
+            "description": "nanoflann is a C++11 header-only library for building KD-Trees of datasets with different topologies: R2, R3 (point clouds), SO(2) and SO(3) (2D and 3D rotation groups).",
             "license": [
                 "BSD-2-Clause"
             ],
             "v2": true,
             "versions": [
+                "1.6.0",
                 "1.5.2",
                 "1.5.0",
                 "1.4.3",
@@ -15859,6 +15898,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.12.0",
                 "1.11.0",
                 "1.9.0",
@@ -16018,7 +16058,8 @@
             ],
             "v2": true,
             "versions": [
-                "1.139.1000"
+                "1.139.1000",
+                "1.155.1133"
             ]
         },
         "ois": {
@@ -16535,6 +16576,7 @@
             ],
             "v2": true,
             "versions": [
+                "20240721",
                 "cci.20220929"
             ]
         },
@@ -17890,9 +17932,7 @@
             ],
             "v2": true,
             "versions": [
-                "cci.20230205",
-                "cci.20221030",
-                "cci.20220103"
+                "0.0.1"
             ]
         },
         "pngpp": {
@@ -18691,6 +18731,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.0.0",
                 "4.5.0",
                 "4.4.1",
                 "4.4.0",
@@ -21111,12 +21152,10 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20240531",
                 "cci.20240213",
                 "cci.20230920",
-                "cci.20220909",
-                "cci.20210910",
-                "cci.20210713",
-                "cci.20200203"
+                "cci.20220909"
             ]
         },
         "stc": {
@@ -22371,6 +22410,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.1.0",
                 "4.0.3",
                 "4.0.1",
                 "3.8.1",
