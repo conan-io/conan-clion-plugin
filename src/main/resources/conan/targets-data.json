@@ -1,5 +1,5 @@
 {
-    "date": 1722989906,
+    "date": 1723076307,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1051,12 +1051,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.6.9",
-                "0.6.1",
-                "0.5.20",
-                "0.5.19",
-                "0.5.17",
-                "0.5.13",
+                "0.6.14",
                 "0.5.12"
             ]
         },
@@ -1082,10 +1077,8 @@
             ],
             "v2": true,
             "versions": [
-                "0.2.17",
-                "0.2.15",
-                "0.2.14",
-                "0.2.13"
+                "0.2.18",
+                "0.2.14"
             ]
         },
         "aws-c-event-stream": {
@@ -9024,12 +9017,15 @@
             ]
         },
         "intx": {
+            "cmake_file_name": "intx",
+            "cmake_target_name": "intx::intx",
             "description": "Extended precision integer C++ library",
             "license": [
                 "Apache-2.0"
             ],
             "v2": true,
             "versions": [
+                "0.11.0",
                 "0.10.1"
             ]
         },
@@ -12376,12 +12372,10 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.2",
                 "2.1.0",
                 "1.7.0",
-                "1.6.0",
-                "1.4.1",
-                "1.3.0",
-                "1.2.1"
+                "1.6.0"
             ]
         },
         "libsystemd": {
@@ -16836,6 +16830,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.3.1",
                 "3.2.2",
                 "3.2.1",
                 "3.1.6",
