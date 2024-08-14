@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [2.0.6] - 2024-08-14
+
 ### Changed
 
 - Fixed deprecated usage of `ActionUpdateThread.OLD_EDT` by overriding `getActionUpdateThread()`
@@ -58,7 +60,8 @@
 
 - New Conan CLion plugin compatible with Conan 2.X
 
-[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.5...HEAD
+[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.6...HEAD
+[2.0.6]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.5...v2.0.6
 [2.0.5]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.4...v2.0.5
 [2.0.4]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.2...v2.0.3
