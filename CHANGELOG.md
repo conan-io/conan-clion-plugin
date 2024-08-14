@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Fixed deprecated usage of `ActionUpdateThread.OLD_EDT` by overriding `getActionUpdateThread()`
+
 ## [2.0.5] - 2024-08-14
 
 ### Changed

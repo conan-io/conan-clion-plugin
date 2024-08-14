@@ -24,6 +24,10 @@ class MainActionToolbar(val project: Project) {
                 ConanExecutableDialogWrapper(project).showAndGet()
                 CMake(project).handleAdvancedSettings()
             }
+
+            override fun getActionUpdateThread(): ActionUpdateThread {
+                return ActionUpdateThread.EDT
+            }
         }
     }
 
@@ -39,6 +43,10 @@ class MainActionToolbar(val project: Project) {
             override fun update(e: AnActionEvent) {
                 e.presentation.isEnabled = conanService.isPluginConfigured()
                 super.update(e)
+            }
+
+            override fun getActionUpdateThread(): ActionUpdateThread {
+                return ActionUpdateThread.EDT
             }
         }
     }
@@ -56,6 +64,10 @@ class MainActionToolbar(val project: Project) {
             override fun update(e: AnActionEvent) {
                 e.presentation.isEnabled = conanService.isPluginConfigured()
                 super.update(e)
+            }
+
+            override fun getActionUpdateThread(): ActionUpdateThread {
+                return ActionUpdateThread.EDT
             }
         }
     }
