@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update gradle.properties to be compatible with CLion 242.*
+
 ## [2.0.4] - 2024-02-13
 
 ### Changed
