@@ -1,5 +1,5 @@
 {
-    "date": 1724113096,
+    "date": 1724199520,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1271,7 +1271,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "7.5.0"
             ]
@@ -9995,6 +9995,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.12",
                 "1.2.10",
                 "1.2.7.2",
                 "1.2.7",
@@ -11357,6 +11358,18 @@
             "v2": true,
             "versions": [
                 "1.0.18"
+            ]
+        },
+        "libmeshb": {
+            "cmake_file_name": "libMeshb",
+            "cmake_target_name": "libMeshb::Meshb.7",
+            "description": "A library to handle the *.meshb file format.",
+            "license": [
+                "MPL-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "7.80"
             ]
         },
         "libmetalink": {
