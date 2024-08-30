@@ -1,5 +1,5 @@
 {
-    "date": 1724890738,
+    "date": 1724977142,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -157,6 +157,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.9.1",
                 "2.9.0",
                 "2.8.0",
                 "2.7.8",
@@ -1475,6 +1476,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.6.2",
                 "4.6.1",
                 "4.6.0",
                 "4.5.2",
@@ -1932,6 +1934,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.86.0",
                 "1.85.0",
                 "1.84.0",
                 "1.83.0",
@@ -3856,6 +3859,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.0",
                 "0.6.3",
                 "0.6.2",
                 "0.6.1",
@@ -4793,6 +4797,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.0",
                 "1.8.0",
                 "1.6.0",
                 "1.5.0",
@@ -9086,6 +9091,18 @@
             "versions": [
                 "1.1.0",
                 "1.0.1"
+            ]
+        },
+        "iphreeqc": {
+            "cmake_file_name": "IPhreeqc",
+            "cmake_target_name": "IPhreeqc::IPhreeqc",
+            "description": "Library implementing the geochemical model PHREEQC. It is capable of simulating a wide range of equilibrium reactions between water and minerals, ion exchangers, surface complexes, solid solutions, and gases.",
+            "license": [
+                "FSFUL"
+            ],
+            "v2": true,
+            "versions": [
+                "3.8.1"
             ]
         },
         "iqa": {
@@ -21122,6 +21139,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9",
                 "1.8.2",
                 "1.8.1",
                 "1.8",
