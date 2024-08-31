@@ -1,5 +1,5 @@
 {
-    "date": 1724977142,
+    "date": 1725063535,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2203,7 +2203,7 @@
             "cmake_target_name": "BZip2::BZip2",
             "description": "bzip2 is a free and open-source file compression program that uses the Burrows Wheeler algorithm.",
             "license": [
-                "bzip2-1.0.8"
+                "bzip2-1.0.6"
             ],
             "v2": true,
             "versions": [
@@ -4577,6 +4577,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.110.0",
                 "2.107.0",
                 "2.106.2",
                 "2.106.1",
@@ -6036,6 +6037,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.0",
                 "2.0.0"
             ]
         },
@@ -13450,8 +13452,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.1.0-beta3",
-                "2.0.5"
+                "2.1.0-beta3"
             ]
         },
         "luau": {
@@ -14643,6 +14644,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.4.0",
                 "4.3.0"
             ]
         },
@@ -17550,6 +17552,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.6.7",
                 "4.6.6",
                 "4.6.4",
                 "4.6.3",
@@ -23356,6 +23359,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.3",
                 "1.0.2",
                 "1.0.1",
                 "1.0",
