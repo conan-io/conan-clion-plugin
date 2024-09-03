@@ -1,5 +1,5 @@
 {
-    "date": 1725236397,
+    "date": 1725322740,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3704,10 +3704,9 @@
             ],
             "v2": true,
             "versions": [
+                "2.15.0",
                 "2.14.2",
-                "2.14.1",
                 "2.13.4",
-                "2.13.3",
                 "2.12.1",
                 "2.11.1",
                 "2.10.3",
@@ -7727,9 +7726,9 @@
                 "1.30.1",
                 "1.31.1",
                 "1.40.1",
-                "2.12.0",
                 "2.15.1",
-                "2.19.0"
+                "2.19.0",
+                "2.28.0"
             ]
         },
         "googleapis": {
@@ -10802,13 +10801,14 @@
             ]
         },
         "libfabric": {
-            "description": "Open Fabric Interfaces",
+            "description": "Libfabric, also known as Open Fabrics Interfaces (OFI), defines a communication API for high-performance parallel and distributed applications.",
             "license": [
-                ""
+                "BSD-2-Clause",
+                "GPL-2.0-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.12.1"
+                "1.21.0"
             ]
         },
         "libfdk_aac": {
@@ -18075,8 +18075,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.9.7",
-                "0.9.6"
+                "0.9.7"
             ]
         },
         "poly2tri": {
@@ -20550,6 +20549,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.3.2",
                 "0.3.1",
                 "0.3.0",
                 "0.2.1",
@@ -22698,6 +22698,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.23.0",
                 "0.22.6",
                 "0.22.5",
                 "0.22.1",
@@ -24202,6 +24203,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.07.1",
                 "7.07",
                 "7.06",
                 "7.05",
