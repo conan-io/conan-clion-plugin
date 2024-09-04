@@ -1,5 +1,5 @@
 {
-    "date": 1725322740,
+    "date": 1725409164,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4356,6 +4356,18 @@
                 "cci.20201022"
             ]
         },
+        "cutlass": {
+            "cmake_file_name": "NvidiaCutlass",
+            "cmake_target_name": "nvidia::cutlass::cutlass",
+            "description": "CUTLASS: CUDA Templates for Linear Algebra Subroutines",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "3.5.0"
+            ]
+        },
         "cvplot": {
             "cmake_file_name": "CvPlot",
             "cmake_target_name": "CvPlot::CvPlot",
@@ -5851,6 +5863,7 @@
             ],
             "v2": true,
             "versions": [
+                "20.39.4",
                 "20.39.3",
                 "20.38.17",
                 "20.38.16",
@@ -20400,6 +20413,7 @@
             ],
             "v2": true,
             "versions": [
+                "2024.1",
                 "2023.6",
                 "2021.1"
             ]
