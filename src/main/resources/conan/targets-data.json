@@ -1,5 +1,5 @@
 {
-    "date": 1725409164,
+    "date": 1725495564,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3537,6 +3537,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.17.1",
                 "0.16.3",
                 "0.16.0",
                 "0.15.3",
@@ -6337,6 +6338,18 @@
                 "cci.20240225"
             ]
         },
+        "fixed_math": {
+            "cmake_file_name": "fixed_math",
+            "cmake_target_name": "fixed_math::fixed_math",
+            "description": "A High-Performance C++17 Library for Fixed-Point 48.16 Arithmetic",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.2"
+            ]
+        },
         "flac": {
             "cmake_file_name": "flac",
             "components": {
@@ -7685,16 +7698,11 @@
         "gobject-introspection": {
             "description": "GObject introspection is a middleware layer between C libraries (using GObject) and language bindings",
             "license": [
-                "LGPL-2.1"
+                "LGPL-2.1-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.72.0",
-                "1.70.0",
-                "1.69.0",
-                "1.68.0",
-                "1.67.1",
-                "1.66.1"
+                "1.72.0"
             ]
         },
         "godot-cpp": {
@@ -11937,6 +11945,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.6.7",
                 "0.6.6",
                 "0.6.5"
             ]
@@ -15370,9 +15379,9 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "5.9.1"
+                "5.9.4"
             ]
         },
         "netcdf": {
@@ -20105,6 +20114,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.30.7",
                 "2.30.6",
                 "2.30.5",
                 "2.30.4",
@@ -21598,6 +21608,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.2.1",
                 "4.1.1",
                 "4.1.0",
                 "4.0.2",
@@ -24086,6 +24097,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.8",
                 "3.6",
                 "3.4",
                 "3.2",
