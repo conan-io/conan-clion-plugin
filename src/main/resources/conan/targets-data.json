@@ -1,5 +1,5 @@
 {
-    "date": 1725581959,
+    "date": 1725668326,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2244,6 +2244,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.33.1",
                 "1.33.0",
                 "1.32.3",
                 "1.32.2",
@@ -3606,6 +3607,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.0",
                 "1.8.8",
                 "1.8.7",
                 "1.8.6",
@@ -7244,13 +7246,16 @@
             ]
         },
         "getdns": {
+            "components": {
+                "libgetdns": {}
+            },
             "description": "A modern asynchronous DNS API",
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "1.6.0"
+                "1.7.3"
             ]
         },
         "getopt-for-visual-studio": {
@@ -7706,6 +7711,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.78.1",
                 "1.72.0"
             ]
         },
@@ -8585,6 +8591,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.11.1",
                 "2.10.0",
                 "2.9.3"
             ]
@@ -9069,6 +9076,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.12.0",
                 "0.11.0",
                 "0.10.1"
             ]
@@ -14771,6 +14779,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.27.6",
                 "1.27.5",
                 "1.27.4",
                 "1.27.3",
@@ -19572,6 +19581,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.1.2",
                 "4.1.1",
                 "4.1.0",
                 "4.0.0",
