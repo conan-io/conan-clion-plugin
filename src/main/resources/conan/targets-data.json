@@ -1,5 +1,5 @@
 {
-    "date": 1726100381,
+    "date": 1726186758,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -463,9 +463,8 @@
             ],
             "v2": true,
             "versions": [
-                "3.1.4",
-                "3.1.2",
-                "3.1.1"
+                "3.4.2",
+                "3.1.4"
             ]
         },
         "aravis": {
@@ -475,6 +474,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.33",
                 "0.8.30",
                 "0.8.29",
                 "0.8.25"
@@ -914,7 +914,8 @@
                 "2.48.3",
                 "2.49.1",
                 "2.50.0",
-                "2.51.0"
+                "2.51.0",
+                "2.53.1"
             ]
         },
         "atk": {
@@ -3227,7 +3228,8 @@
             ],
             "v2": true,
             "versions": [
-                "3.8.0"
+                "3.8.0",
+                "3.8.2"
             ]
         },
         "cnpy": {
@@ -5263,6 +5265,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.0",
                 "0.10.2",
                 "0.10.1",
@@ -8857,6 +8860,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.1.12",
                 "3.1.11",
                 "3.1.10",
                 "3.1.9",
@@ -11337,6 +11341,17 @@
             "versions": [
                 "0.5.0",
                 "0.4.1"
+            ]
+        },
+        "liblqr": {
+            "description": "The LiquidRescale (lqr) library provides a C/C++ API for performing non-uniform resizing of images by the seam-carving technique.",
+            "license": [
+                "LGPL-3.0-or-later",
+                "GPL-3.0-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "0.4.3"
             ]
         },
         "liblsl": {
@@ -14657,6 +14672,18 @@
                 "3.0.9",
                 "3.0.8",
                 "3.0.7"
+            ]
+        },
+        "minmea": {
+            "description": "a lightweight GPS NMEA 0183 parser library in pure C",
+            "license": [
+                "WTFPL",
+                "MIT",
+                "LGPL-3.0-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "0.3.0.cci.20230620"
             ]
         },
         "mio": {
@@ -24144,6 +24171,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.10",
                 "3.8",
                 "3.6",
                 "3.4",
