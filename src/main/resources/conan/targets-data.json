@@ -1,5 +1,5 @@
 {
-    "date": 1726618805,
+    "date": 1726705207,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -343,6 +343,16 @@
                 "2.36.0",
                 "2.35.1",
                 "2.35.0"
+            ]
+        },
+        "ann": {
+            "description": "ANN is a library written in C++, which supports data structures and algorithms for both exact and approximate nearest neighbor searching in arbitrarily high dimensions.",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.2"
             ]
         },
         "annoy": {
@@ -4254,6 +4264,18 @@
                 "1.3.7"
             ]
         },
+        "ctrack": {
+            "cmake_file_name": "ctrack",
+            "cmake_target_name": "ctrack::ctrack",
+            "description": "A lightweight, high-performance C++ benchmarking and tracking library for effortless function profiling in both development and production environments.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.2"
+            ]
+        },
         "ctre": {
             "description": "Compile Time Regular Expression for C++17/20",
             "license": [
@@ -5207,6 +5229,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.7",
                 "1.9.6",
                 "1.9.5",
                 "1.9.4",
@@ -9018,6 +9041,18 @@
                 "51"
             ]
         },
+        "inipp": {
+            "cmake_file_name": "inipp",
+            "cmake_target_name": "inipp::inipp",
+            "description": "Simple C++ ini parser.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.12"
+            ]
+        },
         "inja": {
             "cmake_file_name": "inja",
             "cmake_target_name": "pantor::inja",
@@ -10537,6 +10572,16 @@
             "v2": true,
             "versions": [
                 "0.14"
+            ]
+        },
+        "libdatrie": {
+            "description": "Implementation of double-array structure for representing tries",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "0.2.13"
             ]
         },
         "libdb": {
@@ -13816,6 +13861,18 @@
                 "4.1.46"
             ]
         },
+        "manif": {
+            "cmake_file_name": "manif",
+            "cmake_target_name": "MANIF::manif",
+            "description": "A small C++11 header-only library for Lie theory",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.5"
+            ]
+        },
         "mapbox-geometry": {
             "description": "Provides header-only, generic C++ interfaces for geometry types, geometry collections, and features.",
             "license": [
@@ -14149,6 +14206,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.0",
                 "2.8.2",
                 "2.8.1",
                 "2.8.0",
@@ -18163,6 +18221,16 @@
                 "0.2.10"
             ]
         },
+        "pocketfft": {
+            "description": "PocketFFT: a heavily modified implementation of FFTPack",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.0.cci.20240801"
+            ]
+        },
         "poco": {
             "cmake_file_name": "Poco",
             "cmake_target_name": "Poco::Poco",
@@ -21384,6 +21452,16 @@
             "versions": [
                 "1.2.2",
                 "1.2.1"
+            ]
+        },
+        "statistic": {
+            "description": "Statistic library for Arduino includes sum, average, variance and std deviation",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.8"
             ]
         },
         "statslib": {
