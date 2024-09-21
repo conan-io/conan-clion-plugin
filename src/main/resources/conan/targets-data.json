@@ -1,5 +1,5 @@
 {
-    "date": 1726791617,
+    "date": 1726877954,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -6376,6 +6376,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.0.2"
             ]
         },
@@ -12077,6 +12078,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.21.3",
                 "0.21.2",
                 "0.21.1",
                 "0.20.2",
@@ -14890,6 +14892,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.28.0",
                 "1.27.6",
                 "1.27.5",
                 "1.27.4",
@@ -16881,7 +16884,8 @@
                 "2.5.12.0",
                 "2.5.13.0",
                 "2.5.13.1",
-                "2.5.14.0"
+                "2.5.14.0",
+                "2.5.15.0"
             ]
         },
         "openjdk": {
@@ -21232,11 +21236,13 @@
             ]
         },
         "splunk-opentelemetry-cpp": {
+            "cmake_file_name": "SplunkOpenTelemetry",
+            "cmake_target_name": "SplunkOpenTelemetry::SplunkOpenTelemetry",
             "description": "Splunk's distribution of OpenTelemetry C++",
             "license": [
                 "Apache-2.0"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "0.4.0"
             ]
@@ -23746,6 +23752,8 @@
             ],
             "v2": true,
             "versions": [
+                "0.3.1",
+                "0.3.0",
                 "0.2.0"
             ]
         },
