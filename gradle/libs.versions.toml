@@ -9,9 +9,11 @@ intelliJPlatform = "2.0.1"
 kotlin = "1.9.25"
 kover = "0.8.3"
 qodana = "2024.1.9"
+serialization = "1.8.21"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinxSerializationJson = { group = "org.jetbrains.kotlinx", name="kotlinx-serialization-json", version.ref = "kotlinxSerializationJson"}
 
 [plugins]
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
