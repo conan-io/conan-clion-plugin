@@ -173,6 +173,9 @@ jobs:
         uses: JetBrains/qodana-action@v2024.1.5
         with:
           cache-default-branch-only: true
+          pr-mode: false
+          incremental-analysis: false
+
 
   # Run plugin structure verification along with IntelliJ Plugin Verifier
   verify:
