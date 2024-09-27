@@ -8,7 +8,7 @@ dokka = "1.8.10"
 kotlin = "1.9.20"
 changelog = "2.2.0"
 gradleIntelliJPlugin = "1.16.0"
-qodana = "0.1.13"
+qodana = "2024.1.5"
 kover = "0.7.4"
 serialization = "1.8.21"
 
