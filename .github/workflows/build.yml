@@ -174,7 +174,7 @@ jobs:
         with:
           cache-default-branch-only: true
           pr-mode: false
-          incremental-analysis: false
+          args: --no-analysis-cache
 
 
   # Run plugin structure verification along with IntelliJ Plugin Verifier
