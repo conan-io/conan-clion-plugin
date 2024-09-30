@@ -105,6 +105,7 @@ intellijPlatform {
     }
 
     pluginVerification {
+        freeArgs = providers.gradleProperty("pluginVerifierArgs").map { it.split(' ') }
         ides {
             recommended()
         }
