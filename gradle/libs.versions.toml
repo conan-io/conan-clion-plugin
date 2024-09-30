@@ -2,7 +2,7 @@
 # libraries
 annotations = "24.0.1"
 junit = "4.13.2"
-kotlinxSerializationJson = "1.6.2"
+kotlinxSerializationJson = "1.7.3"
 
 # plugins
 changelog = "2.2.1"
