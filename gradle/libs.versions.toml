@@ -1,25 +1,25 @@
 [versions]
 # libraries
 annotations = "24.0.1"
-kotlinxSerializationJson = "1.5.0"
+junit = "4.13.2"
+kotlinxSerializationJson = "1.6.2"
 
 # plugins
-dokka = "1.8.10"
-kotlin = "1.9.20"
-changelog = "2.2.0"
-gradleIntelliJPlugin = "1.16.0"
-qodana = "0.1.13"
-kover = "0.7.4"
+changelog = "2.2.1"
+intelliJPlatform = "2.1.0"
+kotlin = "1.9.25"
+kover = "0.8.3"
+qodana = "2024.1.9"
 serialization = "1.8.21"
 
 [libraries]
+junit = { group = "junit", name = "junit", version.ref = "junit" }
 annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
 kotlinxSerializationJson = { group = "org.jetbrains.kotlinx", name="kotlinx-serialization-json", version.ref = "kotlinxSerializationJson"}
 
 [plugins]
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
-gradleIntelliJPlugin = { id = "org.jetbrains.intellij", version.ref = "gradleIntelliJPlugin" }
+intelliJPlatform = { id = "org.jetbrains.intellij.platform", version.ref = "intelliJPlatform" }
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 qodana = { id = "org.jetbrains.qodana", version.ref = "qodana" }

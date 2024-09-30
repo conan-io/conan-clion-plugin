@@ -127,10 +127,6 @@ class CMake(val project: Project) {
         return CMakeSettings.getInstance(project).activeProfiles
     }
 
-    fun getSelectedBuildConfiguration(): CMakeConfiguration? {
-        return CMakeAppRunConfiguration.getSelectedBuildAndRunConfigurations(project)?.buildConfiguration
-    }
-
     fun handleAdvancedSettings() {
         val isCMakeParallel = !AdvancedSettings.getBoolean("cmake.reload.profiles.sequentially")
 
