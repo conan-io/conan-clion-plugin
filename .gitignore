@@ -7,3 +7,4 @@ build
 .ci/tmp/*
 .DS_Store
 .intellijPlatform/
+.DS_Store
