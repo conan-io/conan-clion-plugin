@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [2.0.7] - 2024-10-01
+
 ### Changed
 
 - Update gradle.properties to be compatible with CLion 243.*
@@ -64,7 +66,8 @@
 
 - New Conan CLion plugin compatible with Conan 2.X
 
-[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.6...HEAD
+[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.7...HEAD
+[2.0.7]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.6...v2.0.7
 [2.0.6]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.5...v2.0.6
 [2.0.5]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.4...v2.0.5
 [2.0.4]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.3...v2.0.4
