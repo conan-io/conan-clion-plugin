@@ -1,5 +1,5 @@
 {
-    "date": 1727742206,
+    "date": 1727828423,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7446,6 +7446,8 @@
             ],
             "v2": true,
             "versions": [
+                "3.6.1",
+                "3.4.3",
                 "3.4.1",
                 "3.3.4",
                 "3.3.2",
@@ -7453,13 +7455,7 @@
                 "3.1.9",
                 "3.1.7",
                 "2.9.5",
-                "2.9.2",
-                "2.9.0",
-                "2.8.4",
-                "2.7.0",
-                "2.6.9",
-                "2.6.2",
-                "2.1.6"
+                "2.8.4"
             ]
         },
         "glbinding": {
@@ -7738,6 +7734,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.8.7",
                 "3.8.2",
                 "3.7.8"
             ]
@@ -8813,6 +8810,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.6",
                 "1.0.5",
                 "1.0.4",
                 "1.0.3"
@@ -9265,18 +9263,13 @@
             ],
             "v2": true,
             "versions": [
+                "1.11.4",
                 "1.11.3",
                 "1.11.2",
                 "1.11.1",
                 "1.10.3",
                 "1.10.0",
-                "1.9.2",
-                "1.9.1",
-                "1.9.0",
-                "1.8.3",
-                "1.8.2",
-                "1.8.1",
-                "1.8.0"
+                "1.9.2"
             ]
         },
         "ittapi": {
@@ -9575,6 +9568,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.6",
                 "1.9.5",
                 "1.9.4",
                 "1.9.3",
@@ -13263,6 +13257,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.4.1",
                 "0.4.0"
             ]
         },
@@ -14005,6 +14000,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.1.1",
                 "1.1.0",
                 "1.0.1",
@@ -15041,6 +15037,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.0",
                 "2.2.1",
                 "2.1.1",
                 "2.1.0",
@@ -17031,12 +17028,13 @@
             ]
         },
         "openpam": {
-            "description": "OpenPAM library",
+            "description": "OpenPAM: an open source PAM library that focuses on simplicity, correctness, and cleanliness",
             "license": [
                 "BSD-3-Clause"
             ],
             "v2": true,
             "versions": [
+                "20230627",
                 "20190224"
             ]
         },
@@ -19108,22 +19106,14 @@
             ],
             "v2": true,
             "versions": [
+                "7.3.0",
                 "7.2.2",
                 "7.2.1",
                 "7.1.0",
                 "6.1.0",
                 "6.0.0",
                 "4.5.0",
-                "4.4.1",
-                "4.4.0",
-                "4.3.0",
-                "3.9.0",
-                "3.8.0",
-                "3.7.0",
-                "3.6.0",
-                "3.5.1",
-                "3.4.1",
-                "3.3.1"
+                "4.4.1"
             ]
         },
         "quirc": {
@@ -19149,13 +19139,8 @@
             ]
         },
         "qxlsx": {
-            "cmake_file_name": "QXlsx",
-            "cmake_target_name": "QXlsx::Core",
-            "components": {
-                "qxlsx_core": {
-                    "cmake_target_name": "QXlsx::Core"
-                }
-            },
+            "cmake_file_name": "QXlsxQt5",
+            "cmake_target_name": "QXlsx::QXlsx",
             "description": "Excel file(*.xlsx) reader/writer library using Qt 5 or 6.",
             "license": [
                 "MIT"
@@ -19163,8 +19148,7 @@
             "v2": true,
             "versions": [
                 "1.4.5",
-                "1.4.4",
-                "1.4.3"
+                "1.4.4"
             ]
         },
         "qxmpp": {
@@ -19328,6 +19312,16 @@
                 "2.1.1",
                 "2.0.0",
                 "1.10.4"
+            ]
+        },
+        "rapidhash": {
+            "description": "Very fast, high quality, platform-independent hashing algorithm",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0"
             ]
         },
         "rapidjson": {
@@ -22520,6 +22514,18 @@
                 "4.3.2"
             ]
         },
+        "tinyad": {
+            "cmake_file_name": "TinyAD",
+            "cmake_target_name": "TinyAD",
+            "description": "TinyAD is a C++ header-only library for second-order automatic differentiation",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20240718"
+            ]
+        },
         "tinyalsa": {
             "description": "A small library to interface with ALSA in the Linux kernel",
             "license": [
@@ -23608,19 +23614,12 @@
             ],
             "v2": true,
             "versions": [
+                "20.67.0",
                 "20.66.0",
                 "20.65.0",
                 "20.64.0",
                 "20.63.0",
-                "20.62.0",
-                "20.60.0",
-                "20.58.0",
-                "20.57.0",
-                "20.56.0",
-                "20.55.0",
-                "20.53.0",
-                "19.3.0",
-                "18.3.0"
+                "20.62.0"
             ]
         },
         "v-hacd": {
