@@ -1,5 +1,5 @@
 {
-    "date": 1728087610,
+    "date": 1728174134,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1890,6 +1890,9 @@
                 },
                 "prg_exec_monitor": {
                     "cmake_target_name": "Boost::prg_exec_monitor"
+                },
+                "process": {
+                    "cmake_target_name": "Boost::process"
                 },
                 "program_options": {
                     "cmake_target_name": "Boost::program_options"
@@ -18920,6 +18923,16 @@
                 "7.3.2"
             ]
         },
+        "qoi": {
+            "description": "The \u201cQuite OK Image Format\u201d for fast, lossless image compression",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.0.cci.20240906"
+            ]
+        },
         "qpdf": {
             "cmake_file_name": "qpdf",
             "cmake_target_name": "qpdf::libqpdf",
@@ -20745,6 +20758,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.1.142",
                 "6.1.138"
             ]
         },
