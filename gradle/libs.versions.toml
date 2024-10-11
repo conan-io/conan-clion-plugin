@@ -7,7 +7,7 @@ kotlinxSerializationJson = "1.6.2"
 # plugins
 changelog = "2.2.1"
 intelliJPlatform = "2.1.0"
-kotlin = "1.9.25"
+kotlin = "2.0.21"
 kover = "0.8.3"
 qodana = "2024.1.9"
 serialization = "1.8.21"
