@@ -1,6 +1,6 @@
 [versions]
 # libraries
-annotations = "24.0.1"
+annotations = "26.0.1"
 junit = "4.13.2"
 kotlinxSerializationJson = "1.6.2"
 
