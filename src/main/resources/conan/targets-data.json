@@ -1,5 +1,5 @@
 {
-    "date": 1728951639,
+    "date": 1729038026,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -820,6 +820,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.4.3",
                 "5.4.2",
                 "5.4.1",
                 "5.3.1",
@@ -947,6 +948,18 @@
             "v2": true,
             "versions": [
                 "1.6.3"
+            ]
+        },
+        "au": {
+            "cmake_file_name": "Au",
+            "cmake_target_name": "Au::au",
+            "description": "A C++14-compatible physical units library",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.3.5"
             ]
         },
         "audiofile": {
@@ -2271,18 +2284,14 @@
             ],
             "v2": true,
             "versions": [
+                "1.34.1",
                 "1.33.1",
                 "1.33.0",
                 "1.32.3",
                 "1.32.2",
                 "1.32.1",
                 "1.31.0",
-                "1.30.0",
-                "1.28.1",
-                "1.27.0",
-                "1.26.0",
-                "1.25.0",
-                "1.19.1"
+                "1.25.0"
             ]
         },
         "c-blosc": {
@@ -2435,6 +2444,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.5.5",
                 "3.5.1",
                 "3.5.0",
                 "3.4.7",
