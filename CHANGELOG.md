@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update gradleVersion to 8.10.2
+- Update qodana to 2024.2.3
+
 ## [2.0.7] - 2024-10-01
 
 ### Changed
