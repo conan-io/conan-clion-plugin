@@ -1,5 +1,5 @@
 {
-    "date": 1729470088,
+    "date": 1729556444,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -724,6 +724,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.1.15",
                 "3.1.12"
             ]
         },
@@ -3583,6 +3584,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.18.1",
                 "0.18.0",
                 "0.17.3",
                 "0.17.1",
@@ -3590,11 +3592,7 @@
                 "0.16.0",
                 "0.15.3",
                 "0.14.3",
-                "0.14.1",
-                "0.13.3",
-                "0.12.6",
-                "0.11.4",
-                "0.10.9"
+                "0.14.1"
             ]
         },
         "cpp-ipc": {
@@ -4623,6 +4621,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.3",
                 "3.0.2",
                 "3.0.1",
                 "3.0.0",
@@ -8504,6 +8503,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.0",
                 "1.7.2",
                 "1.7.0",
                 "1.6.0",
@@ -8942,6 +8942,8 @@
             ],
             "v2": true,
             "versions": [
+                "1.91.4",
+                "1.91.4-docking",
                 "1.91.3",
                 "1.91.3-docking",
                 "1.91.2",
@@ -10228,6 +10230,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.2",
                 "2.1.1",
                 "2.1.0",
                 "2.0.2",
@@ -11122,6 +11125,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.2",
                 "1.8.1",
                 "1.7.2",
                 "1.5.0",
@@ -12088,6 +12092,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.6.8",
                 "0.6.7",
                 "0.6.6",
                 "0.6.5"
@@ -12852,6 +12857,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.49.2",
                 "1.49.1",
                 "1.49.0",
                 "1.48.0",
@@ -12859,11 +12865,8 @@
                 "1.46.0",
                 "1.45.0",
                 "1.44.2",
-                "1.44.1",
                 "1.43.0",
-                "1.42.0",
-                "1.41.1",
-                "1.41.0"
+                "1.42.0"
             ]
         },
         "libuvc": {
@@ -14419,6 +14422,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.6.0",
                 "1.5.1",
                 "1.5.0",
                 "1.4.1",
@@ -19426,6 +19430,16 @@
                 "3.5.0"
             ]
         },
+        "rc_ptr": {
+            "description": "Reference counted smart pointer for single-threaded environments",
+            "license": [
+                "BSL-1.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.2"
+            ]
+        },
         "rdma-core": {
             "description": "RDMA core userspace libraries and daemons. Provides userspace components for the Linux Kernel's drivers/infiniband subsystem.",
             "license": [
@@ -19894,6 +19908,7 @@
             ],
             "v2": true,
             "versions": [
+                "9.7.3",
                 "9.7.2",
                 "9.5.2",
                 "9.4.0",
@@ -19913,6 +19928,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.31",
                 "0.30",
                 "0.29",
                 "0.28",
@@ -22825,6 +22841,16 @@
                 "1.1.0"
             ]
         },
+        "tl-ranges": {
+            "description": "Ranges that didn't make C++20",
+            "license": [
+                "CC0-1.0"
+            ],
+            "v2": true,
+            "versions": [
+                "cci.20221207"
+            ]
+        },
         "tllist": {
             "description": "A C header file only implementation of a typed linked list.",
             "license": [
@@ -23039,6 +23065,8 @@
             ],
             "v2": true,
             "versions": [
+                "0.23.1",
+                "0.20.7",
                 "0.20.3",
                 "0.20.2",
                 "0.20.1"
@@ -23638,6 +23666,7 @@
             ],
             "v2": true,
             "versions": [
+                "20.68.0",
                 "20.67.0",
                 "20.66.0",
                 "20.65.0",
