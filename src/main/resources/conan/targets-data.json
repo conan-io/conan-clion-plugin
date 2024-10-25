@@ -1,5 +1,5 @@
 {
-    "date": 1729729240,
+    "date": 1729815647,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -884,6 +884,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2",
                 "1.1"
             ]
         },
@@ -9755,6 +9756,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.3.2",
                 "4.3.1",
                 "4.3.0",
                 "4.2.4"
@@ -15263,7 +15265,6 @@
             ]
         },
         "msgpack-cxx": {
-            "cmake_file_name": "msgpack",
             "description": "The official C++ library for MessagePack",
             "license": [
                 "BSL-1.0"
@@ -21445,6 +21446,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.0",
                 "1.8.6",
                 "1.8.4",
                 "1.8.0"
