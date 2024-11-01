@@ -1,5 +1,5 @@
 {
-    "date": 1730334064,
+    "date": 1730420588,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2034,7 +2034,8 @@
                 "3.3.0",
                 "3.4.0",
                 "3.5.0",
-                "3.6.0"
+                "3.6.0",
+                "3.6.1"
             ]
         },
         "box2d": {
@@ -4120,6 +4121,16 @@
             "v2": true,
             "versions": [
                 "2023.03.30"
+            ]
+        },
+        "crossdb": {
+            "description": "Ultra High-performance Lightweight Embedded and Server OLTP RDBMS",
+            "license": [
+                "MPL-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.9.0"
             ]
         },
         "crossguid": {
@@ -7125,6 +7136,18 @@
                 "1.4.1"
             ]
         },
+        "games101-cgl": {
+            "cmake_file_name": "games101-cgl",
+            "cmake_target_name": "games101-cgl::games101-cgl",
+            "description": "The package is for Games101's homework8 subproject",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.0"
+            ]
+        },
         "gamma": {
             "description": "Gamma is a cross-platform, C++ library for doing generic synthesis and filtering of signals.",
             "license": [
@@ -7260,7 +7283,8 @@
                 "1141",
                 "1157",
                 "1160",
-                "1170"
+                "1170",
+                "1181"
             ]
         },
         "geographiclib": {
@@ -9604,6 +9628,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.178.0",
                 "0.177.0",
                 "0.176.0",
                 "0.175.0",
@@ -22439,6 +22464,16 @@
                 "5.8.0"
             ]
         },
+        "tiledb": {
+            "description": "TileDB is a powerful engine for storing and accessing dense and sparse multi-dimensional arrays, which can help you model any complex data efficiently.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "2.26.1"
+            ]
+        },
         "timsort": {
             "cmake_file_name": "gfx-timsort",
             "cmake_target_name": "gfx::timsort",
@@ -25365,6 +25400,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.15.0",
                 "2.14.1",
                 "2.14.0",
                 "2.13.0"
