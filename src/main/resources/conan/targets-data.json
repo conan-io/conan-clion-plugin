@@ -1,5 +1,5 @@
 {
-    "date": 1730766038,
+    "date": 1730852423,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -11768,11 +11768,11 @@
             ],
             "v2": true,
             "versions": [
+                "2.40.2",
                 "2.39.2",
                 "2.39",
                 "2.36.2",
-                "2.36",
-                "2.33.1"
+                "2.36"
             ]
         },
         "libmp3lame": {
@@ -23117,6 +23117,16 @@
                 "0.20.3",
                 "0.20.2",
                 "0.20.1"
+            ]
+        },
+        "tree-sitter-sql": {
+            "description": "SQL grammar for tree-sitter",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.3.5"
             ]
         },
         "troldal-zippy": {
