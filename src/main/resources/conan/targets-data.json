@@ -1,5 +1,5 @@
 {
-    "date": 1731025211,
+    "date": 1731111600,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -20264,6 +20264,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.2",
                 "1.4.1",
                 "1.4.0",
                 "1.3.0",
@@ -20312,6 +20313,7 @@
             ],
             "v2": true,
             "versions": [
+                "9.2.0",
                 "9.0.1",
                 "8.1.0",
                 "8.0.4",
@@ -21188,6 +21190,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.1.2",
                 "7.1.1",
                 "7.1.0",
                 "7.0.1",
@@ -21954,6 +21957,7 @@
             ]
         },
         "symengine": {
+            "cmake_target_name": "symengine",
             "description": "A fast symbolic manipulation library, written in C++",
             "license": [
                 "MIT"
@@ -21965,7 +21969,8 @@
                 "0.10.1",
                 "0.11.1",
                 "0.11.2",
-                "0.12.0"
+                "0.12.0",
+                "0.13.0"
             ]
         },
         "systemc": {
