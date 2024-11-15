@@ -1,5 +1,5 @@
 {
-    "date": 1731543630,
+    "date": 1731630119,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1769,8 +1769,8 @@
             ],
             "v2": true,
             "versions": [
-                "1.2",
-                "cci.20240517"
+                "1.3",
+                "1.2"
             ]
         },
         "boolean-lite": {
@@ -10263,6 +10263,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.13",
                 "1.2.12",
                 "1.2.10",
                 "1.2.7.2",
@@ -11126,6 +11127,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.0",
                 "1.1.0",
                 "0.5.1",
                 "0.5.0",
@@ -16890,6 +16892,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.3.2",
                 "3.3.1",
                 "3.3.0",
                 "3.2.4",
@@ -17265,6 +17268,8 @@
             ],
             "v2": true,
             "versions": [
+                "1.17.0",
+                "1.16.1",
                 "1.14.2",
                 "1.12.0",
                 "1.9.1",
@@ -19018,6 +19023,16 @@
             "v2": true,
             "versions": [
                 "0.0.0.cci.20240906"
+            ]
+        },
+        "qoixx": {
+            "description": "Single Header Quite Fast QOI(Quite OK Image Format) Implementation written in C++20",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.7"
             ]
         },
         "qpdf": {
@@ -22360,6 +22375,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.5.0",
                 "5.4.1",
                 "5.4.0",
                 "5.3.4",
