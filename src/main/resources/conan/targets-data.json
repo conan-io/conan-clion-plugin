@@ -1,5 +1,5 @@
 {
-    "date": 1731630119,
+    "date": 1731716474,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -8567,6 +8567,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.1",
                 "1.8.0",
                 "1.7.2",
                 "1.7.0",
@@ -12177,6 +12178,18 @@
                 "0.21.1"
             ]
         },
+        "libq": {
+            "cmake_file_name": "libq",
+            "cmake_target_name": "libq::libq",
+            "description": "A platform-independent promise library for C++, implementing asynchronous continuations.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.0.cci.20180504"
+            ]
+        },
         "libqasm": {
             "description": "Library to parse cQASM files",
             "license": [
@@ -12184,6 +12197,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.6.9",
                 "0.6.8",
                 "0.6.7",
                 "0.6.6",
@@ -14452,6 +14466,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.22",
                 "0.21",
                 "0.20",
                 "0.17",
