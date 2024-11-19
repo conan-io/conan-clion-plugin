@@ -1,5 +1,5 @@
 {
-    "date": 1731889361,
+    "date": 1731975699,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3897,6 +3897,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.3",
                 "0.7.2",
                 "0.7.1",
                 "0.7.0",
@@ -6993,6 +6994,18 @@
                 "3.6.0",
                 "3.5.0",
                 "3.4.0"
+            ]
+        },
+        "fswatch": {
+            "cmake_file_name": "fswatch",
+            "cmake_target_name": "fswatch::fswatch",
+            "description": "A cross-platform file change monitor with multiple backends",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "1.17.1.cci.20220902"
             ]
         },
         "ftjam": {
@@ -19811,6 +19824,25 @@
             "versions": [
                 "0.0.4",
                 "0.0.3"
+            ]
+        },
+        "reproc": {
+            "cmake_file_name": "reproc++",
+            "components": {
+                "reproc_c": {
+                    "cmake_target_name": "reproc"
+                },
+                "reproc_cxx": {
+                    "cmake_target_name": "reproc++"
+                }
+            },
+            "description": "A cross-platform C99 process library",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "14.2.5"
             ]
         },
         "resiprocate": {
