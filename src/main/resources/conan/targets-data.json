@@ -1,5 +1,5 @@
 {
-    "date": 1731975699,
+    "date": 1732062078,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -10221,6 +10221,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4.0",
                 "2.3.0",
                 "2.2.0",
                 "2.1.0"
@@ -13961,6 +13962,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.9.7",
                 "0.9.6",
                 "0.9.5",
                 "0.9.4",
@@ -17337,6 +17339,16 @@
                 "1.6.0"
             ]
         },
+        "opentrackio-cpp": {
+            "description": "A Cpp helper library for usage with the OpenTrackIO protocol.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.0"
+            ]
+        },
         "openvdb": {
             "cmake_file_name": "OpenVDB",
             "cmake_target_name": "OpenVDB::openvdb",
@@ -19251,6 +19263,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.5.0",
                 "7.4.0",
                 "7.3.0",
                 "7.2.2",
@@ -20954,6 +20967,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.6.2",
                 "5.6.0",
                 "5.5.0",
                 "5.4.15",
