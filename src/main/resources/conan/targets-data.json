@@ -1,5 +1,5 @@
 {
-    "date": 1732062078,
+    "date": 1732148495,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3644,6 +3644,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.1",
                 "1.9.0",
                 "1.8.8",
                 "1.8.7",
@@ -7545,6 +7546,8 @@
             ],
             "v2": true,
             "versions": [
+                "4.0.1",
+                "3.6.2",
                 "3.6.1",
                 "3.4.3",
                 "3.4.1",
@@ -9901,6 +9904,17 @@
                 "1.2.0"
             ]
         },
+        "keystone": {
+            "description": "Keystone assembler framework: Core (Arm, Arm64, Hexagon, Mips, PowerPC, Sparc, SystemZ & X86) + bindings.",
+            "license": [
+                "GPL-2.0-only",
+                "DocumentRef-EXCEPTIONS-CLIENT:LicenseRef-FOSS-License-Exception"
+            ],
+            "v2": true,
+            "versions": [
+                "0.9.2"
+            ]
+        },
         "khrplatform": {
             "description": "Khronos EGL platform interfaces",
             "license": [
@@ -10828,7 +10842,7 @@
             ]
         },
         "libdisplay-info": {
-            "description": "EDID and DisplayID library.",
+            "description": "EDID and DisplayID library",
             "license": [
                 "MIT"
             ],
@@ -12119,12 +12133,7 @@
                 "15.5",
                 "15.4",
                 "15.3",
-                "14.9",
-                "13.12",
-                "12.16",
-                "11.21",
-                "10.23",
-                "9.6.24"
+                "14.9"
             ]
         },
         "libpqxx": {
@@ -19615,6 +19624,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "2.1.1",
                 "2.0.0",
                 "0.2.3",
@@ -20823,6 +20833,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.2",
                 "2.6.1",
                 "2.6.0",
                 "2.5.1"
@@ -24395,6 +24406,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.23.0",
                 "1.22.0",
                 "1.21.0",
                 "1.20.0",
