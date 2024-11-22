@@ -1,5 +1,5 @@
 {
-    "date": 1732148495,
+    "date": 1732234938,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -963,6 +963,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.2",
                 "1.1.1",
                 "1.1.0",
                 "1.0.9",
@@ -6083,6 +6084,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.0.3",
                 "0.0.2",
                 "0.0.1"
             ]
@@ -6983,6 +6985,17 @@
                 "0.15.29"
             ]
         },
+        "frugen": {
+            "description": "IPMI FRU Information generator / editor tool and library",
+            "license": [
+                "Apache-2.0",
+                "GPL-2.0-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "2.0"
+            ]
+        },
         "fruit": {
             "description": "C++ dependency injection framework",
             "license": [
@@ -7618,12 +7631,7 @@
             "versions": [
                 "3.4",
                 "3.3.8",
-                "3.3.7",
-                "3.3.6",
-                "3.3.5",
-                "3.3.4",
-                "3.3.3",
-                "3.3.2"
+                "3.3.7"
             ]
         },
         "gli": {
@@ -11520,6 +11528,17 @@
                 "2.0.6"
             ]
         },
+        "libjuice": {
+            "cmake_file_name": "LibJuice",
+            "description": "JUICE is a UDP Interactive Connectivity Establishment library.",
+            "license": [
+                "MPL-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.5.7"
+            ]
+        },
         "libjxl": {
             "components": {
                 "jxl": {},
@@ -15197,6 +15216,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.0.0",
                 "2.5.1",
                 "2.5.0",
                 "2.4.2"
@@ -22620,6 +22640,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.0",
                 "2.1.0",
                 "2.0.2",
                 "2.0.1",
@@ -24856,6 +24877,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.6",
                 "1.3.4",
                 "1.3.3",
                 "1.3.2",
