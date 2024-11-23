@@ -1,5 +1,5 @@
 {
-    "date": 1732234938,
+    "date": 1732321291,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -672,22 +672,11 @@
             ],
             "v2": true,
             "versions": [
+                "18.0.0",
                 "17.0.0",
                 "16.1.0",
-                "16.0.0",
                 "15.0.0",
-                "14.0.2",
-                "14.0.1",
-                "14.0.0",
-                "13.0.0",
-                "12.0.1",
-                "12.0.0",
-                "11.0.0",
-                "10.0.1",
-                "10.0.0",
-                "8.0.1",
-                "8.0.0",
-                "7.0.0"
+                "14.0.2"
             ]
         },
         "arsenalgear": {
@@ -4863,6 +4852,29 @@
                 "cci.20220630"
             ]
         },
+        "devil": {
+            "cmake_file_name": "DevIL",
+            "cmake_target_name": "DevIL::DevIL",
+            "components": {
+                "IL": {
+                    "cmake_target_name": "DevIL::IL"
+                },
+                "ILU": {
+                    "cmake_target_name": "DevIL::ILU"
+                },
+                "ILUT": {
+                    "cmake_target_name": "DevIL::ILUT"
+                }
+            },
+            "description": "Developer's Image Library (DevIL) is a programmer's library to develop applications with very powerful image loading capabilities, yet is easy for a developer to learn and use.",
+            "license": [
+                "LGPL-2.1-only"
+            ],
+            "v2": true,
+            "versions": [
+                "1.8.0"
+            ]
+        },
         "dfp": {
             "description": "Decimal Floating Point Arithmetic Library",
             "license": [
@@ -5682,6 +5694,16 @@
             "v2": true,
             "versions": [
                 "1.3"
+            ]
+        },
+        "embree": {
+            "description": "Intel's collection of high-performance ray tracing kernels.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "4.3.3"
             ]
         },
         "embree3": {
@@ -7595,7 +7617,6 @@
             ]
         },
         "glew": {
-            "cmake_file_name": "glew",
             "cmake_target_name": "GLEW::GLEW",
             "components": {
                 "glewlib": {}
@@ -11358,6 +11379,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.19.5",
                 "1.19.0",
                 "1.18.2",
                 "1.18.1",
@@ -14058,6 +14080,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.24.1",
                 "0.23.0",
                 "0.22.0",
                 "0.21.0",
@@ -20754,9 +20777,9 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.15",
                 "0.7.12",
                 "0.7.11",
-                "0.7.10",
                 "0.6.6",
                 "0.5.4"
             ]
@@ -22537,16 +22560,10 @@
             ],
             "v2": true,
             "versions": [
+                "0.15.4",
                 "0.15.3",
-                "0.15.2",
-                "0.15.1",
                 "0.14.10",
                 "0.14.6",
-                "0.14.5",
-                "0.14.4",
-                "0.14.2",
-                "0.14.1",
-                "0.14.0",
                 "0.13.8",
                 "0.13.7"
             ]
@@ -24507,10 +24524,9 @@
             ],
             "v2": true,
             "versions": [
+                "1.7.2",
                 "1.6.2",
-                "1.5.2",
-                "1.4.3",
-                "1.2.1"
+                "1.5.2"
             ]
         },
         "wide-integer": {
