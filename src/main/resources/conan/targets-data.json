@@ -1,5 +1,5 @@
 {
-    "date": 1732580571,
+    "date": 1732666914,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -309,6 +309,7 @@
             ],
             "v2": true,
             "versions": [
+                "r27c",
                 "r27",
                 "r26d",
                 "r26c",
@@ -11005,6 +11006,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.0",
                 "1.4.3",
                 "1.4.1",
                 "1.4.0",
@@ -19349,16 +19351,16 @@
             ]
         },
         "qxlsx": {
-            "cmake_file_name": "QXlsxQt5",
+            "cmake_file_name": "QXlsxQt6",
             "cmake_target_name": "QXlsx::QXlsx",
-            "description": "Excel file(*.xlsx) reader/writer library using Qt 5 or 6.",
+            "description": "Excel file (*.xlsx) reader/writer library using Qt 5 or 6.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "1.4.5",
-                "1.4.4"
+                "1.4.9",
+                "1.4.5"
             ]
         },
         "qxmpp": {
@@ -19401,6 +19403,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.15.0",
                 "0.14.0",
                 "0.13.0",
                 "0.11.0",
@@ -19867,16 +19870,15 @@
             ]
         },
         "reflect-cpp": {
+            "cmake_file_name": "reflectcpp",
+            "cmake_target_name": "reflectcpp::reflectcpp",
             "description": "C++-20 library for fast serialization, deserialization and validation using reflection",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "0.11.1",
-                "0.11.0",
-                "0.10.0",
-                "0.6.0"
+                "0.16.0"
             ]
         },
         "replxx": {
@@ -20078,6 +20080,13 @@
             ]
         },
         "rocksdb": {
+            "cmake_file_name": "RocksDB",
+            "cmake_target_name": "RocksDB::rocksdb",
+            "components": {
+                "librocksdb": {
+                    "cmake_target_name": "RocksDB::rocksdb"
+                }
+            },
             "description": "A library that provides an embeddable, persistent key-value store for fast storage",
             "license": [
                 "GPL-2.0-only",
@@ -20086,17 +20095,10 @@
             "v2": true,
             "versions": [
                 "9.7.4",
-                "9.7.3",
-                "9.7.2",
                 "9.5.2",
                 "9.4.0",
-                "9.2.1",
-                "9.1.0",
-                "9.0.0",
                 "8.8.1",
-                "6.29.5",
-                "6.27.3",
-                "6.20.3"
+                "6.29.5"
             ]
         },
         "rotor": {
@@ -21346,6 +21348,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.3",
                 "2.3.2"
             ]
         },
@@ -22078,6 +22081,16 @@
             "versions": [
                 "0.2.0",
                 "0.1.0"
+            ]
+        },
+        "svtjpegxs": {
+            "description": "A JPEG XS (ISO/IEC 21122) compatible software encoder/decoder library",
+            "license": [
+                "BSD-2-Clause-Patent"
+            ],
+            "v2": true,
+            "versions": [
+                "0.9.0"
             ]
         },
         "swig": {
