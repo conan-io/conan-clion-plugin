@@ -1,5 +1,5 @@
 {
-    "date": 1732666914,
+    "date": 1732753327,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -673,6 +673,7 @@
             ],
             "v2": true,
             "versions": [
+                "18.1.0",
                 "18.0.0",
                 "17.0.0",
                 "16.1.0",
@@ -12589,11 +12590,6 @@
         "libsndfile": {
             "cmake_file_name": "SndFile",
             "cmake_target_name": "SndFile::sndfile",
-            "components": {
-                "sndfile": {
-                    "cmake_target_name": "SndFile::sndfile"
-                }
-            },
             "description": "Libsndfile is a library of C routines for reading and writing files containing sampled audio data.",
             "license": [
                 "LGPL-2.1"
@@ -21024,6 +21020,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.6.3",
                 "5.6.2",
                 "5.6.0",
                 "5.5.0",
