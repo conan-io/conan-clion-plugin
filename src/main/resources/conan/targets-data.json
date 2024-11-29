@@ -1,5 +1,5 @@
 {
-    "date": 1732753327,
+    "date": 1732839720,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9695,6 +9695,16 @@
                 "0.2.14"
             ]
         },
+        "json_struct": {
+            "description": "json_struct is a single header only C++ library for parsing JSON directly to C++ structs and vice versa",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.2"
+            ]
+        },
         "jsoncons": {
             "cmake_file_name": "jsoncons",
             "cmake_target_name": "jsoncons",
@@ -12243,6 +12253,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.21.5",
                 "0.21.1"
             ]
         },
@@ -16841,8 +16852,6 @@
             "versions": [
                 "2.4.0",
                 "2.3.2",
-                "2.3.1",
-                "2.3.0",
                 "2.2.1",
                 "2.1.0",
                 "1.1.1"
@@ -17073,6 +17082,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.0",
                 "2.4.1",
                 "2.3.1",
                 "2.1.1"
@@ -23293,6 +23303,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.3.7",
                 "0.3.5"
             ]
         },
