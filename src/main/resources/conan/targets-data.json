@@ -1,5 +1,5 @@
 {
-    "date": 1733185403,
+    "date": 1733271744,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3565,6 +3565,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.18.2",
                 "0.18.1",
                 "0.18.0",
                 "0.17.3",
@@ -12126,6 +12127,24 @@
             "v2": true,
             "versions": [
                 "8.13.42"
+            ]
+        },
+        "libplist": {
+            "components": {
+                "plist": {
+                    "cmake_target_name": "libplist::libplist"
+                },
+                "plist++": {
+                    "cmake_target_name": "libplist::libplist++"
+                }
+            },
+            "description": "A small portable C library to handle Apple Property List files in binary, XML, JSON, or OpenStep format.",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "v2": true,
+            "versions": [
+                "2.6.0"
             ]
         },
         "libpng": {
