@@ -1,5 +1,5 @@
 {
-    "date": 1733790178,
+    "date": 1733876568,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -19227,7 +19227,7 @@
                 "6.7.3",
                 "6.6.3",
                 "6.5.3",
-                "5.15.14"
+                "5.15.16"
             ]
         },
         "qt-advanced-docking-system": {
