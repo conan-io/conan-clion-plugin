@@ -1,5 +1,5 @@
 {
-    "date": 1734654052,
+    "date": 1734740504,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -13655,6 +13655,7 @@
             ],
             "v2": true,
             "versions": [
+                "b4079",
                 "b3542",
                 "b3040"
             ]
@@ -20535,6 +20536,8 @@
             ]
         },
         "scnlib": {
+            "cmake_file_name": "scn",
+            "cmake_target_name": "scn::scn",
             "description": "scanf for modern C++",
             "license": [
                 "Apache-2.0"
