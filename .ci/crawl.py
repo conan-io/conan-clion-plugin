@@ -5,7 +5,7 @@ import datetime
 import time
 
 from conan.api.conan_api import ConanAPI
-from conans.errors import ConanException
+from conan.errors import ConanException
 
 from conan_helper import get_package_info_with_install, get_basic_info_with_inspect
 from recipe_parser import get_package_info_from_recipe, get_basic_info_from_recipe
