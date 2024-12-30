@@ -4,6 +4,35 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update gradleVersion to 8.10.2
+- Update qodana to 2024.2.3
+
+## [2.0.7] - 2024-10-01
+
+### Changed
+
+- Update gradle.properties to be compatible with CLion 243.*
+
+## [2.0.6] - 2024-08-14
+
+### Changed
+
+- Fixed deprecated usage of `ActionUpdateThread.OLD_EDT` by overriding `getActionUpdateThread()`
+
+## [2.0.5] - 2024-08-14
+
+### Changed
+
+- Update gradle.properties to be compatible with CLion 242.*
+
+## [2.0.4] - 2024-02-13
+
+### Changed
+
+- Update gradle.properties to be compatible with CLion 241.*
+
 ## [2.0.3] - 2023-11-13
 
 ### Changed
@@ -42,7 +71,11 @@
 
 - New Conan CLion plugin compatible with Conan 2.X
 
-[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.3...HEAD
+[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.7...HEAD
+[2.0.7]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.6...v2.0.7
+[2.0.6]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.5...v2.0.6
+[2.0.5]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.4...v2.0.5
+[2.0.4]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.0...v2.0.1
