@@ -1,3 +1,4 @@
+from conan.tools.scm import Version
 import os
 import subprocess
 import datetime
@@ -33,9 +34,7 @@ def get_recipes(root_dir, last_update):
             with open(os.path.join(dirpath, 'config.yml'), 'r') as f:
                 data = yaml.safe_load(f)
 
-            all_versions = list(data['versions'].keys())
-            # the rule in c3i is that these versions are ordered in the yml
-            # we could double check doing a conan search
+            all_versions = sorted(data['versions'].keys(), key=Version, reverse=True)
             latest_version = all_versions[0]
             recipe_folder = data['versions'][latest_version]['folder']
 
