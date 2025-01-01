@@ -1,5 +1,5 @@
 {
-    "date": 1735625502,
+    "date": 1735691057,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -766,6 +766,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20241216",
                 "cci.20240531",
                 "cci.20230325",
                 "cci.20221111",
@@ -3441,16 +3442,13 @@
             ]
         },
         "confu_json": {
-            "description": "uses boost::fusion to help with serialization; json <-> user defined type",
+            "description": "Uses boost::fusion to help with serialization; json <-> user defined type",
             "license": [
                 "BSL-1.0"
             ],
             "v2": true,
             "versions": [
-                "1.0.0",
-                "0.0.10",
-                "0.0.9",
-                "0.0.5"
+                "1.1.1"
             ]
         },
         "console_bridge": {
@@ -3578,6 +3576,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.18.3",
                 "0.18.2",
                 "0.18.1",
                 "0.18.0",
@@ -3900,6 +3899,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.4",
                 "0.7.3",
                 "0.7.2",
                 "0.7.1",
@@ -13240,6 +13240,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.0",
                 "1.4.0",
                 "1.3.2",
                 "1.3.1",
@@ -15007,6 +15008,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.0.7",
                 "4.0.6",
                 "4.0.5",
                 "4.0.4",
@@ -16900,6 +16902,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4.1",
                 "2.4.0",
                 "2.3.2",
                 "2.2.1",
@@ -20163,6 +20166,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.32",
                 "0.31",
                 "0.30",
                 "0.29",
@@ -20476,6 +20480,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.1",
                 "1.4.2",
                 "1.4.1",
                 "1.4.0",
