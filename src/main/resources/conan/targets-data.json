@@ -1,5 +1,5 @@
 {
-    "date": 1735777326,
+    "date": 1735863654,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4374,14 +4374,16 @@
             ]
         },
         "cuda-api-wrappers": {
+            "cmake_target_name": "cuda-api-wrappers::runtime-and-driver",
             "description": "Thin, unified, C++-flavored wrappers for the CUDA APIs",
             "license": [
                 "BSD-3-Clause"
             ],
             "v2": true,
             "versions": [
-                "0.7.0-b2",
-                "0.7-b1",
+                "0.8.0",
+                "0.7.1",
+                "0.7.0",
                 "0.6.8",
                 "0.6.3"
             ]
@@ -10760,6 +10762,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.11.1",
                 "8.10.1",
                 "8.10.0",
                 "8.9.1",
@@ -11611,6 +11614,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.11.1",
                 "0.10.3",
                 "0.10.2",
                 "0.8.2"
@@ -15377,11 +15381,8 @@
             ],
             "v2": true,
             "versions": [
-                "1.0.3",
-                "1.0.2",
-                "1.0.0",
-                "0.27",
-                "0.26"
+                "2.0.0",
+                "1.0.3"
             ]
         },
         "ms-gsl": {
@@ -17933,6 +17934,8 @@
             ]
         },
         "pcapplusplus": {
+            "cmake_file_name": "PcapPlusPlus",
+            "cmake_target_name": "PcapPlusPlus::PcapPlusPlus",
             "description": "PcapPlusPlus is a multiplatform C++ library for capturing, parsing and crafting of network packets",
             "license": [
                 "Unlicense"
