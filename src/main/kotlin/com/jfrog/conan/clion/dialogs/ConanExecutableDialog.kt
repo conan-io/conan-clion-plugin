@@ -26,10 +26,6 @@ object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, true, fals
         withFileFilter { it.isConanExecutable }
         withTitle("Select Conan executable")
     }
-
-    override fun isFileSelectable(file: VirtualFile?): Boolean {
-        return super.isFileSelectable(file) && file != null && !file.isDirectory
-    }
 }
 
 val VirtualFile.isConanExecutable: Boolean
