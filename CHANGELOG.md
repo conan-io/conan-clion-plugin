@@ -8,6 +8,7 @@
 
 - Update gradleVersion to 8.10.2
 - Update qodana to 2024.2.3
+- Unset untilBuild to not have an upper compatibility limit
 
 ## [2.0.7] - 2024-10-01
 
