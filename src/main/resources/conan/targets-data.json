@@ -1,5 +1,5 @@
 {
-    "date": 1736900446,
+    "date": 1736986834,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2012,21 +2012,10 @@
             "v2": true,
             "versions": [
                 "3.6.1",
-                "3.6.0",
                 "3.5.0",
                 "3.4.0",
                 "3.3.0",
-                "3.2.0",
-                "3.1.1",
-                "3.1.0",
-                "3.0.0",
-                "2.19.5",
-                "2.19.4",
-                "2.19.3",
-                "2.19.2",
-                "2.19.1",
-                "2.18.2",
-                "2.17.3"
+                "2.19.5"
             ]
         },
         "box2d": {
@@ -2118,12 +2107,13 @@
             ]
         },
         "bshoshany-thread-pool": {
-            "description": "BS::thread_pool: a fast, lightweight, and easy-to-use C++17 thread pool library",
+            "description": "BS::thread_pool: a fast, lightweight, modern, and easy-to-use C++17 / C++20 / C++23 thread pool library",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "5.0.0",
                 "4.1.0",
                 "4.0.1",
                 "3.5.0",
@@ -5752,6 +5742,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.1.73",
                 "3.1.72",
                 "3.1.50",
                 "3.1.49",
@@ -12575,6 +12566,17 @@
                 "cci.20200930"
             ]
         },
+        "libsersi": {
+            "cmake_target_name": "libsersi::sersi",
+            "description": "Modern C++ implementation of IEEE 1278.1a-1998",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.0"
+            ]
+        },
         "libsgp4": {
             "description": "C++11 library for SGP4 Simplified perturbations model.",
             "license": [
@@ -13176,6 +13178,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.16.0",
                 "8.15.3",
                 "8.15.2",
                 "8.15.1",
@@ -20902,6 +20905,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.0",
                 "1.8.2",
                 "1.8.0",
                 "1.7.0",
