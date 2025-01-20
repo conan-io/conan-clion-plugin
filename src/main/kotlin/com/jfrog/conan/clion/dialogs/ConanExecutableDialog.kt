@@ -21,7 +21,7 @@ import javax.swing.BoxLayout
 import javax.swing.JComponent
 import javax.swing.JPanel
 
-object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, true, false, false, false, false) {
+object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, false, false, false, false, false) {
     init {
         withFileFilter { it.isConanExecutable }
         withTitle("Select Conan executable")
