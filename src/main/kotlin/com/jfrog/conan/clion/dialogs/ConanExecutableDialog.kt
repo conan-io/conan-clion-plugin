@@ -124,7 +124,8 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 updateOkButtonState()
                 updateOkButtonState()
             }
-            conanExecutablePathField.textField.whenTextChanged {
+
+            conanExecutablePathField.whenTextChanged {
                 updateOkButtonState()
             }
 
