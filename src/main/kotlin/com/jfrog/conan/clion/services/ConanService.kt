@@ -23,6 +23,7 @@ class ConanService(val project: Project) {
 
     private val onConfiguredListeners: HashMap<String, (isConfigured: Boolean) -> Unit> = hashMapOf()
     private val onLibraryDataChangeListeners: HashMap<String, (newLibraryData: LibraryData) -> Unit> = hashMapOf()
+    private val jsoner = Json { ignoreUnknownKeys = true }
 
     fun addOnConfiguredListener(name: String, callback: (isConfigured: Boolean)->Unit) {
         onConfiguredListeners[name] = callback
@@ -190,7 +191,7 @@ class ConanService(val project: Project) {
             val libraryData = targetFile.readText()
 
             try {
-                val parsedJson = Json{ignoreUnknownKeys=true}.decodeFromString<LibraryData>(libraryData)
+                val parsedJson = jsoner.decodeFromString<LibraryData>(libraryData)
                 fireOnLibraryDataChanged(parsedJson)
             } catch (e: SerializationException) {
                 thisLogger().error(e)
@@ -202,7 +203,7 @@ class ConanService(val project: Project) {
     fun getTargetData(): LibraryData {
         return try {
             val targetData = getTargetDataText()
-            Json { ignoreUnknownKeys = true }.decodeFromString<LibraryData>(targetData)
+            jsoner.decodeFromString<LibraryData>(targetData)
         } catch (e: SerializationException) {
             thisLogger().error(e)
             LibraryData(hashMapOf())
