@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Fix deprecated API usages
+
 ## [2.0.8] - 2025-01-16
 
 ### Changed
