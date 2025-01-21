@@ -21,14 +21,10 @@ import javax.swing.BoxLayout
 import javax.swing.JComponent
 import javax.swing.JPanel
 
-object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, true, false, false, false, false) {
+object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, false, false, false, false, false) {
     init {
         withFileFilter { it.isConanExecutable }
         withTitle("Select Conan executable")
-    }
-
-    override fun isFileSelectable(file: VirtualFile?): Boolean {
-        return super.isFileSelectable(file) && file != null && !file.isDirectory
     }
 }
 
@@ -128,7 +124,8 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 updateOkButtonState()
                 updateOkButtonState()
             }
-            conanExecutablePathField.textField.whenTextChanged {
+
+            conanExecutablePathField.whenTextChanged {
                 updateOkButtonState()
             }
 

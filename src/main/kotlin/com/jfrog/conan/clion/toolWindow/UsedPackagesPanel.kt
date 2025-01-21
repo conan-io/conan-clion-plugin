@@ -113,11 +113,9 @@ class UsedPackagesPanel(val project: Project) {
     }
 
     private fun generateThemeStyles(): String {
-        val themeScheme = LafManager.getInstance().currentLookAndFeel
+        val themeScheme = LafManager.getInstance().currentUIThemeLookAndFeel
 
-        val lafClassName = themeScheme.className ?: "com.intellij.ide.ui.laf.intellij.IntelliJLookAndFeel"
-        // TODO: make more advanced theme detection?
-        val isDarkTheme = lafClassName.contains("Darcula", ignoreCase = true)
+        val isDarkTheme = themeScheme.isDark
         val foregroundColor = if (isDarkTheme) Color(187, 187, 187) else Color(0, 0, 0)
         val backgroundColor = if (isDarkTheme) Color(60, 63, 65) else Color(242, 242, 242)
         val linkColor = if (isDarkTheme) Color(187, 134, 252) else Color(0, 0, 238)
