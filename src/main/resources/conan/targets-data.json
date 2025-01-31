@@ -1,5 +1,5 @@
 {
-    "date": 1738196415,
+    "date": 1738282827,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5299,6 +5299,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.9",
                 "1.9.8",
                 "1.9.7",
                 "1.9.6",
@@ -9560,12 +9561,15 @@
             ]
         },
         "joltphysics": {
+            "cmake_file_name": "Jolt",
+            "cmake_target_name": "Jolt::Jolt",
             "description": "A multi core friendly rigid body physics and collision detection library, written in C++, suitable for games and VR applications.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "5.2.0",
                 "3.0.1",
                 "2.0.1"
             ]
@@ -10974,6 +10978,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.2.0",
                 "3.1.1",
                 "2.3.0"
             ]
@@ -14217,6 +14222,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.4.3",
                 "3.3.8",
                 "3.3.3",
                 "3.1.19",
@@ -16767,6 +16773,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.11.0",
                 "7.8.0",
                 "7.5.0",
                 "7.4.0",
@@ -17833,6 +17840,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.37",
                 "1.36",
                 "1.35",
