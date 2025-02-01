@@ -1,5 +1,5 @@
 {
-    "date": 1738282827,
+    "date": 1738369331,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -19243,14 +19243,15 @@
             ]
         },
         "qt-advanced-docking-system": {
+            "cmake_file_name": "qt6advanceddocking",
+            "cmake_target_name": "ads::qt6advanceddocking",
             "description": "Qt Advanced Docking System lets you create customizable layouts using a full featured window docking system similar to what is found in many popular integrated development environments (IDEs) such as Visual Studio.",
             "license": [
-                "LGPL-2.1"
+                "LGPL-2.1-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "3.8.3",
-                "3.8.2"
+                "4.3.1"
             ]
         },
         "qtawesome": {
