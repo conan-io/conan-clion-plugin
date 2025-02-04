@@ -1,5 +1,5 @@
 {
-    "date": 1738542084,
+    "date": 1738628423,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -19962,10 +19962,12 @@
         "resiprocate": {
             "description": "The project is dedicated to maintaining a complete, correct, and commercially usable implementation of SIP and a few related protocols.",
             "license": [
-                "VSL-1.0"
+                "VSL-1.0",
+                "BSD-3-Clause"
             ],
             "v2": true,
             "versions": [
+                "1.13.1",
                 "1.12.0"
             ]
         },
