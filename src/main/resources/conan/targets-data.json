@@ -1,5 +1,5 @@
 {
-    "date": 1738801260,
+    "date": 1738887650,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -13786,6 +13786,16 @@
                 "1.2.2"
             ]
         },
+        "log4cpp": {
+            "description": "A library of C++ classes for flexible logging to files (rolling), syslog, IDSA and other destinations. It is modeled after the Log4j Java library, staying as close to their API as is reasonable.",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.4"
+            ]
+        },
         "log4cxx": {
             "cmake_file_name": "log4cxx",
             "cmake_target_name": "log4cxx",
@@ -16736,6 +16746,16 @@
                 "1.2.6",
                 "1.1.6",
                 "1.0.6"
+            ]
+        },
+        "open62541pp": {
+            "description": "open62541++ is a C++ wrapper built on top of the amazing open62541 OPC UA (OPC Unified Architecture) library",
+            "license": [
+                "MPL-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.17.0"
             ]
         },
         "openal": {
