@@ -1,5 +1,5 @@
 {
-    "date": 1739146907,
+    "date": 1739233301,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3140,6 +3140,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.31.5",
                 "3.31.3",
                 "3.31.0",
                 "3.30.5",
@@ -12177,6 +12178,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.6.46",
                 "1.6.45",
                 "1.6.44",
                 "1.6.43",
@@ -15128,6 +15130,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.36.0",
                 "2.34.1",
                 "2.33.0",
                 "2.32.1",
@@ -19388,6 +19391,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.1.0",
                 "7.5.0",
                 "7.4.0",
                 "7.3.0",
@@ -24088,6 +24092,21 @@
             "v2": true,
             "versions": [
                 "cci.20190628"
+            ]
+        },
+        "vectorscan": {
+            "components": {
+                "hs": {
+                    "cmake_target_name": "hs"
+                }
+            },
+            "description": "A portable fork of the high-performance regular expression matching library",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "5.4.11"
             ]
         },
         "velodyne_decoder": {
