@@ -1,5 +1,5 @@
 {
-    "date": 1740615689,
+    "date": 1740702088,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -747,6 +747,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.4.1",
                 "2.9.2",
                 "2.7.0",
                 "2.6.0",
@@ -3142,6 +3143,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.31.6",
                 "3.31.5",
                 "3.31.3",
                 "3.31.0",
@@ -8543,6 +8545,16 @@
                 "1.1.1"
             ]
         },
+        "hfsm2": {
+            "description": "High-Performance Hierarchical Finite State Machine Framework",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "2.5.2"
+            ]
+        },
         "hictk": {
             "cmake_file_name": "hictk",
             "cmake_target_name": "hictk::libhictk",
@@ -9042,24 +9054,12 @@
             ],
             "v2": true,
             "versions": [
+                "1.91.8",
+                "1.91.8-docking",
                 "1.91.5",
                 "1.91.5-docking",
-                "1.91.4",
-                "1.91.4-docking",
-                "1.91.3",
-                "1.91.3-docking",
-                "1.91.2",
-                "1.91.2-docking",
-                "1.91.0",
-                "1.91.0-docking",
                 "1.90.9",
                 "1.90.9-docking",
-                "1.90.8",
-                "1.90.8-docking",
-                "1.90.7",
-                "1.90.7-docking",
-                "1.90.6",
-                "1.90.6-docking",
                 "1.90.5",
                 "1.90.5-docking",
                 "1.89.9",
@@ -12320,6 +12320,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.0",
                 "0.6.9",
                 "0.6.8",
                 "0.6.7",
@@ -16645,6 +16646,8 @@
             ],
             "v2": true,
             "versions": [
+                "2022.0.0",
+                "2021.13.0",
                 "2021.12.0",
                 "2021.10.0",
                 "2021.9.0",
@@ -17905,6 +17908,18 @@
             "versions": [
                 "1.0.3",
                 "1.0.2"
+            ]
+        },
+        "parlayhash": {
+            "cmake_file_name": "parlayhash",
+            "cmake_target_name": "parlay",
+            "description": "A Header-Only Scalable Concurrent Hash Map.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1"
             ]
         },
         "parson": {
