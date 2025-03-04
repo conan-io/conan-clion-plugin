@@ -1,5 +1,5 @@
 {
-    "date": 1740961361,
+    "date": 1741047699,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -14263,6 +14263,18 @@
                 "3.1.11"
             ]
         },
+        "mariadb-connector-cpp": {
+            "cmake_file_name": "mariadb-connector-cpp",
+            "cmake_target_name": "mariadb-connector-cpp::mariadb-connector-cpp",
+            "description": "MariaDB Connector/C++ is used to connect applications developed in C++ to MariaDB and MySQL databases.",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.4"
+            ]
+        },
         "marisa": {
             "description": "Matching Algorithm with Recursively Implemented StorAge ",
             "license": [
@@ -15601,6 +15613,18 @@
             "v2": false,
             "versions": [
                 "6.1.11"
+            ]
+        },
+        "mysql-connector-cpp": {
+            "cmake_file_name": "mysql-concpp",
+            "cmake_target_name": "mysql::concpp",
+            "description": "MySQL database connector for C++ applications",
+            "license": [
+                "GPL-2.0-only WITH Universal-FOSS-exception-1.0"
+            ],
+            "v2": true,
+            "versions": [
+                "9.2.0"
             ]
         },
         "naive-tsearch": {
@@ -20913,10 +20937,9 @@
             ],
             "v2": true,
             "versions": [
-                "0.7.17",
-                "0.7.15",
-                "0.6.6",
-                "0.5.4"
+                "0.8.1",
+                "0.7.20",
+                "0.6.6"
             ]
         },
         "seqan": {
