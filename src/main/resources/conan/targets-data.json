@@ -1,5 +1,5 @@
 {
-    "date": 1741047699,
+    "date": 1741134103,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5997,15 +5997,9 @@
             ],
             "v2": true,
             "versions": [
+                "20.40.0",
                 "20.39.4",
-                "20.39.3",
-                "20.38.17",
-                "20.38.16",
-                "20.38.15",
-                "20.38.14",
-                "20.38.13",
-                "20.38.11",
-                "20.38.10"
+                "20.38.17"
             ]
         },
         "eudev": {
@@ -8197,6 +8191,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.16.0",
                 "1.15.0",
                 "1.14.0",
                 "1.13.0",
@@ -10747,6 +10742,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.12.1",
                 "8.11.1",
                 "8.10.1",
                 "8.10.0",
@@ -15589,6 +15585,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.5",
                 "2.3.4",
                 "2.3.2"
             ]
@@ -20728,22 +20725,22 @@
             ]
         },
         "sdl": {
-            "cmake_file_name": "SDL2",
-            "cmake_target_name": "SDL2::SDL2main",
+            "cmake_file_name": "SDL3",
             "components": {
-                "libsdl2": {
-                    "cmake_target_name": "SDL2::SDL2"
+                "headers": {
+                    "cmake_target_name": "SDL3::Headers"
                 },
-                "sdl2main": {
-                    "cmake_target_name": "SDL2::SDL2main"
+                "sdl3": {
+                    "cmake_target_name": "SDL3::SDL3"
                 }
             },
-            "description": "Access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL, Direct3D and Vulkan",
+            "description": "A cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware",
             "license": [
                 "Zlib"
             ],
             "v2": true,
             "versions": [
+                "3.2.6",
                 "2.30.9",
                 "2.30.8",
                 "2.30.7",
