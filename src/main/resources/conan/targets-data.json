@@ -1,5 +1,5 @@
 {
-    "date": 1741306905,
+    "date": 1741393062,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3241,6 +3241,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.9.3",
                 "3.9.2",
                 "3.9.1",
                 "3.8.3",
@@ -5313,16 +5314,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.9.9",
-                "1.9.8",
-                "1.9.7",
-                "1.9.6",
-                "1.9.5",
-                "1.9.4",
-                "1.9.3",
-                "1.9.2",
-                "1.9.1",
-                "1.9.0",
+                "1.9.10",
                 "1.8.7"
             ]
         },
@@ -21158,10 +21150,12 @@
             "cmake_target_name": "simdjson::simdjson",
             "description": "Parsing gigabytes of JSON per second",
             "license": [
-                "Apache-2.0"
+                "Apache-2.0",
+                "MIT"
             ],
             "v2": true,
             "versions": [
+                "3.12.2",
                 "3.11.5",
                 "3.10.1",
                 "3.9.3"
