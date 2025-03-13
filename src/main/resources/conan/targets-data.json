@@ -1,5 +1,5 @@
 {
-    "date": 1741738899,
+    "date": 1741825333,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -897,11 +897,14 @@
             ]
         },
         "at-spi2-core": {
+            "components": {
+                "atk": {}
+            },
             "description": "It provides a Service Provider Interface for the Assistive Technologies available on the GNOME platform and a library against which applications can be linked",
             "license": [
                 "LGPL-2.1-or-later"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "2.53.1",
                 "2.51.0",
@@ -3050,6 +3053,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.0",
                 "2.4.2",
                 "2.4.1",
                 "2.4.0",
@@ -7575,6 +7579,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.0.0",
                 "4.4.3",
                 "4.3.1",
                 "4.0.1",
@@ -9700,6 +9705,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.0",
                 "1.2.0",
                 "1.0.0",
                 "0.178.0",
@@ -20146,7 +20152,7 @@
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
                 "4.4",
                 "4.3",
@@ -25448,6 +25454,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.5",
                 "1.0.4"
             ]
         },
