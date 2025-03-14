@@ -1,5 +1,5 @@
 {
-    "date": 1741825333,
+    "date": 1741911687,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2291,6 +2291,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.17.0",
                 "2.15.0",
                 "2.14.4",
                 "2.13.1",
@@ -2557,6 +2558,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.11",
                 "4.10.2",
                 "4.10",
                 "4.9.1",
@@ -3562,6 +3564,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.19.0",
                 "0.18.3",
                 "0.18.2",
                 "0.18.1",
@@ -4833,6 +4836,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20241206",
                 "cci.20201009",
                 "20200407"
             ]
@@ -5737,6 +5741,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.9.0",
                 "0.8.0",
                 "0.7.0",
                 "0.6.1",
@@ -6998,6 +7003,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.17.1",
                 "0.16.2",
                 "0.16.0",
                 "0.15.31",
@@ -8815,6 +8821,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.0",
                 "0.3.1"
             ]
         },
@@ -9070,6 +9077,18 @@
                 "1.87",
                 "1.86",
                 "1.85"
+            ]
+        },
+        "imgui-sfml": {
+            "cmake_file_name": "ImGui-SFML",
+            "cmake_target_name": "ImGui-SFML::ImGui-SFML",
+            "description": "ImGui-SFML integrates Dear ImGui with SFML, enabling easy creation of GUIs for SFML applications.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "2.6.1"
             ]
         },
         "imguizmo": {
@@ -11996,6 +12015,16 @@
                 "5.0.3",
                 "5.0.2",
                 "5.0.1"
+            ]
+        },
+        "libnftnl": {
+            "description": "Library providing a low-level netlink programming interface (API) to the in-kernel nf_tables subsystem",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "1.2.8"
             ]
         },
         "libnghttp2": {
@@ -16068,6 +16097,18 @@
                 "1.5.2",
                 "1.5.1",
                 "1.3.2"
+            ]
+        },
+        "nodeeditor": {
+            "cmake_file_name": "QtNodes",
+            "cmake_target_name": "QtNodes::QtNodes",
+            "description": "Dataflow programming framework and UI for Qt",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "3.0.11"
             ]
         },
         "nodejs": {
@@ -21556,6 +21597,18 @@
                 "0.8.1"
             ]
         },
+        "sparrow": {
+            "cmake_file_name": "sparrow",
+            "cmake_target_name": "sparrow::sparrow",
+            "description": "C++20 idiomatic APIs for the Apache Arrow Columnar Format",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.5.0"
+            ]
+        },
         "spdlog": {
             "cmake_file_name": "spdlog",
             "cmake_target_name": "spdlog::spdlog",
@@ -21618,6 +21671,7 @@
             "v2": true,
             "versions": [
                 "cci.20211113",
+                "1.4.309.0",
                 "1.3.296.0",
                 "1.3.268.0",
                 "1.3.261.1",
@@ -21636,6 +21690,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.309.0",
                 "1.3.296.0",
                 "1.3.268.0",
                 "1.3.261.1",
@@ -24409,6 +24464,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.309.0",
                 "1.3.296.0",
                 "1.3.290.0",
                 "1.3.268.0",
