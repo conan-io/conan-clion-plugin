@@ -1,5 +1,5 @@
 {
-    "date": 1742343739,
+    "date": 1742430109,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -18121,9 +18121,7 @@
             ],
             "v2": true,
             "versions": [
-                "8.45",
-                "8.44",
-                "8.41"
+                "8.45"
             ]
         },
         "pcre2": {
@@ -23714,6 +23712,18 @@
             "v2": true,
             "versions": [
                 "1.1"
+            ]
+        },
+        "tweeny": {
+            "cmake_file_name": "tweeny",
+            "cmake_target_name": "tweeny",
+            "description": "Tweeny is an inbetweening library designed for the creation of complex animations for games and other beautiful interactive software",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "3.2.0"
             ]
         },
         "tweetnacl": {
