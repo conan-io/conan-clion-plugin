@@ -1,5 +1,5 @@
 {
-    "date": 1742775797,
+    "date": 1742862182,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1068,6 +1068,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.4",
                 "0.7.16",
                 "0.6.4"
             ]
@@ -1081,6 +1082,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.3",
                 "0.6.14",
                 "0.5.12"
             ]
@@ -1094,6 +1096,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.11.0",
                 "0.9.15",
                 "0.6.11"
             ]
@@ -1107,6 +1110,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.3.1",
                 "0.2.18",
                 "0.2.14"
             ]
@@ -1120,6 +1124,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.5.1",
                 "0.4.2",
                 "0.2.7"
             ]
@@ -1133,6 +1138,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.9.3",
                 "0.8.1",
                 "0.6.7"
             ]
@@ -1146,6 +1152,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.15.4",
                 "0.14.7",
                 "0.10.9"
             ]
@@ -1159,6 +1166,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.12.1",
                 "0.10.3",
                 "0.7.8"
             ]
@@ -1172,6 +1180,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.11",
                 "0.5.5",
                 "0.1.26"
             ]
@@ -1185,6 +1194,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.2.3",
                 "0.1.15"
             ]
         },
@@ -1208,6 +1218,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.2.3",
                 "0.1.18",
                 "0.1.12"
             ]
@@ -1221,6 +1232,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.31.0",
                 "0.26.9",
                 "0.17.1a"
             ]
@@ -19531,7 +19543,7 @@
         "qwt": {
             "description": "The Qwt library contains GUI Components and utility classes which are primarily useful for programs with a technical background. Beside a framework for 2D plots it provides scales, sliders, dials, compasses, thermometers, wheels and knobs to control or display values, arrays, or ranges of type double.",
             "license": [
-                "LGPL-2.1-or-later"
+                "LGPL-2.1+ WITH Qwt-exception-1.0"
             ],
             "v2": true,
             "versions": [
@@ -20497,6 +20509,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.9",
                 "1.5.7",
                 "1.5.6",
                 "1.5.5",
