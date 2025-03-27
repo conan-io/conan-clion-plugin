@@ -118,7 +118,7 @@ class ReadmePanel(val project: Project) {
         val foregroundColor = if (isDarkTheme) Color(187, 187, 187) else Color(0, 0, 0)
         val backgroundColor = if (isDarkTheme) Color(60, 63, 65) else Color(242, 242, 242)
         val linkColor = if (isDarkTheme) Color(187, 134, 252) else Color(0, 0, 238)
-        val blockColor = if (isDarkTheme) Color(80, 80, 80) else Color(242, 242, 242)
+        val blockColor = if (isDarkTheme) Color(80, 80, 80) else Color(212, 212, 212)
 
         return """
             body {
