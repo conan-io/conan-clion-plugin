@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+- Add "Scan Vulnerabilities" tab
+
 ## [2.0.9] - 2025-01-21
 
 ### Changed
