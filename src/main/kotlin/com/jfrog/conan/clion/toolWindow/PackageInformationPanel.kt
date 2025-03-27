@@ -20,6 +20,7 @@ import javax.swing.*
 
 class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyText() {
     private val readmePanel: ReadmePanel
+    private val auditPanel: AuditPanel
     private val versionModel = DefaultComboBoxModel<String>()
     private val conanService: ConanService = project.service<ConanService>()
 
@@ -27,6 +28,7 @@ class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyTe
         layout = GridBagLayout()
         alignmentX = Component.LEFT_ALIGNMENT
         readmePanel = ReadmePanel(project)
+        auditPanel = AuditPanel(project)
     }
 
     private fun getTitle(name: String): JBLabel {
@@ -134,8 +136,7 @@ class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyTe
 
         tabbedPane.addTab("How to use", readmePanel.getHTMLPackageInfo(name))
 
-        val auditPanel = AuditPanel(project)
-        val defaultVersion = versionModel.getElementAt(0) ?: ""
+        val defaultVersion = versionModel.getElementAt(0) ?: "<version>"
         auditPanel.updateContent(name, defaultVersion)
         tabbedPane.addTab("\uD83D\uDEE1\uFE0F Scan vulnerabilities", auditPanel.getComponent())
 
