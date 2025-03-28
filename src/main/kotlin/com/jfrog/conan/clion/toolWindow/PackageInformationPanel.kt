@@ -8,6 +8,7 @@ import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
+import com.intellij.ui.jcef.JCEFHtmlPanel
 import com.jfrog.conan.clion.bundles.UIBundle
 import com.jfrog.conan.clion.services.ConanService
 import java.awt.Component
@@ -19,6 +20,7 @@ import javax.swing.*
 
 class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyText() {
     private val readmePanel: ReadmePanel
+    private val auditPanel: AuditPanel
     private val versionModel = DefaultComboBoxModel<String>()
     private val conanService: ConanService = project.service<ConanService>()
 
@@ -26,6 +28,7 @@ class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyTe
         layout = GridBagLayout()
         alignmentX = Component.LEFT_ALIGNMENT
         readmePanel = ReadmePanel(project)
+        auditPanel = AuditPanel(project)
     }
 
     private fun getTitle(name: String): JBLabel {
@@ -129,11 +132,15 @@ class PackageInformationPanel(private val project: Project) : JBPanelWithEmptyTe
         c.gridx = 0
         c.gridy = 2
 
-        val contentPanel = JPanel(FlowLayout(FlowLayout.LEFT))
-        contentPanel.add(readmePanel.getHTMLPackageInfo(name))
+        val tabbedPane = JTabbedPane()
 
-        val scrollPane = JBScrollPane(contentPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
+        tabbedPane.addTab("How to use", readmePanel.getHTMLPackageInfo(name))
 
+        val defaultVersion = versionModel.getElementAt(0) ?: "<version>"
+        auditPanel.updateContent(name, defaultVersion)
+        tabbedPane.addTab("\uD83D\uDEE1\uFE0F Scan vulnerabilities", auditPanel.getComponent())
+
+        val scrollPane = JBScrollPane(tabbedPane, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
         add(scrollPane, c)
 
         revalidate()
