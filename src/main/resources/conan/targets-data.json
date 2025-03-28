@@ -1,5 +1,5 @@
 {
-    "date": 1743035003,
+    "date": 1743121341,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9456,6 +9456,7 @@
             ]
         },
         "ittapi": {
+            "cmake_target_name": "ittapi::ittnotify",
             "description": "The Instrumentation and Tracing Technology (ITT) API enables your application to generate and control the collection of trace data during its execution across different Intel tools.",
             "license": [
                 "BSD-3-Clause",
@@ -9463,6 +9464,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.25.5",
                 "3.24.4",
                 "3.24.0",
                 "3.23.0"
@@ -12030,9 +12032,8 @@
             ],
             "v2": true,
             "versions": [
-                "5.0.3",
-                "5.0.2",
-                "5.0.1"
+                "6.0.2",
+                "5.0.3"
             ]
         },
         "libnftnl": {
@@ -13777,6 +13778,7 @@
             ],
             "v2": true,
             "versions": [
+                "19.1.7",
                 "13.0.0",
                 "12.0.0",
                 "11.1.0"
@@ -17857,21 +17859,9 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.0",
                 "2.5.0",
-                "2.4.1",
-                "2.4.0",
-                "2.3.0",
-                "2.2.0",
-                "2.1.0",
-                "2.0.1",
-                "2.0.0",
-                "1.3.0",
-                "1.2.1",
-                "1.2.0",
-                "1.1.1",
-                "1.1.0",
-                "1.0.2",
-                "1.0.1"
+                "2.4.1"
             ]
         },
         "pagmo2": {
