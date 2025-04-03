@@ -1,5 +1,5 @@
 {
-    "date": 1743553377,
+    "date": 1743639732,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -6079,6 +6079,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.7.1",
                 "2.7.0",
                 "2.6.4",
                 "2.6.3",
@@ -15579,6 +15580,18 @@
                 "4.0.3"
             ]
         },
+        "msgpack23": {
+            "cmake_file_name": "msgpack23",
+            "cmake_target_name": "msgpack23::msgpack23",
+            "description": "A modern, header-only C++ library for MessagePack serialization and deserialization.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "2.1"
+            ]
+        },
         "msix": {
             "description": "An SDK for creating MSIX packages",
             "license": [
@@ -17065,54 +17078,6 @@
             ]
         },
         "opencv": {
-            "cmake_file_name": "OpenCV",
-            "components": {
-                "opencv_calib3d": {
-                    "cmake_target_name": "opencv_calib3d"
-                },
-                "opencv_core": {
-                    "cmake_target_name": "opencv_core"
-                },
-                "opencv_dnn": {
-                    "cmake_target_name": "opencv_dnn"
-                },
-                "opencv_features2d": {
-                    "cmake_target_name": "opencv_features2d"
-                },
-                "opencv_flann": {
-                    "cmake_target_name": "opencv_flann"
-                },
-                "opencv_gapi": {
-                    "cmake_target_name": "opencv_gapi"
-                },
-                "opencv_highgui": {
-                    "cmake_target_name": "opencv_highgui"
-                },
-                "opencv_imgcodecs": {
-                    "cmake_target_name": "opencv_imgcodecs"
-                },
-                "opencv_imgproc": {
-                    "cmake_target_name": "opencv_imgproc"
-                },
-                "opencv_ml": {
-                    "cmake_target_name": "opencv_ml"
-                },
-                "opencv_objdetect": {
-                    "cmake_target_name": "opencv_objdetect"
-                },
-                "opencv_photo": {
-                    "cmake_target_name": "opencv_photo"
-                },
-                "opencv_stitching": {
-                    "cmake_target_name": "opencv_stitching"
-                },
-                "opencv_video": {
-                    "cmake_target_name": "opencv_video"
-                },
-                "opencv_videoio": {
-                    "cmake_target_name": "opencv_videoio"
-                }
-            },
             "description": "OpenCV (Open Source Computer Vision Library)",
             "license": [
                 "Apache-2.0"
@@ -17178,6 +17143,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.3.3",
                 "3.3.2",
                 "3.2.4",
                 "2.5.9",
@@ -18146,8 +18112,7 @@
                 "10.37",
                 "10.36",
                 "10.35",
-                "10.33",
-                "10.32"
+                "10.33"
             ]
         },
         "pdal": {
@@ -20305,6 +20270,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.34",
                 "0.33",
                 "0.32",
                 "0.31",
