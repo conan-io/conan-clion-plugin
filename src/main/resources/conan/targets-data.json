@@ -1,5 +1,5 @@
 {
-    "date": 1744158157,
+    "date": 1744244559,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3905,6 +3905,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.3",
                 "0.8.2",
                 "0.7.5",
                 "0.7.4",
@@ -4781,6 +4782,22 @@
                 "1.15.6",
                 "1.15.2",
                 "1.15.0"
+            ]
+        },
+        "dbus-cxx": {
+            "components": {
+                "dbus-cxx": {
+                    "cmake_target_name": "dbus-cxx"
+                }
+            },
+            "description": "DBus-cxx provides an object-oriented interface to DBus",
+            "license": [
+                "LGPL-3.0-only",
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "2.5.2"
             ]
         },
         "dcmtk": {
@@ -6528,6 +6545,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.0",
                 "1.4.3",
                 "1.4.2",
                 "1.3.3"
@@ -8645,12 +8663,10 @@
             ],
             "v2": true,
             "versions": [
+                "1.10.0",
+                "1.9.0",
                 "1.8.1",
-                "1.8.0",
-                "1.7.2",
-                "1.7.0",
-                "1.6.0",
-                "1.5.3"
+                "1.7.2"
             ]
         },
         "highway": {
@@ -12315,6 +12331,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.10.1",
                 "7.10.0",
                 "7.9.2",
                 "7.9.1",
@@ -14721,6 +14738,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.7.2",
                 "1.6.0",
                 "1.5.1",
                 "1.5.0",
@@ -21197,6 +21215,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.12.3",
                 "3.12.2",
                 "3.11.5",
                 "3.10.1",
