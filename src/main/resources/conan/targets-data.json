@@ -1,5 +1,5 @@
 {
-    "date": 1745972608,
+    "date": 1746059175,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -14308,6 +14308,16 @@
                 "0.0.5"
             ]
         },
+        "manifold": {
+            "description": "Geometry library for topological robustness",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "3.0.1"
+            ]
+        },
         "mapbox-geometry": {
             "description": "Provides header-only, generic C++ interfaces for geometry types, geometry collections, and features.",
             "license": [
@@ -15537,6 +15547,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.2.0",
                 "4.1.0",
                 "4.0.0",
                 "3.1.0",
@@ -16077,6 +16088,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.12.0",
                 "3.11.3",
                 "3.11.2",
                 "3.11.1",
@@ -25685,6 +25697,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.0",
                 "1.2.0",
                 "1.1.1",
                 "1.1.0"
