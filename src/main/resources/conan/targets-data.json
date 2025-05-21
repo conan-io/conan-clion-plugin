@@ -1,5 +1,5 @@
 {
-    "date": 1747700765,
+    "date": 1747787107,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3672,6 +3672,18 @@
                 "1.6.0",
                 "1.5.0",
                 "0.1.13"
+            ]
+        },
+        "cpp-smtpclient-library": {
+            "cmake_file_name": "smtpclient",
+            "cmake_target_name": "smtpclient::smtpclient",
+            "description": "An SMTP client library built in C++ that support authentication and secure connections",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.10"
             ]
         },
         "cpp-sort": {
@@ -8941,6 +8953,7 @@
             ],
             "v2": true,
             "versions": [
+                "77.1",
                 "76.1",
                 "75.1",
                 "74.2",
@@ -9404,6 +9417,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.0",
                 "1.1.0",
                 "1.0.1"
             ]
@@ -20847,6 +20861,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.2.14",
                 "3.2.6",
                 "2.32.2",
                 "2.30.9",
@@ -21915,6 +21930,18 @@
                 "3.3.2",
                 "3.2.1",
                 "3.1.1"
+            ]
+        },
+        "sqlitemap": {
+            "cmake_file_name": "sqlitemap",
+            "cmake_target_name": "sqlitemap::sqlitemap",
+            "description": "sqlitemap - Persistent Map Backed by SQLite",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.0"
             ]
         },
         "sqlpp11": {
