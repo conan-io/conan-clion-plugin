@@ -1,5 +1,5 @@
 {
-    "date": 1748391907,
+    "date": 1748478308,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -83,9 +83,7 @@
                 "20240116.2",
                 "20240116.1",
                 "20230802.1",
-                "20230125.3",
-                "20220623.1",
-                "20211102.0"
+                "20230125.3"
             ]
         },
         "absent": {
@@ -3590,6 +3588,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.20.1",
                 "0.19.0",
                 "0.18.3",
                 "0.18.2",
@@ -15033,6 +15032,7 @@
             ],
             "v2": true,
             "versions": [
+                "15.1.0",
                 "14.2.0",
                 "13.2.0",
                 "12.2.0",
@@ -19014,19 +19014,13 @@
             ]
         },
         "proj": {
-            "cmake_file_name": "proj",
-            "cmake_target_name": "PROJ::proj",
-            "components": {
-                "projlib": {
-                    "cmake_target_name": "PROJ::proj"
-                }
-            },
             "description": "Cartographic Projections and Coordinate Transformations Library.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "9.6.0",
                 "9.5.0",
                 "9.4.1",
                 "9.3.1"
@@ -19820,6 +19814,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0",
                 "1.0"
             ]
         },
@@ -24742,6 +24737,7 @@
             ],
             "v2": true,
             "versions": [
+                "31.0.0",
                 "21.0.0",
                 "20.0.1",
                 "19.0.2",
