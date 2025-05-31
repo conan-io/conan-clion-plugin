@@ -1,5 +1,5 @@
 {
-    "date": 1748564741,
+    "date": 1748651021,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1687,18 +1687,17 @@
                     "cmake_target_name": "BitSerializer::core"
                 }
             },
-            "description": "C++ 17 library for serialization to multiple output formats (JSON, XML, YAML, CSV, MsgPack)",
+            "description": "Multi-format serialization library (JSON, XML, YAML, CSV, MsgPack)",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "0.80",
                 "0.75",
                 "0.70",
                 "0.65",
-                "0.50",
-                "0.44",
-                "0.10"
+                "0.50"
             ]
         },
         "bitsery": {
@@ -3396,6 +3395,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.2",
                 "1.0.1",
                 "1.0.0",
@@ -4025,6 +4025,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10.1",
                 "0.9.0",
                 "0.8.0",
                 "0.7.0",
@@ -6910,6 +6911,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.1",
                 "0.1.0"
             ]
         },
@@ -11273,6 +11275,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.4.8",
                 "3.4.6",
                 "3.4.4",
                 "3.3"
@@ -17993,6 +17996,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.3",
                 "1.4.1",
                 "1.4.0",
                 "1.3.2",
@@ -19932,13 +19936,7 @@
                 "20230801",
                 "20230701",
                 "20230602",
-                "20230301",
-                "20230201",
-                "20221201",
-                "20220601",
-                "20220201",
-                "20211101",
-                "20210901"
+                "20230301"
             ]
         },
         "re2c": {
@@ -21832,6 +21830,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.313.0",
                 "1.4.309.0",
                 "1.3.268.0",
                 "1.3.261.1",
