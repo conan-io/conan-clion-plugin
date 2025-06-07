@@ -1,5 +1,5 @@
 {
-    "date": 1749169490,
+    "date": 1749255900,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -6166,14 +6166,7 @@
             ],
             "v2": true,
             "versions": [
-                "6.2.0",
-                "5.113.0",
-                "5.111.0",
-                "5.108.0",
-                "5.93.0",
-                "5.84.0",
-                "5.80.0",
-                "5.75.0"
+                "6.8.0"
             ]
         },
         "ezc3d": {
@@ -7055,12 +7048,9 @@
             ],
             "v2": true,
             "versions": [
+                "0.18.2",
                 "0.17.1",
-                "0.16.2",
-                "0.16.0",
-                "0.15.31",
-                "0.15.30",
-                "0.15.29"
+                "0.16.2"
             ]
         },
         "frugen": {
@@ -7294,6 +7284,7 @@
             ],
             "v2": true,
             "versions": [
+                "15.1.0",
                 "12.2.0",
                 "11.3.0",
                 "10.2.0"
@@ -8694,10 +8685,10 @@
             ],
             "v2": true,
             "versions": [
+                "1.11.0",
                 "1.10.0",
                 "1.9.0",
-                "1.8.1",
-                "1.7.2"
+                "1.8.1"
             ]
         },
         "highway": {
@@ -12493,6 +12484,16 @@
                 "0.20.2"
             ]
         },
+        "librdata": {
+            "description": "librdata is a library for read and write R data frames from C",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.0.cci.20231003"
+            ]
+        },
         "librdkafka": {
             "cmake_file_name": "RdKafka",
             "cmake_target_name": "RdKafka::rdkafka++",
@@ -13855,6 +13856,7 @@
             ],
             "v2": true,
             "versions": [
+                "20.1.6",
                 "17.0.6",
                 "17.0.4",
                 "16.0.6",
@@ -16948,12 +16950,10 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.11.1",
                 "1.4.6",
                 "1.3.9",
-                "1.3.8",
-                "1.2.6",
-                "1.1.6",
-                "1.0.6"
+                "1.3.8"
             ]
         },
         "open62541pp": {
@@ -20221,6 +20221,16 @@
                 "0.6.19",
                 "0.6.18",
                 "0.6.17"
+            ]
+        },
+        "resultlib": {
+            "description": "Elegant error handling in C",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.0"
             ]
         },
         "rg-etc1": {
