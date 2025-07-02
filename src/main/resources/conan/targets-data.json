@@ -1,5 +1,5 @@
 {
-    "date": 1751329707,
+    "date": 1751415941,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -12346,13 +12346,18 @@
         },
         "libpq": {
             "cmake_file_name": "PostgreSQL",
-            "cmake_target_name": "PostgreSQL::PostgreSQL",
+            "components": {
+                "pq": {
+                    "cmake_target_name": "PostgreSQL::PostgreSQL"
+                }
+            },
             "description": "The library used by all the standard PostgreSQL tools.",
             "license": [
                 "PostgreSQL"
             ],
             "v2": true,
             "versions": [
+                "17.5",
                 "16.8",
                 "15.12",
                 "15.5",
@@ -16753,6 +16758,17 @@
                 "0.16.2"
             ]
         },
+        "odpi": {
+            "description": "Oracle Database Programming Interface for Drivers and Applications",
+            "license": [
+                "UPL-1.0",
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "5.6.0"
+            ]
+        },
         "ofeli": {
             "description": "An Object Finite Element Library",
             "license": [
@@ -18971,7 +18987,7 @@
             ],
             "v2": true,
             "versions": [
-                "5.0.0-alpha15"
+                "5.0.0-beta7"
             ]
         },
         "pretty-name": {
@@ -19480,6 +19496,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.8.3",
                 "6.7.3",
                 "6.6.3",
                 "6.5.3",
@@ -21574,6 +21591,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.1.2",
                 "4.0.3"
             ]
         },
@@ -26008,6 +26026,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.16.1",
                 "2.16.0",
                 "2.15.0",
                 "2.14.1",
