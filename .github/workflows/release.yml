@@ -71,11 +71,15 @@ jobs:
 
       # Upload artifact as a release asset
       - name: Upload Release Asset
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: gh release upload ${{ github.event.release.tag_name }} ./build/distributions/*
 
       # Create a pull request
       - name: Create Pull Request
         if: ${{ steps.properties.outputs.changelog != '' }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           VERSION="${{ github.event.release.tag_name }}"
           BRANCH="changelog-update-$VERSION"
