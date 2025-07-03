@@ -38,8 +38,8 @@ jobs:
           git clone https://github.com/conan-io/conan-center-index tmp/conan-center-index
           cd clion-plugin/.ci
           python crawl.py ../../tmp/conan-center-index/recipes ../src/main/resources/conan/targets-data.json ../src/main/resources/conan/targets-data.json
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git config --global user.name  "${GITHUB_ACTOR}"
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add ../src/main/resources/conan/targets-data.json
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
