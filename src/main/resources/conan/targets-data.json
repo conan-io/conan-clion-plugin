@@ -1,5 +1,5 @@
 {
-    "date": 1752020736,
+    "date": 1752107164,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3163,6 +3163,18 @@
                 "2.3.0",
                 "2.2.4",
                 "2.2.3"
+            ]
+        },
+        "cmaes": {
+            "cmake_file_name": "libcmaes",
+            "cmake_target_name": "libcmaes::cmaes",
+            "description": "libcmaes is a multithreaded C++11 library with Python bindings for high performance blackbox stochastic optimization using the CMA-ES algorithm for Covariance Matrix Adaptation Evolution Strategy",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "0.10.0"
             ]
         },
         "cmake": {
@@ -10799,6 +10811,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.15.0",
                 "0.14.1",
                 "0.12.1",
                 "0.12",
