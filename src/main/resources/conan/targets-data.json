@@ -1,5 +1,5 @@
 {
-    "date": 1753662496,
+    "date": 1753748920,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1031,12 +1031,7 @@
         },
         "avcpp": {
             "cmake_file_name": "avcpp",
-            "cmake_target_name": "avcpp::avcpp-static",
-            "components": {
-                "AvCpp": {
-                    "cmake_target_name": "avcpp::avcpp-static"
-                }
-            },
+            "cmake_target_name": "avcpp::avcpp",
             "description": "C++ wrapper for FFmpeg",
             "license": [
                 "LGPL-2.1",
@@ -1044,10 +1039,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.4.0",
-                "2.3.2",
-                "2.3.0",
-                "2.1.0"
+                "2.4.0"
             ]
         },
         "avir": {
@@ -10270,9 +10262,8 @@
             ],
             "v2": true,
             "versions": [
-                "2.16",
-                "2.14",
-                "2.13.1"
+                "2.17",
+                "2.16"
             ]
         },
         "ldns": {
