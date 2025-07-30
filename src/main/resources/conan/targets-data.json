@@ -1,5 +1,5 @@
 {
-    "date": 1753748920,
+    "date": 1753835241,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3209,6 +3209,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.8",
                 "1.1.7",
                 "1.1.5"
             ]
@@ -11528,15 +11529,8 @@
             ],
             "v2": true,
             "versions": [
-                "1.19.5",
-                "1.19.0",
-                "1.18.2",
-                "1.18.1",
-                "1.16.2",
-                "1.13.0",
-                "1.12.0",
-                "1.11.0",
-                "1.9.1"
+                "1.20.1",
+                "1.16.2"
             ]
         },
         "libhydrogen": {
@@ -16643,6 +16637,18 @@
                 "1.7.0"
             ]
         },
+        "observable_unique_ptr": {
+            "cmake_file_name": "oup",
+            "cmake_target_name": "oup::oup",
+            "description": "Unique-ownership smart pointers with observable lifetime.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.7.3"
+            ]
+        },
         "observer-ptr-lite": {
             "cmake_file_name": "observer-ptr-lite",
             "cmake_target_name": "nonstd::observer-ptr-lite",
@@ -17301,7 +17307,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.3.4",
+                "3.3.5",
                 "3.3.2",
                 "3.2.4",
                 "2.5.9",
@@ -24126,6 +24132,18 @@
             "v2": true,
             "versions": [
                 "1.1.9"
+            ]
+        },
+        "upa-url": {
+            "cmake_file_name": "upa",
+            "cmake_target_name": "upa::url",
+            "description": "An implementation of the WHATWG URL Standard in C++",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "2.2.0"
             ]
         },
         "upx": {
