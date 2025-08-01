@@ -1,5 +1,5 @@
 {
-    "date": 1753921572,
+    "date": 1754008281,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -719,8 +719,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.1.15",
-                "3.1.12"
+                "3.1.15"
             ]
         },
         "asio": {
@@ -2609,9 +2608,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.0.4",
-                "1.0.3",
-                "1.0.1"
+                "1.0.4"
             ]
         },
         "cctz": {
@@ -3982,6 +3979,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.12.0",
                 "1.11.2",
                 "1.11.1",
                 "1.11.0",
@@ -8671,8 +8669,7 @@
             "v2": true,
             "versions": [
                 "2.0.2",
-                "1.0.0",
-                "0.0.12"
+                "1.0.0"
             ]
         },
         "hidapi": {
@@ -8700,15 +8697,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.10.0",
-                "2.9.0",
-                "2.8.0",
-                "2.7.1",
-                "2.7.0",
-                "2.6.2",
-                "2.5.1",
-                "2.4.1",
-                "2.3.1"
+                "2.10.0"
             ]
         },
         "highs": {
@@ -9517,9 +9506,7 @@
             ],
             "v2": true,
             "versions": [
-                "5.3.0",
-                "5.1.2",
-                "5.1.0"
+                "5.3.0"
             ]
         },
         "itlib": {
@@ -17205,6 +17192,54 @@
             ]
         },
         "opencv": {
+            "cmake_file_name": "OpenCV",
+            "components": {
+                "opencv_calib3d": {
+                    "cmake_target_name": "opencv_calib3d"
+                },
+                "opencv_core": {
+                    "cmake_target_name": "opencv_core"
+                },
+                "opencv_dnn": {
+                    "cmake_target_name": "opencv_dnn"
+                },
+                "opencv_features2d": {
+                    "cmake_target_name": "opencv_features2d"
+                },
+                "opencv_flann": {
+                    "cmake_target_name": "opencv_flann"
+                },
+                "opencv_gapi": {
+                    "cmake_target_name": "opencv_gapi"
+                },
+                "opencv_highgui": {
+                    "cmake_target_name": "opencv_highgui"
+                },
+                "opencv_imgcodecs": {
+                    "cmake_target_name": "opencv_imgcodecs"
+                },
+                "opencv_imgproc": {
+                    "cmake_target_name": "opencv_imgproc"
+                },
+                "opencv_ml": {
+                    "cmake_target_name": "opencv_ml"
+                },
+                "opencv_objdetect": {
+                    "cmake_target_name": "opencv_objdetect"
+                },
+                "opencv_photo": {
+                    "cmake_target_name": "opencv_photo"
+                },
+                "opencv_stitching": {
+                    "cmake_target_name": "opencv_stitching"
+                },
+                "opencv_video": {
+                    "cmake_target_name": "opencv_video"
+                },
+                "opencv_videoio": {
+                    "cmake_target_name": "opencv_videoio"
+                }
+            },
             "description": "OpenCV (Open Source Computer Vision Library)",
             "license": [
                 "Apache-2.0"
@@ -17212,13 +17247,6 @@
             "v2": true,
             "versions": [
                 "4.12.0",
-                "4.11.0",
-                "4.10.0",
-                "4.9.0",
-                "4.8.1",
-                "4.5.5",
-                "4.5.3",
-                "4.1.2",
                 "3.4.20",
                 "3.4.17",
                 "2.4.13.7"
@@ -20705,14 +20733,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.16.0",
-                "0.13.0",
-                "0.9.0",
-                "0.8.0",
-                "0.7.0",
-                "0.6.0",
-                "0.3.0",
-                "0.2.0"
+                "0.16.0"
             ]
         },
         "sassc": {
