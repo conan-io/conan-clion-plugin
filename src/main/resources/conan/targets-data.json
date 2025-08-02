@@ -1,5 +1,5 @@
 {
-    "date": 1754008281,
+    "date": 1754094372,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -21862,6 +21862,18 @@
                 "1.2.198.0"
             ]
         },
+        "spirv-reflect": {
+            "cmake_file_name": "spirv-reflect-static",
+            "cmake_target_name": "spirv-reflect-static",
+            "description": "SPIRV-Reflect is a lightweight library that provides a C/C++ reflection API for SPIR-V shader bytecode in Vulkan applications.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.4.313.0"
+            ]
+        },
         "spirv-tools": {
             "cmake_file_name": "SPIRV-Tools",
             "description": "Create and optimize SPIRV shaders",
@@ -21958,10 +21970,8 @@
             ],
             "v2": true,
             "versions": [
-                "3.49.1",
-                "3.48.0",
-                "3.47.2",
-                "3.46.1",
+                "3.50.4",
+                "3.49.2",
                 "3.45.3",
                 "3.44.2"
             ]
