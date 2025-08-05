@@ -1,5 +1,5 @@
 {
-    "date": 1754267344,
+    "date": 1754353625,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2491,9 +2491,7 @@
             ],
             "v2": true,
             "versions": [
-                "5.0.1",
-                "5.0",
-                "4.0.2"
+                "5.0.6"
             ]
         },
         "cargs": {
@@ -10190,6 +10188,16 @@
                 "0.1.31"
             ]
         },
+        "kubernetes": {
+            "description": "Official C client library for Kubernetes",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.13.0"
+            ]
+        },
         "kuliya": {
             "description": "Algeria's college hierarchy dataset as a C library.",
             "license": [
@@ -17391,6 +17399,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.0",
                 "2.5.0"
             ]
         },
@@ -17812,8 +17821,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.12",
-                "0.11"
+                "0.12"
             ]
         },
         "orc": {
@@ -18819,18 +18827,8 @@
             ],
             "v2": true,
             "versions": [
-                "1.13.3",
-                "1.13.2",
-                "1.13.1",
-                "1.13.0",
-                "1.12.5p2",
-                "1.12.5p1",
-                "1.12.4",
-                "1.12.3",
-                "1.12.2",
-                "1.12.1",
-                "1.12.0",
-                "1.11.3"
+                "1.14.2",
+                "1.13.3"
             ]
         },
         "podofo": {
