@@ -1,5 +1,5 @@
 {
-    "date": 1754526458,
+    "date": 1754612792,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -6259,12 +6259,7 @@
             "v2": true,
             "versions": [
                 "2.2.5",
-                "2.2.3",
-                "2.2.0",
-                "2.1.0",
-                "2.0.0",
-                "1.1.0",
-                "1.0.27"
+                "2.1.0"
             ]
         },
         "fast-cpp-csv-parser": {
