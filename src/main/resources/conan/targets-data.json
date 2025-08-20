@@ -1,5 +1,5 @@
 {
-    "date": 1755563066,
+    "date": 1755649398,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7487,8 +7487,7 @@
             "v2": true,
             "versions": [
                 "0.22.5",
-                "0.21",
-                "0.20.1"
+                "0.21"
             ]
         },
         "gf-complete": {
@@ -11354,9 +11353,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.22",
-                "0.21",
-                "0.20.1"
+                "0.22"
             ]
         },
         "libgit2": {
@@ -11669,6 +11666,16 @@
             "v2": true,
             "versions": [
                 "1.5.7"
+            ]
+        },
+        "libjwt": {
+            "description": "The C JSON Web Token Library +JWK +JWKS",
+            "license": [
+                "MPL-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.18.3"
             ]
         },
         "libjxl": {
