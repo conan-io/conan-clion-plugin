@@ -1,5 +1,5 @@
 {
-    "date": 1756427052,
+    "date": 1756513369,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -746,6 +746,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.5.0",
                 "3.4.1",
                 "2.9.2",
                 "2.7.0",
@@ -3141,7 +3142,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.1.0",
+                "4.1.1",
                 "3.31.8"
             ]
         },
@@ -3361,18 +3362,13 @@
             ]
         },
         "concurrencpp": {
-            "cmake_file_name": "concurrencpp",
-            "cmake_target_name": "concurrencpp::concurrencpp",
             "description": "Modern concurrency for C++. Tasks, executors, timers and C++20 coroutines to rule them all.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "0.1.7",
-                "0.1.6",
-                "0.1.5",
-                "0.1.4"
+                "0.1.7"
             ]
         },
         "concurrentqueue": {
@@ -5272,6 +5268,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.7",
                 "1.5.6",
                 "1.5.5",
                 "1.5.4",
@@ -6021,6 +6018,7 @@
             ],
             "v2": true,
             "versions": [
+                "20.43.0",
                 "20.40.0",
                 "20.39.4",
                 "20.38.17"
@@ -9061,11 +9059,9 @@
             ],
             "v2": true,
             "versions": [
+                "3.2.1",
                 "3.1.12",
-                "3.1.11",
-                "3.1.10",
-                "3.1.9",
-                "3.1.8"
+                "3.1.9"
             ]
         },
         "imgui": {
@@ -21006,6 +21002,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10.0",
                 "0.9.1",
                 "0.8.3",
                 "0.8.1",
