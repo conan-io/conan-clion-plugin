@@ -1,5 +1,5 @@
 {
-    "date": 1756686525,
+    "date": 1756772669,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -22981,8 +22981,6 @@
             ]
         },
         "tiny-optional": {
-            "cmake_file_name": "tiny-optional",
-            "cmake_target_name": "tiny-optional::tiny-optional",
             "description": "Replacement for std::optional that does not waste memory unnecessarily",
             "license": [
                 "BSL-1.0"
