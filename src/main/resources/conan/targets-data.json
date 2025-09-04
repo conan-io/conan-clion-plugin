@@ -1,5 +1,5 @@
 {
-    "date": 1756858946,
+    "date": 1756945408,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3570,6 +3570,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.1",
                 "1.5",
                 "1.4",
                 "1.3",
@@ -8610,13 +8611,13 @@
         },
         "highfive": {
             "cmake_file_name": "HighFive",
-            "cmake_target_name": "HighFive",
-            "description": "HighFive is a modern header-only C++11 friendly interface for libhdf5.",
+            "description": "User-friendly, header-only, C++14 wrapper for HDF5.",
             "license": [
                 "BSL-1.0"
             ],
             "v2": true,
             "versions": [
+                "3.1.1",
                 "2.10.0"
             ]
         },
@@ -21649,6 +21650,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.0",
                 "0.6.0",
                 "0.5.0"
