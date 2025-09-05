@@ -1,5 +1,5 @@
 {
-    "date": 1756945408,
+    "date": 1757031776,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -746,18 +746,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.5.0",
-                "3.4.1",
-                "2.9.2",
-                "2.7.0",
-                "2.6.0",
-                "2.5.1",
-                "2.4.0",
-                "2.3.0",
-                "2.2.0",
-                "2.1.0",
-                "2.0.0",
-                "1.7.0"
+                "3.5.0"
             ]
         },
         "asmjit": {
@@ -3235,6 +3224,16 @@
             "v2": false,
             "versions": [
                 "2.0.2"
+            ]
+        },
+        "coal": {
+            "description": "An extension of the Flexible Collision Library",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "3.0.1"
             ]
         },
         "cocoyaxi": {
@@ -17581,14 +17580,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.21.0",
-                "1.18.0",
-                "1.17.0",
-                "1.16.1",
-                "1.14.2",
-                "1.12.0",
-                "1.9.1",
-                "1.8.3"
+                "1.21.0"
             ]
         },
         "opentelemetry-proto": {
@@ -19307,6 +19299,9 @@
             "components": {
                 "libqhull": {
                     "cmake_target_name": "Qhull::qhullstatic_r"
+                },
+                "libqhullcpp": {
+                    "cmake_target_name": "Qhull::qhullcpp"
                 }
             },
             "description": "Qhull computes the convex hull, Delaunay triangulation, Voronoi diagram, halfspace intersection about a point, furthest-site Delaunay triangulation, and furthest-site Voronoi diagram.",
@@ -19315,9 +19310,7 @@
             ],
             "v2": true,
             "versions": [
-                "8.0.1",
-                "8.0.0",
-                "7.3.2"
+                "8.0.2"
             ]
         },
         "qoi": {
