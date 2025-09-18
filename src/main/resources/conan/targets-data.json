@@ -1,5 +1,5 @@
 {
-    "date": 1758068653,
+    "date": 1758155007,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -8116,18 +8116,15 @@
         },
         "gsl-lite": {
             "cmake_file_name": "gsl-lite",
-            "cmake_target_name": "gsl::gsl-lite",
-            "components": {
-                "gsllite": {
-                    "cmake_target_name": "gsl::gsl-lite"
-                }
-            },
-            "description": "A single-file header-only version of ISO C++ Guideline Support Library (GSL) for C++98, C++11 and later",
+            "cmake_target_name": "gsl-lite::gsl-lite",
+            "description": "ISO C++ Core Guidelines Library implementation for C++98, C++11 up",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "1.0.1",
+                "0.43.0",
                 "0.42.0",
                 "0.41.0",
                 "0.40.0",
@@ -16479,6 +16476,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.0.latest",
                 "1.3.0",
                 "1.2.5",
                 "1.2.0"
@@ -17368,7 +17366,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.22.0"
+                "0.23.1"
             ]
         },
         "openldap": {
@@ -17577,6 +17575,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.22.0",
                 "1.21.0"
             ]
         },
