@@ -1,5 +1,5 @@
 {
-    "date": 1758155007,
+    "date": 1758241369,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9941,6 +9941,18 @@
                 "1.5"
             ]
         },
+        "kdalgorithms": {
+            "cmake_file_name": "KDAlgorithms",
+            "cmake_target_name": "KDAB::kdalgorithms",
+            "description": "C++ Algorithm wrappers",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.4"
+            ]
+        },
         "kdbindings": {
             "cmake_file_name": "KDBindings",
             "cmake_target_name": "KDAB::KDBindings",
@@ -10872,10 +10884,7 @@
             "v2": true,
             "versions": [
                 "1.0.15",
-                "1.0.12",
-                "1.0.11",
-                "1.0.9",
-                "1.0.8"
+                "1.0.12"
             ]
         },
         "libdeflate": {
@@ -20319,6 +20328,7 @@
             ],
             "v2": true,
             "versions": [
+                "10.5.1",
                 "10.0.1",
                 "9.10.0",
                 "9.7.4",
