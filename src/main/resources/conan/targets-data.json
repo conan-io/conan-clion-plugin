@@ -1,5 +1,5 @@
 {
-    "date": 1758673464,
+    "date": 1758760001,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4357,6 +4357,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.1",
                 "0.8.0",
                 "0.7.1",
                 "0.7.0",
@@ -12230,6 +12231,7 @@
             ],
             "v2": true,
             "versions": [
+                "9.0.14",
                 "8.13.42"
             ]
         },
@@ -14749,6 +14751,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.9.1",
                 "1.8.2",
                 "1.7.2",
                 "1.6.0",
@@ -19444,6 +19447,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.0.0",
                 "6.7.2p1"
             ]
         },
@@ -20320,11 +20324,6 @@
         "rocksdb": {
             "cmake_file_name": "RocksDB",
             "cmake_target_name": "RocksDB::rocksdb",
-            "components": {
-                "librocksdb": {
-                    "cmake_target_name": "RocksDB::rocksdb"
-                }
-            },
             "description": "A library that provides an embeddable, persistent key-value store for fast storage",
             "license": [
                 "GPL-2.0-only",
@@ -20332,14 +20331,7 @@
             ],
             "v2": true,
             "versions": [
-                "10.5.1",
-                "10.0.1",
-                "9.10.0",
-                "9.7.4",
-                "9.5.2",
-                "9.4.0",
-                "8.8.1",
-                "6.29.5"
+                "10.5.1"
             ]
         },
         "rotor": {
