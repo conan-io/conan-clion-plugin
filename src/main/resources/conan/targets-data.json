@@ -1,5 +1,5 @@
 {
-    "date": 1759278403,
+    "date": 1759364658,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -6662,7 +6662,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.4.1",
+                "1.4.4",
                 "1.3.9"
             ]
         },
@@ -17385,7 +17385,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.23.1"
+                "0.24.1"
             ]
         },
         "openldap": {
