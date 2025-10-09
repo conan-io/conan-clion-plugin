@@ -1,5 +1,5 @@
 {
-    "date": 1759882974,
+    "date": 1759969443,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -43,7 +43,7 @@
             ],
             "v2": true,
             "versions": [
-                "25.00",
+                "25.01",
                 "24.09",
                 "23.01",
                 "22.01",
@@ -2535,6 +2535,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.12.1",
                 "4.11",
                 "4.10.2",
                 "4.10",
@@ -11672,6 +11673,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.6.2",
                 "1.5.7"
             ]
         },
@@ -12359,6 +12361,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.10.3",
                 "7.10.2",
                 "7.10.1",
                 "7.10.0",
@@ -14166,7 +14169,7 @@
         "lzo": {
             "description": "lzo is a portable lossless data compression library written in ANSI C",
             "license": [
-                "GPL-v2.0"
+                "GPL-2.0"
             ],
             "v2": true,
             "versions": [
@@ -24720,6 +24723,7 @@
             ],
             "v2": true,
             "versions": [
+                "37.0.0",
                 "31.0.0",
                 "21.0.0",
                 "20.0.1",
