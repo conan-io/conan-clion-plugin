@@ -1,5 +1,5 @@
 {
-    "date": 1761092756,
+    "date": 1761179126,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4264,6 +4264,18 @@
             "v2": true,
             "versions": [
                 "0.0.5"
+            ]
+        },
+        "ctd_cli": {
+            "cmake_file_name": "ctd_cli",
+            "cmake_target_name": "korgorusze::CLI",
+            "description": "Modern C++20 Command Line Interface with strongly typed arguments.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.3"
             ]
         },
         "cthash": {
@@ -19129,22 +19141,19 @@
         },
         "proxy": {
             "cmake_file_name": "proxy",
-            "cmake_target_name": "msft_proxy",
             "description": "Proxy: Next Generation Polymorphism in C++",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "4.0.1",
+                "3.4.0",
                 "3.3.0",
                 "3.2.0",
                 "3.1.0",
                 "3.0.0",
-                "2.4.0",
-                "2.3.2",
-                "2.3.1",
-                "2.3.0",
-                "2.2.1"
+                "2.4.0"
             ]
         },
         "psimd": {
@@ -22397,6 +22406,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.4.0",
                 "4.3.0",
                 "4.2.1",
                 "4.1.1",
