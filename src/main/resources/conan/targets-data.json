@@ -1,5 +1,5 @@
 {
-    "date": 1761179126,
+    "date": 1761265350,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -523,6 +523,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.4.2",
                 "7.0.1",
                 "6.21.4",
                 "6.20.1",
@@ -3031,6 +3032,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.0",
                 "2.5.0",
                 "2.4.2",
                 "2.4.1",
@@ -4109,9 +4111,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.2.1",
-                "1.1.0",
-                "1.0.10"
+                "1.2.2"
             ]
         },
         "croncpp": {
@@ -9365,6 +9365,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.13.0",
                 "0.12.0",
                 "0.11.0",
                 "0.10.1"
@@ -11442,7 +11443,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.5.32",
+                "2.5.33",
                 "2.5.31",
                 "2.5.27"
             ]
@@ -12551,7 +12552,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.11.1"
+                "2.12.1"
             ]
         },
         "librealsense": {
@@ -16997,6 +16998,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.19.0",
                 "0.17.0"
             ]
         },
@@ -19037,12 +19039,20 @@
             ]
         },
         "proj": {
+            "cmake_file_name": "proj",
+            "cmake_target_name": "PROJ::proj",
+            "components": {
+                "projlib": {
+                    "cmake_target_name": "PROJ::proj"
+                }
+            },
             "description": "Cartographic Projections and Coordinate Transformations Library.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
+                "9.7.0",
                 "9.6.0",
                 "9.5.0",
                 "9.4.1",
@@ -20240,6 +20250,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.8",
                 "0.7.7",
                 "0.7.2",
                 "0.7.1",
@@ -21533,11 +21544,7 @@
             ],
             "v2": true,
             "versions": [
-                "20231011",
-                "20210512",
-                "20210125_a",
-                "20200721",
-                "20190722"
+                "20231011"
             ]
         },
         "sokol": {
@@ -21684,17 +21691,18 @@
         },
         "sparrow": {
             "cmake_file_name": "sparrow",
-            "cmake_target_name": "sparrow::sparrow",
+            "components": {
+                "sparrow": {
+                    "cmake_target_name": "sparrow::sparrow"
+                }
+            },
             "description": "C++20 idiomatic APIs for the Apache Arrow Columnar Format",
             "license": [
                 "Apache-2.0"
             ],
             "v2": true,
             "versions": [
-                "1.1.0",
-                "1.0.0",
-                "0.6.0",
-                "0.5.0"
+                "1.2.0"
             ]
         },
         "spdlog": {
