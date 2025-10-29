@@ -1,5 +1,5 @@
 {
-    "date": 1761611003,
+    "date": 1761697575,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -675,15 +675,10 @@
             ],
             "v2": true,
             "versions": [
+                "22.0.0",
                 "21.0.0",
                 "20.0.0",
-                "19.0.1",
-                "18.1.0",
-                "18.0.0",
-                "17.0.0",
-                "16.1.0",
-                "15.0.0",
-                "14.0.2"
+                "19.0.1"
             ]
         },
         "arsenalgear": {
@@ -1037,6 +1032,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.1",
                 "3.0"
             ]
         },
@@ -1564,7 +1560,8 @@
             ],
             "v2": true,
             "versions": [
-                "cci.20230216"
+                "cci.20230216",
+                "1.129.8930-495"
             ]
         },
         "bigint": {
@@ -2356,6 +2353,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.2",
                 "1.0.0",
                 "0.19.4",
@@ -3613,6 +3611,17 @@
                 "6.0.0"
             ]
         },
+        "cpp-member-accessor": {
+            "cmake_file_name": "accessor",
+            "description": "Library providing legal access to C++ private members",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.0"
+            ]
+        },
         "cpp-optparse": {
             "description": "Python's excellent OptionParser in C++",
             "license": [
@@ -3656,7 +3665,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.1.11"
+                "1.1.12"
             ]
         },
         "cpp-sort": {
@@ -4332,6 +4341,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.0",
                 "1.0.2"
             ]
         },
@@ -5270,10 +5280,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.14.0",
-                "1.13.2",
-                "1.12.0",
-                "1.9.4"
+                "1.15.0"
             ]
         },
         "dpp": {
@@ -5691,7 +5698,7 @@
             "v2": true,
             "versions": [
                 "5.0.0",
-                "3.4.90-unstable+git.2025.08.15",
+                "3.4.1",
                 "3.4.0"
             ]
         },
@@ -10690,6 +10697,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.13.0",
                 "0.12.0",
                 "0.11.0",
                 "0.10.2",
@@ -11592,6 +11600,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.6.1",
                 "1.6.0"
             ]
         },
@@ -13220,6 +13229,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.29",
                 "1.0.26",
                 "1.0.25",
                 "1.0.24",
@@ -17440,7 +17450,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.24.2"
+                "0.24.3"
             ]
         },
         "openldap": {
@@ -24674,6 +24684,8 @@
             ]
         },
         "vulkan-memory-allocator": {
+            "cmake_file_name": "VulkanMemoryAllocator",
+            "cmake_target_name": "GPUOpen::VulkanMemoryAllocator",
             "description": "Easy to integrate Vulkan memory allocation library.",
             "license": [
                 "MIT"
@@ -24681,6 +24693,7 @@
             "v2": true,
             "versions": [
                 "cci.20231120",
+                "3.3.0",
                 "3.0.1",
                 "3.0.0",
                 "2.3.0"
@@ -25746,15 +25759,9 @@
             ],
             "v2": true,
             "versions": [
+                "0.12.0",
                 "0.10.0",
-                "0.9.0",
-                "0.8.0",
-                "0.7.0",
-                "0.6.0",
-                "0.5.1",
-                "0.5.0",
-                "0.4.0",
-                "0.3.0"
+                "0.9.0"
             ]
         },
         "z3": {
