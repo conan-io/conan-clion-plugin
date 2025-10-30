@@ -1,5 +1,5 @@
 {
-    "date": 1761697575,
+    "date": 1761783895,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -834,6 +834,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4",
                 "1.3",
                 "1.2",
                 "1.0.0"
@@ -3677,6 +3678,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.0",
                 "1.17.0",
                 "1.16.0",
                 "1.15.0",
@@ -5773,6 +5775,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.4.0",
                 "4.3.3"
             ]
         },
@@ -6554,9 +6557,6 @@
             "components": {
                 "libflac": {
                     "cmake_target_name": "FLAC::FLAC"
-                },
-                "libflac++": {
-                    "cmake_target_name": "FLAC::FLAC++"
                 }
             },
             "description": "Free Lossless Audio Codec",
@@ -13191,6 +13191,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.3",
                 "1.8.1",
                 "1.8.0",
                 "1.7.2",
@@ -15834,6 +15835,16 @@
                 "4.0.0"
             ]
         },
+        "nanobind": {
+            "description": "Tiny and efficient C++/Python bindings",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "2.9.2"
+            ]
+        },
         "nanodbc": {
             "cmake_file_name": "nanodbc",
             "cmake_target_name": "nanodbc::nanodbc",
@@ -17326,6 +17337,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.4",
                 "1.8.2"
             ]
         },
@@ -17703,13 +17715,13 @@
             "cmake_target_name": "OpenVDB::openvdb",
             "description": "OpenVDB is an open source C++ library comprising a novel hierarchical datastructure and a large suite of tools for the efficient storage and manipulation of sparse volumetric data discretized on three-dimensional grids.",
             "license": [
-                "MPL-2.0"
+                null
             ],
             "v2": true,
             "versions": [
+                "12.1.1",
                 "11.0.0",
-                "10.1.0",
-                "9.1.0"
+                "10.1.0"
             ]
         },
         "openvino": {
@@ -20179,6 +20191,8 @@
             ],
             "v2": true,
             "versions": [
+                "0.22.0",
+                "0.21.0",
                 "0.19.0",
                 "0.18.0",
                 "0.17.0",
@@ -20773,6 +20787,7 @@
             ],
             "v2": true,
             "versions": [
+                "9.2.4",
                 "9.2.3",
                 "9.2.0",
                 "9.0.1",
@@ -21630,6 +21645,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.1.6",
                 "7.1.5",
                 "7.1.2",
                 "7.1.1",
@@ -22933,6 +22949,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.21.0",
                 "0.20.0",
                 "0.18.1",
                 "0.17.0",
