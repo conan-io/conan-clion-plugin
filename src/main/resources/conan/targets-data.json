@@ -1,5 +1,5 @@
 {
-    "date": 1761783895,
+    "date": 1761870245,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1913,9 +1913,6 @@
                 "stacktrace_noop": {
                     "cmake_target_name": "Boost::stacktrace_noop"
                 },
-                "system": {
-                    "cmake_target_name": "Boost::system"
-                },
                 "test": {
                     "cmake_target_name": "Boost::test"
                 },
@@ -1950,6 +1947,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.89.0",
                 "1.88.0",
                 "1.87.0",
                 "1.86.0",
@@ -4635,13 +4633,15 @@
             ]
         },
         "daggy": {
+            "cmake_file_name": "DaggyCore",
+            "cmake_target_name": "daggy::DaggyCore",
             "description": "Data Aggregation Utility and C/C++ developer library for data streams catching",
             "license": [
                 "MIT"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "2.1.2"
+                "2.2.4"
             ]
         },
         "darknet": {
@@ -8683,10 +8683,10 @@
             ],
             "v2": true,
             "versions": [
+                "1.12.0",
                 "1.11.0",
                 "1.10.0",
-                "1.9.0",
-                "1.8.1"
+                "1.9.0"
             ]
         },
         "highway": {
@@ -10391,6 +10391,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.0",
                 "2.4.0",
                 "2.3.0",
                 "2.2.0",
@@ -16956,11 +16957,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.18.1",
-                "1.17.3",
-                "1.16.3",
-                "1.15.1",
-                "1.14.1"
+                "1.18.1"
             ]
         },
         "open-dis-cpp": {
@@ -17005,6 +17002,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.14",
                 "1.4.13",
                 "1.4.11.1",
                 "1.4.6",
@@ -17808,9 +17806,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.5.2",
-                "1.4",
-                "1.3.1"
+                "1.5.2"
             ]
         },
         "opusfile": {
@@ -19638,6 +19634,7 @@
             ],
             "v2": true,
             "versions": [
+                "10.2.0",
                 "10.0.1",
                 "9.0.2",
                 "8.2.0",
