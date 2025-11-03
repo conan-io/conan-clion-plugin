@@ -12,6 +12,19 @@ from recipe_parser import get_package_info_from_recipe, get_basic_info_from_reci
 from repo_crawler import get_recipes, get_modified_recipes
 
 
+def filter_license_nulls(package_info):
+    """
+    Filters null values from the license list to avoid deserialization issues.
+    """
+    if package_info and "license" in package_info:
+        license_list = package_info["license"]
+        if isinstance(license_list, list):
+            # Filter None, null strings and empty strings
+            package_info["license"] = [lic for lic in license_list 
+                                       if lic is not None and lic != "" and lic != "null"]
+    return package_info
+
+
 def main(recipes_dir, input_json_path, output_json_path):
 
     with open(input_json_path, 'r') as f:
@@ -42,8 +55,8 @@ def main(recipes_dir, input_json_path, output_json_path):
         current_recipe_info = packages_info_current.get(recipe_name)
 
         # if the cloned recipe is not outdated we stay with our data, but we update always the versions
-        if not outdated:
-            packages_info[recipe_name] = current_recipe_info
+        if not outdated and current_recipe_info:
+            packages_info[recipe_name] = filter_license_nulls(current_recipe_info.copy())
             # we always update the versions, maybe the config.yml was updated but not the recipe
             packages_info[recipe_name]["versions"] = all_versions
             skipped = skipped + 1
@@ -83,6 +96,10 @@ def main(recipes_dir, input_json_path, output_json_path):
                 packages_info[recipe_name].update(package_info)
             else:
                 failed_references.append(recipe_name)
+
+    # Filter nulls in all libraries before saving (safety measure for existing JSON data)
+    for package_name, package_info in packages_info.items():
+        filter_license_nulls(package_info)
 
     json_data = {"libraries": packages_info, "date": current_date}
 

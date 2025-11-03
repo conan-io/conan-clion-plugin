@@ -34,7 +34,14 @@ def get_basic_info_from_recipe(recipe_name, recipe_path):
     if not description:
         raise Exception(f"could not get basic information for: {recipe_name}")
     basic_info["description"] = description.replace("\n", "").replace("  ", "")
-    basic_info["license"] = [license] if type(license) != list else license
+    # Convert to list if not already a list, then filter out None/null/empty values
+    if license is None:
+        license_list = []
+    elif type(license) != list:
+        license_list = [license] if license else []
+    else:
+        license_list = license
+    basic_info["license"] = [lic for lic in license_list if lic is not None and lic != ""]
     # this is just a speculation, that inspect was successful does not mean is v2 compatible
     basic_info["v2"] = False
     return basic_info

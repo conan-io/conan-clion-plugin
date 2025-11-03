@@ -11,7 +11,14 @@ def get_basic_info_with_inspect(conan_api, recipe_path):
     info["description"] = conanfile_json.get("description", "").replace("\n", "").replace(
         "  ", "")
     license = conanfile_json.get("license", "")
-    info["license"] = [license] if type(license) != list else license
+    # Convert to list if not already a list, then filter out None/null/empty values
+    if license is None:
+        license_list = []
+    elif type(license) != list:
+        license_list = [license] if license else []
+    else:
+        license_list = license
+    info["license"] = [lic for lic in license_list if lic is not None and lic != ""]
     info["v2"] = True
     return info
 
