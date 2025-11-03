@@ -1,5 +1,5 @@
 {
-    "date": 1762129555,
+    "date": 1762175383,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3277,9 +3277,7 @@
         },
         "coin-cbc": {
             "description": "COIN-OR Branch-and-Cut solver",
-            "license": [
-                ""
-            ],
+            "license": [],
             "v2": false,
             "versions": [
                 "2.10.5"
@@ -3665,7 +3663,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.1.12"
+                "1.1.13"
             ]
         },
         "cpp-sort": {
@@ -6476,6 +6474,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.0",
                 "7.1.1",
                 "4.4.6"
             ]
@@ -8422,16 +8421,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.11.2",
-                "1.11.1",
-                "1.11.0.1",
-                "1.11.0",
-                "1.10.0",
-                "1.9.0",
-                "1.8.6",
-                "1.8.5",
-                "1.8.4",
-                "1.8.3"
+                "1.11.2"
             ]
         },
         "half": {
@@ -10960,14 +10950,8 @@
             ],
             "v2": true,
             "versions": [
-                "1.23",
+                "1.25",
                 "1.22",
-                "1.21",
-                "1.20",
-                "1.19",
-                "1.18",
-                "1.17",
-                "1.15",
                 "1.14",
                 "1.12",
                 "1.10",
@@ -12509,9 +12493,7 @@
         },
         "librasterlite2": {
             "description": "librasterlite2 is an open source library that stores and retrieves huge raster coverages using a SpatiaLite DBMS.",
-            "license": [
-                ""
-            ],
+            "license": [],
             "v2": false,
             "versions": [
                 "1.1.0-beta1"
@@ -17427,7 +17409,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.1.6.2",
+                "3.1.7.0",
                 "2.5.19.1"
             ]
         },
@@ -18558,6 +18540,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.1",
                 "2.2.0",
                 "2.1.0",
                 "2.0.3",
@@ -18902,9 +18885,7 @@
         },
         "poppler": {
             "description": "Poppler is a PDF rendering library based on the xpdf-3.0 code base",
-            "license": [
-                ""
-            ],
+            "license": [],
             "v2": false,
             "versions": [
                 "21.07.0",
@@ -21287,9 +21268,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.2.2",
-                "1.2.1",
-                "1.2.0"
+                "1.2.3"
             ]
         },
         "simd": {
