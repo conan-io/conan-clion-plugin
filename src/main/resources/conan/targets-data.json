@@ -17725,7 +17725,8 @@
             "cmake_target_name": "OpenVDB::openvdb",
             "description": "OpenVDB is an open source C++ library comprising a novel hierarchical datastructure and a large suite of tools for the efficient storage and manipulation of sparse volumetric data discretized on three-dimensional grids.",
             "license": [
-                null
+                "Apache-2.0",
+                "MPL-2.0"
             ],
             "v2": true,
             "versions": [
