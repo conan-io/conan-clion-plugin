@@ -182,6 +182,59 @@ jobs:
           tool-cache: false
           large-packages: false
 
+      - name: Disk Space Cleanup
+        shell: bash
+        run: |
+          echo "=== Disk space BEFORE cleanup ==="
+          df -h
+          echo ""
+          echo "=== Cleaning system packages ==="
+          sudo rm -rf /usr/local/lib/android || true
+          sudo rm -rf /usr/share/dotnet || true
+          sudo rm -rf /opt/ghc || true
+          sudo rm -rf /usr/local/share/boost || true
+          sudo rm -rf /usr/share/swift || true
+          sudo rm -rf /usr/share/miniconda || true
+          sudo rm -rf /usr/local/share/powershell || true
+          sudo rm -rf /usr/local/share/chromium || true
+          sudo rm -rf /usr/local/share/firefox || true
+          sudo rm -rf /usr/local/share/edge_driver || true
+          sudo rm -rf /usr/local/share/phantomjs || true
+          sudo rm -rf /usr/local/share/selenium || true
+          sudo rm -rf /usr/local/share/mono || true
+          sudo rm -rf /usr/local/share/llvm || true
+          sudo rm -rf /usr/local/share/qt* || true
+          sudo rm -rf /usr/local/share/texlive || true
+          sudo rm -rf /usr/local/share/texmf* || true
+          sudo apt-get clean || true
+          sudo apt-get autoremove -y || true
+          echo ""
+          echo "=== Cleaning Docker ==="
+          docker system prune -af --volumes || true
+          echo ""
+          echo "=== Cleaning runner logs and caches ==="
+          sudo rm -rf /home/runner/actions-runner/cached/_diag/* || true
+          sudo rm -rf /home/runner/.cache/* || true
+          sudo rm -rf /home/runner/.gradle/caches/* || true
+          sudo rm -rf /home/runner/.gradle/wrapper/* || true
+          sudo rm -rf /tmp/* || true
+          sudo rm -rf /var/tmp/* || true
+          echo ""
+          echo "=== Cleaning tool caches ==="
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY" || true
+          sudo rm -rf /opt/hostedtoolcache/* || true
+          echo ""
+          echo "=== Cleaning build artifacts ==="
+          sudo find /home/runner -name "*.log" -type f -delete || true
+          sudo find /home/runner -name "*.tmp" -type f -delete || true
+          sudo find /home/runner -name ".gradle" -type d -exec rm -rf {} + 2>/dev/null || true
+          echo ""
+          echo "=== Disk space AFTER aggressive cleanup ==="
+          df -h
+          echo ""
+          echo "=== Available disk space ==="
+          df -h / | tail -1 | awk '{print "Available: " $4 " (" $5 " used)"}'
+
       # Check out the current repository
       - name: Fetch Sources
         uses: actions/checkout@v4
@@ -193,15 +246,25 @@ jobs:
           distribution: zulu
           java-version: 21
 
-      # Setup Gradle
+      # Setup Gradle without cache to save space
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
-          cache-read-only: true
+          cache-read-only: false
+
+      # Clean Plugin Verifier cache before starting
+      - name: Clean Plugin Verifier Cache
+        shell: bash
+        run: |
+          echo "=== Cleaning Plugin Verifier cache ==="
+          rm -rf ~/.pluginVerifier/ides/* || true
+          rm -rf ~/.pluginVerifier/verifications/* || true
+          echo "=== Disk space before verification ==="
+          df -h
 
       # Run Verify Plugin task and IntelliJ Plugin Verifier tool
       - name: Run Plugin Verification tasks
-        run: ./gradlew verifyPlugin
+        run: ./gradlew verifyPlugin --no-daemon
 
       # Collect Plugin Verifier Result
       - name: Collect Plugin Verifier Result
