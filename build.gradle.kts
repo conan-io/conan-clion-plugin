@@ -107,8 +107,11 @@ intellijPlatform {
     }
 
     pluginVerification {
+        freeArgs = providers.gradleProperty("pluginVerifierArgs").map { it.split(' ') }
         ides {
-            recommended()
+            // Only verify against minimum and maximum supported versions to save disk space
+            latestForBranch("CL", "242")  // CLion 2024.2 (minimum supported)
+            latestForBranch("CL", "251")  // CLion 2025.1 (latest/maximum)
         }
     }
 }
