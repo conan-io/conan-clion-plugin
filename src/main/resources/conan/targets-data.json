@@ -1,5 +1,5 @@
 {
-    "date": 1762302334,
+    "date": 1762388762,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -434,15 +434,7 @@
             ],
             "v2": true,
             "versions": [
-                "10.13.0",
-                "10.12.2",
-                "10.12.1",
-                "10.12.0",
-                "10.11.0",
-                "10.10.0",
-                "10.9.1",
-                "9.0.0",
-                "8.9.2"
+                "10.13.0"
             ]
         },
         "apr": {
@@ -2513,15 +2505,6 @@
             "v2": true,
             "versions": [
                 "3.11.0",
-                "3.10.0",
-                "3.9.1",
-                "3.9.0",
-                "3.8.1",
-                "3.8.0",
-                "3.7.1",
-                "3.6.0",
-                "3.5.4",
-                "3.4.0",
                 "2.13.10",
                 "2.13.9",
                 "2.13.8",
@@ -3219,13 +3202,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.10.1",
-                "3.9.3",
-                "3.9.2",
-                "3.9.1",
-                "3.8.3",
-                "3.8.2",
-                "3.8.0"
+                "3.11.0"
             ]
         },
         "cnpy": {
@@ -3553,16 +3530,12 @@
             ],
             "v2": true,
             "versions": [
+                "0.27.0",
                 "0.20.1",
                 "0.19.0",
                 "0.18.3",
-                "0.18.2",
-                "0.18.1",
-                "0.18.0",
                 "0.17.3",
-                "0.17.1",
                 "0.16.3",
-                "0.16.0",
                 "0.15.3",
                 "0.14.3",
                 "0.14.1"
@@ -4565,6 +4538,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10.5",
                 "0.10.4",
                 "0.10.3",
                 "0.10.2"
@@ -4587,6 +4561,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.10.5",
                 "0.10.4"
             ]
         },
@@ -6245,16 +6220,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.4.1",
-                "2.4.0",
-                "2.3.2",
-                "2.3.1",
-                "2.3.0",
-                "2.2.0",
-                "2.1.0",
-                "2.0.9",
-                "2.0.8",
-                "2.0.7"
+                "2.4.1"
             ]
         },
         "faker-cxx": {
@@ -7406,6 +7372,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.0",
                 "1.1.0"
             ]
         },
@@ -10075,6 +10042,27 @@
                 "v2-alpha3"
             ]
         },
+        "kiss-icp": {
+            "components": {
+                "core": {
+                    "cmake_target_name": "kiss-icp::kiss_icp_core"
+                },
+                "metrics": {
+                    "cmake_target_name": "kiss-icp::kiss_icp_metrics"
+                },
+                "pipeline": {
+                    "cmake_target_name": "kiss-icp::kiss_icp_pipeline"
+                }
+            },
+            "description": "A LiDAR odometry pipeline that just works",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.2.3"
+            ]
+        },
         "kissfft": {
             "cmake_file_name": "kissfft",
             "cmake_target_name": "kissfft::kissfft",
@@ -10551,17 +10539,15 @@
             ]
         },
         "libavrocpp": {
+            "cmake_file_name": "avro-cpp",
+            "cmake_target_name": "avro-cpp::avrocpp_s",
             "description": "Avro is a data serialization system.",
             "license": [
                 "Apache-2.0"
             ],
             "v2": true,
             "versions": [
-                "1.11.3",
-                "1.11.1",
-                "1.11.0",
-                "1.10.2",
-                "1.10.1"
+                "1.12.1"
             ]
         },
         "libb2": {
@@ -15904,6 +15890,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20241110",
                 "cci.20230207"
             ]
         },
@@ -17305,9 +17292,9 @@
             ],
             "v2": true,
             "versions": [
-                "3.4.2",
-                "3.3.5",
-                "3.2.4",
+                "3.4.3",
+                "3.3.6",
+                "3.2.5",
                 "2.5.9",
                 "2.5.7"
             ]
@@ -20677,12 +20664,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.9.8",
-                "0.9.6",
-                "0.9.5",
-                "0.9.4",
-                "0.9.1",
-                "0.9.0"
+                "0.9.10"
             ]
         },
         "samarium": {
@@ -21095,6 +21077,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.12.1",
                 "0.11.3",
                 "0.11.1",
                 "0.10.0",
@@ -21908,6 +21891,16 @@
                 "4.6.1",
                 "4.5.7",
                 "4.4.3"
+            ]
+        },
+        "sqlgen": {
+            "description": "sqlgen is an ORM and SQL query generator for C++-20, similar to Python's SQLAlchemy/SQLModel or Rust's Diesel.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.4.0"
             ]
         },
         "sqlite3": {
@@ -22836,6 +22829,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.5.1",
                 "5.5.0",
                 "5.4.1",
                 "5.3.4",
@@ -24946,6 +24940,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.2",
                 "1.7.6",
                 "1.7.5",
                 "1.7.4"
@@ -25318,6 +25313,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.8",
                 "1.3.6",
                 "1.3.4",
                 "1.3.3",
