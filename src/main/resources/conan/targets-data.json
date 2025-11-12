@@ -1,5 +1,5 @@
 {
-    "date": 1762820712,
+    "date": 1762907077,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4672,7 +4672,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.5.1"
+                "1.5.2"
             ]
         },
         "daw_header_libraries": {
@@ -6279,6 +6279,18 @@
             "versions": [
                 "3.2.1",
                 "2.14.3"
+            ]
+        },
+        "fast-dds-gen": {
+            "cmake_file_name": "fastddsgen",
+            "cmake_target_name": "fastddsgen::fastddsgen",
+            "description": "eProsima Fast DDS IDL Code Generator",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "4.1.0"
             ]
         },
         "fast_double_parser": {
@@ -10656,6 +10668,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.77",
                 "2.75",
                 "2.73",
                 "2.70",
@@ -18930,6 +18943,17 @@
                 "0.1.0"
             ]
         },
+        "portaudio": {
+            "cmake_target_name": "portaudio",
+            "description": "A free, cross-platform, open source, audio I/O library.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "19.7"
+            ]
+        },
         "poselib": {
             "cmake_file_name": "PoseLib",
             "cmake_target_name": "PoseLib::PoseLib",
@@ -21323,6 +21347,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.5.0",
                 "7.1.0",
                 "6.3.1",
                 "6.2.0",
@@ -22162,11 +22187,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.2",
-                "4.1.1",
-                "3.9",
-                "3.5.1",
-                "1.0.0-rc1"
+                "5.0"
             ]
         },
         "stdgpu": {
@@ -24078,6 +24099,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.8.1",
                 "4.5.0",
                 "4.4.0",
                 "4.3.1",
