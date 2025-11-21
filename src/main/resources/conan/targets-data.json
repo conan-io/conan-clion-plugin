@@ -1,5 +1,5 @@
 {
-    "date": 1763598271,
+    "date": 1763684656,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -43,11 +43,7 @@
             ],
             "v2": true,
             "versions": [
-                "25.01",
-                "24.09",
-                "23.01",
-                "22.01",
-                "19.00"
+                "25.01"
             ]
         },
         "aaf": {
@@ -5179,6 +5175,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2",
                 "1.0",
                 "0.8",
                 "0.6",
@@ -17476,7 +17473,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.24.5"
+                "0.25.3"
             ]
         },
         "openldap": {
@@ -25192,6 +25189,16 @@
             "versions": [
                 "10.0.9163",
                 "9.1.5321"
+            ]
+        },
+        "wxsqlite3": {
+            "description": "wxSQLite3 is a C++ wrapper around the SQLite database designed for use in wxWidgets applications.",
+            "license": [
+                "LGPL-3.0+ WITH WxWindows-exception-3.1"
+            ],
+            "v2": true,
+            "versions": [
+                "4.11.0"
             ]
         },
         "wxwidgets": {
