@@ -1,5 +1,5 @@
 {
-    "date": 1764203084,
+    "date": 1764289440,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -22490,6 +22490,17 @@
                 "0.10.1",
                 "0.9.0",
                 "0.8.1"
+            ]
+        },
+        "syscalls-cpp": {
+            "cmake_target_name": "sapdragon::syscalls-cpp",
+            "description": " A modern C++20 header-only library for advanced direct system call invocation.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.2.0"
             ]
         },
         "systemc": {
