@@ -1,5 +1,5 @@
 {
-    "date": 1764289440,
+    "date": 1764375842,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7120,6 +7120,7 @@
             ],
             "v2": true,
             "versions": [
+                "6.1.9",
                 "6.0.2",
                 "5.0.0",
                 "4.1.1",
@@ -10852,6 +10853,7 @@
             ],
             "v2": true,
             "versions": [
+                "8.17.0",
                 "8.16.0",
                 "8.15.0"
             ]
@@ -13452,7 +13454,8 @@
             ],
             "v2": true,
             "versions": [
-                "3.4"
+                "4.1",
+                "3.6"
             ]
         },
         "libxcrypt": {
@@ -15325,7 +15328,7 @@
             ]
         },
         "mongo-c-driver": {
-            "cmake_file_name": "mongoc-1.0",
+            "cmake_file_name": "mongoc",
             "cmake_target_name": "mongo::mongoc_static",
             "components": {
                 "bson": {
@@ -15341,7 +15344,8 @@
             ],
             "v2": true,
             "versions": [
-                "1.30.3",
+                "2.2.0",
+                "1.30.6",
                 "1.29.2",
                 "1.29.1",
                 "1.29.0",
@@ -21211,6 +21215,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.2",
                 "2.6.2",
                 "2.6.1",
                 "2.6.0",
