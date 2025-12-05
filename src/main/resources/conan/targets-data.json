@@ -1,5 +1,5 @@
 {
-    "date": 1764807948,
+    "date": 1764894341,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2072,6 +2072,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.2.0",
                 "1.1.0",
                 "1.0.9"
             ]
@@ -20817,6 +20818,7 @@
             ],
             "v2": true,
             "versions": [
+                "10.0.0",
                 "9.2.4",
                 "9.2.3",
                 "9.2.0",
@@ -24531,6 +24533,25 @@
                 "4.200",
                 "4.038",
                 "4.034"
+            ]
+        },
+        "verilog-slang": {
+            "cmake_file_name": "slang",
+            "components": {
+                "boost_unordered": {
+                    "cmake_target_name": "slang::boost_unordered"
+                },
+                "core": {
+                    "cmake_target_name": "slang::slang"
+                }
+            },
+            "description": "SystemVerilog compiler and language services",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "9.1"
             ]
         },
         "very-simple-smtps": {
