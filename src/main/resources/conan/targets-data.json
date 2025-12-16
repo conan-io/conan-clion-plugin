@@ -1,5 +1,5 @@
 {
-    "date": 1765758501,
+    "date": 1765844772,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3143,7 +3143,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.2.0",
+                "4.2.1",
                 "3.31.10"
             ]
         },
@@ -3538,6 +3538,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.28.0",
                 "0.27.0",
                 "0.20.1",
                 "0.19.0",
@@ -7534,6 +7535,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.26",
                 "0.22.5",
                 "0.21"
             ]
@@ -8638,17 +8640,12 @@
         "hidapi": {
             "description": "HIDAPI is a multi-platform library which allows an application to interface with USB and Bluetooth HID-Class devices on Windows, Linux, FreeBSD, and macOS.",
             "license": [
-                "GPL-3-or-later",
+                "GPL-3.0-or-later",
                 "BSD-3-Clause"
             ],
             "v2": true,
             "versions": [
-                "0.14.0",
-                "0.13.1",
-                "0.12.0",
-                "0.11.2",
-                "0.11.0",
-                "0.10.1"
+                "0.15.0"
             ]
         },
         "highfive": {
@@ -10113,6 +10110,18 @@
                 "0.0.1"
             ]
         },
+        "kleidiai": {
+            "cmake_file_name": "KleidiAI",
+            "cmake_target_name": "KleidiAI::kleidiai",
+            "description": "KleidiAI is an open-source library that provides optimized performance-critical routines, also known as micro-kernels, for artificial intelligence (AI) workloads tailored for Arm CPUs.",
+            "license": [
+                "Apache-2.0 AND BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.18.0"
+            ]
+        },
         "kmod": {
             "description": "linux kernel module handling library",
             "license": [
@@ -10898,8 +10907,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.23.2",
-                "0.22.2"
+                "0.24.0"
             ]
         },
         "libdatrie": {
@@ -11383,6 +11391,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.26",
                 "0.22"
             ]
         },
@@ -15409,16 +15418,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.0.21",
-                "2.0.18",
-                "2.0.15",
-                "2.0.14",
-                "2.0.12",
-                "2.0.11",
-                "2.0.10",
-                "2.0.7",
-                "2.0.5",
-                "2.0.3",
+                "2.0.22",
                 "1.6.12"
             ]
         },
@@ -15945,6 +15945,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.01",
                 "2.16.01",
                 "2.15.05"
             ]
@@ -24312,6 +24313,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.41.2",
                 "2.39.2",
                 "2.39"
             ]
