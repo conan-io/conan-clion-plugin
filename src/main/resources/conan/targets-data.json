@@ -1,5 +1,5 @@
 {
-    "date": 1766017358,
+    "date": 1766103966,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -758,6 +758,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20251209",
                 "cci.20241216",
                 "cci.20240531",
                 "cci.20230325",
@@ -1377,6 +1378,16 @@
             "v2": true,
             "versions": [
                 "cci.20210618"
+            ]
+        },
+        "barkeep": {
+            "description": "Small C++ header to display async animations, counters, progress bars, and status messages",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.5"
             ]
         },
         "base64": {
@@ -2538,6 +2549,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.12.2",
                 "4.12.1",
                 "4.11",
                 "4.10.2",
@@ -16944,21 +16956,21 @@
         },
         "onnx": {
             "cmake_file_name": "ONNX",
+            "components": {
+                "libonnx": {
+                    "cmake_target_name": "ONNX::onnx"
+                },
+                "onnx_proto": {
+                    "cmake_target_name": "ONNX::onnx_proto"
+                }
+            },
             "description": "Open standard for machine learning interoperability.",
             "license": [
                 "Apache-2.0"
             ],
             "v2": true,
             "versions": [
-                "1.18.0",
-                "1.17.0",
-                "1.16.2",
-                "1.16.1",
-                "1.16.0",
-                "1.15.0",
-                "1.14.1",
-                "1.14.0",
-                "1.13.1"
+                "1.20.0"
             ]
         },
         "onnxruntime": {
@@ -16970,7 +16982,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.18.1"
+                "1.23.2"
             ]
         },
         "open-dis-cpp": {
@@ -19516,6 +19528,31 @@
                 "11.1.1"
             ]
         },
+        "qpid-proton": {
+            "cmake_file_name": "ProtonCpp",
+            "components": {
+                "core": {
+                    "cmake_target_name": "Proton::core"
+                },
+                "cpp": {
+                    "cmake_target_name": "Proton::cpp"
+                },
+                "proactor": {
+                    "cmake_target_name": "Proton::proactor"
+                },
+                "proton": {
+                    "cmake_target_name": "Proton::proton"
+                }
+            },
+            "description": "Qpid Proton is a high-performance, lightweight messaging library.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.40.0"
+            ]
+        },
         "qpoases": {
             "description": "Open-source C++ implementation of the recently proposed online active set strategy.",
             "license": [
@@ -21495,14 +21532,22 @@
             ]
         },
         "sleef": {
+            "cmake_file_name": "sleef",
+            "components": {
+                "sleef": {
+                    "cmake_target_name": "sleef::sleef"
+                },
+                "sleefquad": {
+                    "cmake_target_name": "sleef::sleefquad"
+                }
+            },
             "description": "SLEEF is a library that implements vectorized versions of C standard math functions.",
             "license": [
                 "BSL-1.0"
             ],
             "v2": true,
             "versions": [
-                "3.6",
-                "3.5.1"
+                "3.9.0"
             ]
         },
         "sml": {
@@ -24939,6 +24984,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.14.1",
                 "0.12.0",
                 "0.11.0",
                 "0.10.1",
