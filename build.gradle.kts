@@ -111,8 +111,8 @@ intellijPlatform {
         ides {
             // Only verify against minimum and maximum supported versions to save disk space
             // Using branch numbers for latest version in each branch
-            "CL-242"  // CLion 2024.2 branch (minimum supported)
-            "CL-251"  // CLion 2025.1 branch (latest/maximum)
+            create(IntelliJPlatformType.CLion, "2024.2")
+            create(IntelliJPlatformType.CLion, "2025.1")
         }
     }
 }
