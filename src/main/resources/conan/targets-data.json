@@ -1,5 +1,5 @@
 {
-    "date": 1766449537,
+    "date": 1766535956,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2249,15 +2249,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.34.5",
-                "1.34.3",
-                "1.34.1",
-                "1.33.1",
-                "1.33.0",
-                "1.32.3",
-                "1.32.2",
-                "1.32.1",
-                "1.31.0",
+                "1.34.6",
                 "1.25.0"
             ]
         },
@@ -2459,17 +2451,9 @@
             ],
             "v2": true,
             "versions": [
+                "1.3.0",
                 "1.1.0",
-                "1.0.2",
-                "1.0.1",
-                "1.0.0",
-                "0.10.4",
-                "0.10.3",
-                "0.10.1",
-                "0.10.0",
-                "0.9.1",
-                "0.8.0",
-                "0.7.0"
+                "1.0.2"
             ]
         },
         "capstone": {
@@ -4614,6 +4598,18 @@
             "versions": [
                 "4.2.1",
                 "4.2.0"
+            ]
+        },
+        "d3d12-memory-allocator": {
+            "cmake_file_name": "D3D12MemoryAllocator",
+            "cmake_target_name": "GPUOpen::D3D12MemoryAllocator",
+            "description": "The open source memory allocation library for the D3D12 API",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "3.0.1"
             ]
         },
         "dacap-clip": {
@@ -11411,17 +11407,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.8.4",
-                "1.8.3",
-                "1.8.2",
-                "1.8.1",
-                "1.7.2",
-                "1.5.0",
-                "1.4.3",
-                "1.3.0",
-                "1.2.0",
-                "1.1.1",
-                "1.0.1"
+                "1.9.1"
             ]
         },
         "libglvnd": {
@@ -11752,6 +11738,18 @@
             "v2": true,
             "versions": [
                 "1.3.0"
+            ]
+        },
+        "liblifthttp": {
+            "cmake_file_name": "lifthttp",
+            "cmake_target_name": "lifthttp::lifthttp",
+            "description": "Safe and easy to use C++17 HTTP client library.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "4.4.2"
             ]
         },
         "libliftoff": {
@@ -16338,19 +16336,8 @@
             ],
             "v2": true,
             "versions": [
-                "3.93",
-                "3.92",
-                "3.91",
-                "3.89",
-                "3.88.1",
-                "3.87",
-                "3.86",
-                "3.85",
-                "3.84",
-                "3.83",
-                "3.77",
-                "3.76.1",
-                "3.72"
+                "3.119",
+                "3.93"
             ]
         },
         "nsync": {
@@ -17024,8 +17011,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.19.0",
-                "0.17.0"
+                "0.20.0"
             ]
         },
         "openal": {
@@ -20508,14 +20494,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.36",
-                "0.35",
-                "0.34",
-                "0.33",
-                "0.32",
-                "0.31",
-                "0.30",
-                "0.29"
+                "0.39"
             ]
         },
         "rpclib": {
@@ -20875,6 +20854,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.0",
                 "1.3.0",
                 "1.2.0",
                 "1.1.0",
@@ -21006,8 +20986,7 @@
             "v2": true,
             "versions": [
                 "3.2.4",
-                "2.8.2",
-                "2.6.3"
+                "2.8.8"
             ]
         },
         "sdl_mixer": {
@@ -21019,7 +20998,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.8.0"
+                "2.8.1"
             ]
         },
         "sdl_net": {
@@ -21031,8 +21010,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.2.0",
-                "2.0.1"
+                "2.2.0"
             ]
         },
         "sdl_ttf": {
@@ -22288,6 +22266,16 @@
             "v2": true,
             "versions": [
                 "cci.20240508"
+            ]
+        },
+        "stk": {
+            "description": "The Synthesis ToolKit in C++",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "5.0.1"
             ]
         },
         "stlab": {
