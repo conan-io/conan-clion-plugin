@@ -194,25 +194,15 @@ jobs:
           distribution: zulu
           java-version: 21
 
-      # Setup Gradle without cache to save space
+      # Setup Gradle
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
         with:
-          cache-read-only: false
-
-      # Clean Plugin Verifier cache before starting
-      - name: Clean Plugin Verifier Cache
-        shell: bash
-        run: |
-          echo "=== Cleaning Plugin Verifier cache ==="
-          rm -rf ~/.pluginVerifier/ides/* || true
-          rm -rf ~/.pluginVerifier/verifications/* || true
-          echo "=== Disk space before verification ==="
-          df -h
+          cache-read-only: true
 
       # Run Verify Plugin task and IntelliJ Plugin Verifier tool
       - name: Run Plugin Verification tasks
-        run: ./gradlew verifyPlugin --no-daemon
+        run: ./gradlew verifyPlugin
 
       # Collect Plugin Verifier Result
       - name: Collect Plugin Verifier Result
