@@ -25,7 +25,8 @@ import javax.swing.JPanel
 object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, false, false, false, false, false) {
     init {
         withFileFilter { it.isConanExecutable }
-        withTitle("Select Conan executable")
+        withTitle(UIBundle.message("config.file.selector.title"))
+        withDescription(UIBundle.message("config.file.selector.description"))
     }
 }
 
@@ -41,12 +42,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     private val profileCheckboxes: MutableList<JBCheckBox> = mutableListOf()
 
     private val conanExecutablePathField = TextFieldWithBrowseButton().apply {
-        addBrowseFolderListener(
-            UIBundle.message("config.file.selector.title"),
-            UIBundle.message("config.file.selector.description"),
-            project,
-            ConanExecutableChooserDescriptor
-        )
+        addBrowseFolderListener(project, ConanExecutableChooserDescriptor)
     }
 
     private val automaticallyAddCheckbox =
