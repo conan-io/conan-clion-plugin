@@ -1,10 +1,9 @@
+.DS_Store
 .gradle
 .idea
+.intellijPlatform
+.kotlin
 .qodana
 build
-.DS_Store
 *.pyc
 .ci/tmp/*
-.DS_Store
-.intellijPlatform/
-.DS_Store

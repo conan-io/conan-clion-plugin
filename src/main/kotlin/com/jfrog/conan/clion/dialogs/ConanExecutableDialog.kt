@@ -3,7 +3,8 @@ package com.jfrog.conan.clion.dialogs
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.fileChooser.FileChooserDescriptor
-import com.intellij.openapi.observable.util.whenTextChanged
+import javax.swing.event.DocumentEvent
+import javax.swing.event.DocumentListener
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
@@ -24,7 +25,8 @@ import javax.swing.JPanel
 object ConanExecutableChooserDescriptor : FileChooserDescriptor(true, false, false, false, false, false) {
     init {
         withFileFilter { it.isConanExecutable }
-        withTitle("Select Conan executable")
+        withTitle(UIBundle.message("config.file.selector.title"))
+        withDescription(UIBundle.message("config.file.selector.description"))
     }
 }
 
@@ -40,12 +42,7 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
     private val profileCheckboxes: MutableList<JBCheckBox> = mutableListOf()
 
     private val conanExecutablePathField = TextFieldWithBrowseButton().apply {
-        addBrowseFolderListener(
-            UIBundle.message("config.file.selector.title"),
-            UIBundle.message("config.file.selector.description"),
-            project,
-            ConanExecutableChooserDescriptor
-        )
+        addBrowseFolderListener(project, ConanExecutableChooserDescriptor)
     }
 
     private val automaticallyAddCheckbox =
@@ -125,9 +122,11 @@ class ConanExecutableDialogWrapper(val project: Project) : DialogWrapper(true) {
                 updateOkButtonState()
             }
 
-            conanExecutablePathField.whenTextChanged {
-                updateOkButtonState()
-            }
+            conanExecutablePathField.textField.document.addDocumentListener(object : DocumentListener {
+                override fun insertUpdate(e: DocumentEvent?) = updateOkButtonState()
+                override fun removeUpdate(e: DocumentEvent?) = updateOkButtonState()
+                override fun changedUpdate(e: DocumentEvent?) = updateOkButtonState()
+            })
 
             useConanFromSystemCheckBox.addActionListener {
                 updateOkButtonState()
