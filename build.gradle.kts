@@ -110,10 +110,7 @@ intellijPlatform {
     pluginVerification {
         freeArgs = providers.gradleProperty("pluginVerifierArgs").map { it.split(' ') }
         ides {
-            // Only verify against minimum and maximum supported versions to save disk space
-            // Using branch numbers for latest version in each branch
-            create(IntelliJPlatformType.CLion, "2024.2")
-            create(IntelliJPlatformType.CLion, "2025.1")
+            recommended()
         }
     }
 }
