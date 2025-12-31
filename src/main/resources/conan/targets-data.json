@@ -1,5 +1,5 @@
 {
-    "date": 1767054358,
+    "date": 1767140837,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -266,6 +266,16 @@
             "v2": true,
             "versions": [
                 "0.2.1"
+            ]
+        },
+        "alpaka": {
+            "description": "The alpaka library is a header-only C++20 abstraction library for accelerator development",
+            "license": [
+                "MPL-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "2.1.1"
             ]
         },
         "amgcl": {
@@ -2507,6 +2517,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.12.0",
                 "3.11.0",
                 "2.13.10",
                 "2.13.9",
@@ -9349,6 +9360,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.14.0",
                 "0.13.0",
                 "0.12.0",
                 "0.11.0",
