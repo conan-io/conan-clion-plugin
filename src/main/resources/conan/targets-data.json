@@ -1,5 +1,5 @@
 {
-    "date": 1767313616,
+    "date": 1767399908,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1307,6 +1307,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.4.2",
                 "5.3.3",
                 "5.3.2",
                 "5.3.1",
@@ -3548,16 +3549,8 @@
             ],
             "v2": true,
             "versions": [
-                "0.28.0",
-                "0.27.0",
-                "0.20.1",
-                "0.19.0",
-                "0.18.3",
-                "0.17.3",
-                "0.16.3",
-                "0.15.3",
-                "0.14.3",
-                "0.14.1"
+                "0.29.0",
+                "0.28.0"
             ]
         },
         "cpp-ipc": {
@@ -6437,6 +6430,18 @@
             "v2": true,
             "versions": [
                 "cci.20200628"
+            ]
+        },
+        "fbgemm": {
+            "cmake_file_name": "fbgemmLibrary",
+            "cmake_target_name": "fbgemm",
+            "description": "Facebook General Matrix Multiplication is a low-precision, high-performance matrix-matrix multiplication",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.4.2"
             ]
         },
         "fcl": {
@@ -23623,7 +23628,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.12.2"
+                "0.13.1"
             ]
         },
         "transwarp": {
