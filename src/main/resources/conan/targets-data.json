@@ -1,5 +1,5 @@
 {
-    "date": 1768177697,
+    "date": 1768263783,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -8493,9 +8493,7 @@
             ],
             "v2": true,
             "versions": [
-                "12.3.0",
-                "11.4.1",
-                "8.3.0"
+                "12.3.0"
             ]
         },
         "hash-library": {
@@ -16006,6 +16004,16 @@
                 "0.3.0"
             ]
         },
+        "neko-schema": {
+            "description": "A lightweight C++20 header-only library providing fundamental type definitions and utilities for the Neko ecosystem",
+            "license": [
+                "MIT OR Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.5"
+            ]
+        },
         "net-snmp": {
             "description": "Simple Network Management Protocol (SNMP) is a widely used protocol for monitoring the health and welfare of network equipment (eg. routers), computer equipment and even devices like UPSs.",
             "license": [
@@ -20351,6 +20359,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.7.9",
                 "0.7.8",
                 "0.7.7",
                 "0.7.2",
