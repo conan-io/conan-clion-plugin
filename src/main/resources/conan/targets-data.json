@@ -1,5 +1,5 @@
 {
-    "date": 1768782507,
+    "date": 1768868767,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4703,7 +4703,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.5.2"
+                "1.5.3"
             ]
         },
         "daw_header_libraries": {
@@ -6319,7 +6319,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.1.0"
+                "4.2.0"
             ]
         },
         "fast_double_parser": {
@@ -6852,9 +6852,8 @@
             ],
             "v2": true,
             "versions": [
-                "2.15.0",
-                "2.14.2",
-                "2.13.93"
+                "2.17.1",
+                "2.15.0"
             ]
         },
         "foonathan-lexy": {
@@ -8488,7 +8487,11 @@
         },
         "harfbuzz": {
             "cmake_file_name": "harfbuzz",
-            "cmake_target_name": "harfbuzz::harfbuzz",
+            "components": {
+                "core": {
+                    "cmake_target_name": "harfbuzz::harfbuzz"
+                }
+            },
             "description": "HarfBuzz is an OpenType text shaping engine.",
             "license": [
                 "MIT"
