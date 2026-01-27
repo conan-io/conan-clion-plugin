@@ -1,5 +1,5 @@
 {
-    "date": 1769387341,
+    "date": 1769473728,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -12663,9 +12663,9 @@
             ],
             "v2": true,
             "versions": [
+                "0.21.7",
                 "0.21.4",
-                "0.20.5",
-                "0.20.4"
+                "0.20.5"
             ]
         },
         "libselinux": {
