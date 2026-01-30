@@ -1,5 +1,5 @@
 {
-    "date": 1769646637,
+    "date": 1769733048,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2475,6 +2475,18 @@
                 "1.0.0"
             ]
         },
+        "casbin": {
+            "cmake_file_name": "casbin",
+            "cmake_target_name": "casbin::casbin",
+            "description": "An authorization library that supports access control models like ACL, RBAC, ABAC in C/C++",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.66.3"
+            ]
+        },
         "cassandra-cpp-driver": {
             "description": "DataStax C/C++ Driver for Apache Cassandra and DataStax Products",
             "license": [
@@ -2713,7 +2725,9 @@
             ],
             "v2": true,
             "versions": [
+                "6.1.1",
                 "6.1",
+                "6.0.3",
                 "6.0.2",
                 "6.0.1",
                 "6.0",
@@ -3151,7 +3165,7 @@
             "v2": true,
             "versions": [
                 "4.2.2",
-                "3.31.10"
+                "3.31.11"
             ]
         },
         "cminpack": {
