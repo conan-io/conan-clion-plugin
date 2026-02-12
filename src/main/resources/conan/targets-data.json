@@ -1,5 +1,5 @@
 {
-    "date": 1770770267,
+    "date": 1770856365,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -12293,7 +12293,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.6.54"
+                "1.6.55"
             ]
         },
         "libpointmatcher": {
@@ -13936,6 +13936,16 @@
             "v2": true,
             "versions": [
                 "0.5.2"
+            ]
+        },
+        "logme": {
+            "description": "Lightweight cross-platform C/C++ logging framework.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "2.4.10"
             ]
         },
         "logr": {
@@ -23257,12 +23267,8 @@
             ],
             "v2": true,
             "versions": [
-                "2.9.0",
-                "2.8.19",
-                "2.8.13",
-                "2.5.0",
-                "2.4.0",
-                "2.2.0"
+                "2.9.7",
+                "2.8.23"
             ]
         },
         "tinymidi": {
