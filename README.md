@@ -1,6 +1,6 @@
 # Conan CLion plugin
 
-![Build](https://github.com/conan-io/conan-clion-plugin/workflows/Build/badge.svg)
+![Build](https://github.com/conan-io/conan-clion-plugin/actions/workflows/build.yml/badge.svg?branch=develop2)
 [![Version](https://img.shields.io/jetbrains/plugin/v/11956.svg)](https://plugins.jetbrains.com/plugin/11956)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/11956.svg)](https://plugins.jetbrains.com/plugin/11956)
 
