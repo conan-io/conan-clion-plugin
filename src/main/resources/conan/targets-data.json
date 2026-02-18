@@ -1,5 +1,5 @@
 {
-    "date": 1771288392,
+    "date": 1771374800,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2762,6 +2762,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.15",
                 "1.13",
                 "1.12",
                 "1.11",
@@ -3488,6 +3489,18 @@
         },
         "cotila": {
             "description": "A compile time linear algebra system",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.2.1"
+            ]
+        },
+        "couchbase_cxx_client": {
+            "cmake_file_name": "couchbase_cxx_client",
+            "cmake_target_name": "couchbase_cxx_client::couchbase_cxx_client",
+            "description": "Couchbase C++ SDK",
             "license": [
                 "Apache-2.0"
             ],
@@ -11577,6 +11590,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.0",
                 "2.5.0",
                 "2.3.0"
             ]
@@ -13477,6 +13491,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.15.1",
                 "2.15.0",
                 "2.14.5",
                 "2.13.8"
