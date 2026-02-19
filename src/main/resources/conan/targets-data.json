@@ -1,5 +1,5 @@
 {
-    "date": 1771374800,
+    "date": 1771461243,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -678,6 +678,7 @@
             ],
             "v2": true,
             "versions": [
+                "23.0.1",
                 "23.0.0",
                 "22.0.0",
                 "21.0.0",
@@ -896,20 +897,8 @@
             ],
             "v2": true,
             "versions": [
-                "2.53.1",
-                "2.51.0",
-                "2.50.0",
-                "2.49.1",
-                "2.48.3",
-                "2.48.0",
-                "2.47.1",
-                "2.46.0",
-                "2.44.1",
-                "2.44.0",
-                "2.42.0",
-                "2.40.3",
-                "2.39.1",
-                "2.38.0"
+                "2.59.0",
+                "2.51.0"
             ]
         },
         "atk": {
@@ -4462,6 +4451,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.3.5",
                 "3.5.1",
                 "3.5.0",
                 "3.1.0"
@@ -15977,6 +15967,16 @@
                 "0.3.0"
             ]
         },
+        "neko-event": {
+            "description": "A modern easy to use type-safe and high-performance event handling system for C++",
+            "license": [
+                "MIT OR Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.1"
+            ]
+        },
         "neko-schema": {
             "description": "A lightweight C++20 header-only library providing fundamental type definitions and utilities for the Neko ecosystem",
             "license": [
@@ -20640,6 +20640,18 @@
                 "2.0.2"
             ]
         },
+        "rwindegger-bigint23": {
+            "cmake_file_name": "bigint23",
+            "cmake_target_name": "bigint23::bigint23",
+            "description": "A header-only C++ library provides a arbitrary-fixed-width integer type called `bigint`. It supports both signed and unsigned numbers with a customizable bit-width.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "2.0"
+            ]
+        },
         "rxcpp": {
             "description": "C++11 library for composing operations on streams of asynchronous events.",
             "license": [
@@ -21601,6 +21613,17 @@
             "versions": [
                 "4.1.2",
                 "4.0.3"
+            ]
+        },
+        "sockpp": {
+            "cmake_target_name": "Sockpp::sockpp-static",
+            "description": "Modern C++ socket library.",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.0"
             ]
         },
         "sofa": {
@@ -23712,6 +23735,18 @@
             "versions": [
                 "0.3.7",
                 "0.3.5"
+            ]
+        },
+        "trianglemeshdistance": {
+            "cmake_file_name": "trianglemeshdistance",
+            "cmake_target_name": "trianglemeshdistance::trianglemeshdistance",
+            "description": "Header only, single file, simple and efficient C++11 library to compute the signed distance function (SDF) to a triangle mesh",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.0"
             ]
         },
         "troldal-zippy": {
