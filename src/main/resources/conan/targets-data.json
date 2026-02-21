@@ -1,5 +1,5 @@
 {
-    "date": 1771547434,
+    "date": 1771633888,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2436,6 +2436,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.0.7",
                 "5.0.6"
             ]
         },
@@ -2492,6 +2493,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.13.0",
                 "3.12.0",
                 "3.11.0",
                 "2.13.10",
@@ -8297,7 +8299,8 @@
             "v2": true,
             "versions": [
                 "system",
-                "4.18.6"
+                "4.18.6",
+                "3.24.51"
             ]
         },
         "gtk-doc-stub": {
@@ -9154,12 +9157,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.16",
-                "0.15",
-                "0.14",
-                "0.13",
-                "0.12",
-                "0.11"
+                "0.17"
             ]
         },
         "imutils-cpp": {
@@ -11120,9 +11118,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.5.10",
-                "1.5.9",
-                "1.5.8"
+                "1.5.10"
             ]
         },
         "libest": {
@@ -19927,6 +19923,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20250205",
                 "cci.20230929",
                 "cci.20220822",
                 "cci.20211112",
@@ -23266,12 +23263,11 @@
             "cmake_target_name": "TinyEXIF::TinyEXIF",
             "description": "Tiny ISO-compliant C++ EXIF and XMP parsing library for JPEG",
             "license": [
-                "BSD 2-Clause"
+                "MIT"
             ],
             "v2": true,
             "versions": [
-                "cci.20210411",
-                "1.0.2"
+                "1.0.4"
             ]
         },
         "tinyexr": {
