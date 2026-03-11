@@ -1,5 +1,5 @@
 {
-    "date": 1773102565,
+    "date": 1773188985,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7540,6 +7540,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.0",
                 "2.2.2"
             ]
         },
@@ -16832,6 +16833,18 @@
                 "1.5"
             ]
         },
+        "omath": {
+            "cmake_file_name": "omath",
+            "cmake_target_name": "omath::omath",
+            "description": "Cross-platform modern general purpose math library written in C++23",
+            "license": [
+                "Zlib"
+            ],
+            "v2": true,
+            "versions": [
+                "5.0.0"
+            ]
+        },
         "onedpl": {
             "cmake_file_name": "ParallelSTL",
             "cmake_target_name": "pstl::ParallelSTL",
@@ -22977,6 +22990,16 @@
             "v2": true,
             "versions": [
                 "20140926"
+            ]
+        },
+        "threepp": {
+            "description": "Cross-platform C++20 port of the popular Javascript 3D library three.js",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.20260310"
             ]
         },
         "thrift": {
