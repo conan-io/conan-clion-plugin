@@ -1,5 +1,5 @@
 {
-    "date": 1773188985,
+    "date": 1773275254,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7655,11 +7655,8 @@
             ],
             "v2": true,
             "versions": [
-                "7.0.2",
-                "6.4.0",
-                "6.2.0",
-                "6.1.0",
-                "6.0.1"
+                "7.2.0",
+                "6.4.0"
             ]
         },
         "glbinding": {
@@ -12758,10 +12755,7 @@
             ],
             "v2": true,
             "versions": [
-                "cci.20220430",
-                "1.0.20",
-                "1.0.19",
-                "1.0.18"
+                "1.0.21"
             ]
         },
         "libsolace": {
@@ -25898,15 +25892,11 @@
             },
             "description": "ZeroMQ is a community of projects focused on decentralized messaging and computing",
             "license": [
-                "DocumentRef-ZeroMQ:LicenseRef-LGPL-3.0-or-later-ZeroMQ-Linking-Exception",
                 "MPL-2.0"
             ],
             "v2": true,
             "versions": [
-                "4.3.5",
-                "4.3.4",
-                "4.3.3",
-                "4.3.2"
+                "4.3.5"
             ]
         },
         "zeus_expected": {
