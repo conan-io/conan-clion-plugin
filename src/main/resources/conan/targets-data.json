@@ -1,5 +1,5 @@
 {
-    "date": 1773275254,
+    "date": 1773361933,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -8226,12 +8226,24 @@
             ]
         },
         "gstreamer": {
+            "cmake_file_name": "GStreamer",
+            "cmake_target_name": "GStreamer::GStreamer",
             "components": {
-                "gstreamer-1.0": {},
-                "gstreamer-base-1.0": {},
-                "gstreamer-check-1.0": {},
-                "gstreamer-controller-1.0": {},
-                "gstreamer-net-1.0": {}
+                "gstreamer-1.0": {
+                    "cmake_target_name": "GStreamer::gstreamer-1.0"
+                },
+                "gstreamer-base-1.0": {
+                    "cmake_target_name": "GStreamer::gstreamer-base-1.0"
+                },
+                "gstreamer-check-1.0": {
+                    "cmake_target_name": "GStreamer::gstreamer-check-1.0"
+                },
+                "gstreamer-controller-1.0": {
+                    "cmake_target_name": "GStreamer::gstreamer-controller-1.0"
+                },
+                "gstreamer-net-1.0": {
+                    "cmake_target_name": "GStreamer::gstreamer-net-1.0"
+                }
             },
             "description": "GStreamer is a development framework for creating applications like media players, video editors, streaming media broadcasters and so on",
             "license": [
@@ -8239,6 +8251,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.28.1",
                 "1.24.7",
                 "1.22.6",
                 "1.20.6",
@@ -13627,11 +13640,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.3.0",
-                "4.2.0",
-                "4.1.0",
-                "3.3.5",
-                "3.3.2"
+                "4.6.0"
             ]
         },
         "lightpcapng": {
@@ -26159,6 +26168,18 @@
                 "11.0.19",
                 "11.0.15",
                 "11.0.12"
+            ]
+        },
+        "zxc": {
+            "cmake_file_name": "zxc",
+            "cmake_target_name": "zxc::zxc_lib",
+            "description": "High-performance asymmetric lossless compression library",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "0.8.3"
             ]
         },
         "zxing-cpp": {
