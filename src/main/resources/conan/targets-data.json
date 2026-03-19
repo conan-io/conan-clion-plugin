@@ -1,5 +1,5 @@
 {
-    "date": 1773794056,
+    "date": 1773880463,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9082,8 +9082,8 @@
             ],
             "v2": true,
             "versions": [
-                "1.92.5",
-                "1.92.5-docking",
+                "1.92.6",
+                "1.92.6-docking",
                 "1.92.2b",
                 "1.92.2b-docking",
                 "1.91.8",
@@ -14327,6 +14327,16 @@
                 "0.5.0"
             ]
         },
+        "marchingcubecpp": {
+            "description": "A public domain/MIT header-only marching cube implementation in C++.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.0.0.cci.20260224"
+            ]
+        },
         "mariadb-connector-c": {
             "description": "MariaDB Connector/C is used to connect applications developed in C/C++ to MariaDB and MySQL databases.",
             "license": [
@@ -17022,6 +17032,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.20.0",
                 "7.17.0",
                 "7.16.0",
                 "7.15.0",
@@ -17285,7 +17296,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.4.6",
+                "3.4.7",
                 "3.3.8",
                 "3.2.6",
                 "2.5.9",
