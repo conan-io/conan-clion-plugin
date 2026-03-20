@@ -1,5 +1,5 @@
 {
-    "date": 1773880463,
+    "date": 1773966788,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -13536,7 +13536,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.1.148"
+                "4.2.2"
             ]
         },
         "libyuv": {
@@ -17996,23 +17996,13 @@
         },
         "paho-mqtt-cpp": {
             "cmake_file_name": "PahoMqttCpp",
-            "cmake_target_name": "PahoMqttCpp::paho-mqttpp3-static",
-            "components": {
-                "paho-mqttpp": {
-                    "cmake_target_name": "PahoMqttCpp::paho-mqttpp3-static"
-                }
-            },
             "description": "The open-source client implementations of MQTT and MQTT-SN",
             "license": [
-                "EPL-1.0"
+                "EPL-2.0"
             ],
             "v2": true,
             "versions": [
-                "1.5.3",
-                "1.4.1",
-                "1.4.0",
-                "1.3.2",
-                "1.2.0"
+                "1.6.0"
             ]
         },
         "pango": {
@@ -24318,21 +24308,16 @@
         },
         "utfcpp": {
             "cmake_file_name": "utf8cpp",
-            "cmake_target_name": "utf8cpp",
+            "cmake_target_name": "utf8cpp::utf8cpp",
             "description": "UTF-8 with C++ in a Portable Way",
             "license": [
                 "BSL-1.0"
             ],
             "v2": true,
             "versions": [
-                "4.0.8",
+                "4.0.9",
                 "4.0.5",
-                "4.0.4",
-                "4.0.1",
-                "4.0.0",
-                "3.2.5",
-                "3.2.3",
-                "3.1.2"
+                "4.0.4"
             ]
         },
         "uthash": {
