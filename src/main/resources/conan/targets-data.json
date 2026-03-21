@@ -1,5 +1,5 @@
 {
-    "date": 1773966788,
+    "date": 1774053092,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -10825,7 +10825,7 @@
             ],
             "v2": true,
             "versions": [
-                "8.18.0"
+                "8.19.0"
             ]
         },
         "libcvd": {
@@ -16925,7 +16925,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.20.0"
+                "1.20.1"
             ]
         },
         "onnxruntime": {
@@ -16937,7 +16937,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.23.2"
+                "1.24.4"
             ]
         },
         "open-dis-cpp": {
