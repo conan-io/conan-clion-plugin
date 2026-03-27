@@ -1,5 +1,5 @@
 {
-    "date": 1774485390,
+    "date": 1774571780,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2542,6 +2542,16 @@
                 "2.5"
             ]
         },
+        "ccronexpr": {
+            "description": "Cron expression parsing in ANSI C",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "2.1.0"
+            ]
+        },
         "cctag": {
             "cmake_file_name": "CCTag",
             "cmake_target_name": "CCTag::CCTag",
@@ -3546,8 +3556,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.30.1",
-                "0.29.0",
+                "0.39.0",
                 "0.28.0"
             ]
         },
