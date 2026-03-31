@@ -1,5 +1,5 @@
 {
-    "date": 1774831109,
+    "date": 1774917430,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5125,6 +5125,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.5.0",
                 "1.3.0"
             ]
         },
@@ -13629,7 +13630,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.5.1"
+                "0.5.2"
             ]
         },
         "lightgbm": {
@@ -14018,6 +14019,18 @@
             "v2": true,
             "versions": [
                 "0.700"
+            ]
+        },
+        "lunarlog": {
+            "cmake_file_name": "LunarLog",
+            "cmake_target_name": "LunarLog::LunarLog",
+            "description": "Header-only C++11 structured logging library with message templates. Inspired by Serilog.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.29.2"
             ]
         },
         "lunasvg": {
@@ -21768,9 +21781,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.4.0",
-                "1.3.0",
-                "1.2.0"
+                "2.3.1"
             ]
         },
         "spdlog": {
