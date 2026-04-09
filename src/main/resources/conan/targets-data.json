@@ -1,5 +1,5 @@
 {
-    "date": 1775608702,
+    "date": 1775694716,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2483,15 +2483,8 @@
             ],
             "v2": true,
             "versions": [
-                "3.13.0",
-                "3.12.0",
-                "3.11.0",
-                "2.13.10",
-                "2.13.9",
-                "2.13.8",
-                "2.13.7",
-                "2.12.4",
-                "2.11.3"
+                "3.14.0",
+                "2.13.10"
             ]
         },
         "cc65": {
@@ -3393,10 +3386,8 @@
             ],
             "v2": true,
             "versions": [
-                "1.0.4",
-                "1.0.3",
-                "1.0.2",
-                "1.0.1"
+                "1.0.5",
+                "1.0.4"
             ]
         },
         "confu_json": {
@@ -6252,6 +6243,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.5",
                 "2.3.0"
             ]
         },
@@ -8660,7 +8652,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.13.1"
+                "1.14.0"
             ]
         },
         "highway": {
@@ -12334,7 +12326,7 @@
             ],
             "v2": true,
             "versions": [
-                "8.0.0"
+                "8.0.1"
             ]
         },
         "libproperties": {
@@ -12440,7 +12432,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.22.0",
+                "0.22.1",
                 "0.21.5b",
                 "0.21.2",
                 "0.20.2"
@@ -17621,13 +17613,13 @@
             ],
             "v2": true,
             "versions": [
-                "3.6.1",
-                "3.5.5",
-                "3.4.4",
-                "3.3.6",
+                "3.6.2",
+                "3.5.6",
+                "3.4.5",
+                "3.3.7",
                 "3.2.6",
                 "3.1.2",
-                "3.0.19",
+                "3.0.20",
                 "1.1.1w"
             ]
         },
@@ -18528,6 +18520,19 @@
             "v2": true,
             "versions": [
                 "1.0.0"
+            ]
+        },
+        "pipewire": {
+            "components": {
+                "pipewire": {}
+            },
+            "description": "PipeWire is a server and user space API to deal with multimedia pipelines.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.5.85"
             ]
         },
         "pistache": {
@@ -21362,8 +21367,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.2.4",
-                "4.0.7",
+                "4.6.1",
                 "3.13.0"
             ]
         },
@@ -21784,7 +21788,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.3.1"
+                "2.4.0"
             ]
         },
         "spdlog": {
@@ -24246,7 +24250,7 @@
         "userspace-rcu": {
             "description": "Userspace RCU (read-copy-update) library",
             "license": [
-                "LGPL-2.1"
+                "LGPL-2.1-or-later"
             ],
             "v2": true,
             "versions": [
