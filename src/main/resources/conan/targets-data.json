@@ -1,5 +1,5 @@
 {
-    "date": 1775694716,
+    "date": 1775781572,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -25679,9 +25679,7 @@
             "v2": true,
             "versions": [
                 "5.8.2",
-                "5.4.5",
-                "5.2.10",
-                "5.2.4"
+                "5.4.5"
             ]
         },
         "yaclib": {
