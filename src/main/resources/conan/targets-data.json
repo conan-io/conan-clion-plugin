@@ -1,5 +1,5 @@
 {
-    "date": 1776040918,
+    "date": 1776127359,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -12269,7 +12269,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.6.56"
+                "1.6.57"
             ]
         },
         "libpointmatcher": {
@@ -14505,7 +14505,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.6.5",
+                "3.6.6",
                 "3.6.2",
                 "3.6.1",
                 "3.6.0",
@@ -20141,7 +20141,6 @@
             ],
             "v2": true,
             "versions": [
-                "cci.20200511",
                 "1.6.0"
             ]
         },
@@ -22082,7 +22081,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.64"
+                "0.66"
             ]
         },
         "sqlpp11-connector-sqlite3": {
