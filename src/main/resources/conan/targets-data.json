@@ -1,5 +1,5 @@
 {
-    "date": 1776905057,
+    "date": 1776991452,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2116,8 +2116,7 @@
             "versions": [
                 "3.25",
                 "3.24",
-                "3.22a",
-                "2.89"
+                "3.22a"
             ]
         },
         "butteraugli": {
@@ -3978,11 +3977,6 @@
         "cpu_features": {
             "cmake_file_name": "CpuFeatures",
             "cmake_target_name": "CpuFeatures::cpu_features",
-            "components": {
-                "libcpu_features": {
-                    "cmake_target_name": "CpuFeatures::cpu_features"
-                }
-            },
             "description": "A cross platform C99 library to get cpu features at runtime.",
             "license": [
                 "Apache-2.0"
@@ -3990,10 +3984,7 @@
             "v2": true,
             "versions": [
                 "0.10.1",
-                "0.9.0",
-                "0.8.0",
-                "0.7.0",
-                "0.6.0"
+                "0.9.0"
             ]
         },
         "cpuinfo": {
@@ -4367,12 +4358,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.8.1",
-                "0.8.0",
-                "0.7.1",
-                "0.7.0",
-                "0.6.8",
-                "0.6.3"
+                "0.8.2"
             ]
         },
         "cuda-kat": {
@@ -10453,6 +10439,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.8.7",
                 "3.8.1",
                 "3.7.9",
                 "3.7.7",
@@ -10513,6 +10500,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.4.1",
                 "1.3.0"
             ]
         },
@@ -13951,6 +13939,16 @@
                 "cci.20230406"
             ]
         },
+        "loon": {
+            "description": "High-performance, header-only C++ data structures for low-latency applications",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.2.0"
+            ]
+        },
         "ls-qpack": {
             "description": "QPACK compression library for use with HTTP/3",
             "license": [
@@ -16308,6 +16306,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.86",
                 "1.70"
             ]
         },
@@ -17426,7 +17425,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.1.11.0",
+                "3.1.12.0",
                 "2.5.19.1"
             ]
         },
@@ -17471,7 +17470,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.26.3"
+                "0.27.0"
             ]
         },
         "openldap": {
@@ -23303,6 +23302,16 @@
                 "1.0.0"
             ]
         },
+        "tinyfsm": {
+            "description": "A simple C++ finite state machine library",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.3.3"
+            ]
+        },
         "tinygltf": {
             "cmake_file_name": "TinyGLTF",
             "cmake_target_name": "TinyGLTF::TinyGLTF",
@@ -24504,6 +24513,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.02.03",
                 "2.02.00",
                 "2.01.04",
                 "2.01.03"
