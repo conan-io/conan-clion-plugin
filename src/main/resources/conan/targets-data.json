@@ -1,5 +1,5 @@
 {
-    "date": 1777337249,
+    "date": 1777423707,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -6979,6 +6979,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.14.3",
                 "2.14.1",
                 "2.13.3",
                 "2.13.2",
@@ -10317,7 +10318,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.17.39"
+                "1.28.2"
             ]
         },
         "leveldb": {
@@ -15524,6 +15525,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.2.1",
                 "4.2.0",
                 "4.1.0",
                 "4.0.0",
@@ -19198,19 +19200,14 @@
         },
         "proxy": {
             "cmake_file_name": "proxy",
+            "cmake_target_name": "msft_proxy4::proxy",
             "description": "Proxy: Next Generation Polymorphism in C++",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "4.0.1",
-                "3.4.0",
-                "3.3.0",
-                "3.2.0",
-                "3.1.0",
-                "3.0.0",
-                "2.4.0"
+                "4.0.2"
             ]
         },
         "psimd": {
