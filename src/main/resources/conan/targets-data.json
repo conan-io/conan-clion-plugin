@@ -1,5 +1,5 @@
 {
-    "date": 1777510095,
+    "date": 1777596666,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -463,8 +463,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.7.4",
-                "1.7.0"
+                "1.7.4"
             ]
         },
         "apr-util": {
@@ -9786,6 +9785,18 @@
                 "0.17.0"
             ]
         },
+        "jsrl": {
+            "cmake_file_name": "jsrl",
+            "cmake_target_name": "jsrl::jsrl",
+            "description": "Json Serialization and Reading Library - A modern C++ JSON library with UTF-8 correctness, immutability, and high-fidelity numbers",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.4"
+            ]
+        },
         "jtckdint": {
             "description": "C23 Checked Arithmetic",
             "license": [
@@ -10283,6 +10294,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.87.0",
                 "1.85.0",
                 "1.83.1",
                 "1.82.0",
@@ -20281,7 +20293,7 @@
             ],
             "v2": true,
             "versions": [
-                "14.2.5"
+                "14.2.7"
             ]
         },
         "resiprocate": {
@@ -22949,7 +22961,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.9.1"
+                "1.10"
             ]
         },
         "tgc": {
@@ -25970,7 +25982,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.3.1"
+                "1.3.2"
             ]
         },
         "zlib-ng": {
