@@ -1,5 +1,5 @@
 {
-    "date": 1778028242,
+    "date": 1778114862,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1929,6 +1929,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.91.0",
                 "1.90.0",
                 "1.89.0",
                 "1.88.0",
@@ -2425,7 +2426,6 @@
             ],
             "v2": true,
             "versions": [
-                "5.0.7",
                 "5.0.6"
             ]
         },
@@ -10007,9 +10007,7 @@
             ],
             "v2": true,
             "versions": [
-                "v2.0-rc1",
-                "v2-alpha4",
-                "v2-alpha3"
+                "v2.5"
             ]
         },
         "kiss-icp": {
@@ -10420,17 +10418,15 @@
             ]
         },
         "libaom-av1": {
+            "cmake_file_name": "AOM",
+            "cmake_target_name": "AOM::aom",
             "description": "AV1 Codec Library",
             "license": [
                 "BSD-2-Clause"
             ],
             "v2": true,
             "versions": [
-                "3.8.0",
-                "3.6.1",
-                "3.5.0",
-                "3.4.0",
-                "2.0.1"
+                "3.13.3"
             ]
         },
         "libarchive": {
@@ -12188,6 +12184,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.10.6",
                 "1.10.5",
                 "1.10.4",
                 "1.10.1"
@@ -20788,6 +20785,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.8.0",
                 "1.7.0"
             ]
         },
@@ -23028,8 +23026,9 @@
             ],
             "v2": true,
             "versions": [
+                "0.23.0",
                 "0.21.0",
-                "0.20.0"
+                "0.17.0"
             ]
         },
         "thrust": {
