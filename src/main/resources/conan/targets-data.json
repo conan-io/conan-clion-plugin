@@ -1,5 +1,5 @@
 {
-    "date": 1778806207,
+    "date": 1778892453,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -14621,19 +14621,13 @@
             ]
         },
         "md4qt": {
-            "cmake_file_name": "md4qt",
-            "cmake_target_name": "md4qt::md4qt",
-            "description": "Header-only C++ library for parsing Markdown.",
+            "description": "C++ library for parsing Markdown.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "4.1.0",
-                "3.0.0",
-                "2.8.2",
-                "2.7.4",
-                "2.6.0"
+                "5.0.15"
             ]
         },
         "mdns": {
@@ -19525,7 +19519,8 @@
             ],
             "v2": true,
             "versions": [
-                "6.10.1",
+                "6.11.0",
+                "6.10.3",
                 "6.8.3",
                 "5.15.18"
             ]
@@ -25041,6 +25036,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.260126.7",
                 "1.0.250325.1",
                 "1.0.240803.1",
                 "1.0.240122.1",
