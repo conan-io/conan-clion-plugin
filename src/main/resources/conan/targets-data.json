@@ -1,5 +1,5 @@
 {
-    "date": 1779238559,
+    "date": 1779324954,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9423,6 +9423,7 @@
             ],
             "v2": true,
             "versions": [
+                "12.0.0",
                 "11.4.6",
                 "11.4.5",
                 "11.4.3",
@@ -13811,7 +13812,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.6.1"
+                "1.7.0"
             ]
         },
         "logfault": {
@@ -14331,8 +14332,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.39.1",
-                "1.38.10"
+                "1.39.4"
             ]
         },
         "mathfu": {
@@ -17743,6 +17743,31 @@
                 "0.12"
             ]
         },
+        "or-tools": {
+            "cmake_file_name": "ortools",
+            "components": {
+                "flatzinc": {
+                    "cmake_target_name": "ortools::flatzinc"
+                },
+                "fzn": {
+                    "cmake_target_name": "ortools::fzn"
+                },
+                "ortools": {
+                    "cmake_target_name": "ortools::ortools"
+                },
+                "solve": {
+                    "cmake_target_name": "ortools::solve"
+                }
+            },
+            "description": "Google OR Tools",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "9.15"
+            ]
+        },
         "orc": {
             "description": "ORC is a self-describing type-aware columnar file format designed for Hadoop workloads",
             "license": [
@@ -20407,7 +20432,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.40"
+                "0.41"
             ]
         },
         "rpclib": {
