@@ -1,5 +1,5 @@
 {
-    "date": 1779411235,
+    "date": 1779497524,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3086,6 +3086,18 @@
                 "1.2.4",
                 "1.2.3",
                 "1.2.2"
+            ]
+        },
+        "cloudini": {
+            "cmake_file_name": "cloudini",
+            "cmake_target_name": "cloudini::cloudini",
+            "description": "Point cloud compression library for ROS, MCAP and Foxglove",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.2.1"
             ]
         },
         "clove-unit": {
@@ -6587,8 +6599,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.3.2",
-                "1.3.1"
+                "1.4.0"
             ]
         },
         "flatc": {
@@ -23959,6 +23970,18 @@
                 "0.2.3",
                 "0.2.2",
                 "0.2.1"
+            ]
+        },
+        "typecast-c": {
+            "cmake_file_name": "typecast",
+            "cmake_target_name": "typecast::typecast",
+            "description": "Text-to-Speech API client library for Typecast AI. Pure C with optional C++ wrapper.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.0"
             ]
         },
         "tz": {
