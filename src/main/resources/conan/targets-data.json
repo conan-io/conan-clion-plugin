@@ -1,5 +1,5 @@
 {
-    "date": 1779756786,
+    "date": 1779843308,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9194,13 +9194,7 @@
             "v2": true,
             "versions": [
                 "62",
-                "60",
-                "58",
-                "57",
-                "56",
-                "55",
-                "52",
-                "51"
+                "58"
             ]
         },
         "inipp": {
@@ -19123,6 +19117,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.35.0",
                 "6.33.5",
                 "5.29.6",
                 "3.21.12"
@@ -20937,6 +20932,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.4.8",
                 "3.4.0",
                 "2.32.10"
             ]
@@ -21345,8 +21341,8 @@
             ],
             "v2": true,
             "versions": [
-                "8.0.0",
-                "7.7.1"
+                "9.0.0",
+                "8.2.0"
             ]
         },
         "simfil": {
@@ -24283,6 +24279,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.1.1",
                 "4.0.9",
                 "4.0.5",
                 "4.0.4"
@@ -25147,6 +25144,18 @@
                 "6.2.0"
             ]
         },
+        "wintoast": {
+            "cmake_file_name": "WinToast",
+            "cmake_target_name": "WinToast::WinToast",
+            "description": "Lightweight library which brings a complete integration of the modern toast notifications of Windows",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.3.2"
+            ]
+        },
         "wiringpi": {
             "description": "GPIO Interface library for the Raspberry Pi",
             "license": [
@@ -25154,7 +25163,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.10"
+                "3.18"
             ]
         },
         "wise_enum": {
