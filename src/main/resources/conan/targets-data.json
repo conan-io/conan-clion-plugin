@@ -1,5 +1,5 @@
 {
-    "date": 1779843308,
+    "date": 1779929407,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2943,6 +2943,18 @@
                 "1.1.5"
             ]
         },
+        "clblast": {
+            "cmake_file_name": "CLBlast",
+            "cmake_target_name": "clblast",
+            "description": "CLBlast is a lightweight, performant and tunable OpenCL BLAS library written in C++11.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.7.0"
+            ]
+        },
         "clhep": {
             "cmake_file_name": "CLHEP",
             "cmake_target_name": "CLHEP::CLHEPS",
@@ -3558,6 +3570,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.46.0",
                 "0.45.0",
                 "0.44.0",
                 "0.39.0",
@@ -6574,6 +6587,7 @@
             ],
             "v2": true,
             "versions": [
+                "25.12.19",
                 "25.9.23",
                 "24.12.23",
                 "24.3.25",
@@ -8825,9 +8839,7 @@
             "v2": true,
             "versions": [
                 "2.0.6",
-                "2.0.5",
-                "2.0.3",
-                "1.0.3"
+                "2.0.5"
             ]
         },
         "iconfontcppheaders": {
@@ -13848,6 +13860,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4.17",
                 "2.4.13",
                 "2.4.10"
             ]
@@ -14214,8 +14227,7 @@
             "versions": [
                 "4.4.1",
                 "4.4",
-                "4.3",
-                "4.2.1"
+                "4.3"
             ]
         },
         "makefile-project-workspace-creator": {
@@ -17236,7 +17248,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.4.11",
+                "3.4.12",
                 "3.3.11",
                 "3.2.9",
                 "2.5.9",
@@ -20546,6 +20558,18 @@
                 "3.1.0"
             ]
         },
+        "ruckig": {
+            "cmake_file_name": "ruckig",
+            "cmake_target_name": "ruckig::ruckig",
+            "description": "Online trajectory generation with jerk limits",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.17.3"
+            ]
+        },
         "runtimeqml": {
             "description": "Enables hot-reloading qml files",
             "license": [
@@ -21329,7 +21353,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.6.3",
+                "4.6.4",
                 "3.13.0"
             ]
         },
