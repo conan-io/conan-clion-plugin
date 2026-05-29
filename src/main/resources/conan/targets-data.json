@@ -1,5 +1,5 @@
 {
-    "date": 1779929407,
+    "date": 1780016253,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -662,11 +662,8 @@
             ],
             "v2": true,
             "versions": [
-                "12.6.4",
-                "12.2.0",
-                "11.4.3",
-                "10.7.3",
-                "10.7.0"
+                "15.2.6",
+                "12.6.4"
             ]
         },
         "arrow": {
@@ -733,6 +730,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.38.0",
                 "1.36.0",
                 "1.34.2",
                 "1.32.0",
@@ -8840,6 +8838,57 @@
             "versions": [
                 "2.0.6",
                 "2.0.5"
+            ]
+        },
+        "icey": {
+            "components": {
+                "archo": {
+                    "cmake_target_name": "icey::archo"
+                },
+                "av": {
+                    "cmake_target_name": "icey::av"
+                },
+                "base": {
+                    "cmake_target_name": "icey::base"
+                },
+                "crypto": {
+                    "cmake_target_name": "icey::crypto"
+                },
+                "http": {
+                    "cmake_target_name": "icey::http"
+                },
+                "json": {
+                    "cmake_target_name": "icey::json"
+                },
+                "net": {
+                    "cmake_target_name": "icey::net"
+                },
+                "sched": {
+                    "cmake_target_name": "icey::sched"
+                },
+                "speech": {
+                    "cmake_target_name": "icey::speech"
+                },
+                "stun": {
+                    "cmake_target_name": "icey::stun"
+                },
+                "symple": {
+                    "cmake_target_name": "icey::symple"
+                },
+                "turn": {
+                    "cmake_target_name": "icey::turn"
+                },
+                "vision": {
+                    "cmake_target_name": "icey::vision"
+                }
+            },
+            "description": "C++20 media stack and libwebrtc alternative for real-time video, signalling, TURN, and media servers",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "2.4.11"
             ]
         },
         "iconfontcppheaders": {
@@ -18216,19 +18265,13 @@
         },
         "pdal": {
             "cmake_file_name": "PDAL",
-            "components": {
-                "pdal_util": {
-                    "cmake_target_name": "pdal_util"
-                }
-            },
             "description": "PDAL is Point Data Abstraction Library. GDAL for point cloud data.",
             "license": [
                 "BSD-3-Clause"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "2.3.0",
-                "2.2.0"
+                "2.10.1"
             ]
         },
         "pdcurses": {
