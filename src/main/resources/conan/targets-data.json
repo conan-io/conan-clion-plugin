@@ -1,5 +1,5 @@
 {
-    "date": 1780016253,
+    "date": 1780102408,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1980,6 +1980,25 @@
             "versions": [
                 "1.82.0",
                 "1.75.0"
+            ]
+        },
+        "boringssl": {
+            "cmake_file_name": "OpenSSL",
+            "components": {
+                "crypto": {
+                    "cmake_target_name": "OpenSSL::Crypto"
+                },
+                "ssl": {
+                    "cmake_target_name": "OpenSSL::SSL"
+                }
+            },
+            "description": "BoringSSL is a fork of OpenSSL aimed at Google needs.",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.20260508.0"
             ]
         },
         "botan": {
@@ -13780,7 +13799,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.9.1"
+                "0.13.1"
             ]
         },
         "llvm-core": {
@@ -17286,7 +17305,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.7.4"
+                "1.8.0"
             ]
         },
         "openexr": {
@@ -17718,9 +17737,8 @@
             ],
             "v2": true,
             "versions": [
-                "2025.4.0",
-                "2024.6.0",
-                "2023.3.0"
+                "2026.1.0",
+                "2025.4.0"
             ]
         },
         "openvr": {
@@ -25329,6 +25347,25 @@
                 "cci.20221102"
             ]
         },
+        "xalan-c": {
+            "cmake_file_name": "XalanC",
+            "components": {
+                "xalan-c": {
+                    "cmake_target_name": "XalanC::XalanC"
+                },
+                "xalanMsg": {
+                    "cmake_target_name": "XalanC::XalanMsg"
+                }
+            },
+            "description": "Xalan-C++ is a library to transform XML documents using XSLT",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.12.0"
+            ]
+        },
         "xapian-core": {
             "cmake_file_name": "xapian",
             "description": "Xapian is a highly adaptable toolkit which allows developers to easily add advanced indexing and search facilities to their own applications.",
@@ -26182,14 +26219,7 @@
             ],
             "v2": true,
             "versions": [
-                "21.0.9",
-                "21.0.4",
-                "21.0.1",
-                "17.0.9",
-                "11.0.24",
-                "11.0.19",
-                "11.0.15",
-                "11.0.12"
+                "21.0.11"
             ]
         },
         "zxc": {
