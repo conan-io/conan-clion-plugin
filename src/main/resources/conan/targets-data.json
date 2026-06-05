@@ -1,5 +1,5 @@
 {
-    "date": 1780535191,
+    "date": 1780621082,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -12044,6 +12044,17 @@
                 "1.2"
             ]
         },
+        "libnetconf2": {
+            "cmake_file_name": "LibNETCONF2",
+            "description": "NETCONF client/server library",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "4.2.14"
+            ]
+        },
         "libnetfilter_conntrack": {
             "description": "userspace library that provides an API to the in-kernel connection tracking state table",
             "license": [
@@ -16195,12 +16206,7 @@
             ],
             "v2": true,
             "versions": [
-                "cci.20240223",
-                "cci.20221203",
-                "cci.20220620",
-                "cci.20220428",
-                "cci.20220208",
-                "cci.20220120"
+                "cci.20260602"
             ]
         },
         "nmslib": {
@@ -17738,7 +17744,7 @@
             ],
             "v2": true,
             "versions": [
-                "2026.1.0",
+                "2026.2.0",
                 "2025.4.0"
             ]
         },
@@ -20252,6 +20258,18 @@
                 "1.0.0"
             ]
         },
+        "reduct-cpp": {
+            "cmake_file_name": "ReductCpp",
+            "cmake_target_name": "reductcpp",
+            "description": "Reduct Storage Client SDK for C++",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.19.1"
+            ]
+        },
         "refl-cpp": {
             "description": "A modern compile-time reflection library for C++ with support for overloads, templates, attributes and proxies",
             "license": [
@@ -21050,14 +21068,15 @@
             ]
         },
         "sdl_net": {
-            "cmake_file_name": "SDL2_net",
-            "cmake_target_name": "SDL2_net::SDL2_net",
+            "cmake_file_name": "SDL3_net",
+            "cmake_target_name": "SDL3_net::SDL3_net-static",
             "description": "A networking library for SDL",
             "license": [
                 "Zlib"
             ],
             "v2": true,
             "versions": [
+                "3.2.0",
                 "2.2.0"
             ]
         },
