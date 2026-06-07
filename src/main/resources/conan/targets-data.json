@@ -1,5 +1,5 @@
 {
-    "date": 1780707321,
+    "date": 1780794026,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -9935,6 +9935,18 @@
             "v2": true,
             "versions": [
                 "cci.20170615"
+            ]
+        },
+        "kahip": {
+            "cmake_file_name": "KaHIP",
+            "cmake_target_name": "KaHIP::kahip",
+            "description": "Karlsruhe High Quality Partitioning",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "3.25"
             ]
         },
         "kainjow-mustache": {
