@@ -1,5 +1,5 @@
 {
-    "date": 1780880464,
+    "date": 1780966428,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4657,8 +4657,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.0.1",
-                "4.0.0",
+                "4.0.2",
                 "3.7.0",
                 "3.6.0",
                 "3.5.0",
@@ -7299,6 +7298,16 @@
                 "cci.20220221"
             ]
         },
+        "gapp": {
+            "description": "A genetic algorithms library in C++ for single- and multi-objective optimization.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.1"
+            ]
+        },
         "gas-preprocessor": {
             "description": "Perl script that implements a subset of the GNU as preprocessor that Apple's as doesn't",
             "license": [
@@ -8494,7 +8503,7 @@
             ],
             "v2": true,
             "versions": [
-                "5.6.0"
+                "5.7.0"
             ]
         },
         "hdf4": {
@@ -12440,7 +12449,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.3.0"
+                "1.4.0"
             ]
         },
         "libqrencode": {
