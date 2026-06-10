@@ -1,5 +1,5 @@
 {
-    "date": 1780966428,
+    "date": 1781053200,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -278,6 +278,18 @@
             "v2": true,
             "versions": [
                 "2.1.1"
+            ]
+        },
+        "amf-headers": {
+            "cmake_file_name": "AMF",
+            "cmake_target_name": "AMF::AMF",
+            "description": "AMD Advanced Media Framework (AMF) SDK headers",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.5.2"
             ]
         },
         "amgcl": {
@@ -2258,14 +2270,8 @@
             ],
             "v2": true,
             "versions": [
-                "2.17.0",
-                "2.15.0",
-                "2.14.4",
-                "2.13.1",
-                "2.13.0",
-                "2.12.0",
-                "2.11.3",
-                "2.10.5"
+                "3.1.2",
+                "2.23.1"
             ]
         },
         "c-client": {
@@ -2444,6 +2450,16 @@
             "v2": true,
             "versions": [
                 "5.0.6"
+            ]
+        },
+        "capypdf": {
+            "description": "Fully color-managed PDF generation library",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "0.21.0"
             ]
         },
         "cargs": {
@@ -3126,7 +3142,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.2.1"
+                "1.2.2"
             ]
         },
         "clove-unit": {
@@ -12422,7 +12438,7 @@
         "libpsl": {
             "description": "C library for the Public Suffix List",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "v2": true,
             "versions": [
@@ -20458,6 +20474,22 @@
                 "0.4.0"
             ]
         },
+        "ripper37-libbase": {
+            "cmake_file_name": "libbase",
+            "components": {
+                "core": {
+                    "cmake_target_name": "libbase::libbase"
+                }
+            },
+            "description": "Standalone reimplementation of //base module from Chromium",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.1.2"
+            ]
+        },
         "rmlui": {
             "description": "RmlUi - The HTML/CSS User Interface Library Evolved",
             "license": [
@@ -20924,15 +20956,10 @@
             "v2": true,
             "versions": [
                 "10.0.2",
-                "10.0.1",
                 "10.0.0",
-                "9.2.4",
                 "9.2.3",
-                "9.2.0",
                 "9.0.1",
-                "8.1.0",
-                "8.0.4",
-                "8.0.3"
+                "8.0.4"
             ]
         },
         "scippp": {
