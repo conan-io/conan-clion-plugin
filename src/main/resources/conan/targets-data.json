@@ -1,5 +1,5 @@
 {
-    "date": 1782176056,
+    "date": 1782262290,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -148,7 +148,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.3.1"
+                "2.3.2"
             ]
         },
         "activemq-cpp": {
@@ -8145,7 +8145,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.81.0",
+                "1.81.1",
                 "1.69.0",
                 "1.54.3"
             ]
@@ -8888,7 +8888,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.0.6",
+                "2.0.8",
                 "2.0.5"
             ]
         },
@@ -14385,6 +14385,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.5.1",
                 "3.2.1"
             ]
         },
@@ -16601,9 +16602,7 @@
             "v2": true,
             "versions": [
                 "1.3.0.latest",
-                "1.3.0",
-                "1.2.5",
-                "1.2.0"
+                "1.3.0"
             ]
         },
         "oatpp-websocket": {
@@ -23890,6 +23889,16 @@
                 "2.0"
             ]
         },
+        "tsid": {
+            "description": "TSID is a C++ library for optimization-based inverse-dynamics control based on the rigid multi-body dynamics library Pinocchio.",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.10.0"
+            ]
+        },
         "tsil": {
             "description": "Two-loop Self-energy Integral Library",
             "license": [
@@ -24203,15 +24212,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.2.0",
-                "1.1.0",
-                "1.0.0",
-                "0.8.2",
-                "0.8.1",
-                "0.8.0",
-                "0.7.1",
-                "0.7.0",
-                "0.6.0"
+                "1.2.0"
             ]
         },
         "unicorn": {
@@ -24271,7 +24272,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.3.0"
+                "1.5.4"
             ]
         },
         "unordered_dense": {
