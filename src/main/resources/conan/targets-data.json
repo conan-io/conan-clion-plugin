@@ -1,5 +1,5 @@
 {
-    "date": 1782694744,
+    "date": 1782780948,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2652,9 +2652,7 @@
             "v2": true,
             "versions": [
                 "2.2.0",
-                "2.1.0",
-                "2.0.0",
-                "1.14.0"
+                "2.1.0"
             ]
         },
         "cern-root": {
@@ -5782,10 +5780,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.13.5",
-                "3.13.3",
-                "3.13.1",
-                "3.12.0"
+                "3.13.5"
             ]
         },
         "emhash": {
@@ -14351,8 +14346,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.5.1",
-                "3.2.1"
+                "3.5.1"
             ]
         },
         "mapbox-geometry": {
@@ -16893,14 +16887,11 @@
             "cmake_target_name": "pstl::ParallelSTL",
             "description": "OneDPL (Formerly Parallel STL) is an implementation of the C++ standard library algorithmswith support for execution policies, as specified in ISO/IEC 14882:2017 standard, commonly called C++17",
             "license": [
-                "Apache-2.0",
-                "LLVM-exception"
+                "Apache-2.0 WITH LLVM-exception"
             ],
             "v2": true,
             "versions": [
-                "2022.3.0",
-                "2021.7.0",
-                "2021.6.1"
+                "2022.3.0"
             ]
         },
         "onetbb": {
@@ -16911,19 +16902,7 @@
             ],
             "v2": true,
             "versions": [
-                "2023.0.0",
-                "2022.3.0",
-                "2022.0.0",
-                "2021.12.0",
-                "2021.10.0",
-                "2021.9.0",
-                "2021.7.0",
-                "2020.3.3",
-                "2020.3",
-                "2020.2",
-                "2020.1",
-                "2020.0",
-                "2019_u9"
+                "2023.0.0"
             ]
         },
         "oniguruma": {
@@ -17653,8 +17632,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.7.0",
-                "3.6.0"
+                "3.7.0"
             ]
         },
         "opentdf-client": {
@@ -17732,14 +17710,11 @@
             "cmake_target_name": "OpenVDB::openvdb",
             "description": "OpenVDB is an open source C++ library comprising a novel hierarchical datastructure and a large suite of tools for the efficient storage and manipulation of sparse volumetric data discretized on three-dimensional grids.",
             "license": [
-                "Apache-2.0",
-                "MPL-2.0"
+                "Apache-2.0"
             ],
             "v2": true,
             "versions": [
-                "12.1.1",
-                "11.0.0",
-                "10.1.0"
+                "12.1.1"
             ]
         },
         "openvino": {
@@ -18037,9 +18012,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.19.0",
-                "2.17.0",
-                "2.10"
+                "2.19.0"
             ]
         },
         "paho-mqtt-c": {
@@ -23086,9 +23059,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.17.2",
-                "1.17.0",
-                "1.16.0"
+                "1.17.2"
             ]
         },
         "tidwall-neco": {
@@ -25692,8 +25663,6 @@
             "v2": true,
             "versions": [
                 "0.27.1",
-                "0.26.0",
-                "0.25.0",
                 "0.24.7"
             ]
         },
