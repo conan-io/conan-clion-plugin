@@ -1,5 +1,5 @@
 {
-    "date": 1782867552,
+    "date": 1782953729,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7464,14 +7464,9 @@
             ],
             "v2": true,
             "versions": [
-                "3.13.0",
+                "3.14.1",
                 "3.12.2",
-                "3.12.0",
-                "3.11.2",
-                "3.11.1",
-                "3.11.0",
-                "3.10.3",
-                "3.10.2"
+                "3.12.0"
             ]
         },
         "geotrans": {
@@ -20410,18 +20405,20 @@
             ]
         },
         "rmlui": {
+            "cmake_file_name": "RmlUi",
+            "cmake_target_name": "RmlUi::RmlUi",
+            "components": {
+                "rmlui_debugger": {
+                    "cmake_target_name": "RmlUi::Debugger"
+                }
+            },
             "description": "RmlUi - The HTML/CSS User Interface Library Evolved",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "4.4",
-                "4.3",
-                "4.2",
-                "4.1",
-                "4.0",
-                "3.3"
+                "6.2"
             ]
         },
         "rmm": {
