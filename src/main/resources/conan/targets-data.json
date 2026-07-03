@@ -1,5 +1,5 @@
 {
-    "date": 1782953729,
+    "date": 1783039483,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -14694,7 +14694,7 @@
             ],
             "v2": true,
             "versions": [
-                "5.1.1"
+                "5.1.3"
             ]
         },
         "mdns": {
@@ -19625,17 +19625,15 @@
             ]
         },
         "quazip": {
-            "cmake_file_name": "QuaZip-Qt5",
+            "cmake_file_name": "QuaZip-Qt6",
             "cmake_target_name": "QuaZip::QuaZip",
             "description": "A simple C++ wrapper over Gilles Vollant's ZIP/UNZIP package that can be used to access ZIP archives.",
             "license": [
-                "LGPL-2.1-linking-exception"
+                "LGPL-2.1-only WITH LicenseRef-QuaZip-Static-Linking-Exception"
             ],
             "v2": true,
             "versions": [
-                "1.4",
-                "1.3",
-                "1.2"
+                "1.7.2"
             ]
         },
         "quickcpplib": {
@@ -21009,8 +21007,8 @@
             ],
             "v2": true,
             "versions": [
-                "3.4.0",
-                "2.8.8"
+                "3.4.4",
+                "2.8.12"
             ]
         },
         "sdl_mixer": {
