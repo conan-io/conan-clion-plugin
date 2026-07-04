@@ -1,5 +1,5 @@
 {
-    "date": 1783039483,
+    "date": 1783125797,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -76,6 +76,7 @@
             ],
             "v2": true,
             "versions": [
+                "20260526.0",
                 "20260107.1",
                 "20250814.2",
                 "20250512.1",
@@ -472,6 +473,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.7.6",
                 "1.7.4"
             ]
         },
@@ -3134,7 +3136,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.2.2"
+                "1.2.3"
             ]
         },
         "clove-unit": {
@@ -5908,9 +5910,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.11",
-                "1.10",
-                "1.8"
+                "1.11"
             ]
         },
         "ensmallen": {
@@ -6464,8 +6464,8 @@
             ],
             "v2": true,
             "versions": [
-                "8.1.1",
-                "7.1.4"
+                "8.1.2",
+                "7.1.5"
             ]
         },
         "fft": {
@@ -6694,6 +6694,16 @@
             "versions": [
                 "cci.20240115",
                 "0.4.0"
+            ]
+        },
+        "fmi-ls-bus": {
+            "description": "FMI Layered Standard for Network Communication (FMI-LS-BUS)",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.0"
             ]
         },
         "fmi1": {
@@ -7724,7 +7734,7 @@
             "cmake_target_name": "gli",
             "description": "OpenGL Image (GLI)",
             "license": [
-                "LicenseRef-copying.txt"
+                "LicenseRef-HappyBunny OR MIT"
             ],
             "v2": true,
             "versions": [
@@ -7771,15 +7781,19 @@
         },
         "glm": {
             "cmake_file_name": "glm",
-            "cmake_target_name": "glm::glm-header-only",
+            "cmake_target_name": "none",
+            "components": {
+                "headers": {
+                    "cmake_target_name": "glm::glm-header-only"
+                }
+            },
             "description": "OpenGL Mathematics (GLM)",
             "license": [
-                "MIT"
+                "LicenseRef-HappyBunny OR MIT"
             ],
             "v2": true,
             "versions": [
-                "1.0.3",
-                "1.0.1"
+                "1.0.3"
             ]
         },
         "glog": {
@@ -8601,9 +8615,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.1.5",
-                "2.0.2",
-                "1.0.0"
+                "2.2.0"
             ]
         },
         "hidapi": {
@@ -10857,7 +10869,7 @@
             ],
             "v2": true,
             "versions": [
-                "8.20.0"
+                "8.21.0"
             ]
         },
         "libcvd": {
@@ -12907,12 +12919,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.11.1",
-                "1.11.0",
-                "1.10.0",
-                "1.9.0",
-                "1.8.2",
-                "1.8.0"
+                "1.11.1"
             ]
         },
         "libstudxml": {
@@ -18248,15 +18255,9 @@
             ],
             "v2": true,
             "versions": [
-                "10.44",
+                "10.47",
                 "10.43",
-                "10.42",
-                "10.40",
-                "10.39",
-                "10.37",
-                "10.36",
-                "10.35",
-                "10.33"
+                "10.42"
             ]
         },
         "pdal": {
@@ -19942,15 +19943,8 @@
             ],
             "v2": true,
             "versions": [
-                "0.10.0",
-                "0.9.0",
-                "0.8.0",
-                "0.7.1",
-                "0.7.0",
-                "0.5.0",
-                "0.4.1",
-                "0.4.0",
-                "0.3.0"
+                "0.15.2",
+                "0.5.0"
             ]
         },
         "raylib": {
@@ -20240,6 +20234,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.25.0",
                 "0.23.0",
                 "0.22.0",
                 "0.21.0",
