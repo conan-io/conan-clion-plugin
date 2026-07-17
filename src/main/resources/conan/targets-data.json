@@ -1,5 +1,5 @@
 {
-    "date": 1784162204,
+    "date": 1784248727,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1301,6 +1301,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.5.2",
                 "5.5.1",
                 "5.4.2",
                 "5.3.3",
@@ -1548,15 +1549,24 @@
         },
         "bgfx": {
             "cmake_file_name": "bgfx",
-            "cmake_target_name": "bgfx::bgfx",
-            "description": "Cross-platform, graphics API agnostic, \"Bring Your Own Engine/Framework\" style rendering library.",
+            "components": {
+                "bgfx": {
+                    "cmake_target_name": "bgfx::bgfx"
+                },
+                "bimg": {
+                    "cmake_target_name": "bgfx::bimg"
+                },
+                "bx": {
+                    "cmake_target_name": "bgfx::bx"
+                }
+            },
+            "description": "Cross-platform rendering library",
             "license": [
                 "BSD-2-Clause"
             ],
             "v2": true,
             "versions": [
-                "cci.20230216",
-                "1.129.8930-495"
+                "1.146.9306-550"
             ]
         },
         "bigint": {
@@ -2047,6 +2057,18 @@
             "versions": [
                 "3.1.1",
                 "2.4.2"
+            ]
+        },
+        "box3d": {
+            "cmake_file_name": "box3d",
+            "cmake_target_name": "box3d::box3d",
+            "description": "Box3D is a 3D physics engine for games",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.0"
             ]
         },
         "breakpad": {
@@ -4557,6 +4579,7 @@
             ],
             "v2": true,
             "versions": [
+                "11.0.1",
                 "0.10.5",
                 "0.10.4",
                 "0.10.3",
@@ -16258,6 +16281,7 @@
             ],
             "v2": true,
             "versions": [
+                "24.18.0",
                 "22.20.0",
                 "20.16.0",
                 "18.15.0",
@@ -17030,6 +17054,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.24.3",
                 "1.23.1",
                 "1.22.2"
             ]
