@@ -3,21 +3,27 @@ package com.jfrog.conan.clion.toolWindow
 import com.intellij.ide.ui.LafManager
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
+import com.intellij.ui.components.JBLabel
+import com.intellij.ui.jcef.JBCefApp
 import com.intellij.ui.jcef.JCEFHtmlPanel
+import com.jfrog.conan.clion.bundles.UIBundle
 import com.jfrog.conan.clion.models.LibraryData
 import com.jfrog.conan.clion.services.ConanService
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.awt.Color
 import javax.swing.JComponent
+import javax.swing.SwingConstants
 
 
 // FIXME: refactor to remove duplicate code from ReadmePanel
 class UsedPackagesPanel(val project: Project) {
-    private val htmlPanel = JCEFHtmlPanel(null).apply {
-        loadHTML("")
-        setOpenLinksInExternalBrowser(true)
-    }
+    private val htmlPanel: JCEFHtmlPanel? = if (JBCefApp.isSupported()) {
+        JCEFHtmlPanel(null).apply {
+            loadHTML("")
+            setOpenLinksInExternalBrowser(true)
+        }
+    } else null
 
     private val libraryData = project.service<ConanService>().getTargetData()
 
@@ -159,7 +165,9 @@ class UsedPackagesPanel(val project: Project) {
     }
 
     fun getHTMLUsedPackages(names: List<String>): JComponent {
-        htmlPanel.loadHTML(getHtml(names))
-        return htmlPanel.component
+        val panel = htmlPanel
+            ?: return JBLabel(UIBundle.message("library.description.jcef.unavailable"), SwingConstants.CENTER)
+        panel.loadHTML(getHtml(names))
+        return panel.component
     }
 }
