@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+- Fix "Nothing to show" tool window crash on recent CLion versions where JCEF was split into its own bundled module
+
 ## [2.0.10] - 2025-03-28
 
 - Add "Scan Vulnerabilities" tab
