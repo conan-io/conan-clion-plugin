@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [2.0.11] - 2026-07-20
+
 - Fix "Nothing to show" tool window crash on recent CLion versions where JCEF was split into its own bundled module
 
 ## [2.0.10] - 2025-03-28
@@ -86,7 +88,8 @@
 
 - New Conan CLion plugin compatible with Conan 2.X
 
-[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.10...HEAD
+[Unreleased]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.11...HEAD
+[2.0.11]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.10...v2.0.11
 [2.0.10]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.9...v2.0.10
 [2.0.9]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.8...v2.0.9
 [2.0.8]: https://github.com/conan-io/conan-clion-plugin//compare/v2.0.7...v2.0.8
