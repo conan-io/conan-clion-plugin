@@ -19,6 +19,7 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.clion</depends>
+    <depends optional="true" config-file="withJcef.xml">com.intellij.modules.jcef</depends>
     <resource-bundle>messages.ui</resource-bundle>
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.jfrog.conan.clion.toolWindow.ConanWindowFactory"

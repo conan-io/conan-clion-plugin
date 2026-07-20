@@ -3,25 +3,31 @@ package com.jfrog.conan.clion.toolWindow
 import com.intellij.ide.ui.LafManager
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
+import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBScrollPane
+import com.intellij.ui.jcef.JBCefApp
 import com.intellij.ui.jcef.JCEFHtmlPanel
+import com.jfrog.conan.clion.bundles.UIBundle
 import com.jfrog.conan.clion.services.ConanService
 import java.awt.Color
 import javax.swing.JComponent
+import javax.swing.SwingConstants
 import javax.swing.SwingUtilities
 
 
 class ReadmePanel(val project: Project) {
-    private val htmlPanel = JCEFHtmlPanel(null).apply {
-        loadHTML("")
-        setOpenLinksInExternalBrowser(true)
-    }.also { htmlPanel ->
-        val cefBrowser = htmlPanel.cefBrowser
-        cefBrowser.uiComponent.addMouseWheelListener { e ->
-            val scrollPane = SwingUtilities.getAncestorOfClass(JBScrollPane::class.java, e.component) as? JBScrollPane
-            scrollPane?.dispatchEvent(SwingUtilities.convertMouseEvent(e.component, e, scrollPane))
+    private val htmlPanel: JCEFHtmlPanel? = if (JBCefApp.isSupported()) {
+        JCEFHtmlPanel(null).apply {
+            loadHTML("")
+            setOpenLinksInExternalBrowser(true)
+        }.also { htmlPanel ->
+            val cefBrowser = htmlPanel.cefBrowser
+            cefBrowser.uiComponent.addMouseWheelListener { e ->
+                val scrollPane = SwingUtilities.getAncestorOfClass(JBScrollPane::class.java, e.component) as? JBScrollPane
+                scrollPane?.dispatchEvent(SwingUtilities.convertMouseEvent(e.component, e, scrollPane))
+            }
         }
-    }
+    } else null
 
     private val targetsDataAsText = project.service<ConanService>().getTargetDataText()
     private val libraryData = project.service<ConanService>().getTargetData()
@@ -158,7 +164,11 @@ class ReadmePanel(val project: Project) {
     }
 
     fun getHTMLPackageInfo(name: String): JComponent {
-        htmlPanel.loadHTML(getHtml(name))
-        return htmlPanel.component
+        val panel = htmlPanel ?: return jcefUnavailableComponent()
+        panel.loadHTML(getHtml(name))
+        return panel.component
     }
+
+    private fun jcefUnavailableComponent(): JComponent =
+        JBLabel(UIBundle.message("library.description.jcef.unavailable"), SwingConstants.CENTER)
 }
