@@ -1,5 +1,5 @@
 {
-    "date": 1785285381,
+    "date": 1785371770,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -43,8 +43,7 @@
             ],
             "v2": true,
             "versions": [
-                "26.02",
-                "25.01"
+                "26.02"
             ]
         },
         "aaf": {
@@ -10284,12 +10283,11 @@
         "laszip": {
             "description": "C++ library for lossless LiDAR compression.",
             "license": [
-                "LGPL-2.1"
+                "Apache-2.0"
             ],
             "v2": true,
             "versions": [
-                "3.4.4",
-                "3.4.3"
+                "3.5.0"
             ]
         },
         "lazycsv": {
@@ -16004,6 +16002,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.0",
                 "0.3.1",
                 "0.3.0"
             ]
