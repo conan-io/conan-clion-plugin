@@ -1,5 +1,5 @@
 {
-    "date": 1785976467,
+    "date": 1786065450,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -16059,6 +16059,16 @@
             "v2": true,
             "versions": [
                 "4.8.1"
+            ]
+        },
+        "netcode": {
+            "description": "A protocol for secure client/server connections over UDP",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.4.3"
             ]
         },
         "nettle": {
