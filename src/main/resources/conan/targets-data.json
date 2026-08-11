@@ -1,5 +1,5 @@
 {
-    "date": 1786321382,
+    "date": 1786407715,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -7124,6 +7124,7 @@
         },
         "ftxui": {
             "cmake_file_name": "ftxui",
+            "cmake_target_name": "ftxui::ftxui",
             "components": {
                 "ftxui-component": {
                     "cmake_target_name": "ftxui::component"
@@ -7141,14 +7142,7 @@
             ],
             "v2": true,
             "versions": [
-                "6.1.9",
-                "6.0.2",
-                "5.0.0",
-                "4.1.1",
-                "4.1.0",
-                "4.0.0",
-                "3.0.0",
-                "2.0.0"
+                "7.0.2"
             ]
         },
         "function2": {
@@ -14315,7 +14309,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.25.3"
+                "0.26.0"
             ]
         },
         "make": {
@@ -15131,7 +15125,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.3.0"
+                "0.4.0"
             ]
         },
         "minisat": {
@@ -18838,7 +18832,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.3.2",
+                "1.3.3",
                 "1.0.0",
                 "0.0.7"
             ]
@@ -22688,10 +22682,11 @@
             "cmake_target_name": "taocpp::pegtl",
             "description": "Parsing Expression Grammar Template Library",
             "license": [
-                "MIT"
+                "BSL-1.0"
             ],
             "v2": true,
             "versions": [
+                "4.0.1",
                 "3.2.8",
                 "3.2.7",
                 "3.2.6",
