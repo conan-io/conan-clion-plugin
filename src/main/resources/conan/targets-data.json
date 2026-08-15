@@ -1,5 +1,5 @@
 {
-    "date": 1786667263,
+    "date": 1786752909,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -16244,7 +16244,7 @@
             ],
             "v2": true,
             "versions": [
-                "cci.20260602"
+                "cci.20260812"
             ]
         },
         "nmslib": {
