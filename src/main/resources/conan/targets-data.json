@@ -1,5 +1,5 @@
 {
-    "date": 1787271380,
+    "date": 1787357703,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5155,7 +5155,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.6.0"
+                "1.6.2"
             ]
         },
         "djinni-generator": {
@@ -5268,6 +5268,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.3",
                 "2.5.2",
                 "2.4.12",
                 "2.4.11"
@@ -9263,6 +9264,25 @@
             "versions": [
                 "cci.20240102",
                 "cci.20201227"
+            ]
+        },
+        "influxdb-cpp-rest": {
+            "cmake_file_name": "influxdb-cpp-rest",
+            "components": {
+                "c-rest": {
+                    "cmake_target_name": "influxdb-cpp-rest::influx-c-rest"
+                },
+                "cpp-rest": {
+                    "cmake_target_name": "influxdb-cpp-rest::influxdb-cpp-rest"
+                }
+            },
+            "description": "A C++ client library for InfluxDB using C++ REST SDK",
+            "license": [
+                "MPL-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "1.0.3"
             ]
         },
         "influxdb-cxx": {
@@ -26237,7 +26257,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.13.2"
+                "0.13.3"
             ]
         },
         "zxing-cpp": {
