@@ -1,5 +1,5 @@
 {
-    "date": 1789518884,
+    "date": 1789605281,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -10459,12 +10459,8 @@
             ],
             "v2": true,
             "versions": [
-                "2.6.0",
-                "2.5.0",
-                "2.4.0",
-                "2.3.0",
-                "2.2.0",
-                "2.1.0"
+                "3.0.0",
+                "2.7.0"
             ]
         },
         "libaec": {
@@ -10741,14 +10737,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.13.0",
-                "0.12.0",
-                "0.11.0",
-                "0.10.2",
-                "0.10.1",
-                "0.10.0",
-                "0.9.0",
-                "0.7.0"
+                "0.14.0"
             ]
         },
         "libccd": {
@@ -11553,7 +11542,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.23.3",
+                "1.23.4",
                 "1.16.2"
             ]
         },
@@ -12586,8 +12575,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.56.5",
-                "2.53.1"
+                "2.58.1"
             ]
         },
         "libressl": {
@@ -13545,7 +13533,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.15.3",
+                "2.15.4",
                 "2.14.5",
                 "2.13.8"
             ]
@@ -14791,13 +14779,13 @@
             ]
         },
         "melon": {
-            "description": "A modern and efficient graph library using C++20 ranges and concepts.",
+            "description": "Modern and Efficient Library for Optimization in Networks.",
             "license": [
                 "BSL-1.0"
             ],
             "v2": true,
             "versions": [
-                "1.0.0-alpha.1"
+                "1.0.0"
             ]
         },
         "mesa-glu": {
@@ -20088,6 +20076,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.0.7",
                 "1.0.6",
                 "1.0.5",
                 "1.0.3"
