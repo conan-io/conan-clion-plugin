@@ -1,5 +1,5 @@
 {
-    "date": 1789605281,
+    "date": 1789691700,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5299,7 +5299,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.17.0"
+                "1.18.0"
             ]
         },
         "dpp": {
@@ -6622,7 +6622,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.4.1"
+                "1.5.0"
             ]
         },
         "flatc": {
@@ -10900,7 +10900,7 @@
             ],
             "v2": true,
             "versions": [
-                "8.21.0"
+                "8.22.0"
             ]
         },
         "libcvd": {
@@ -13894,9 +13894,8 @@
             ],
             "v2": true,
             "versions": [
-                "0.9.32",
-                "0.9.31",
-                "0.9.29"
+                "1.0.2",
+                "0.9.32"
             ]
         },
         "lodepng": {
@@ -14457,6 +14456,18 @@
             "v2": true,
             "versions": [
                 "0.2.6"
+            ]
+        },
+        "mas-bandwidth-serialize": {
+            "cmake_file_name": "serialize",
+            "cmake_target_name": "serialize::serialize",
+            "description": "A simple bitpacking serializer for C++",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.17.0"
             ]
         },
         "matchit": {
@@ -18892,8 +18903,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.0.3",
-                "0.10.5"
+                "1.1.2"
             ]
         },
         "poly2tri": {
@@ -21640,8 +21650,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.1.2",
-                "4.0.3"
+                "4.1.4"
             ]
         },
         "sockpp": {
@@ -22963,7 +22972,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.12.3"
+                "1.13"
             ]
         },
         "tgc": {
@@ -24206,6 +24215,8 @@
             ],
             "v2": true,
             "versions": [
+                "5.0.1",
+                "4.11.0",
                 "4.9.2",
                 "4.9.0",
                 "4.8.1",
@@ -25760,6 +25771,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.8.4",
                 "5.8.3",
                 "5.4.5"
             ]
