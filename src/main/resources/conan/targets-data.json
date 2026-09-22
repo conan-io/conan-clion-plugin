@@ -1,5 +1,5 @@
 {
-    "date": 1789951120,
+    "date": 1790037315,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -485,6 +485,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.6.5",
                 "1.6.1"
             ]
         },
@@ -17967,8 +17968,17 @@
             "cmake_file_name": "OusterSDK",
             "cmake_target_name": "OusterSDK::OusterSDK",
             "components": {
-                "ouster_client": {
-                    "cmake_target_name": "OusterSDK::ouster_client"
+                "nmea": {
+                    "cmake_target_name": "OusterSDK::nmea"
+                },
+                "ouster_algorithm": {
+                    "cmake_target_name": "OusterSDK::ouster_algorithm"
+                },
+                "ouster_build": {
+                    "cmake_target_name": "OusterSDK::ouster_build"
+                },
+                "ouster_core": {
+                    "cmake_target_name": "OusterSDK::ouster_core"
                 }
             },
             "description": "Ouster SDK - tools for working with Ouster Lidars",
@@ -17977,8 +17987,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.15.0",
-                "0.14.0"
+                "1.0.1"
             ]
         },
         "out_ptr": {
@@ -24491,6 +24500,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.0",
                 "2.0.0",
                 "1.2.2"
             ]
