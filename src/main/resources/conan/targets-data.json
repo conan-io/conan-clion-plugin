@@ -1,5 +1,5 @@
 {
-    "date": 1790728766,
+    "date": 1790815488,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -10216,6 +10216,32 @@
                 "29"
             ]
         },
+        "kokkos": {
+            "cmake_file_name": "Kokkos",
+            "cmake_target_name": "Kokkos::kokkos",
+            "components": {
+                "kokkosalgorithms": {
+                    "cmake_target_name": "Kokkos::kokkosalgorithms"
+                },
+                "kokkoscontainers": {
+                    "cmake_target_name": "Kokkos::kokkoscontainers"
+                },
+                "kokkoscore": {
+                    "cmake_target_name": "Kokkos::kokkoscore"
+                },
+                "kokkossimd": {
+                    "cmake_target_name": "Kokkos::kokkossimd"
+                }
+            },
+            "description": "C++ performance portability programming model for parallel execution and memory abstraction",
+            "license": [
+                "Apache-2.0 WITH LLVM-exception"
+            ],
+            "v2": true,
+            "versions": [
+                "5.2.2"
+            ]
+        },
         "kplot": {
             "description": "open source Cairo plotting library",
             "license": [
@@ -17662,12 +17688,11 @@
             ],
             "v2": true,
             "versions": [
-                "4.0.2",
-                "3.6.4",
-                "3.5.8",
-                "3.4.7",
+                "4.0.3",
+                "3.6.5",
+                "3.5.9",
+                "3.4.8",
                 "3.1.2",
-                "3.0.22",
                 "1.1.1w"
             ]
         },
@@ -24207,6 +24232,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.2.0",
                 "5.0.1",
                 "4.11.0",
                 "4.9.2",
