@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
 
       - name: Check out repository code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           path: clion-plugin
 
