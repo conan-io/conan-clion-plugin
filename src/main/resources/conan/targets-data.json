@@ -1,5 +1,5 @@
 {
-    "date": 1791419903,
+    "date": 1791506420,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -4094,6 +4094,18 @@
             "v2": true,
             "versions": [
                 "cci.20221105"
+            ]
+        },
+        "crashcatch": {
+            "cmake_file_name": "CrashCatch",
+            "cmake_target_name": "CrashCatch::CrashCatch",
+            "description": "A cross-platform, single-header C++ crash-reporting library for modern C++ applications.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.6.0"
             ]
         },
         "crashpad": {
@@ -12535,6 +12547,18 @@
             "v2": false,
             "versions": [
                 "1.1.0-beta1"
+            ]
+        },
+        "librats": {
+            "cmake_file_name": "rats",
+            "cmake_target_name": "rats::rats",
+            "description": "C++17 peer-to-peer networking library: encrypted P2P (Noise XX), DHT/mDNS discovery, NAT traversal (STUN/UPnP/NAT-PMP), GossipSub pub/sub, file transfer, optional BitTorrent.",
+            "license": [
+                "MIT AND BSD-3-Clause AND BSD-2-Clause AND BSD-1-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "2.3.7"
             ]
         },
         "libraw": {
@@ -25708,6 +25732,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.4",
                 "0.8.3",
                 "0.8.2",
                 "0.8.1",
