@@ -1,5 +1,5 @@
 {
-    "date": 1792370171,
+    "date": 1792456434,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -5981,13 +5981,8 @@
             ],
             "v2": true,
             "versions": [
-                "3.16.0",
-                "3.15.0",
-                "3.14.0",
-                "3.13.2",
-                "3.12.2",
-                "3.11.1",
-                "3.10.3"
+                "4.0.0",
+                "3.16.0"
             ]
         },
         "enum-flags": {
@@ -9516,9 +9511,8 @@
             ],
             "v2": true,
             "versions": [
-                "0.26",
-                "0.25",
-                "0.24"
+                "0.28",
+                "0.26"
             ]
         },
         "iso8601lib": {
@@ -13173,6 +13167,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.6.2",
                 "2.4.7"
             ]
         },
@@ -13887,12 +13882,25 @@
             ]
         },
         "llama-cpp": {
+            "cmake_file_name": "llama",
             "components": {
+                "common": {
+                    "cmake_target_name": "llama-common"
+                },
+                "common-base": {
+                    "cmake_target_name": "llama-common-base"
+                },
                 "ggml": {
+                    "cmake_target_name": "ggml::ggml"
+                },
+                "ggml-all": {
                     "cmake_target_name": "ggml::all"
                 },
                 "ggml-base": {
-                    "cmake_target_name": "ggml-base"
+                    "cmake_target_name": "ggml::ggml-base"
+                },
+                "llama": {
+                    "cmake_target_name": "llama"
                 }
             },
             "description": "Inference of LLaMA model in pure C/C++",
@@ -13901,7 +13909,7 @@
             ],
             "v2": true,
             "versions": [
-                "b6565"
+                "0.6.0"
             ]
         },
         "llhttp": {
@@ -21533,6 +21541,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.0.5",
                 "4.6.4",
                 "3.13.0"
             ]
@@ -26336,6 +26345,28 @@
             "v2": true,
             "versions": [
                 "3.1.1"
+            ]
+        },
+        "zycore": {
+            "cmake_target_name": "Zycore::Zycore",
+            "description": "Platform independent types, macros and a fallback for environments without LibC",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "1.5.2"
+            ]
+        },
+        "zydis": {
+            "cmake_target_name": "Zydis::Zydis",
+            "description": "Fast and lightweight x86/x86-64 disassembler and code generation library",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "4.1.1"
             ]
         },
         "zyre": {
