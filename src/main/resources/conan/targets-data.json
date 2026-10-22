@@ -1,5 +1,5 @@
 {
-    "date": 1792542768,
+    "date": 1792629197,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -684,6 +684,7 @@
             ],
             "v2": true,
             "versions": [
+                "15.6.2",
                 "15.2.6",
                 "12.6.4"
             ]
@@ -699,6 +700,7 @@
             ],
             "v2": true,
             "versions": [
+                "26.0.0",
                 "25.0.1",
                 "24.0.0",
                 "22.0.0",
@@ -1745,15 +1747,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.11.4",
-                "0.11.3",
-                "0.11.1",
-                "0.10.6",
-                "0.10.5",
-                "0.10.4",
-                "0.10",
-                "0.9",
-                "0.8"
+                "0.21.2"
             ]
         },
         "bliss": {
@@ -2275,7 +2269,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.34.8",
+                "1.34.9",
                 "1.25.0"
             ]
         },
@@ -2506,6 +2500,16 @@
                 "1.0.3",
                 "1.0.1",
                 "1.0.0"
+            ]
+        },
+        "casadi": {
+            "description": "CasADi is a symbolic framework for numeric optimization implementing automatic differentiation in forward and reverse modes on sparse matrix-valued computational graphs.",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "3.8.1"
             ]
         },
         "casbin": {
@@ -3620,6 +3624,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.62.0",
                 "0.61.0",
                 "0.59.0",
                 "0.56.0",
@@ -4708,6 +4713,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.2.0",
                 "4.1.0",
                 "3.7.0",
                 "2.3.0",
@@ -5891,6 +5897,16 @@
                 "2.3.2"
             ]
         },
+        "enchantum": {
+            "description": "Faster enum reflection for C++17 since I don't want to wait for C++26 reflection.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.5.0"
+            ]
+        },
         "enet": {
             "description": "ENet reliable UDP networking library",
             "license": [
@@ -6908,10 +6924,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.7.3",
-                "0.7.2",
-                "0.7.1",
-                "0.7.0"
+                "0.7.3"
             ]
         },
         "forestdb": {
@@ -9727,6 +9740,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.1.7",
                 "1.1.4",
                 "1.1.3"
             ]
@@ -11330,6 +11344,19 @@
                 "3.4.6",
                 "3.4.4",
                 "3.3"
+            ]
+        },
+        "libfido2": {
+            "cmake_file_name": "libfido2",
+            "cmake_target_name": "libfido2::libfido2",
+            "description": "Library for communication with FIDO2 devices over USB or NFC",
+            "license": [
+                "BSD-2-Clause",
+                "ISC"
+            ],
+            "v2": true,
+            "versions": [
+                "1.17.0"
             ]
         },
         "libfn": {
@@ -18724,10 +18751,11 @@
         "pkgconf": {
             "description": "package compiler and linker metadata toolkit",
             "license": [
-                "ISC"
+                "pkgconf"
             ],
             "v2": true,
             "versions": [
+                "3.0.7",
                 "2.5.1",
                 "2.2.0",
                 "2.1.0",
@@ -21055,6 +21083,16 @@
                 "10.0.2"
             ]
         },
+        "sciplot": {
+            "description": "A modern C++ scientific plotting library powered by gnuplot.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "0.3.1"
+            ]
+        },
         "scippp": {
             "description": "SCIP++ is a C++ wrapper for SCIP's C interface",
             "license": [
@@ -22024,6 +22062,16 @@
             "v2": true,
             "versions": [
                 "2.8.0"
+            ]
+        },
+        "speexdsp": {
+            "description": "SpeexDSP is a patent-free, Open Source/Free Software DSP library providing resampler, echo cancellation, noise suppression, and other audio processing functions.",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "1.2.1"
             ]
         },
         "spirv-cross": {
@@ -23914,6 +23962,18 @@
                 "1.1.0"
             ]
         },
+        "trng": {
+            "cmake_file_name": "trng4",
+            "cmake_target_name": "trng4::trng4",
+            "description": "Tina's Random Number Generator Library (TRNG) for sequential and parallel Monte Carlo simulations.",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "4.28"
+            ]
+        },
         "troldal-zippy": {
             "cmake_file_name": "Zippy",
             "cmake_target_name": "Zippy::Zippy",
@@ -25450,8 +25510,10 @@
             ],
             "v2": true,
             "versions": [
+                "3.3.4",
                 "3.3.3",
                 "3.3.2",
+                "3.2.12",
                 "3.2.11",
                 "3.2.10"
             ]
@@ -26000,13 +26062,15 @@
             ]
         },
         "yojimbo": {
+            "cmake_file_name": "Yojimbo",
+            "cmake_target_name": "Yojimbo::yojimbo",
             "description": "A network library for client/server games written in C++",
             "license": [
                 "BSD-3-Clause"
             ],
             "v2": true,
             "versions": [
-                "1.2.5"
+                "1.14.0"
             ]
         },
         "yomm2": {
