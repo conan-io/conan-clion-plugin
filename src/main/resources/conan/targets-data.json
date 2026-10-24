@@ -1,5 +1,5 @@
 {
-    "date": 1792715680,
+    "date": 1792801932,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2122,8 +2122,10 @@
             ],
             "v2": true,
             "versions": [
-                "1.2.0",
+                "1.2.1",
+                "1.1.1",
                 "1.1.0",
+                "1.0.10",
                 "1.0.9"
             ]
         },
@@ -2573,8 +2575,8 @@
             ],
             "v2": true,
             "versions": [
+                "4.14.2",
                 "4.14.1",
-                "4.14",
                 "4.13.6",
                 "4.12.3"
             ]
@@ -7054,9 +7056,8 @@
             ],
             "v2": true,
             "versions": [
+                "2.15.0",
                 "2.14.3",
-                "2.14.1",
-                "2.13.3",
                 "2.13.2",
                 "2.12.1",
                 "2.11.1",
@@ -22009,6 +22010,18 @@
                 "2.4.0"
             ]
         },
+        "sparrow-ipc": {
+            "cmake_file_name": "sparrow-ipc",
+            "cmake_target_name": "sparrow-ipc::sparrow-ipc",
+            "description": "C++20 idiomatic APIs for the Apache Arrow Serialization and Interprocess Communication (IPC)",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "2.0.0"
+            ]
+        },
         "spdlog": {
             "cmake_file_name": "spdlog",
             "cmake_target_name": "spdlog::spdlog",
@@ -24455,7 +24468,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.5.0"
+                "2.6.0"
             ]
         },
         "upx": {
@@ -26351,6 +26364,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.20.0",
                 "2.19.0",
                 "2.18.2",
                 "2.18.1",
