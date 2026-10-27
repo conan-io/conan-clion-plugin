@@ -1,5 +1,5 @@
 {
-    "date": 1792974897,
+    "date": 1793061224,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -75,6 +75,7 @@
             ],
             "v2": true,
             "versions": [
+                "20260817.0",
                 "20260526.0",
                 "20260107.1",
                 "20250814.2",
@@ -8997,6 +8998,7 @@
             ],
             "v2": true,
             "versions": [
+                "79.1",
                 "78.2",
                 "78.1",
                 "77.1",
@@ -9807,7 +9809,7 @@
         },
         "json-schema-validator": {
             "cmake_file_name": "nlohmann_json_schema_validator",
-            "cmake_target_name": "nlohmann_json_schema_validator",
+            "cmake_target_name": "nlohmann_json_schema_validator::validator",
             "description": "JSON schema validator for JSON for Modern C++",
             "license": [
                 "MIT"
@@ -9815,10 +9817,7 @@
             "v2": true,
             "versions": [
                 "2.4.0",
-                "2.3.0",
-                "2.2.0",
-                "2.1.0",
-                "2.0.0"
+                "2.3.0"
             ]
         },
         "json_dto": {
@@ -11046,6 +11045,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.26",
                 "1.25",
                 "1.22",
                 "1.14",
@@ -15463,6 +15463,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.7",
                 "2.5.5",
                 "2.5.4",
                 "1.30.11"
@@ -15984,16 +15985,13 @@
             ]
         },
         "nanodbc": {
-            "cmake_file_name": "nanodbc",
-            "cmake_target_name": "nanodbc::nanodbc",
             "description": "A small C++ wrapper for the native C ODBC API",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "2.14.0",
-                "2.13.0"
+                "2.20.0"
             ]
         },
         "nanoflann": {
@@ -18189,7 +18187,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.19.0"
+                "2.20.0"
             ]
         },
         "paho-mqtt-c": {
@@ -19874,6 +19872,7 @@
             ],
             "v2": true,
             "versions": [
+                "13.1.0",
                 "13.0.0",
                 "12.1.0",
                 "12.0.0",
@@ -22528,6 +22527,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.42.3.1",
                 "5.40.2.1",
                 "5.38.2.2",
                 "5.32.1.1",
@@ -25874,6 +25874,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.2",
                 "0.8.0",
                 "0.7.6",
                 "0.7.5",
