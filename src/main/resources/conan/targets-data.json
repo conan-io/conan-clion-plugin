@@ -1,5 +1,5 @@
 {
-    "date": 1793147134,
+    "date": 1793233548,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1061,7 +1061,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.9.1"
+                "0.10.4"
             ]
         },
         "aws-c-cal": {
@@ -1073,7 +1073,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.9.8"
+                "0.9.15"
             ]
         },
         "aws-c-common": {
@@ -1085,7 +1085,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.12.5"
+                "0.14.5"
             ]
         },
         "aws-c-compression": {
@@ -1097,7 +1097,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.3.1"
+                "0.3.2"
             ]
         },
         "aws-c-event-stream": {
@@ -1109,7 +1109,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.5.7"
+                "0.7.1"
             ]
         },
         "aws-c-http": {
@@ -1121,7 +1121,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.10.5"
+                "0.11.0"
             ]
         },
         "aws-c-io": {
@@ -1133,7 +1133,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.23.2"
+                "0.27.6"
             ]
         },
         "aws-c-mqtt": {
@@ -1145,7 +1145,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.13.3"
+                "0.16.1"
             ]
         },
         "aws-c-s3": {
@@ -1157,7 +1157,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.9.2"
+                "0.13.5"
             ]
         },
         "aws-c-sdkutils": {
@@ -1169,7 +1169,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.2.4"
+                "0.2.9"
             ]
         },
         "aws-cdi-sdk": {
@@ -1192,7 +1192,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.2.6"
+                "0.2.10"
             ]
         },
         "aws-crt-cpp": {
@@ -1204,7 +1204,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.35.2"
+                "0.43.9"
             ]
         },
         "aws-kvs-pic": {
@@ -1263,7 +1263,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.11.692"
+                "1.11.915"
             ]
         },
         "azure-sdk-for-cpp": {
@@ -8858,7 +8858,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.14.0",
+                "2.15.0",
                 "2.12.2"
             ]
         },
@@ -15992,6 +15992,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.8",
                 "2.20.0"
             ]
         },
@@ -17825,7 +17826,6 @@
             "versions": [
                 "1.26.0",
                 "1.24.0",
-                "1.22.0",
                 "1.21.0"
             ]
         },
@@ -18723,7 +18723,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.5.85"
+                "1.6.10"
             ]
         },
         "pistache": {
@@ -20931,7 +20931,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.5.27"
+                "1.7.7"
             ]
         },
         "safe": {
@@ -22450,6 +22450,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20261021",
                 "cci.20240531",
                 "cci.20240213",
                 "cci.20230920",
@@ -25542,6 +25543,18 @@
             "versions": [
                 "final4",
                 "cci.20221102"
+            ]
+        },
+        "xad": {
+            "cmake_file_name": "XAD",
+            "cmake_target_name": "XAD::xad",
+            "description": "Comprehensive C++ library for automatic differentiation: forward and adjoint modes, higher-order derivatives and checkpointing",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "2.1.0"
             ]
         },
         "xalan-c": {
