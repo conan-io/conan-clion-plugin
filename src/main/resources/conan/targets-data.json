@@ -1,5 +1,5 @@
 {
-    "date": 1793319987,
+    "date": 1793406050,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -20982,17 +20982,6 @@
                 "0.9.10"
             ]
         },
-        "samarium": {
-            "description": "2-D physics simulation library",
-            "license": [
-                "MIT"
-            ],
-            "v2": true,
-            "versions": [
-                "1.0.1",
-                "1.0.0"
-            ]
-        },
         "samurai": {
             "description": "Intervals coupled with algebra of set to handle adaptive mesh refinement and operators on it",
             "license": [
@@ -26233,11 +26222,12 @@
             },
             "description": "Zint Barcode Generator",
             "license": [
-                "GPL-3.0"
+                "BSD-3-Clause",
+                "GPL-3.0-or-later"
             ],
             "v2": true,
             "versions": [
-                "2.10.0"
+                "2.16.0"
             ]
         },
         "zlib": {
