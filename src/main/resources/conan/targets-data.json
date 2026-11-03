@@ -1,5 +1,5 @@
 {
-    "date": 1793579016,
+    "date": 1793665244,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -1530,6 +1530,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.10.0",
                 "1.9.5",
                 "1.9.4",
                 "1.9.0",
@@ -2859,13 +2860,8 @@
             ],
             "v2": true,
             "versions": [
-                "2.4.4",
-                "2.4.2",
-                "2.4.1",
-                "2.4.0",
-                "2.3.4",
-                "2.2.0",
-                "2.1.0"
+                "2.4.5",
+                "2.4.2"
             ]
         },
         "chef-fun": {
@@ -4666,7 +4662,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.0.1"
+                "3.2.1"
             ]
         },
         "dacap-clip": {
@@ -4885,7 +4881,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.7.0",
+                "3.7.1",
                 "3.6.7"
             ]
         },
@@ -8566,6 +8562,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "1.14.6",
                 "1.14.3"
             ]
@@ -9133,13 +9130,18 @@
             ]
         },
         "imagemagick": {
+            "components": {
+                "Magick++": {},
+                "MagickCore": {},
+                "MagickWand": {}
+            },
             "description": "ImageMagick is a free and open-source software suite for displaying, converting, and editing raster image and vector image files",
             "license": [
                 "ImageMagick"
             ],
-            "v2": false,
+            "v2": true,
             "versions": [
-                "7.0.11-14"
+                "7.1.2.35"
             ]
         },
         "imagl": {
@@ -12830,6 +12832,16 @@
                 "cci.20200930"
             ]
         },
+        "libserialport": {
+            "description": "Minimal cross-platform serial port library in C",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "v2": true,
+            "versions": [
+                "0.1.2"
+            ]
+        },
         "libsersi": {
             "cmake_target_name": "libsersi::sersi",
             "description": "Modern C++ implementation of IEEE 1278.1a-1998",
@@ -14540,6 +14552,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.4.11",
                 "3.4.8",
                 "3.4.3",
                 "3.3.8",
@@ -15004,15 +15017,19 @@
             ]
         },
         "mexce": {
-            "cmake_file_name": "mexce",
-            "cmake_target_name": "mexce::mexce",
+            "cmake_target_name": "none",
+            "components": {
+                "mexce": {
+                    "cmake_target_name": "mexce::mexce"
+                }
+            },
             "description": "Single-header, dependency-free JIT compiler for scalar mathematical expressions.",
             "license": [
                 "BSD-2-Clause"
             ],
             "v2": true,
             "versions": [
-                "1.0.1"
+                "1.2.2"
             ]
         },
         "mfast": {
@@ -16112,7 +16129,7 @@
             ],
             "v2": true,
             "versions": [
-                "6.5",
+                "6.6",
                 "6.4",
                 "6.3"
             ]
@@ -16159,7 +16176,7 @@
             ],
             "v2": true,
             "versions": [
-                "5.9.4"
+                "5.9.5.2"
             ]
         },
         "netcdf": {
@@ -21585,6 +21602,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.1.1",
                 "5.0.5",
                 "4.6.4",
                 "3.13.0"
@@ -22212,7 +22230,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.54.0",
+                "3.54.1",
                 "3.53.4",
                 "3.51.3",
                 "3.44.2"
