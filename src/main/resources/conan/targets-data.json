@@ -1,5 +1,5 @@
 {
-    "date": 1793665244,
+    "date": 1793751699,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -285,6 +285,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "2.1.1"
             ]
         },
@@ -3905,6 +3906,22 @@
                 "0.4.1"
             ]
         },
+        "cppmicroservices": {
+            "cmake_file_name": "CppMicroServices",
+            "components": {
+                "usframework": {
+                    "cmake_target_name": "CppMicroServices"
+                }
+            },
+            "description": "An OSGi-like C++ dynamic module system and service registry",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "3.8.13"
+            ]
+        },
         "cpprestsdk": {
             "cmake_file_name": "cpprestsdk",
             "components": {
@@ -6177,6 +6194,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.10.0",
                 "2.9.0",
                 "2.8.5",
                 "2.7.5",
@@ -6514,7 +6532,7 @@
             ],
             "v2": true,
             "versions": [
-                "9.0.1",
+                "9.0.2",
                 "8.1.2",
                 "7.1.5"
             ]
@@ -6657,7 +6675,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.6.0"
+                "1.7.0"
             ]
         },
         "flatc": {
@@ -7714,6 +7732,7 @@
             ],
             "v2": true,
             "versions": [
+                "9.1.0",
                 "8.4.0"
             ]
         },
@@ -11463,15 +11482,11 @@
         "libgd": {
             "description": "GD is an open source code library for the dynamiccreation of images by programmers.",
             "license": [
-                "BSD-like"
+                "GD"
             ],
             "v2": true,
             "versions": [
-                "2.3.3",
-                "2.3.2",
-                "2.3.1",
-                "2.3.0",
-                "2.2.5"
+                "2.3.3"
             ]
         },
         "libgeotiff": {
@@ -12069,6 +12084,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.2.0",
                 "3.1.12"
             ]
         },
@@ -13625,14 +13641,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.2.2",
-                "1.1.9",
-                "1.1.8",
-                "1.1.7",
-                "1.1.5",
-                "1.1.4",
-                "1.1.3",
-                "1.0.0"
+                "1.2.4"
             ]
         },
         "libxml2": {
@@ -15477,6 +15486,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.5.8",
                 "2.5.7",
                 "2.5.5",
                 "2.5.4",
@@ -17378,54 +17388,6 @@
             ]
         },
         "opencv": {
-            "cmake_file_name": "OpenCV",
-            "components": {
-                "opencv_calib3d": {
-                    "cmake_target_name": "opencv_calib3d"
-                },
-                "opencv_core": {
-                    "cmake_target_name": "opencv_core"
-                },
-                "opencv_dnn": {
-                    "cmake_target_name": "opencv_dnn"
-                },
-                "opencv_features2d": {
-                    "cmake_target_name": "opencv_features2d"
-                },
-                "opencv_flann": {
-                    "cmake_target_name": "opencv_flann"
-                },
-                "opencv_gapi": {
-                    "cmake_target_name": "opencv_gapi"
-                },
-                "opencv_highgui": {
-                    "cmake_target_name": "opencv_highgui"
-                },
-                "opencv_imgcodecs": {
-                    "cmake_target_name": "opencv_imgcodecs"
-                },
-                "opencv_imgproc": {
-                    "cmake_target_name": "opencv_imgproc"
-                },
-                "opencv_ml": {
-                    "cmake_target_name": "opencv_ml"
-                },
-                "opencv_objdetect": {
-                    "cmake_target_name": "opencv_objdetect"
-                },
-                "opencv_photo": {
-                    "cmake_target_name": "opencv_photo"
-                },
-                "opencv_stitching": {
-                    "cmake_target_name": "opencv_stitching"
-                },
-                "opencv_video": {
-                    "cmake_target_name": "opencv_video"
-                },
-                "opencv_videoio": {
-                    "cmake_target_name": "opencv_videoio"
-                }
-            },
             "description": "OpenCV (Open Source Computer Vision Library)",
             "license": [
                 "Apache-2.0"
@@ -20419,7 +20381,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.21.1"
+                "1.21.2"
             ]
         },
         "refl-cpp": {
@@ -20767,6 +20729,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.4.0",
                 "2.3.0",
                 "2.2.1",
                 "2.2.0",
@@ -21392,7 +21355,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.14.2"
+                "0.16.8"
             ]
         },
         "seqan": {
@@ -21481,10 +21444,7 @@
             "v2": true,
             "versions": [
                 "3.0.2",
-                "2.6.2",
-                "2.6.1",
-                "2.6.0",
-                "2.5.1"
+                "2.6.2"
             ]
         },
         "shaderc": {
