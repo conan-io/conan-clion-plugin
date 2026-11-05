@@ -1,5 +1,5 @@
 {
-    "date": 1793751699,
+    "date": 1793838105,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -702,6 +702,7 @@
             ],
             "v2": true,
             "versions": [
+                "26.0.1",
                 "26.0.0",
                 "25.0.1",
                 "24.0.0",
@@ -2305,7 +2306,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.1.2",
+                "3.4.1",
                 "2.23.1"
             ]
         },
@@ -3626,11 +3627,8 @@
             "v2": true,
             "versions": [
                 "0.62.0",
-                "0.61.0",
                 "0.59.0",
-                "0.56.0",
                 "0.53.1",
-                "0.47.0",
                 "0.28.0"
             ]
         },
@@ -6179,10 +6177,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.28.3",
-                "0.28.2",
-                "0.28.1",
-                "0.27.5"
+                "0.28.3"
             ]
         },
         "expat": {
@@ -7074,10 +7069,7 @@
             "versions": [
                 "2.15.0",
                 "2.14.3",
-                "2.13.2",
-                "2.12.1",
-                "2.11.1",
-                "2.10.4"
+                "2.13.2"
             ]
         },
         "freexl": {
@@ -8011,8 +8003,7 @@
             "v2": true,
             "versions": [
                 "3.8.7",
-                "3.8.2",
-                "3.7.8"
+                "3.8.2"
             ]
         },
         "gobject-introspection": {
@@ -8517,6 +8508,15 @@
             "components": {
                 "core": {
                     "cmake_target_name": "harfbuzz::harfbuzz"
+                },
+                "gpu": {
+                    "cmake_target_name": "harfbuzz::gpu"
+                },
+                "raster": {
+                    "cmake_target_name": "harfbuzz::raster"
+                },
+                "vector": {
+                    "cmake_target_name": "harfbuzz::vector"
                 }
             },
             "description": "HarfBuzz is an OpenType text shaping engine.",
@@ -8525,7 +8525,7 @@
             ],
             "v2": true,
             "versions": [
-                "12.3.0"
+                "15.0.0"
             ]
         },
         "hash-library": {
@@ -9836,7 +9836,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.4.0",
+                "2.4.1",
                 "2.3.0"
             ]
         },
@@ -12285,8 +12285,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.68.1",
-                "1.66.0"
+                "1.68.1"
             ]
         },
         "libnice": {
@@ -15988,6 +15987,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.6.0",
                 "4.3.11",
                 "4.3.9",
                 "4.3.7",
@@ -16433,6 +16433,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.16",
                 "3.0.11"
             ]
         },
@@ -20591,7 +20592,7 @@
             ],
             "v2": true,
             "versions": [
-                "6.2"
+                "6.3"
             ]
         },
         "rmm": {
@@ -25825,6 +25826,7 @@
             ],
             "v2": true,
             "versions": [
+                "14.3.0",
                 "14.2.0",
                 "14.1.0",
                 "13.2.0",
