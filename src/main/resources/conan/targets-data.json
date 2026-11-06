@@ -1,5 +1,5 @@
 {
-    "date": 1793838105,
+    "date": 1793924531,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2052,8 +2052,8 @@
             ],
             "v2": true,
             "versions": [
+                "3.14.0",
                 "3.13.0",
-                "3.12.0",
                 "3.7.1+rscs1",
                 "2.19.5"
             ]
@@ -5062,13 +5062,7 @@
             ],
             "v2": true,
             "versions": [
-                "api.252009",
-                "api.252005",
-                "api.252004",
-                "api.252003",
-                "api.250014",
-                "2.5.2",
-                "2.5.1"
+                "api.256019"
             ]
         },
         "diligent-fx": {
@@ -14028,7 +14022,7 @@
             "v2": true,
             "versions": [
                 "1.0.2",
-                "0.9.32"
+                "0.9.36"
             ]
         },
         "lodepng": {
@@ -14865,9 +14859,8 @@
             ],
             "v2": true,
             "versions": [
-                "0.5.2",
-                "0.5.1",
-                "0.4.8"
+                "0.6.0",
+                "0.5.3"
             ]
         },
         "md4qt": {
@@ -14877,7 +14870,7 @@
             ],
             "v2": true,
             "versions": [
-                "5.3.0"
+                "5.4.0"
             ]
         },
         "mdns": {
@@ -16474,6 +16467,21 @@
             "v2": true,
             "versions": [
                 "1.5.9"
+            ]
+        },
+        "notcurses": {
+            "components": {
+                "core": {},
+                "libnotcurses": {},
+                "notcursespp": {}
+            },
+            "description": "blingful character graphics/TUI library. definitely not curses",
+            "license": [
+                "Apache-2.0"
+            ],
+            "v2": true,
+            "versions": [
+                "3.0.17"
             ]
         },
         "npcap": {
@@ -19732,14 +19740,15 @@
             ]
         },
         "qt-advanced-docking-system": {
-            "cmake_file_name": "qt6advanceddocking",
-            "cmake_target_name": "ads::qt6advanceddocking",
+            "cmake_file_name": "qtadvanceddocking-qt6",
+            "cmake_target_name": "ads::qtadvanceddocking-qt6",
             "description": "Qt Advanced Docking System lets you create customizable layouts using a full featured window docking system similar to what is found in many popular integrated development environments (IDEs) such as Visual Studio.",
             "license": [
                 "LGPL-2.1-or-later"
             ],
             "v2": true,
             "versions": [
+                "5.1.1",
                 "4.5.0"
             ]
         },
@@ -23136,6 +23145,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.13.1",
                 "1.13"
             ]
         },
