@@ -1,5 +1,5 @@
 {
-    "date": 1794183801,
+    "date": 1794270028,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -20478,8 +20478,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.13.2",
-                "1.13.1"
+                "1.14.0"
             ]
         },
         "resource_pool": {
@@ -26233,7 +26232,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.3.2"
+                "1.4"
             ]
         },
         "zlib-ng": {
