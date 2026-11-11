@@ -1,5 +1,5 @@
 {
-    "date": 1794270028,
+    "date": 1794356503,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -12631,7 +12631,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.22.2",
+                "0.22.3",
                 "0.21.5b",
                 "0.21.2",
                 "0.20.2"
@@ -13499,6 +13499,17 @@
             "v2": true,
             "versions": [
                 "8.16.0"
+            ]
+        },
+        "libvpl": {
+            "cmake_file_name": "VPL",
+            "description": "Intel\u00ae Video Processing Library (Intel\u00ae VPL) provides a single video processing API for encode, decode, and video processing that works across a wide range of accelerators.",
+            "license": [
+                "MIT"
+            ],
+            "v2": true,
+            "versions": [
+                "2.17.0"
             ]
         },
         "libvpx": {
@@ -16641,11 +16652,12 @@
             ],
             "v2": true,
             "versions": [
-                "13.0.19.0",
-                "12.1.14.0",
-                "12.0.16.0",
-                "11.1.5.1",
-                "9.1.23.2"
+                "13.1.15.0",
+                "13.0.19.1",
+                "12.2.72.0",
+                "12.1.14.1",
+                "12.0.16.2",
+                "11.1.5.4"
             ]
         },
         "nvcloth": {
@@ -17242,6 +17254,7 @@
             ],
             "v2": true,
             "versions": [
+                "7.27.0",
                 "7.20.0",
                 "7.17.0",
                 "7.16.0",
@@ -19979,6 +19992,7 @@
             ],
             "v2": true,
             "versions": [
+                "cci.20261010",
                 "cci.20240905",
                 "0.12.0",
                 "0.11.0",
@@ -21332,6 +21346,9 @@
                 "crashpad_minidump": {
                     "cmake_target_name": "crashpad::minidump"
                 },
+                "crashpad_mpack": {
+                    "cmake_target_name": "crashpad::mpack"
+                },
                 "crashpad_snapshot": {
                     "cmake_target_name": "crashpad::snapshot"
                 },
@@ -21348,11 +21365,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.6.5",
-                "0.6.4",
-                "0.6.3",
-                "0.5.4",
-                "0.4.18"
+                "0.17.6"
             ]
         },
         "sentry-native": {
@@ -26123,6 +26136,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.16.0",
                 "4.15.4",
                 "4.14.1",
                 "4.13.4",
