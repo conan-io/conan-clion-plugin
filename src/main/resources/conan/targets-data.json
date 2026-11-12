@@ -1,5 +1,5 @@
 {
-    "date": 1794356503,
+    "date": 1794442911,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -2053,7 +2053,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.14.0",
+                "3.14.1",
                 "3.13.0",
                 "3.7.1+rscs1",
                 "2.19.5"
@@ -3195,6 +3195,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.14.2",
                 "2.9.0"
             ]
         },
@@ -5476,7 +5477,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.4.3"
+                "1.5.6"
             ]
         },
         "duckx": {
@@ -6406,15 +6407,13 @@
             ]
         },
         "fastgltf": {
-            "description": "A modern C++17 glTF 2.0 library focused on speed, correctness, and usability",
+            "description": "A modern C++20 glTF 2.0 library focused on speed, correctness, and usability",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "0.9.1",
-                "0.9.0",
-                "0.8.0"
+                "1.0.1"
             ]
         },
         "fastnoise2": {
@@ -14963,8 +14962,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.0",
-                "0.25"
+                "1.3"
             ]
         },
         "meson": {
@@ -16934,6 +16932,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.3.14",
                 "2.3.11"
             ]
         },
@@ -17255,15 +17254,6 @@
             "v2": true,
             "versions": [
                 "7.27.0",
-                "7.20.0",
-                "7.17.0",
-                "7.16.0",
-                "7.15.0",
-                "7.12.0",
-                "7.11.0",
-                "7.8.0",
-                "7.5.0",
-                "7.4.0",
                 "6.6.0"
             ]
         },
@@ -17470,9 +17460,9 @@
             ],
             "v2": true,
             "versions": [
-                "3.4.14",
-                "3.3.13",
-                "3.2.11",
+                "3.4.18",
+                "3.3.16",
+                "3.2.12",
                 "2.5.9",
                 "2.5.7"
             ]
@@ -22188,6 +22178,7 @@
             ],
             "v2": true,
             "versions": [
+                "4.20.0",
                 "4.16.0",
                 "4.6.1"
             ]
