@@ -1,5 +1,5 @@
 {
-    "date": 1794442911,
+    "date": 1794529321,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -703,11 +703,8 @@
             "v2": true,
             "versions": [
                 "26.0.1",
-                "26.0.0",
-                "25.0.1",
                 "24.0.0",
-                "22.0.0",
-                "19.0.1"
+                "22.0.0"
             ]
         },
         "arsenalgear": {
@@ -7402,8 +7399,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.13.0",
-                "3.8.3"
+                "3.13.0"
             ]
         },
         "gdbm": {
@@ -9191,7 +9187,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.2.2",
+                "3.2.3",
                 "3.1.9"
             ]
         },
@@ -14305,6 +14301,7 @@
             ],
             "v2": true,
             "versions": [
+                "1.11.1",
                 "1.10.0",
                 "1.9.4",
                 "1.9.3"
@@ -17404,6 +17401,54 @@
             ]
         },
         "opencv": {
+            "cmake_file_name": "OpenCV",
+            "components": {
+                "opencv_calib3d": {
+                    "cmake_target_name": "opencv_calib3d"
+                },
+                "opencv_core": {
+                    "cmake_target_name": "opencv_core"
+                },
+                "opencv_dnn": {
+                    "cmake_target_name": "opencv_dnn"
+                },
+                "opencv_features2d": {
+                    "cmake_target_name": "opencv_features2d"
+                },
+                "opencv_flann": {
+                    "cmake_target_name": "opencv_flann"
+                },
+                "opencv_gapi": {
+                    "cmake_target_name": "opencv_gapi"
+                },
+                "opencv_highgui": {
+                    "cmake_target_name": "opencv_highgui"
+                },
+                "opencv_imgcodecs": {
+                    "cmake_target_name": "opencv_imgcodecs"
+                },
+                "opencv_imgproc": {
+                    "cmake_target_name": "opencv_imgproc"
+                },
+                "opencv_ml": {
+                    "cmake_target_name": "opencv_ml"
+                },
+                "opencv_objdetect": {
+                    "cmake_target_name": "opencv_objdetect"
+                },
+                "opencv_photo": {
+                    "cmake_target_name": "opencv_photo"
+                },
+                "opencv_stitching": {
+                    "cmake_target_name": "opencv_stitching"
+                },
+                "opencv_video": {
+                    "cmake_target_name": "opencv_video"
+                },
+                "opencv_videoio": {
+                    "cmake_target_name": "opencv_videoio"
+                }
+            },
             "description": "OpenCV (Open Source Computer Vision Library)",
             "license": [
                 "Apache-2.0"
@@ -17609,7 +17654,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.30.1"
+                "0.33.0"
             ]
         },
         "openldap": {
@@ -19511,6 +19556,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.0.4",
                 "3.0.1",
                 "2.13.6",
                 "2.10.4",
@@ -22259,6 +22305,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.4.0",
                 "3.3.3"
             ]
         },
@@ -22445,6 +22492,17 @@
             "v2": true,
             "versions": [
                 "5.0"
+            ]
+        },
+        "stdexec": {
+            "cmake_file_name": "stdexec",
+            "description": "Reference implementation of the C++26 std::execution (P2300) senders/receivers model",
+            "license": [
+                "Apache-2.0 WITH LLVM-exception"
+            ],
+            "v2": true,
+            "versions": [
+                "0.11.0"
             ]
         },
         "stdgpu": {
@@ -25536,7 +25594,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.1.0"
+                "2.2.0"
             ]
         },
         "xalan-c": {
@@ -26444,7 +26502,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.15.0"
+                "1.0.0"
             ]
         },
         "zxing-cpp": {
