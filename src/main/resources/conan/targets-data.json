@@ -1,5 +1,5 @@
 {
-    "date": 1794788815,
+    "date": 1794874916,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3215,7 +3215,7 @@
             ],
             "v2": true,
             "versions": [
-                "4.4.4",
+                "4.5.0",
                 "3.31.12"
             ]
         },
@@ -8704,7 +8704,15 @@
         },
         "highs": {
             "cmake_file_name": "highs",
-            "cmake_target_name": "highs::highs",
+            "cmake_target_name": "none",
+            "components": {
+                "extra": {
+                    "cmake_target_name": "highs::highs_extras"
+                },
+                "highs": {
+                    "cmake_target_name": "highs::highs"
+                }
+            },
             "description": "high performance serial and parallel solver for large scale sparse linear optimization problems",
             "license": [
                 "MIT"
@@ -9198,6 +9206,8 @@
             ],
             "v2": true,
             "versions": [
+                "1.93.0",
+                "1.93.0-docking",
                 "1.92.9b",
                 "1.92.9b-docking",
                 "1.91.8",
@@ -12742,9 +12752,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.9.1",
-                "3.7.1",
-                "3.6.0"
+                "3.16"
             ]
         },
         "libsamplerate": {
@@ -17506,9 +17514,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.4.18",
-                "3.3.16",
-                "3.2.12",
+                "3.5.4",
                 "2.5.9",
                 "2.5.7"
             ]
@@ -24624,6 +24630,7 @@
             ],
             "v2": true,
             "versions": [
+                "5.0.0",
                 "4.2.1",
                 "4.0.5",
                 "4.0.4"
@@ -25506,7 +25513,7 @@
             ],
             "v2": true,
             "versions": [
-                "5.9.1"
+                "5.9.4"
             ]
         },
         "wslay": {
