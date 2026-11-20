@@ -1,5 +1,5 @@
 {
-    "date": 1795047710,
+    "date": 1795133990,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -310,10 +310,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.4.4",
-                "1.4.3",
-                "1.4.2",
-                "1.4.0"
+                "1.5.1"
             ]
         },
         "amqp-cpp": {
@@ -4034,9 +4031,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.15.1",
-                "1.14.2",
-                "1.10.5"
+                "1.15.1"
             ]
         },
         "cprocessing": {
@@ -9357,7 +9352,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.7.4"
+                "0.8.1"
             ]
         },
         "inih": {
@@ -10228,7 +10223,7 @@
             ],
             "v2": true,
             "versions": [
-                "131.1.0"
+                "131.2.0"
             ]
         },
         "kitten": {
@@ -11827,6 +11822,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.2.1",
                 "3.2.0",
                 "3.1.4.1",
                 "3.0.2",
@@ -12748,6 +12744,16 @@
                 "1.4.4",
                 "1.4.2",
                 "1.3.9"
+            ]
+        },
+        "librist": {
+            "description": "Library implementing the Reliable Internet Stream Transport (RIST) protocol",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "v2": true,
+            "versions": [
+                "0.2.20"
             ]
         },
         "librttopo": {
@@ -14877,6 +14883,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.2.0",
                 "2.1.3"
             ]
         },
@@ -14905,7 +14912,7 @@
             ],
             "v2": true,
             "versions": [
-                "5.4.2"
+                "5.4.3"
             ]
         },
         "mdns": {
@@ -15986,6 +15993,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.12.0",
                 "0.10.6",
                 "0.10.4",
                 "0.10.3"
@@ -16004,6 +16012,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.9.0",
                 "0.7.0"
             ]
         },
@@ -19589,6 +19598,7 @@
             ],
             "v2": true,
             "versions": [
+                "3.1.0",
                 "3.0.4",
                 "3.0.1",
                 "2.13.6",
@@ -22234,6 +22244,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.0.1",
                 "1.1",
                 "1.0"
             ]
@@ -22315,18 +22326,11 @@
             "cmake_target_name": "sqlite_orm::sqlite_orm",
             "description": "SQLite ORM light header only library for modern C++.",
             "license": [
-                "BSD-3-Clause"
+                "AGPL-3.0-only"
             ],
             "v2": true,
             "versions": [
-                "1.9.1",
-                "1.9",
-                "1.8.2",
-                "1.8.1",
-                "1.8",
-                "1.7.1",
-                "1.7",
-                "1.6"
+                "1.9.1"
             ]
         },
         "sqlitecpp": {
