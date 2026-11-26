@@ -1,5 +1,5 @@
 {
-    "date": 1795566116,
+    "date": 1795652502,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -14236,6 +14236,9 @@
                 "Ast": {
                     "cmake_target_name": "Luau::Ast"
                 },
+                "Bytecode": {
+                    "cmake_target_name": "Luau::Bytecode"
+                },
                 "CodeGen": {
                     "cmake_target_name": "Luau::CodeGen"
                 },
@@ -14247,6 +14250,9 @@
                 },
                 "Config": {
                     "cmake_target_name": "Luau::Config"
+                },
+                "Inliner": {
+                    "cmake_target_name": "Luau::Inliner"
                 },
                 "Require": {
                     "cmake_target_name": "Luau::Require"
@@ -14261,7 +14267,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.700"
+                "0.748"
             ]
         },
         "lunarlog": {
@@ -14639,6 +14645,7 @@
             ],
             "v2": true,
             "versions": [
+                "2.1.6",
                 "1.17.0"
             ]
         },
@@ -17538,7 +17545,7 @@
             ],
             "v2": true,
             "versions": [
-                "3.5.4",
+                "3.5.5",
                 "2.5.9",
                 "2.5.7"
             ]
@@ -17860,28 +17867,6 @@
             "v2": true,
             "versions": [
                 "3.7.0"
-            ]
-        },
-        "opentdf-client": {
-            "cmake_file_name": "opentdf-client",
-            "cmake_target_name": "opentdf-client::opentdf-client",
-            "components": {
-                "libopentdf": {
-                    "cmake_target_name": "copentdf-client::opentdf-client"
-                }
-            },
-            "description": "openTDF core c++ client library for creating and accessing TDF protected data",
-            "license": [
-                "BSD-3-Clause-Clear"
-            ],
-            "v2": true,
-            "versions": [
-                "1.5.6",
-                "1.5.4",
-                "1.5.3",
-                "1.5.0",
-                "1.4.0",
-                "1.3.10"
             ]
         },
         "opentelemetry-cpp": {
@@ -18303,7 +18288,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.57.0"
+                "1.58.2"
             ]
         },
         "pangomm": {
@@ -25322,8 +25307,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.24.0",
-                "1.23.92",
+                "1.26.0",
                 "1.22.0"
             ]
         },
@@ -25608,11 +25592,8 @@
             "v2": true,
             "versions": [
                 "3.3.4",
-                "3.3.3",
                 "3.3.2",
-                "3.2.12",
-                "3.2.11",
-                "3.2.10"
+                "3.2.12"
             ]
         },
         "wyhash": {
@@ -26181,7 +26162,7 @@
             ],
             "v2": true,
             "versions": [
-                "1.14.0"
+                "1.16.1"
             ]
         },
         "yomm2": {
