@@ -1,5 +1,5 @@
 {
-    "date": 1795738929,
+    "date": 1795825205,
     "libraries": {
         "7bitconf": {
             "cmake_file_name": "7bitConf",
@@ -3935,11 +3935,8 @@
             ],
             "v2": true,
             "versions": [
-                "2.10.19",
-                "2.10.18",
-                "2.10.17",
-                "2.10.16",
-                "2.10.15"
+                "2.10.21+cpprest-lts",
+                "2.10.19"
             ]
         },
         "cppserver": {
@@ -15318,7 +15315,7 @@
             ],
             "v2": true,
             "versions": [
-                "0.7.0"
+                "1.0.1"
             ]
         },
         "minisat": {
@@ -23577,15 +23574,14 @@
         },
         "tinygltf": {
             "cmake_file_name": "TinyGLTF",
-            "cmake_target_name": "TinyGLTF::TinyGLTF",
-            "description": "Header only C++11 tiny glTF 2.0 library.",
+            "description": "C11 glTF 2.0 loader and writer with arena based memory management.",
             "license": [
                 "MIT"
             ],
             "v2": true,
             "versions": [
-                "2.9.7",
-                "2.8.23"
+                "3.1.0",
+                "2.9.7"
             ]
         },
         "tinymidi": {
@@ -25317,6 +25313,7 @@
             ],
             "v2": true,
             "versions": [
+                "0.8.4+cpprest-lts",
                 "0.8.2",
                 "0.8.1"
             ]
@@ -25602,7 +25599,7 @@
             ],
             "v2": true,
             "versions": [
-                "2.2.0"
+                "2.3.0"
             ]
         },
         "xalan-c": {
